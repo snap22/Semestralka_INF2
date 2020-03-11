@@ -3,7 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shakesfidgetclonesemestralka;
+package basic;
+
+import creatures.Creature;
+import creatures.Imp;
+import creatures.Player;
+import creatures.specialCharacters.KamikazeeGuy;
+
 
 /**
  *
@@ -15,7 +21,12 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Creature imp = new Imp("Imp", 20, 10);
+        
+        Creature player = new Player(10, 10, new KamikazeeGuy());
+        player.attack(imp);
+        
+        
     }
     
 }
