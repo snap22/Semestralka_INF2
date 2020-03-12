@@ -1,0 +1,31 @@
+Itemy, interface pre itemy
+    - kazdy item ma value()
+    
+    
+Slot pre itemy
+    - slot na postave, Head, Chest, Weapon, Trinket / Special Character slot :D
+    - Equip(), Unequip()
+Sloty pre inventory - cca 6 volnych slotov
+    - add()
+    - remove()
+    - get()
+
+Staty 
+    - vitality + hp
+    - dexterity + dmg
+    - luck + gold/xp
+    --> effect(player)
+    --> update() - updatene atributy pre damage, hp, goldy
+
+toString() pre itemy, hraca, enemyho, specialCharacter (resp. tam popis :D)
+
+Pracovanie so suborom
+    - ulozenie hraca, jeho dat etc..   
+
+
+* OBCHOD
+* CRAFTING
+* MINIHRY ( stávka, kto vyhra, guess the number, matematicke priklady)
+    - kazde ma reward v podobe goldov
+
+******* GUI *******
