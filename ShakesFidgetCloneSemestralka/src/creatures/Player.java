@@ -37,14 +37,18 @@ public class Player extends Creature {
 
     /**
      * Zautoci na inu bytost, pri tom este spravi specialnu cinnost, ktoru ma kazdy character inu
+     * Ak je character null - nespravi tie specialne cinnosti ani neprida bonus damage
      * @param opponent nepriatel na ktoreho zautoci
      */
     @Override
     public void attack(Creature opponent) {
+        int dmg = this.damage;
         
-        this.character.doSpecialStuff(this);
-        int dmg = this.damage + this.character.gainBonusDamage();
-        
+        if (this.character != null) {
+            this.character.doSpecialStuff(this);
+            dmg += this.character.gainBonusDamage();
+        }
+
         opponent.takeDamage(dmg);
     }
     /**
@@ -55,6 +59,8 @@ public class Player extends Creature {
         if (amount <= 0) {
             return;
         }
+        
+        System.out.format("Gained %d xp%n", amount);
         this.currentXp += amount;
         if (this.currentXp >= this.requiredXp) {
             this.currentXp -= this.requiredXp;
@@ -68,6 +74,7 @@ public class Player extends Creature {
         this.level++;
         this.requiredXp += 5;
         this.character.upgrade();
+        System.out.format("Reached level %d %n", this.level);
         
     }
 
@@ -79,7 +86,9 @@ public class Player extends Creature {
         if (amount <= 0) {
             return;
         }
+        System.out.format("Gained %d gold%n", amount);
         this.gold += amount;
+        
     }
 
     

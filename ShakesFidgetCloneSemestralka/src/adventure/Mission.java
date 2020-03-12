@@ -7,8 +7,7 @@ package adventure;
 
 import creatures.Player;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -30,7 +29,7 @@ public class Mission {
     
     public void start() {
         try {
-            TimeUnit.SECONDS.wait(this.mission.getDuration() * 1000);
+            TimeUnit.SECONDS.sleep(this.mission.getDuration());
         } catch (InterruptedException ex) {
             
         }

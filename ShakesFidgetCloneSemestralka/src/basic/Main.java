@@ -5,6 +5,8 @@
  */
 package basic;
 
+import adventure.Mission;
+import adventure.Objective;
 import creatures.Creature;
 import creatures.Imp;
 import creatures.Player;
@@ -21,10 +23,13 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Creature imp = new Imp("Imp", 20, 10);
+        Creature imp = new Imp("Imp", 20, 1);
         
-        Creature player = new Player(10, 10, new KamikazeeGuy());
-        player.attack(imp);
+        Creature player = new Player(10, 10, null);
+        Objective obj = new Objective("Imp", "Zabi", imp, 20, 5, 1);
+        Mission mission = new Mission(obj, (Player)player);
+        mission.start();
+        
         
         
     }

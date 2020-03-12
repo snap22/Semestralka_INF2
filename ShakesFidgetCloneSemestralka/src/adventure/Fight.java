@@ -56,6 +56,7 @@ public class Fight {
 
         if (this.turn == Turn.PLAYER) {
             this.player.attack(this.enemy);
+            this.turn = Turn.ENEMY;
             if (this.enemy.isDead()) {
                 this.ended = true;
                 this.playerWin = true;
@@ -64,6 +65,7 @@ public class Fight {
         } else {
             
             this.enemy.attack(this.player);
+            this.turn = Turn.PLAYER;
             if (this.player.isDead()) {
                 this.ended = true;
                 this.playerWin = false;
