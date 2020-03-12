@@ -1,2 +1,2 @@
-# Semestralka_ShakesAndFidget
+# Semestrálna Práca - Shakes & Fidget 
  
