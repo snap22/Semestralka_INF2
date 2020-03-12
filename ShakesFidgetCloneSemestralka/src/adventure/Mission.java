@@ -26,7 +26,9 @@ public class Mission {
         this.fight = new Fight(this.player, this.mission.getEnemy());
     }
     
-    
+    /**
+     * Pocka dany cas a zacne misiu (t.j. zacne sa suboj). Ak ho hrac vyhra dostane odmenu
+     */
     public void start() {
         try {
             TimeUnit.SECONDS.sleep(this.mission.getDuration());

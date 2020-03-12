@@ -49,6 +49,9 @@ public class Creature {
     }
     
     public void attack(Creature opponent) {
+        if (this.dead) {
+            return; 
+        }
         opponent.takeDamage(this.damage);
     }
     
@@ -65,7 +68,7 @@ public class Creature {
         return this.dead;
     }
     
-    protected void heal(int amount) {
+    public void heal(int amount) {
         if (this.dead) {
             return;
         }

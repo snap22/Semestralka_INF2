@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package creatures.specialCharacters;
+package player.characteristics;
 
 import creatures.Player;
 
@@ -11,8 +11,9 @@ import creatures.Player;
  *
  * @author marce
  */
-public interface ICharacter {
+public interface ICharacteristic {
     void doSpecialStuff(Player player);
     int gainBonusDamage();
     void upgrade();
+    String getPopis();
 }

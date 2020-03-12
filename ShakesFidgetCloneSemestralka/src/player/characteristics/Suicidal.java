@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package creatures.specialCharacters;
+package player.characteristics;
 
 import basic.Chance;
 import creatures.Player;
 
 
 
-public class KamikazeeGuy implements ICharacter {
+public class Suicidal implements ICharacteristic {
 
     private int chanceToDie;
 
-    public KamikazeeGuy() {
+    public Suicidal() {
         this.chanceToDie = 50;
     }
     
@@ -52,6 +52,11 @@ public class KamikazeeGuy implements ICharacter {
         
         this.chanceToDie--;
         
+    }
+
+    @Override
+    public String getPopis() {
+        return String.format("Má %d šancu že počas útoku zomrie.%n", this.chanceToDie);
     }
     
 }

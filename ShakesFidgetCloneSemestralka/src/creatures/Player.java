@@ -5,12 +5,12 @@
  */
 package creatures;
 
-import creatures.specialCharacters.ICharacter;
+import player.characteristics.ICharacteristic;
 
 
 public class Player extends Creature {
 
-    private final ICharacter character;
+    private final ICharacteristic character;
     
     private int requiredXp;
     private int currentXp;
@@ -20,7 +20,7 @@ public class Player extends Creature {
     private int gold;
     
 
-    public Player(int maxHealth, int damage, ICharacter specialCharacter) {
+    public Player(int maxHealth, int damage, ICharacteristic specialCharacter) {
         super("The hero", maxHealth, damage);
         
         this.character = specialCharacter;
@@ -32,9 +32,6 @@ public class Player extends Creature {
         
         
     }
-    
-    
-
     /**
      * Zautoci na inu bytost, pri tom este spravi specialnu cinnost, ktoru ma kazdy character inu
      * Ak je character null - nespravi tie specialne cinnosti ani neprida bonus damage
@@ -42,6 +39,9 @@ public class Player extends Creature {
      */
     @Override
     public void attack(Creature opponent) {
+        if (super.isDead()) {
+            return;
+        }
         int dmg = this.damage;
         
         if (this.character != null) {
@@ -97,6 +97,8 @@ public class Player extends Creature {
         this.gold += amount;
         
     }
+    
+   
 
     
     

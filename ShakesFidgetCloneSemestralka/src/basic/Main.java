@@ -11,7 +11,7 @@ import creatures.Creature;
 import creatures.Enemy;
 import creatures.Imp;
 import creatures.Player;
-import creatures.specialCharacters.KamikazeeGuy;
+import player.characteristics.Suicidal;
 
 
 /**
