@@ -6,7 +6,7 @@
 package adventure;
 
 import creatures.Creature;
-import creatures.Imp;
+import creatures.Enemy;
 import creatures.Player;
 
 /**
@@ -15,7 +15,7 @@ import creatures.Player;
  */
 public class Objective {
     
-    private Creature enemy;
+    private Enemy enemy;
             
     private int goldReward;
     private int xpReward;
@@ -34,7 +34,7 @@ public class Objective {
      * @param xpReward odmena v xp
      * @param duration  cas trvania 
      */
-    public Objective(String name, String description, Creature enemy, int goldReward, int xpReward, int duration) {
+    public Objective(String name, String description, Enemy enemy, int goldReward, int xpReward, int duration) {
         this.name = name;
         this.description = description;
         
@@ -42,11 +42,11 @@ public class Objective {
         this.xpReward = xpReward;
         this.duration = duration;
         
-        if (enemy instanceof Player) {
-            this.enemy = new Imp("Imp", 20, 10);
-        } else {
-            this.enemy = enemy;
-        }
+        this.enemy = enemy;
+    }
+    
+    public Objective(String name, Enemy enemy, int goldReward, int xpReward, int duration) {
+        this(name, "Proste chod a zabi!", enemy, goldReward, xpReward, duration);
     }
     
     /**
@@ -64,8 +64,10 @@ public class Objective {
         if (!this.completed) {
             return;
         }
-        player.addXp(this.xpReward);
+        int xp = this.xpReward + this.enemy.getXpReward();
+        player.addXp(xp);
         player.addGold(this.goldReward);
+        //player.addItem(this.enemy.dropItem)
         
     }
 

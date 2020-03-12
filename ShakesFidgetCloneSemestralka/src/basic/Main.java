@@ -8,6 +8,7 @@ package basic;
 import adventure.Mission;
 import adventure.Objective;
 import creatures.Creature;
+import creatures.Enemy;
 import creatures.Imp;
 import creatures.Player;
 import creatures.specialCharacters.KamikazeeGuy;
@@ -23,7 +24,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Creature imp = new Imp("Imp", 20, 1);
+        Enemy imp = new Imp("Imp", 20, 1);
         
         Creature player = new Player(10, 10, null);
         Objective obj = new Objective("Imp", "Zabi", imp, 20, 5, 1);

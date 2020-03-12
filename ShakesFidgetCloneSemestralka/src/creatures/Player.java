@@ -63,9 +63,13 @@ public class Player extends Creature {
         System.out.format("Gained %d xp%n", amount);
         this.currentXp += amount;
         if (this.currentXp >= this.requiredXp) {
-            this.currentXp -= this.requiredXp;
-            this.levelUp();
+            int numOfLevels = this.currentXp / this.requiredXp;
+            this.currentXp %= this.requiredXp;
             
+            for (int i = 0; i < numOfLevels; i++) {
+                this.levelUp();
+            }
+
         }
         
     }
@@ -73,7 +77,10 @@ public class Player extends Creature {
     private void levelUp() {
         this.level++;
         this.requiredXp += 5;
-        this.character.upgrade();
+        if (this.character != null) {
+            this.character.upgrade();
+        }
+       
         System.out.format("Reached level %d %n", this.level);
         
     }

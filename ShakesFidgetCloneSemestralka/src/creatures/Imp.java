@@ -6,10 +6,10 @@
 package creatures;
 
 
-public class Imp extends Creature {
+public class Imp extends Enemy {
 
     public Imp(String name, int maxHealth, int damage) {
-        super(name, maxHealth, damage);
+        super(name, maxHealth, damage, 20);
     }
 
     

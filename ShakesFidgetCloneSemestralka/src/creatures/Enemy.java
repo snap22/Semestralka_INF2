@@ -8,11 +8,18 @@ package creatures;
 
 public class Enemy extends Creature {
 
-    public Enemy(String name, int maxHealth, int damage) {
+    private int xpReward;
+
+    public Enemy(String name, int maxHealth, int damage, int xpReward) {
         super(name, maxHealth, damage);
+        this.xpReward = xpReward;
     }
     
     public void dropItem() {
         
+    }
+
+    public int getXpReward() {
+        return this.xpReward;
     }
 }
