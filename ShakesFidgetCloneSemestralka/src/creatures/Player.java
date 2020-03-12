@@ -16,7 +16,8 @@ public class Player extends Creature {
     private int currentXp;
     private int level;
     
-    private int bonusDamage;
+    private int damage;
+    private int gold;
     
 
     public Player(int maxHealth, int damage, ICharacter specialCharacter) {
@@ -26,7 +27,9 @@ public class Player extends Creature {
         this.requiredXp = 10;
         this.currentXp = 0;
         this.level = 1;
-        this.bonusDamage = 0;
+        this.damage = damage;
+        this.gold = 0;
+        
         
     }
     
@@ -38,10 +41,11 @@ public class Player extends Creature {
      */
     @Override
     public void attack(Creature opponent) {
-        //if should do special stuff --> do special stuff
-        this.character.doSpecialStuff(this);
         
-        opponent.takeDamage(0);
+        this.character.doSpecialStuff(this);
+        int dmg = this.damage + this.character.gainBonusDamage();
+        
+        opponent.takeDamage(dmg);
     }
     /**
      * prida hracovi xp, ak bude viac ako pozadovane xp tak mu zvysi uroven
@@ -63,7 +67,19 @@ public class Player extends Creature {
     private void levelUp() {
         this.level++;
         this.requiredXp += 5;
+        this.character.upgrade();
         
+    }
+
+    /**
+     * Prida goldy hracovi
+     * @param amount pocet goldov
+     */
+    public void addGold(int amount) {
+        if (amount <= 0) {
+            return;
+        }
+        this.gold += amount;
     }
 
     
