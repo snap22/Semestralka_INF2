@@ -20,7 +20,7 @@ public abstract class Chance {
     public static boolean generate(int percentage) {
         Random random = new Random();
         int randomNumber = random.nextInt(100);
-        System.out.format("%d - %b %n", randomNumber, randomNumber < percentage);
+        //System.out.format("%d - %b %n", randomNumber, randomNumber < percentage);
         return randomNumber < percentage;
     }
 }

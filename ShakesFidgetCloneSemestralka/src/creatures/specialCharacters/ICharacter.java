@@ -13,4 +13,6 @@ import creatures.Player;
  */
 public interface ICharacter {
     void doSpecialStuff(Player player);
+    int gainBonusDamage();
+    void upgrade();
 }
