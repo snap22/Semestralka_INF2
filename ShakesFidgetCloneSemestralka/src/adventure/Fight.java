@@ -21,6 +21,8 @@ public class Fight {
     private boolean ended;
     private boolean playerWin;
     private Turn turn;
+    
+    private boolean firstStart;
 
     public Fight(Player player, Creature enemy) {
         this.player = player;
@@ -29,9 +31,22 @@ public class Fight {
         this.ended = false;
         this.playerWin = false;
         
+        this.firstStart = true;
         
-        this.nextTurn();
         
+        //this.nextTurn();
+        
+    }
+    
+    /**
+     * Metoda ktora zacne subor. Ak uz sa raz pouzila opat sa neda pouzit.
+     */
+    public void begin() {
+        if (this.firstStart) {
+            System.out.println("Starting the fight");
+            this.nextTurn();
+            this.firstStart = false;
+        }
     }
     
     private void nextTurn() {
@@ -46,7 +61,7 @@ public class Fight {
                 this.playerWin = true;
             }
             
-        } else if (this.turn == Turn.ENEMY) {
+        } else {
             
             this.enemy.attack(this.player);
             if (this.player.isDead()) {
@@ -54,9 +69,9 @@ public class Fight {
                 this.playerWin = false;
             }
             
-        } else {
-            System.out.println("Error");
-        }
+        } 
+        this.nextTurn();
+        
     }
 
     public Creature getEnemy() {
