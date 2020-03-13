@@ -5,7 +5,9 @@
  */
 package player.items;
 
-import java.util.HashMap;
+
+//import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 
 
@@ -17,12 +19,12 @@ public class Inventory {
 
     private final int size;
     
-    private HashMap<String, Item> items;
+    private LinkedHashMap<String, Item> items;  
+    //Linked HashMap si pamata poradie v akom boli popridavane itemy - vhodne pre indexovanie
 
     public Inventory(int size) {
         this.size = size;
-        
-        this.items = new HashMap<String, Item>();
+        this.items = new LinkedHashMap<String, Item>();
         
     }
     /**
@@ -49,6 +51,17 @@ public class Inventory {
     }
     
     /**
+     * Vymaze item na danej pozicii
+     * @param index 
+     */
+    public void removeItem(int index) {
+        Item itemNaVymazanie = this.getItem(index);
+        if (itemNaVymazanie != null) {
+            this.items.remove(itemNaVymazanie);
+        }
+    }
+    
+    /**
      * Vyprazdni inventar
      */
     public void clear() {
@@ -66,5 +79,41 @@ public class Inventory {
         return this.items.size() < this.size;
     }
     
+    
+    //getitem kde parameter index?
+    public Item getItem(String itemName) {
+        if (this.items.isEmpty()) {
+            return null;
+        }
+        
+        if (!this.items.containsKey(itemName)) {
+            return null;
+        }
+        
+        return this.items.get(itemName);
+    }
+    /**
+     * Vrati item na zaklade indexu
+     * @param index
+     * @return 
+     */
+    public Item getItem(int index) {
+        if (index >= this.items.size()) {
+            return null;
+        }
+        
+        if (index < 0) {
+            return null;
+        }
+        int current = 0;
+        for (Item item : this.items.values()) {
+            if (current == index) {
+                return item;
+            }
+            current++;
+        }
+        return null;
+    }
+   
     
 }
