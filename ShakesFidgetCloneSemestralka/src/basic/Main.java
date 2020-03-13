@@ -24,7 +24,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Enemy imp = new Imp("Imp", 20, 1);
+        Enemy imp = new Imp();
         
         Creature player = new Player(10, 10, null);
         Objective obj = new Objective("Imp", "Zabi", imp, 20, 5, 1);

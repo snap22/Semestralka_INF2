@@ -21,15 +21,18 @@ public class EquippableItem extends Item {
         return this.type;
     }
     
-    public boolean equip() {
-
+    public void equip() {
         if (this.isEquipped) {
-            return false;
+            return;
         }
         
         this.isEquipped = true;
         System.out.println("Uspesne equipnuty predmet");
-        return true;
+        
+    }
+    
+    public void unequip() {
+        this.isEquipped = false;
     }
 
     

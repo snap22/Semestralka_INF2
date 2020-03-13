@@ -39,9 +39,10 @@ public class Slot {
         
         
         //ToDo prida efekty z itemu na hraca
+        item.equip();
         this.item = item;
-        return item.equip();        //nie som si isty ci je to dobre takto
-        //return true;
+        
+        return true;
     }
     
     /**
