@@ -10,5 +10,5 @@ package player.items;
  * @author marce
  */
 public enum ItemType {
-    HELMET, ARMOR, WEAPON, MATERIAL, TRASH;
+    HELMET, ARMOR, WEAPON;
 }

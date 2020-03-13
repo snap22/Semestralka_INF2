@@ -12,14 +12,14 @@ import creatures.Player;
  *
  * @author marce
  */
-public class SpecialCharacteristic {
+public class Characteristic {
     private int chance;
     private int bonusDamage;
     private String name;
     private Player player;
     private final int limit;
 
-    public SpecialCharacteristic(String name, int chance, int limit, int bonusDamage) {
+    public Characteristic(String name, int chance, int limit, int bonusDamage) {
         this.chance = chance;
         this.name = name;
         this.limit = limit;
