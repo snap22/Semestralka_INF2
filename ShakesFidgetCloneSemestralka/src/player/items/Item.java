@@ -21,6 +21,13 @@ public class Item {
         this.value = value;
         this.isEquippable = false;
     }
+    
+    /**
+     * Kvoli testovaniu
+     */
+    public Item() {
+        this("Trash", 0);
+    }
 
     public String getName() {
         return this.name;

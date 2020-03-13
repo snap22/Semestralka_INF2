@@ -21,6 +21,7 @@ public class Inventory {
     
     private LinkedHashMap<String, Item> items;  
     //Linked HashMap si pamata poradie v akom boli popridavane itemy - vhodne pre indexovanie
+    //HashMap<Integer, Item> ???
 
     public Inventory(int size) {
         this.size = size;
@@ -30,6 +31,9 @@ public class Inventory {
     /**
      * Prida predmet do inventara. Ak je inventar plny, neprida ho
      * @param item 
+     * POZN. AK SA PRIDA ITEM S ROVNAKYM NAZVOM, PREPISE SA..
+     *      NEMOZU BYT 2 ROVNAKO - MENNE ITEMY V INVENTORY
+     *      -- mozno prerobit hashmap na Integer, Item
      */
     public void addItem(Item item) {
         if (this.items.size() >= this.size) {
@@ -40,25 +44,30 @@ public class Inventory {
     }
     
     /**
-     * Vymaze predmet z inventara. Ak sa taky predmet nenachadza v inventari tak nespravi nic
+     * Vymaze predmet z inventara.Ak sa taky predmet nenachadza v inventari tak nespravi nic
      * @param itemName nazov predmetu ktory chceme vymazat
+     * @return 
      */
-    public void removeItem(String itemName) {
+    public boolean removeItem(String itemName) {
         if (!this.items.containsKey(itemName)) {
-            return;
+            return false;
         }
         this.items.remove(itemName);
+        return true;
     }
     
     /**
      * Vymaze item na danej pozicii
      * @param index 
+     * @return  
      */
-    public void removeItem(int index) {
+    public boolean removeItem(int index) {
         Item itemNaVymazanie = this.getItem(index);
         if (itemNaVymazanie != null) {
-            this.items.remove(itemNaVymazanie);
+            this.items.remove(itemNaVymazanie.getName());
+            return true;
         }
+        return false;
     }
     
     /**
@@ -84,7 +93,6 @@ public class Inventory {
      * @param itemName
      * @return 
      */
-    
     public Item getItem(String itemName) {
         if (this.items.isEmpty()) {
             return null;
