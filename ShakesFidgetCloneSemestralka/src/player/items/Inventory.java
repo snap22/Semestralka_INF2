@@ -79,8 +79,12 @@ public class Inventory {
         return this.items.size() < this.size;
     }
     
+    /**
+     * Vrati predmet na zaklade nazvu
+     * @param itemName
+     * @return 
+     */
     
-    //getitem kde parameter index?
     public Item getItem(String itemName) {
         if (this.items.isEmpty()) {
             return null;
@@ -92,6 +96,7 @@ public class Inventory {
         
         return this.items.get(itemName);
     }
+    
     /**
      * Vrati item na zaklade indexu
      * @param index
