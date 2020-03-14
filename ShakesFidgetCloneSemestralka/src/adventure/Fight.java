@@ -6,7 +6,7 @@
 package adventure;
 
 import creatures.Creature;
-import creatures.Player;
+import player.basic.Player;
 
 /**
  *

@@ -5,7 +5,7 @@
  */
 package adventure;
 
-import creatures.Player;
+import player.basic.Player;
 import java.util.concurrent.TimeUnit;
 
 

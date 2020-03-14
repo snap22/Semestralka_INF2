@@ -6,7 +6,7 @@
 package player.characteristics;
 
 import basic.Chance;
-import creatures.Player;
+import player.basic.Player;
 
 
 

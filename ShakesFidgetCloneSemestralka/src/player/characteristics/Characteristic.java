@@ -6,7 +6,7 @@
 package player.characteristics;
 
 
-import creatures.Player;
+import player.basic.Player;
 
 /**
  *

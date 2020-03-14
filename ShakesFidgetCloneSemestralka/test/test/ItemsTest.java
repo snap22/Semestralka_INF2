@@ -8,8 +8,8 @@ package test;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import player.items.Inventory;
-import player.items.Item;
+import player.basic.Inventory;
+import items.Item;
 
 /**
  *

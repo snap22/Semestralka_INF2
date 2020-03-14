@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package player.items;
+package player.basic;
 
 
 //import java.util.HashMap;
 import java.util.LinkedHashMap;
+import items.Item;
 
 
 

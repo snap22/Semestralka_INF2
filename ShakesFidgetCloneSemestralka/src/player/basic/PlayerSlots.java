@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package player.items;
+package player.basic;
 
-import creatures.Player;
+import player.basic.Player;
 import player.characteristics.Characteristic;
+import items.EquippableItem;
+import items.ItemType;
+import items.Slot;
 
 /**
  * Trieda ma za ulohu starat sa o equipovanie itemov, unequipovanie itemov, zabezpecit pridanie statov hracovi.

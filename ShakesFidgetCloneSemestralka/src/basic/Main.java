@@ -10,7 +10,7 @@ import adventure.Objective;
 import creatures.Creature;
 import creatures.Enemy;
 import creatures.Imp;
-import creatures.Player;
+import player.basic.Player;
 
 
 

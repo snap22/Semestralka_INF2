@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package creatures;
+package player.basic;
 
-import player.items.EquippableItem;
-import player.items.Item;
-import player.items.Weapon;
+import creatures.Creature;
+import items.EquippableItem;
+import items.Item;
+import items.Weapon;
 import player.characteristics.Beginner;
 import player.characteristics.Characteristic;
 

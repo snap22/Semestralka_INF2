@@ -6,7 +6,7 @@
 package creatures;
 
 import basic.Chance;
-import player.items.Item;
+import items.Item;
 
 
 public class Enemy extends Creature {
