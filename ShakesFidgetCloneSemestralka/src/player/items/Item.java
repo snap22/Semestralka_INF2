@@ -37,8 +37,13 @@ public class Item {
         return this.value;
     }
 
+    
     public boolean isEquippable() {
         return this.isEquippable;
+    }
+    
+    public String toString() {
+        return String.format("[Item: %s, gold value: %d", this.name, this.value);
     }
     
     

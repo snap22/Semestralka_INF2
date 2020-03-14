@@ -13,14 +13,24 @@ public class EquippableItem extends Item {
     
     private final int bonusHp;
     private final int bonusArmor;
-
-    public EquippableItem(String name, int increaseHp, int increaseArmor, int goldValue, ItemType type) {
+    private final int bonusDamage;
+    /**
+     * Vytvori item ktory si na seba hrac vie equipnut
+     * @param name nazov itemu
+     * @param increaseHp o kolko zvysi hp hracovi
+     * @param increaseArmor o kolko zvysi armor hracovi
+     * @param increaseDamage o kolko zvysi damage hracovi
+     * @param goldValue aku ma hodnotu
+     * @param type typ itemu
+     */
+    public EquippableItem(String name, int increaseHp, int increaseArmor, int increaseDamage, int goldValue, ItemType type) {
         super(name, goldValue);
         this.type = type;
         this.isEquipped = false;
         
         this.bonusHp = increaseHp;
         this.bonusArmor = increaseArmor;
+        this.bonusDamage = 0;
     }
 
     public ItemType getType() {
@@ -47,6 +57,10 @@ public class EquippableItem extends Item {
 
     public int getBonusArmor() {
         return this.bonusArmor;
+    }
+    
+    public int getBonusDamage() {
+        return this.bonusDamage;
     }
 
     

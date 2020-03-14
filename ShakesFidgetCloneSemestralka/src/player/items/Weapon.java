@@ -8,12 +8,10 @@ package player.items;
 
 public class Weapon extends EquippableItem {
 
-    public Weapon(String name, int increaseHp, int increaseArmor, int goldValue, ItemType type) {
-        super(name, increaseHp, increaseArmor, goldValue, type);
+    public Weapon(String name, int damageIncrease,  int goldValue) {
+        super(name, 0, 0, damageIncrease, goldValue, ItemType.WEAPON);   
     }
     
-    public int getBonusDamage() {
-        return 0;
-    }
+    
     
 }

@@ -177,12 +177,10 @@ public class Player extends Creature {
     * @param item 
     */
     public void increaseStats(Item item) {
-        if (item instanceof Weapon) {
-            this.bonusDamage += ((Weapon)item).getBonusDamage();
-            
-        } else if (item instanceof EquippableItem) {
+        if (item instanceof EquippableItem) {
             this.bonusHealth += ((EquippableItem)item).getBonusHp();
             this.armor += ((EquippableItem)item).getBonusArmor();
+            this.bonusDamage += ((EquippableItem)item).getBonusDamage();
         }
     }
     
@@ -192,12 +190,10 @@ public class Player extends Creature {
      * @param item 
      */
     public void decreaseStats(Item item) {
-        if (item instanceof Weapon) {
-            this.bonusDamage -= ((Weapon)item).getBonusDamage();
-            
-        } else if (item instanceof EquippableItem) {
+        if (item instanceof EquippableItem) {
             this.bonusHealth -= ((EquippableItem)item).getBonusHp();
             this.armor -= ((EquippableItem)item).getBonusArmor();
+            this.bonusDamage -= ((EquippableItem)item).getBonusDamage();
         }
     }
     

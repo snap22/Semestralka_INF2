@@ -5,6 +5,9 @@
  */
 package creatures;
 
+import basic.Chance;
+import player.items.Item;
+
 
 public class Enemy extends Creature {
 
@@ -15,8 +18,15 @@ public class Enemy extends Creature {
         this.xpReward = xpReward;
     }
     
-    public void dropItem() {
-        
+    /**
+     * Ma sancu na dropnutie itemu
+     * @return bud Item alebo null
+     */
+    public Item dropItem() {
+        if (Chance.generate(50)) {
+            return new Item();
+        }
+        return null;
     }
 
     public int getXpReward() {
