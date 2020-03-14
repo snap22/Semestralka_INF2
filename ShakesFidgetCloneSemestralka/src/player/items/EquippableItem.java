@@ -37,17 +37,21 @@ public class EquippableItem extends Item {
         return this.type;
     }
     
-    public void equip() {
+    /**
+     * Zmeni hodnotu ci je equipnutyna true
+     */
+    public void makeEquipped() {
         if (this.isEquipped) {
             return;
         }
         
         this.isEquipped = true;
-        System.out.println("Uspesne equipnuty predmet");
-        
     }
     
-    public void unequip() {
+    /**
+     * Zmeni hodnotu ci je equipnuty  na false
+     */
+    public void makeUnequipped() {
         this.isEquipped = false;
     }
 

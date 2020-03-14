@@ -186,7 +186,7 @@ public class Player extends Creature {
     
     /**
      * Znizi staty cez item
-     * metoda bude zavolana cez unequip()
+ metoda bude zavolana cez makeUnequipped()
      * @param item 
      */
     public void decreaseStats(Item item) {

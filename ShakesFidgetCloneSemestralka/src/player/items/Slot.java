@@ -24,46 +24,39 @@ public class Slot {
     
     
     /**
-     * Skusi si dat na seba item. Vrati boolean ci sa mu to podarilo
+     * Skusi vlozit do slotu item. Vrati boolean ci sa mu to podarilo
      * Typ itema sa musi zhodovat s typom slotu
+     * Ak je equipnuty uz inym predmet, tak ho da dole
      * @param item
      * @return 
      */
-    public boolean equip(EquippableItem item) {
+    public void insertItem(EquippableItem item) {
+        if (item == null) {
+            return;
+        }
+        
         if (this.item != null) {
-            return false;
+            this.removeItem();
         } 
         
-        if (item.getType() != this.type) {
-            return false;
-        }
-        
-        if (item == null) {
-            return false;
-        }
-        
-        
-        
-        //ToDo prida efekty z itemu na hraca
-        item.equip();
+        item.makeEquipped();
         this.item = item;
-        
-        return true;
     }
     
+    public boolean canInsert(EquippableItem item) {
+        return this.item.getType() == item.getType();
+    }
+    
+    
     /**
-     * Pokusi sa dat zo seba dole item
-     * Pozn. mozno dobuducna zmenit na return ITEM
-     * @return 
+     * Pokusi sa vymazat zo slotu item
      */
-    public boolean unequip() {
+    public void removeItem() {
         if (this.item == null) {
-            return false;
+            return;
         }
         
         this.item = null;
-        return true;
-        
     }
     
     public ItemType getType() {
