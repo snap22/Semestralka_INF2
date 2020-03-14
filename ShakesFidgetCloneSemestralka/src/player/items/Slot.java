@@ -5,6 +5,8 @@
  */
 package player.items;
 
+
+
 /**
  *
  * @author marce
@@ -13,10 +15,14 @@ public class Slot {
 
     private EquippableItem item;
     private ItemType type;
+    
+    
     public Slot(ItemType type) {
         this.item = null;
         this.type = type;
     }
+    
+    
     /**
      * Skusi si dat na seba item. Vrati boolean ci sa mu to podarilo
      * Typ itema sa musi zhodovat s typom slotu

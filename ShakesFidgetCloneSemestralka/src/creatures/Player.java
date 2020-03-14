@@ -8,8 +8,8 @@ package creatures;
 import player.items.EquippableItem;
 import player.items.Item;
 import player.items.Weapon;
-import player.specialCharacteristics.Beginner;
-import player.specialCharacteristics.Characteristic;
+import player.characteristics.Beginner;
+import player.characteristics.Characteristic;
 
 
 public class Player extends Creature {
