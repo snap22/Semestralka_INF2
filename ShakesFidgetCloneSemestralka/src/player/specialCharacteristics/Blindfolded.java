@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package player.characteristics;
+package player.specialCharacteristics;
 
 import basic.Chance;
 import creatures.Player;
 
 
-public class Blindfolded implements ICharacteristic {
+
+public class Blindfolded extends Characteristic {
 
     private int chanceToMiss;
     private int playerDamage;
 
     public Blindfolded() {
+        super("BlindFolder", 50, 10);
         this.chanceToMiss = 50;
     }
 
@@ -25,6 +27,10 @@ public class Blindfolded implements ICharacteristic {
         }
     }
 
+    /**
+     * Znizi damage playera na 0, teda player akoby missol
+     * @return 
+     */
     @Override
     public int gainBonusDamage() {
         return -this.playerDamage;
@@ -40,7 +46,7 @@ public class Blindfolded implements ICharacteristic {
     }
 
     @Override
-    public String getPopis() {
+    public String toString() {
         return String.format("Sanca ze missne: %d %n", this.chanceToMiss);
     }
     

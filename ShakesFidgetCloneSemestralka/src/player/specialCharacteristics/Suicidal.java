@@ -13,7 +13,7 @@ public class Suicidal extends Characteristic {
     private int chanceToDie;
     
     public Suicidal() {
-        super("Suicidal", 50, 25, 0);
+        super("Suicidal", 50, 25);
         this.chanceToDie = 50;
     }
 
@@ -29,30 +29,9 @@ public class Suicidal extends Characteristic {
         
     }
 
-    /**
-     * 
-     * @return 0 pretoze tento character nedava bonus damage
-     */
-    @Override
-    public int gainBonusDamage() {
-        return 0;
-    }
-
-    /**
-     * Znizi sancu ze sa zabije o 1, najnizsie sa moze znizit na 25% 
-     */
-    @Override
-    public void upgrade() {
-        if (this.chanceToDie <= 25) {
-            return;
-        }
-        
-        this.chanceToDie--;
-        
-    }
 
     @Override
-    public String getPopis() {
+    public String toString() {
         return String.format("Má %d šancu že počas útoku zomrie.%n", this.chanceToDie);
     }
     

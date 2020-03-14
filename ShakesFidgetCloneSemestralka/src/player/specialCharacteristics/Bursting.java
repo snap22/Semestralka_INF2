@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package player.characteristics;
+package player.specialCharacteristics;
 
 import basic.Chance;
 import creatures.Player;
 
 
-public class Bursting implements ICharacteristic {
+
+public class Bursting extends Characteristic {
 
     
     private int chanceToCrit;
@@ -17,11 +18,10 @@ public class Bursting implements ICharacteristic {
     
 
     public Bursting() {
+        super("Bursting", 10, 90);
         this.chanceToCrit = 10;
     }
     
-    
-
     @Override
     public void doSpecialStuff(Player player) {
         this.amountOfDamage = player.getDamage() * 2;
@@ -36,15 +36,7 @@ public class Bursting implements ICharacteristic {
     }
 
     @Override
-    public void upgrade() {
-        if (this.chanceToCrit >= 90) {
-            return;
-        }
-        this.chanceToCrit++;
-    }
-
-    @Override
-    public String getPopis() {
+    public String toString() {
         return String.format("Sanca na critical strike: %d %n", this.chanceToCrit);
     }
     

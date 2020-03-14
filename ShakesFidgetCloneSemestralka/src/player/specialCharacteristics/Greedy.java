@@ -3,23 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package player.characteristics;
+package player.specialCharacteristics;
 
 import basic.Chance;
 import creatures.Player;
 
 
-public class Greedy implements ICharacteristic {
+
+public class Greedy extends Characteristic {
 
     private int chanceToGetGold;
     private int goldAmount;
 
     public Greedy() {
+        super("Greedy", 30, 100);
         this.chanceToGetGold = 30;
         this.goldAmount = 1;
     }
-    
-    
 
     @Override
     public void doSpecialStuff(Player player) {
@@ -27,12 +27,9 @@ public class Greedy implements ICharacteristic {
             player.addGold(this.goldAmount);
         }
     }
-
-    @Override
-    public int gainBonusDamage() {
-        return 0;
-    }
-
+    /**
+     * Bude zvysovat sancu, ze mu padnu bonusove goldy, a taktiez pocet goldov kolko mu padne
+     */
     @Override
     public void upgrade() {
         this.goldAmount += 2;
@@ -45,7 +42,7 @@ public class Greedy implements ICharacteristic {
     }
 
     @Override
-    public String getPopis() {
+    public String toString() {
         return String.format("Sanca ze dostane %d goldov: %d%n", this.goldAmount, this.chanceToGetGold);
     }
     

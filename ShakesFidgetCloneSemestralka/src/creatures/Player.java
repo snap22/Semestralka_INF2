@@ -5,12 +5,12 @@
  */
 package creatures;
 
-import player.characteristics.ICharacteristic;
+import player.specialCharacteristics.Characteristic;
 
 
 public class Player extends Creature {
 
-    private final ICharacteristic character;
+    private final Characteristic character;
     
     private int requiredXp;
     private int currentXp;
