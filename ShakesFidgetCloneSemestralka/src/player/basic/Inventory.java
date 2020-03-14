@@ -13,7 +13,7 @@ import items.Item;
 
 
 /**
- *
+ * Trieda Inventory sluzi pre ukladanie roznych veci.
  * @author marce
  */
 public class Inventory {

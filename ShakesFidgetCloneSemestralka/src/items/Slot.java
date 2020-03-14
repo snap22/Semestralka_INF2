@@ -8,8 +8,7 @@ package items;
 
 
 /**
- *
- * @author marce
+ * Trieda Slot sluzi pre hraca, umoznuje mu equipnut rozne itemy, ktore su equipnutelne.
  */
 public class Slot {
 
@@ -21,7 +20,6 @@ public class Slot {
         this.item = null;
         this.type = type;
     }
-    
     
     /**
      * Skusi vlozit do slotu item. Vrati boolean ci sa mu to podarilo
@@ -46,6 +44,15 @@ public class Slot {
     public boolean canInsert(EquippableItem item) {
         return this.item.getType() == item.getType();
     }
+    
+    //ak by som chcel nove inventory cez sloty
+    /*public boolean canInsert(Item item) {
+        if (item instanceof EquippableItem) {
+            return this.canInsert((EquippableItem)item);
+        }
+        
+        return true;
+    }*/
     
     
     /**

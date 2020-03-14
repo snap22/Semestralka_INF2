@@ -8,7 +8,6 @@ package player.basic;
 import creatures.Creature;
 import items.EquippableItem;
 import items.Item;
-import items.Weapon;
 import player.characteristics.Beginner;
 import player.characteristics.Characteristic;
 
@@ -30,6 +29,9 @@ public class Player extends Creature {
     private int armor;
     private int bonusHealth;
     private int bonusDamage;
+    
+    private Inventory inventory;
+    private PlayerSlots slots;
     
     /**
      * Konstruktor - hlavne pre testovanie
@@ -53,6 +55,10 @@ public class Player extends Creature {
         this.bonusHealth = 0;   //increased by item
         this.bonusDamage = 0;   //increased by weapon or characteristic
         this.armor = 0;         //increased by item
+        
+        //item manazment
+        this.inventory = new Inventory(6);
+        this.slots = new PlayerSlots(this); 
     }
     
     /**

@@ -5,7 +5,7 @@
  */
 package player.basic;
 
-import player.basic.Player;
+
 import player.characteristics.Characteristic;
 import items.EquippableItem;
 import items.ItemType;
@@ -60,7 +60,7 @@ public class PlayerSlots {
      * @param index index slotu z ktoreho ma vymazat item
      */
     public void remove(int index) {
-        if (index >= this.slots.length) {
+        if (index >= this.slots.length || index < 0) {
             return;
         }
         
