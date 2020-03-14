@@ -5,6 +5,9 @@
  */
 package creatures;
 
+import player.items.EquippableItem;
+import player.items.Item;
+import player.items.Weapon;
 import player.specialCharacteristics.Beginner;
 import player.specialCharacteristics.Characteristic;
 
@@ -168,8 +171,37 @@ public class Player extends Creature {
         this.character = newChar;
     }
     
-   
-
+   /**
+    * Zvysi staty cez item. Najprv pozrie ci je to zbran a tak ci je to EquippableItem
+    * metoda bude zavolana pocas equip()
+    * @param item 
+    */
+    public void increaseStats(Item item) {
+        if (item instanceof Weapon) {
+            this.bonusDamage += ((Weapon)item).getBonusDamage();
+            
+        } else if (item instanceof EquippableItem) {
+            this.bonusHealth += ((EquippableItem)item).getBonusHp();
+            this.armor += ((EquippableItem)item).getBonusArmor();
+        }
+    }
+    
+    /**
+     * Znizi staty cez item
+     * metoda bude zavolana cez unequip()
+     * @param item 
+     */
+    public void decreaseStats(Item item) {
+        if (item instanceof Weapon) {
+            this.bonusDamage -= ((Weapon)item).getBonusDamage();
+            
+        } else if (item instanceof EquippableItem) {
+            this.bonusHealth -= ((EquippableItem)item).getBonusHp();
+            this.armor -= ((EquippableItem)item).getBonusArmor();
+        }
+    }
+    
+    
     
     
     
