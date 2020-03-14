@@ -20,6 +20,13 @@ public class Player extends Creature {
     private int damage;
     private int gold;
     
+    private int health;
+    private int currentHealth;
+    
+    private int armor;
+    private int bonusHealth;
+    private int bonusDamage;
+    
     /**
      * Konstruktor - hlavne pre testovanie
      * @param maxHealth maximalny zivot pre hraca
@@ -29,7 +36,8 @@ public class Player extends Creature {
     public Player(int maxHealth, int damage, Characteristic specialCharacter) {
         super("The hero", maxHealth, damage);
         
-        
+        this.health = maxHealth;
+        this.currentHealth = maxHealth;
         this.character = specialCharacter;
         this.requiredXp = 10;
         this.currentXp = 0;
@@ -37,7 +45,10 @@ public class Player extends Creature {
         this.damage = damage;
         this.gold = 0;
         
-        
+        //bonusove veci, moznost zvysit cez itemy, alebo niektore charakteristiky
+        this.bonusHealth = 0;   //increased by item
+        this.bonusDamage = 0;   //increased by weapon or characteristic
+        this.armor = 0;         //increased by item
     }
     
     /**
@@ -57,14 +68,36 @@ public class Player extends Creature {
         if (super.isDead()) {
             return;
         }
-        int dmg = this.damage;
         
         if (this.character != null) {
             this.character.doSpecialStuff(this);
-            dmg += this.character.gainBonusDamage();
+            this.bonusDamage = this.character.gainBonusDamage();
         }
 
+        int dmg = this.damage + this.bonusDamage;
         opponent.takeDamage(dmg);
+    }
+    
+    @Override
+    public void takeDamage(int amount) {
+        if (super.isDead()) {
+            System.out.println("Already dead.");
+            return;
+        }
+        
+        if (amount <= 0) {
+            return;
+        }
+        
+        int remainingAmount = this.bonusHealth - amount;
+        //daco s armorom este
+        this.currentHealth -= remainingAmount;
+        
+        System.out.format("Player takes %d damage.%n", amount);
+        
+        if (this.currentHealth <= 0) {
+            this.die();
+        }
     }
     /**
      * prida hracovi xp, ak bude viac ako pozadovane xp tak mu zvysi uroven
@@ -89,18 +122,22 @@ public class Player extends Creature {
         
     }
     
+    /**
+     * Zvysi level, potrebne xp, damage, hp, a automaticky healne na max
+     */
     private void levelUp() {
         this.level++;
         this.requiredXp += 5;
         
         this.damage += 2;
+        this.health += 5;
+        this.currentHealth = this.health;
         
         if (this.character != null) {
             this.character.upgrade();
         }
        
         System.out.format("Reached level %d %n", this.level);
-        
     }
 
     /**
@@ -113,7 +150,6 @@ public class Player extends Creature {
         }
         System.out.format("Gained %d gold%n", amount);
         this.gold += amount;
-        
     }
     
     /**
@@ -140,4 +176,4 @@ public class Player extends Creature {
 
     
     
-}
+} //koniec Player

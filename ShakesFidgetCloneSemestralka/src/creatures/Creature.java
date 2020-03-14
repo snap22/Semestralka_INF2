@@ -94,6 +94,9 @@ public class Creature {
         return this.damage;
     }
     
+    /**
+     * Healne creature, moze iba podtrieda (resp. trieda), nikto iny zvonka
+     */
     protected void fullyHealUp() {
         this.currentHealth = this.health;
     }
