@@ -5,12 +5,13 @@
  */
 package creatures;
 
+import player.specialCharacteristics.Beginner;
 import player.specialCharacteristics.Characteristic;
 
 
 public class Player extends Creature {
 
-    private final Characteristic character;
+    private Characteristic character;
     
     private int requiredXp;
     private int currentXp;
@@ -19,9 +20,15 @@ public class Player extends Creature {
     private int damage;
     private int gold;
     
-
-    public Player(int maxHealth, int damage, ICharacteristic specialCharacter) {
+    /**
+     * Konstruktor - hlavne pre testovanie
+     * @param maxHealth maximalny zivot pre hraca
+     * @param damage zakladny damage
+     * @param specialCharacter specialna charakteristika
+     */
+    public Player(int maxHealth, int damage, Characteristic specialCharacter) {
         super("The hero", maxHealth, damage);
+        
         
         this.character = specialCharacter;
         this.requiredXp = 10;
@@ -32,6 +39,14 @@ public class Player extends Creature {
         
         
     }
+    
+    /**
+     * Normalny konstruktor pocas hry!
+     */
+    public Player() {
+        this(20, 2, new Beginner());
+    }
+    
     /**
      * Zautoci na inu bytost, pri tom este spravi specialnu cinnost, ktoru ma kazdy character inu
      * Ak je character null - nespravi tie specialne cinnosti ani neprida bonus damage
@@ -77,6 +92,9 @@ public class Player extends Creature {
     private void levelUp() {
         this.level++;
         this.requiredXp += 5;
+        
+        this.damage += 2;
+        
         if (this.character != null) {
             this.character.upgrade();
         }
@@ -96,6 +114,22 @@ public class Player extends Creature {
         System.out.format("Gained %d gold%n", amount);
         this.gold += amount;
         
+    }
+    
+    /**
+     * Zmeni charakteristiku hraca. Ak je nova charakteristika null, alebo je to ta ista, tak to nespravi.
+     * @param newChar 
+     */
+    public void changeCharacteristic(Characteristic newChar) {
+        if (newChar == null) {
+            return;
+        }
+        
+        if (this.character.equals(newChar)) {
+            return;
+        }
+        
+        this.character = newChar;
     }
     
    

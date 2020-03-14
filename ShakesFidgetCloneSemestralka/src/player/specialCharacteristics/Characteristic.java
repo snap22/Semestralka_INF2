@@ -90,4 +90,17 @@ public class Characteristic {
     public String toString() {
         return String.format("[ %S, sanca: %d, maximalne dosiahnutelna sanca: %d ]%n", this.name, this.chance, this.limit);
     }
+    
+    public String getName() {
+        return this.name;
+    }
+    
+    /**
+     * Porovna 2 charakteristiky na zaklade ich mena
+     * @param other ina charakteristika s ktorou chceme porovnat
+     * @return boolean ci su rovnake alebo nie
+     */
+    public boolean equals(Characteristic other) {
+        return this.name.equals(other.getName());
+    }
 }

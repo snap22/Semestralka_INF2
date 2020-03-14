@@ -94,6 +94,10 @@ public class Creature {
         return this.damage;
     }
     
+    protected void fullyHealUp() {
+        this.currentHealth = this.health;
+    }
+    
     
     
     
