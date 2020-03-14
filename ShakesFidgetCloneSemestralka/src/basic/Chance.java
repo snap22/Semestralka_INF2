@@ -18,6 +18,13 @@ public abstract class Chance {
      * @return vrati hodnotu boolean, ci udalost nastala alebo nie
      */
     public static boolean generate(int percentage) {
+        if (percentage >= 100) {
+            return true;
+        } 
+        if (percentage <= 0) {
+            return false;
+        }
+        
         Random random = new Random();
         int randomNumber = random.nextInt(100);
         //System.out.format("%d - %b %n", randomNumber, randomNumber < percentage);

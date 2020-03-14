@@ -22,12 +22,19 @@ public class Enemy extends Creature {
      * Ma sancu na dropnutie itemu
      * @return bud Item alebo null
      */
-    public Item dropItem() {
-        if (Chance.generate(50)) {
+    public Item dropItem(int chance) {
+        if (Chance.generate(chance)) {
             return new Item();
         }
         return null;
     }
+
+    @Override
+    public void die() {
+        super.die(); 
+    }
+    
+    
 
     public int getXpReward() {
         return this.xpReward;

@@ -27,7 +27,7 @@ public class Main {
         Enemy imp = new Imp();
         
         Creature player = new Player(10, 10, null);
-        Objective obj = new Objective("Imp", "Zabi", imp, 20, 5, 1);
+        Objective obj = new Objective("Imp", "Zabi", imp, 20, 5, 100, 1);
         Mission mission = new Mission(obj, (Player)player);
         mission.start();
         

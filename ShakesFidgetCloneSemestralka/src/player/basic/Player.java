@@ -149,6 +149,12 @@ public class Player extends Creature {
        
         System.out.format("Reached level %d %n", this.level);
     }
+    
+    public void addReward(int xp, int gold, Item item) {
+        this.addXp(xp);
+        this.addGold(gold);
+        this.inventory.addItem(item);
+    }
 
     /**
      * Prida goldy hracovi

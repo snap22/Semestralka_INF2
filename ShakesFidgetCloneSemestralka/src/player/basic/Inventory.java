@@ -41,6 +41,10 @@ public class Inventory {
             return;
         }
         
+        if (item == null) {
+            return;
+        }
+        
         this.items.put(item.getName(), item);
     }
     
@@ -63,6 +67,9 @@ public class Inventory {
      * @return  
      */
     public boolean removeItem(int index) {
+        if (index >= this.size) {
+            return false;
+        }
         Item itemNaVymazanie = this.getItem(index);
         if (itemNaVymazanie != null) {
             this.items.remove(itemNaVymazanie.getName());
@@ -129,5 +136,6 @@ public class Inventory {
         return null;
     }
    
+    
     
 }

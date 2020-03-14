@@ -7,6 +7,7 @@ package adventure;
 
 import creatures.Creature;
 import creatures.Enemy;
+import items.Item;
 import player.basic.Player;
 
 /**
@@ -23,6 +24,7 @@ public class Objective {
     private final String name;
     private final String description;
     private boolean completed;
+    private final int chanceToGetItem;
 
     /**
      * Kazda misia bude mat nazov, popis misie, bytost ktoru treba zabit (bytost nemoze byt hrac!), 
@@ -34,19 +36,21 @@ public class Objective {
      * @param xpReward odmena v xp
      * @param duration  cas trvania 
      */
-    public Objective(String name, String description, Enemy enemy, int goldReward, int xpReward, int duration) {
+    public Objective(String name, String description, Enemy enemy, int goldReward, int xpReward, int chanceToGetItem, int duration) {
         this.name = name;
         this.description = description;
         
         this.goldReward = goldReward;
         this.xpReward = xpReward;
+        this.chanceToGetItem = chanceToGetItem;
+        
         this.duration = duration;
         
-        this.enemy = enemy;
+        this.enemy = enemy; 
     }
     
-    public Objective(String name, Enemy enemy, int goldReward, int xpReward, int duration) {
-        this(name, "Proste chod a zabi!", enemy, goldReward, xpReward, duration);
+    public Objective(String name, Enemy enemy, int goldReward, int xpReward, int chanceToGetItem, int duration) {
+        this(name, "Proste chod a zabi!", enemy, goldReward, xpReward, chanceToGetItem, duration);
     }
     
     /**
@@ -65,9 +69,9 @@ public class Objective {
             return;
         }
         int xp = this.xpReward + this.enemy.getXpReward();
-        player.addXp(xp);
-        player.addGold(this.goldReward);
-        //player.addItem(this.enemy.dropItem)
+        Item item = this.enemy.dropItem(this.chanceToGetItem);
+        
+        player.addReward(xp, this.goldReward, item);
         
     }
 
