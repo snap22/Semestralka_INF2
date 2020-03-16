@@ -78,13 +78,13 @@ public class Player extends Creature {
         if (super.isDead()) {
             return;
         }
-        
+        int dmg = this.damage + this.bonusDamage; 
         if (this.character != null) {
             this.character.doSpecialStuff(this);
-            this.bonusDamage = this.character.gainBonusDamage();
+            dmg += this.character.gainBonusDamage();
         }
 
-        int dmg = this.damage + this.bonusDamage;
+        
         opponent.takeDamage(dmg);
     }
     
