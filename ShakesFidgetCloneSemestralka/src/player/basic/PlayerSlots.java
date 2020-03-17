@@ -6,7 +6,7 @@
 package player.basic;
 
 
-import player.characteristics.Characteristic;
+import player.characteristics.Mood;
 import items.EquippableItem;
 import items.ItemType;
 import items.Slot;
@@ -48,11 +48,11 @@ public class PlayerSlots {
     }
     
     /**
-     * Pretazenie metody equip, vlozi charakteristiku do hraca
-     * @param characteristic charakteristika ktoru chceme equipnut
+     * Pretazenie metody equip, vlozi naladu do hraca
+     * @param mood charakteristika ktoru chceme equipnut
      */
-    public void equip(Characteristic characteristic) {
-        this.player.changeCharacteristic(characteristic);
+    public void equip(Mood mood) {
+        this.player.changeMood(mood);
     }
     
     /**

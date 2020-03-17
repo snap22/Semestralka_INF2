@@ -6,7 +6,7 @@
 package player.characteristics;
 
 
-public class Beginner extends Characteristic {
+public class Beginner extends Mood {
 
     public Beginner() {
         super("Beginner", 1, 100);

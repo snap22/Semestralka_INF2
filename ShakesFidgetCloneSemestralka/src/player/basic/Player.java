@@ -9,12 +9,12 @@ import creatures.Creature;
 import items.EquippableItem;
 import items.Item;
 import player.characteristics.Beginner;
-import player.characteristics.Characteristic;
+import player.characteristics.Mood;
 
 
 public class Player extends Creature {
 
-    private Characteristic character;
+    private Mood character;
     
     private int requiredXp;
     private int currentXp;
@@ -39,7 +39,7 @@ public class Player extends Creature {
      * @param damage zakladny damage
      * @param specialCharacter specialna charakteristika
      */
-    public Player(int maxHealth, int damage, Characteristic specialCharacter) {
+    public Player(int maxHealth, int damage, Mood specialCharacter) {
         super("The hero", maxHealth, damage);
         
         this.health = maxHealth;
@@ -169,10 +169,10 @@ public class Player extends Creature {
     }
     
     /**
-     * Zmeni charakteristiku hraca. Ak je nova charakteristika null, alebo je to ta ista, tak to nespravi.
+     * Zmeni naladu hraca. Ak je nova nalada null, alebo je to ta ista, tak to nezmeni.
      * @param newChar 
      */
-    public void changeCharacteristic(Characteristic newChar) {
+    public void changeMood(Mood newChar) {
         if (newChar == null) {
             return;
         }

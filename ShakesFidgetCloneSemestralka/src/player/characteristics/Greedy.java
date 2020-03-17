@@ -10,7 +10,7 @@ import player.basic.Player;
 
 
 
-public class Greedy extends Characteristic {
+public class Greedy extends Mood {
 
     private int chanceToGetGold;
     private int goldAmount;

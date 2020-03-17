@@ -13,7 +13,7 @@ import player.basic.Player;
  * @author marce
  */
 // extends EquippableItem
-public class Characteristic {
+public abstract class Mood {
     private int chance;
     private int bonusDamage;
     private String name;
@@ -29,7 +29,7 @@ public class Characteristic {
      * @param limit maximalne dosiahnutie sance
      * @param bonusDamage  ak zvysuje damage, tak o kolko
      */
-    public Characteristic(String name, int chance, int limit, int bonusDamage) {
+    public Mood(String name, int chance, int limit, int bonusDamage) {
         this.chance = chance;
         this.name = name;
         this.limit = limit;
@@ -44,7 +44,7 @@ public class Characteristic {
      * @param chance sanca ze vykona danu vec
      * @param limit ak zvysuje damage, tak o kolko
      */
-    public Characteristic(String name, int chance, int limit) {
+    public Mood(String name, int chance, int limit) {
         this(name, chance, limit, 0);
     }
 
@@ -100,7 +100,7 @@ public class Characteristic {
      * @param other ina charakteristika s ktorou chceme porovnat
      * @return boolean ci su rovnake alebo nie
      */
-    public boolean equals(Characteristic other) {
+    public boolean equals(Mood other) {
         return this.name.equals(other.getName());
     }
 }

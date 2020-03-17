@@ -9,7 +9,7 @@ import basic.Chance;
 import player.basic.Player;
 
 
-public class BloodThirsty extends Characteristic {
+public class BloodThirsty extends Mood {
 
     private int chanceToHeal;
 

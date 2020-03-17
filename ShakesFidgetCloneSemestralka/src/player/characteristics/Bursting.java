@@ -10,7 +10,7 @@ import player.basic.Player;
 
 
 
-public class Bursting extends Characteristic {
+public class Bursting extends Mood {
 
     
     private int chanceToCrit;

@@ -10,7 +10,7 @@ import player.basic.Player;
 
 
 
-public class Blindfolded extends Characteristic {
+public class Blindfolded extends Mood {
 
     private int chanceToMiss;
     private int playerDamage;

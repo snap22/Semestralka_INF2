@@ -9,7 +9,7 @@ import basic.Chance;
 import player.basic.Player;
 
 
-public class Suicidal extends Characteristic {
+public class Suicidal extends Mood {
     private int chanceToDie;
     
     public Suicidal() {
