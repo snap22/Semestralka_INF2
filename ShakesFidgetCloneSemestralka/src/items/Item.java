@@ -26,7 +26,7 @@ public class Item {
      * Kvoli testovaniu
      */
     public Item() {
-        this("Trash", 0);
+        this("Trash", 1);
     }
 
     public String getName() {

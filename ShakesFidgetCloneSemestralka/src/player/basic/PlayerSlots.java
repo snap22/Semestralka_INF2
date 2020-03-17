@@ -49,7 +49,7 @@ public class PlayerSlots {
     
     /**
      * Pretazenie metody equip, vlozi naladu do hraca
-     * @param mood charakteristika ktoru chceme equipnut
+     * @param mood nalada ktoru chceme zmenit
      */
     public void equip(Mood mood) {
         this.player.changeMood(mood);

@@ -10,5 +10,5 @@ package items;
  * @author marce
  */
 public enum ItemType {
-    HELMET, ARMOR, WEAPON;
+    HELMET, ARMOR, WEAPON, TRASH;
 }
