@@ -9,7 +9,7 @@ package creatures;
 public class Imp extends Enemy {
 
     public Imp() {
-        super("Imp", 5, 1, 1);
+        super("Imp", 5, 1, 1, null);
     }
 
     

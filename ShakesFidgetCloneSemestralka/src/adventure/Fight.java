@@ -6,7 +6,7 @@
 package adventure;
 
 import creatures.Creature;
-import player.basic.Player;
+
 
 /**
  *
@@ -15,7 +15,7 @@ import player.basic.Player;
 public class Fight {
     private enum Turn { PLAYER, ENEMY };
     
-    private Player player;
+    private Creature player;
     private Creature enemy;
     
     private boolean ended;
@@ -24,7 +24,7 @@ public class Fight {
     
     private boolean firstStart;
 
-    public Fight(Player player, Creature enemy) {
+    public Fight(Creature player, Creature enemy) {
         this.player = player;
         this.enemy = enemy;
         this.turn = Turn.PLAYER;

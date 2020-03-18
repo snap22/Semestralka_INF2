@@ -12,10 +12,12 @@ import items.Item;
 public class Enemy extends Creature {
 
     private int xpReward;
+    private final Item itemReward;
 
-    public Enemy(String name, int maxHealth, int damage, int xpReward) {
+    public Enemy(String name, int maxHealth, int damage, int xpReward, Item itemReward) {
         super(name, maxHealth, damage);
         this.xpReward = xpReward;
+        this.itemReward = itemReward;
     }
     
     /**
@@ -24,7 +26,7 @@ public class Enemy extends Creature {
      */
     public Item dropItem(int chance) {
         if (Chance.generate(chance)) {
-            return new Item();
+            return this.itemReward;
         }
         return null;
     }

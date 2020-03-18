@@ -14,7 +14,7 @@ import player.characteristics.Mood;
 
 public class Player extends Creature {
 
-    private Mood character;
+    private Mood mood;
     
     private int requiredXp;
     private int currentXp;
@@ -44,7 +44,7 @@ public class Player extends Creature {
         
         this.health = maxHealth;
         this.currentHealth = maxHealth;
-        this.character = specialCharacter;
+        this.mood = specialCharacter;
         this.requiredXp = 10;
         this.currentXp = 0;
         this.level = 1;
@@ -79,9 +79,9 @@ public class Player extends Creature {
             return;
         }
         int dmg = this.damage + this.bonusDamage; 
-        if (this.character != null) {
-            this.character.doSpecialStuff(this);
-            dmg += this.character.gainBonusDamage();
+        if (this.mood != null) {
+            this.mood.doSpecialStuff(this);
+            dmg += this.mood.gainBonusDamage();
         }
 
         
@@ -90,7 +90,10 @@ public class Player extends Creature {
     
     @Override
     public void takeDamage(int amount) {
-        if (super.isDead()) {
+        int remainingAmount = Math.abs((this.bonusHealth + this.armor) - amount);
+        super.takeDamage(remainingAmount); 
+        
+       /* if (super.isDead()) {
             System.out.println("Already dead.");
             return;
         }
@@ -107,7 +110,8 @@ public class Player extends Creature {
         
         if (this.currentHealth <= 0) {
             this.die();
-        }
+        }*/
+       
     }
     /**
      * prida hracovi xp, ak bude viac ako pozadovane xp tak mu zvysi uroven
@@ -143,8 +147,8 @@ public class Player extends Creature {
         this.health += 5;
         this.currentHealth = this.health;
         
-        if (this.character != null) {
-            this.character.upgrade();
+        if (this.mood != null) {
+            this.mood.upgrade();
         }
        
         System.out.format("Reached level %d %n", this.level);
@@ -177,11 +181,11 @@ public class Player extends Creature {
             return;
         }
         
-        if (this.character.equals(newChar)) {
+        if (this.mood.equals(newChar)) {
             return;
         }
         
-        this.character = newChar;
+        this.mood = newChar;
     }
     
    /**
