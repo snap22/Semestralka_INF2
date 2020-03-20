@@ -8,7 +8,7 @@ package test;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import player.basic.Inventory;
+import wrongShit.Inventory;
 import wrongShit.Item;
 
 /**

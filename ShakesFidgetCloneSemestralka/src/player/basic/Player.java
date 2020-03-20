@@ -5,11 +5,14 @@
  */
 package player.basic;
 
+import wrongShit.PlayerSlots;
+import wrongShit.Inventory;
 import creatures.Creature;
+import items.equippable.Equipment;
 import wrongShit.EquippableItem;
 import wrongShit.Item;
-import player.characteristics.Beginner;
-import player.characteristics.Mood;
+import player.moods.Beginner;
+import player.moods.Mood;
 
 
 public class Player extends Creature {
@@ -194,27 +197,17 @@ public class Player extends Creature {
         
         this.mood = newMood;
     }
-    
-   /**
-    * ZMENIT
-    */
-    public void increaseStats(Item item) {
-        if (item instanceof EquippableItem) {
-            this.bonusHealth += ((EquippableItem)item).getBonusHp();
-            this.armor += ((EquippableItem)item).getBonusArmor();
-            this.bonusDamage += ((EquippableItem)item).getBonusDamage();
-        }
+
+    public void increaseStats(Equipment item) {
+        this.bonusHealth += item.getBonusHealth();
+        this.bonusDamage += item.getBonusDamage();
+        this.armor += item.getBonusArmor();
     }
-    
-    /**
-    * ZMENIT
-    */
-    public void decreaseStats(Item item) {
-        if (item instanceof EquippableItem) {
-            this.bonusHealth -= ((EquippableItem)item).getBonusHp();
-            this.armor -= ((EquippableItem)item).getBonusArmor();
-            this.bonusDamage -= ((EquippableItem)item).getBonusDamage();
-        }
+
+    public void decreaseStats(Equipment item) {
+        this.bonusHealth -= item.getBonusHealth();
+        this.bonusDamage -= item.getBonusDamage();
+        this.armor -= item.getBonusArmor();
     }
     
     

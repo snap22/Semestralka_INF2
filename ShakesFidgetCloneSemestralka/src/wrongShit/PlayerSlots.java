@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package player.basic;
+package wrongShit;
 
 
-import player.characteristics.Mood;
+import player.basic.Player;
+import player.moods.Mood;
 import wrongShit.EquippableItem;
 import wrongShit.ItemType;
 import wrongShit.Slot;
@@ -40,7 +41,7 @@ public class PlayerSlots {
             //pokusi sa dat do slotu dany item, vrati boolean ci sa mu to podarilo + nastavi item na equipped
             if (slot.canInsert(item)) { 
                 slot.insertItem(item);
-                this.player.increaseStats(item);
+                //this.player.increaseStats(item);
                 System.out.println("Uspesne equipnuty predmet");
                 return;
             }

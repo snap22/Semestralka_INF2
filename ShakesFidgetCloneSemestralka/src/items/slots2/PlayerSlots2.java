@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package items.slots;
+package items.slots2;
 
 import wrongShit.ItemType;
 import player.basic.Player;

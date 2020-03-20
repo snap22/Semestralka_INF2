@@ -3,15 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package player.characteristics;
+package items;
 
-
-public class Beginner extends Mood {
-
-    public Beginner() {
-        super("Beginner", 1, 100);
-    }
-    
-    
+/**
+ * Generuje itemy..
+ */
+public class ItemGenerator {
     
 }

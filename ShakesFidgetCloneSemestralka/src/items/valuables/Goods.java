@@ -22,6 +22,11 @@ public class Goods extends Item2 {
         this.nastavHodnoty();
         
     }
+    
+    public Goods() {
+        this("Trash", ItemRarity.COMMON);
+    }
+    
     /**
      * Meni hodnotu sance na drop a ceny v goldoch podla toho aka je vzacnost
      */

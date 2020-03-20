@@ -16,5 +16,9 @@ public class Weapon extends Equipment {
         super(name, rarity, goldValue, 1, 0, 0, levelRequired);
     } 
     
+    public Weapon() {
+        this("Training Sword", ItemRarity.COMMON, 0, 0);
+    }
+    
     
 }
