@@ -6,9 +6,9 @@
 package items;
 
 /**
- *
- * @author marce
+ * Vzacnost itemov. Podla vzacnosti sa meni sanca  na drop
+ * 
  */
-public enum ItemType {
-    HELMET, ARMOR, WEAPON, TRASH;
+public enum ItemRarity {
+    COMMON, UNCOMMON, RARE, EPIC;
 }

@@ -6,8 +6,8 @@
 package player.basic;
 
 import creatures.Creature;
-import items.EquippableItem;
-import items.Item;
+import wrongShit.EquippableItem;
+import wrongShit.Item;
 import player.characteristics.Beginner;
 import player.characteristics.Mood;
 
@@ -88,6 +88,11 @@ public class Player extends Creature {
         opponent.takeDamage(dmg);
     }
     
+    
+    /**
+     * zmenit
+     * @param amount 
+     */
     @Override
     public void takeDamage(int amount) {
         int remainingAmount = Math.abs((this.bonusHealth + this.armor) - amount);
@@ -113,6 +118,8 @@ public class Player extends Creature {
         }*/
        
     }
+    
+    
     /**
      * prida hracovi xp, ak bude viac ako pozadovane xp tak mu zvysi uroven
      * @param amount mnozstvo xp
@@ -174,24 +181,22 @@ public class Player extends Creature {
     
     /**
      * Zmeni naladu hraca. Ak je nova nalada null, alebo je to ta ista, tak to nezmeni.
-     * @param newChar 
+     * @param newMood 
      */
-    public void changeMood(Mood newChar) {
-        if (newChar == null) {
+    public void changeMood(Mood newMood) {
+        if (newMood == null) {
             return;
         }
         
-        if (this.mood.equals(newChar)) {
+        if (this.mood.equals(newMood)) {
             return;
         }
         
-        this.mood = newChar;
+        this.mood = newMood;
     }
     
    /**
-    * Zvysi staty cez item. Najprv pozrie ci je to zbran a tak ci je to EquippableItem
-    * metoda bude zavolana pocas equip()
-    * @param item 
+    * ZMENIT
     */
     public void increaseStats(Item item) {
         if (item instanceof EquippableItem) {
@@ -202,10 +207,8 @@ public class Player extends Creature {
     }
     
     /**
-     * Znizi staty cez item
- metoda bude zavolana cez makeUnequipped()
-     * @param item 
-     */
+    * ZMENIT
+    */
     public void decreaseStats(Item item) {
         if (item instanceof EquippableItem) {
             this.bonusHealth -= ((EquippableItem)item).getBonusHp();

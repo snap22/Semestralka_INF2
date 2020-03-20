@@ -7,9 +7,9 @@ package player.basic;
 
 
 import player.characteristics.Mood;
-import items.EquippableItem;
-import items.ItemType;
-import items.Slot;
+import wrongShit.EquippableItem;
+import wrongShit.ItemType;
+import wrongShit.Slot;
 
 /**
  * Trieda ma za ulohu starat sa o equipovanie itemov, unequipovanie itemov, zabezpecit pridanie statov hracovi.

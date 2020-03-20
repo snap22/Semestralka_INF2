@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package patheticTryToMakeItBetter;
+package items.slots;
 
 
-import items.ItemType;
+import items.Item2;
+import wrongShit.ItemType;
 
 /**
  *
@@ -38,9 +39,9 @@ public class Slot2 {
             return false;
         }
         
-        if (this.type != item.getType() && this.type != null) {
+        /*if (this.type != item.getType() && this.type != null) {
             return false;
-        }
+        }*/
         
         
         if (!this.isEmpty()) {

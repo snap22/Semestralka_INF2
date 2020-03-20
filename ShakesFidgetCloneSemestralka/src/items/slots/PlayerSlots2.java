@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package patheticTryToMakeItBetter;
+package items.slots;
 
-import items.ItemType;
+import wrongShit.ItemType;
 import player.basic.Player;
 
 /**
@@ -35,7 +35,7 @@ public class PlayerSlots2 {
      * Ak uz je nahodou ten slot obsadeny, tak vymaze dany item zo slot
      * @param item Predmet ktory chceme vlozit
      */
-    public void equip(Item2 item) {
+    /*public void equip(Item2 item) {
         for (Slot2 slot : this.slots) {
             if (slot.getType() == item.getType()) {
                 if (!slot.isEmpty()) {
@@ -66,7 +66,7 @@ public class PlayerSlots2 {
         
         this.slots[index].getItem().unequip();
         this.slots[index].remove();
-    }
+    }*/
     
     
     

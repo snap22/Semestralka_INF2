@@ -27,7 +27,26 @@ public abstract class Chance {
         
         Random random = new Random();
         int randomNumber = random.nextInt(100);
-        //System.out.format("%d - %b %n", randomNumber, randomNumber < percentage);
         return randomNumber < percentage;
+    }
+    
+    /**
+     * Vrati nahodne cislo v danom rozmedzi, mozu byt iba nezaporne cisla
+     * @param min minimalna hodnota (inclusive)
+     * @param max maximalna hodnota (inclusive)
+     * @return 
+     */
+    public static int random(int min, int max) {
+        if (min >= max) {
+            return max; 
+        }
+        
+        if (min < 0 || max < 0) {
+            return 0; 
+        }
+        
+        
+        Random random = new Random();
+        return (random.nextInt((max - min) + 1) + min);
     }
 }

@@ -6,7 +6,7 @@
 package creatures;
 
 import basic.Chance;
-import items.Item;
+import wrongShit.Item;
 
 
 public class Enemy extends Creature {

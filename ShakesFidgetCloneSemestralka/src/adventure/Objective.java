@@ -7,7 +7,7 @@ package adventure;
 
 import creatures.Creature;
 import creatures.Enemy;
-import items.Item;
+import wrongShit.Item;
 import player.basic.Player;
 
 /**
