@@ -14,4 +14,8 @@ public class Helmet extends Equipment {
         super(name, rarity, goldValue, 0, 1, 1, levelRequired);
     }
     
+    public Helmet() {
+        this("Training Cap", ItemRarity.COMMON, 0, 0);
+    }
+    
 }

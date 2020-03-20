@@ -63,9 +63,11 @@ public abstract class Item2 {
         return this.rarity;
     }
     
+    /* 
     public boolean equals(Item2 another) {
         return (this.name.equals(another.getName()) && (this.rarity == another.getRarity()));
     }
+    */
 
     
     

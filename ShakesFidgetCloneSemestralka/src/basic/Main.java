@@ -45,7 +45,7 @@ public class Main {
         Player player = new Player();
         
         PlayerSlots ps = new PlayerSlots(player);
-        System.out.println(ps.equip((Item2)wep));
+        
         
     }
     

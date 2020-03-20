@@ -14,8 +14,8 @@ import items.equippable.Weapon;
 import player.basic.Player;
 
 /**
- * Trieda zodpoveda za to aby si hrac mohol dať na seba (equipnut) a zo seba rozne predmety
- * @author marce
+ * Trieda zodpoveda za to aby si hrac mohol dať na seba (equipnut) a zo seba rozne predmety a zabezpecuje aby sa vratili do inventory
+ * 
  */
 public class PlayerSlots {
     private Slot<Weapon> weaponSlot;
@@ -24,6 +24,10 @@ public class PlayerSlots {
     private final Player player;
     private Inventory inventory;
     
+    /**
+     * 
+     * @param player hrac ktoreho equipnute itemy bude spravovat
+     */
     public PlayerSlots(Player player) {
         this.weaponSlot = new Slot<Weapon>();
         this.armorSlot = new Slot<Armor>();
@@ -84,6 +88,9 @@ public class PlayerSlots {
     * @return 
     */
     private void equipItem(Slot slot, Equipment item) {
+        if (item.getLevelRequired() > this.player.getLevel()) {
+            return;
+        }
         if (!slot.isEmpty()) {
             Item2 removedItem = slot.remove();
             this.player.decreaseStats((Equipment)removedItem);

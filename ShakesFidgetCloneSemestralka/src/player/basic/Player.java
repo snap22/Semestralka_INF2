@@ -213,6 +213,10 @@ public class Player extends Creature {
     public Inventory getInventory() {
         return this.inventory;
     }
+
+    public int getLevel() {
+        return this.level;
+    }
     
     
     

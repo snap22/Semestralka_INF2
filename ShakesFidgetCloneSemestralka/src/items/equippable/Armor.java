@@ -14,4 +14,8 @@ public class Armor extends Equipment {
         super(name, rarity, goldValue, 0, 1, 1, levelRequired);
     }
     
+    public Armor() {
+        this("Training Armor", ItemRarity.COMMON, 0, 0);
+    }
+    
 }

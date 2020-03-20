@@ -18,6 +18,10 @@ public class Inventory {
     private ArrayList<Item2> slots;
     
     public Inventory(int size) {
+        if (size <= 0) {
+            size = 1;
+        }
+        
         this.slots = new ArrayList<Item2>();
         this.size = size;
         
@@ -32,7 +36,7 @@ public class Inventory {
      * @param item 
      */
     public void addItem(Item2 item) {
-        if (this.slots.size() >= this.size) {
+        if (this.slots.size() > this.size) {
             return;
         }
         
@@ -68,6 +72,26 @@ public class Inventory {
         }
         
         this.slots.remove(item);
+    }
+    
+    public boolean isFull() {
+        return this.slots.size() == this.size;
+    }
+    
+    public Item2 getItem(int index) {
+        if (index < 0 || index >= this.slots.size()) {
+            return null;
+        }
+        
+        return this.slots.get(index);
+    }
+    
+    public int getCurrentSize() {
+        return this.slots.size();
+    }
+    
+    public int getMaxSize() {
+        return this.size;
     }
     
     
