@@ -5,12 +5,12 @@
  */
 package player.basic;
 
-import wrongShit.PlayerSlots;
-import wrongShit.Inventory;
+import items.slots.PlayerSlots;
+import items.slots.Inventory;
 import creatures.Creature;
+import items.Item2;
 import items.equippable.Equipment;
-import wrongShit.EquippableItem;
-import wrongShit.Item;
+
 import player.moods.Beginner;
 import player.moods.Mood;
 
@@ -160,11 +160,11 @@ public class Player extends Creature {
         if (this.mood != null) {
             this.mood.upgrade();
         }
-       
+        
         System.out.format("Reached level %d %n", this.level);
     }
     
-    public void addReward(int xp, int gold, Item item) {
+    public void addReward(int xp, int gold, Item2 item) {
         this.addXp(xp);
         this.addGold(gold);
         this.inventory.addItem(item);
@@ -208,6 +208,10 @@ public class Player extends Creature {
         this.bonusHealth -= item.getBonusHealth();
         this.bonusDamage -= item.getBonusDamage();
         this.armor -= item.getBonusArmor();
+    }
+    
+    public Inventory getInventory() {
+        return this.inventory;
     }
     
     

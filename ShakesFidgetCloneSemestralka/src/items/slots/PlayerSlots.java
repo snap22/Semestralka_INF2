@@ -22,6 +22,7 @@ public class PlayerSlots {
     private Slot<Armor> armorSlot;
     private Slot<Helmet> headSlot;
     private final Player player;
+    private Inventory inventory;
     
     public PlayerSlots(Player player) {
         this.weaponSlot = new Slot<Weapon>();
@@ -29,6 +30,7 @@ public class PlayerSlots {
         this.headSlot = new Slot<Helmet>();
         
         this.player = player;
+        this.inventory = this.player.getInventory();
         
         
     }
@@ -37,18 +39,18 @@ public class PlayerSlots {
      * Pozrie sa kde pasuje dany predmet a ak sa da tak ho da na seba
      * @param item 
      */
-    public boolean equip(Item2 item) {
+    public void equip(Item2 item) {
         if (item instanceof Helmet) {
             this.equip((Helmet)item);
-            return true;
+            
         } else if (item instanceof Armor) {
             this.equip((Armor)item);
-            return true;
+            
         } else if (item instanceof Weapon) {
             this.equip((Weapon)item);
-            return true;
+            
         } else {
-            return false;
+            System.out.println("Nevhodny item pre playera");
         }
         
     }
@@ -58,8 +60,7 @@ public class PlayerSlots {
      * @param item 
      */
     public void equip(Helmet item) {
-        this.headSlot.insert(item);
-        this.player.increaseStats(item);
+        this.equipItem(this.headSlot, item);
     }
     
     /**
@@ -67,8 +68,7 @@ public class PlayerSlots {
      * @param item 
      */
     public void equip(Armor item) {
-        this.armorSlot.insert(item);
-        this.player.increaseStats(item);
+        this.equipItem(this.armorSlot, item);
     }
     
     /**
@@ -76,9 +76,26 @@ public class PlayerSlots {
      * @param item 
      */
     public void equip(Weapon item) {
-        this.weaponSlot.insert(item);
-        this.player.increaseStats(item);
+        this.equipItem(this.weaponSlot, item);
     }
+    
+   /**
+    * Vyberie z inventory a da na hraca. Ak uz je na hracovi equipnuty predmet, tak ho najskor da dole a da do inventory
+    * @return 
+    */
+    private void equipItem(Slot slot, Equipment item) {
+        if (!slot.isEmpty()) {
+            Item2 removedItem = slot.remove();
+            this.player.decreaseStats((Equipment)removedItem);
+            this.inventory.addItem(removedItem);  
+        }
+        
+        this.inventory.removeItem(item);
+        this.player.increaseStats(item);
+        slot.insert(item);
+        
+    }
+    
     
     
     /**
@@ -111,6 +128,11 @@ public class PlayerSlots {
         this.unequipHelmet();
     }
     
+    /**
+     * Podla danej pozicie vymaze item zo slotu, hodi ho do inventory a z hraca da dole staty
+     * @param index
+     * @return 
+     */
     private void unequipAtPosition(int index) {
         Equipment item = null;
         switch (index) {
@@ -126,7 +148,9 @@ public class PlayerSlots {
             default:
                 return;
         }
+        this.inventory.addItem(item);
         this.player.decreaseStats(item);
+        
     }
 
     

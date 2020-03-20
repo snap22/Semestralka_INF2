@@ -7,7 +7,8 @@ package adventure;
 
 import creatures.Creature;
 import creatures.Enemy;
-import wrongShit.Item;
+import items.Item2;
+
 import player.basic.Player;
 
 /**
@@ -24,7 +25,6 @@ public class Objective {
     private final String name;
     private final String description;
     private boolean completed;
-    private final int chanceToGetItem;
 
     /**
      * Kazda misia bude mat nazov, popis misie, bytost ktoru treba zabit (bytost nemoze byt hrac!), 
@@ -42,7 +42,7 @@ public class Objective {
         
         this.goldReward = goldReward;
         this.xpReward = xpReward;
-        this.chanceToGetItem = chanceToGetItem;
+        //this.chanceToGetItem = chanceToGetItem;
         
         this.duration = duration;
         
@@ -69,9 +69,9 @@ public class Objective {
             return;
         }
         int xp = this.xpReward + this.enemy.getXpReward();
-        Item item = this.enemy.dropItem(this.chanceToGetItem);
+        //Item2 item = this.enemy.dropItem(this.chanceToGetItem);
         
-        player.addReward(xp, this.goldReward, item);
+        player.addReward(xp, this.goldReward, null);
         
     }
 

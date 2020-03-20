@@ -7,7 +7,7 @@ package items.slots;
 
 import items.Item2;
 import java.util.ArrayList;
-import java.util.HashMap;
+
 
 /**
  *
@@ -70,8 +70,6 @@ public class Inventory {
         this.slots.remove(item);
     }
     
-    public void equipItem(int index) {
-        
-    }
+    
         
 }
