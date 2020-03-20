@@ -10,8 +10,10 @@ import adventure.Objective;
 import creatures.Creature;
 import creatures.Enemy;
 import creatures.Imp;
+import items.Item2;
 import items.equippable.Weapon;
 import items.slots.Inventory;
+import items.slots.PlayerSlots;
 import items.valuables.Goods;
 import player.basic.Player;
 
@@ -40,7 +42,10 @@ public class Main {
         Weapon wep = new Weapon();
         Goods goodie = new Goods();
         inv.addItem(wep);
+        Player player = new Player();
         
+        PlayerSlots ps = new PlayerSlots(player);
+        System.out.println(ps.equip((Item2)wep));
         
     }
     

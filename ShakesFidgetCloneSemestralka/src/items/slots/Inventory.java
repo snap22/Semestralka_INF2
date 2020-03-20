@@ -7,17 +7,18 @@ package items.slots;
 
 import items.Item2;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
  * @author marce
  */
 public class Inventory {
-    private ArrayList<Slot<Item2>> slots;   //Treba arraylist zo slotov? nestaci arrayList z itemov?!
     private int size;
+    private ArrayList<Item2> slots;
     
     public Inventory(int size) {
-        this.slots = new ArrayList<Slot<Item2>>();
+        this.slots = new ArrayList<Item2>();
         this.size = size;
         
     }
@@ -39,12 +40,8 @@ public class Inventory {
             return;
         }
         
-        for (Slot<Item2> slot : this.slots) {
-            if (slot.isEmpty()) {
-                slot.insert(item);
-                return;
-            }
-        }
+        this.slots.add(item);
+        
     }
     /**
      * Vymaze item na danom indexe v iventory
@@ -62,7 +59,19 @@ public class Inventory {
      * @param item 
      */
     public void removeItem(Item2 item) {
+        if (item == null) {
+            return;
+        }
+        
+        if (!this.slots.contains(item)) {
+            return;
+        }
+        
         this.slots.remove(item);
+    }
+    
+    public void equipItem(int index) {
+        
     }
         
 }

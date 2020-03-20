@@ -37,15 +37,18 @@ public class PlayerSlots {
      * Pozrie sa kde pasuje dany predmet a ak sa da tak ho da na seba
      * @param item 
      */
-    public void equip(Item2 item) {
+    public boolean equip(Item2 item) {
         if (item instanceof Helmet) {
             this.equip((Helmet)item);
+            return true;
         } else if (item instanceof Armor) {
             this.equip((Armor)item);
+            return true;
         } else if (item instanceof Weapon) {
             this.equip((Weapon)item);
+            return true;
         } else {
-            return;
+            return false;
         }
         
     }
