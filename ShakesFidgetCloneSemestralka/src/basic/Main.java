@@ -49,11 +49,11 @@ public class Main {
         
         PlayerSlots ps = new PlayerSlots(player);
         */
-        Armor arm = ItemGenerator.generateArmor();
+        Armor arm = ItemGenerator.generateArmor(5);
         System.out.println(arm);
-        Weapon wep = ItemGenerator.generateWeapon();
+        Weapon wep = ItemGenerator.generateWeapon(4);
         System.out.println(wep);
-        Helmet helm = ItemGenerator.generateHelmet();
+        Helmet helm = ItemGenerator.generateHelmet(-2);
         System.out.println(helm);
         Goods shit = ItemGenerator.generateGoods();
         System.out.println(shit);

@@ -5,6 +5,7 @@
  */
 package items.valuables;
 
+import basic.Chance;
 import items.Item2;
 import items.ItemRarity;
 import java.util.Random;
@@ -34,22 +35,27 @@ public class Goods extends Item2 {
         switch (super.getRarity()) {
             case COMMON:
                 this.dropChance = 100;
-                this.goldValue = this.random.nextInt(5) + 1;       // 1 - 5
+                this.goldValue = Chance.random(1, 5);
+                //this.goldValue = this.random.nextInt(5) + 1;       // 1 - 5
                 break;
             case UNCOMMON:
                 this.dropChance = 50;
-                this.goldValue = this.random.nextInt(10) + 10;      // 10 - 20
+                this.goldValue = Chance.random(10, 20);
+                //this.goldValue = this.random.nextInt(10) + 10;      // 10 - 20
                 break;
             case RARE:
                 this.dropChance = 25;
-                this.goldValue = this.random.nextInt(50) + 50;    // 50 - 100
+                this.goldValue = Chance.random(50, 100);
+                //this.goldValue = this.random.nextInt(50) + 50;    // 50 - 100
                 break;
             case EPIC:
                 this.dropChance = 10;
-                this.goldValue = this.random.nextInt(150) + 100;    // 100 - 250
+                this.goldValue = Chance.random(150, 500);
+                //this.goldValue = this.random.nextInt(150) + 100;    // 100 - 250
                 break;
             default:
-                throw new AssertionError();
+                this.dropChance = 0;
+                this.goldValue = 0;
         }
     }
 
@@ -65,7 +71,7 @@ public class Goods extends Item2 {
 
     @Override
     public String toString() {
-        return String.format("Goods{%s , value= %d }", super.getName(), this.goldValue);
+        return String.format("Goods{%s ,rarity=%s value= %d }", super.getName(), super.getRarity(),  this.goldValue);
     }
     
     

@@ -57,7 +57,7 @@ public abstract class Equipment extends Item2 {
             this.bonusArmor = 1;
             this.bonusDamage = 1;
             this.bonusHealth = 1;
-            this.goldValue = 0;
+            this.goldValue = 1;
             return;
         }
         
