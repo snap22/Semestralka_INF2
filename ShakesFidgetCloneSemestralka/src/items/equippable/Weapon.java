@@ -12,12 +12,12 @@ public class Weapon extends Equipment {
 
     
 
-    public Weapon(String name, ItemRarity rarity, int goldValue, int levelRequired) {
-        super(name, rarity, goldValue, 1, 0, 0, levelRequired);
+    public Weapon(String name, ItemRarity rarity, int levelRequired) {
+        super(name, rarity, 1, 0, 0, levelRequired);
     } 
     
     public Weapon() {
-        this("Training Sword", ItemRarity.COMMON, 0, 0);
+        this("Training Sword", ItemRarity.COMMON, 0);
     }
     
     

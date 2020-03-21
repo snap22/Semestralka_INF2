@@ -10,12 +10,12 @@ import items.ItemRarity;
 
 public class Helmet extends Equipment {
 
-    public Helmet(String name, ItemRarity rarity, int goldValue, int levelRequired) {
-        super(name, rarity, goldValue, 0, 1, 1, levelRequired);
+    public Helmet(String name, ItemRarity rarity, int levelRequired) {
+        super(name, rarity, 0, 1, 1, levelRequired);
     }
     
     public Helmet() {
-        this("Training Cap", ItemRarity.COMMON, 0, 0);
+        this("Training Cap", ItemRarity.COMMON, 0);
     }
     
 }

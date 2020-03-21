@@ -18,8 +18,8 @@ public abstract class Equipment extends Item2 {
     private int levelRequired;
     private int goldValue;
 
-    public Equipment(String name, ItemRarity rarity, int goldValue, int damage, int bonusHealth, int armor, int levelRequired) {
-        super(name, rarity, goldValue);
+    public Equipment(String name, ItemRarity rarity, int damage, int bonusHealth, int armor, int levelRequired) {
+        super(name, rarity, 0);
         this.levelRequired = levelRequired;
         this.nastavHodnoty();
         
