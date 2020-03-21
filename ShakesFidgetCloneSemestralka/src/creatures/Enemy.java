@@ -6,26 +6,27 @@
 package creatures;
 
 import basic.Chance;
-import wrongShit.Item;
+import items.Item2;
+import items.ItemGenerator;
 
 
 public class Enemy extends Creature {
 
     private int xpReward;
-    private final Item itemReward;
+    private Item2 itemReward;
 
-    public Enemy(String name, int maxHealth, int damage, int xpReward, Item itemReward) {
+    public Enemy(String name, int maxHealth, int damage, int xpReward) {
         super(name, maxHealth, damage);
         this.xpReward = xpReward;
-        this.itemReward = itemReward;
+        this.itemReward = ItemGenerator.generateRandomItem(damage);
     }
     
     /**
      * Ma sancu na dropnutie itemu
      * @return bud Item alebo null
      */
-    public Item dropItem(int chance) {
-        if (Chance.generate(chance)) {
+    public Item2 dropItem() {
+        if (Chance.generate(this.itemReward.getDropChance())) {
             return this.itemReward;
         }
         return null;

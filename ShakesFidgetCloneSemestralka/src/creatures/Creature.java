@@ -9,7 +9,7 @@ package creatures;
  *
  * @author marce
  */
-public class Creature {
+public abstract class Creature {
 
     private int health;
     private int currentHealth;
