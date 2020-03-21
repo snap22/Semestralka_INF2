@@ -11,6 +11,9 @@ import creatures.Creature;
 import creatures.Enemy;
 import creatures.Imp;
 import items.Item2;
+import items.ItemGenerator;
+import items.equippable.Armor;
+import items.equippable.Helmet;
 import items.equippable.Weapon;
 import items.slots.Inventory;
 import items.slots.PlayerSlots;
@@ -37,7 +40,7 @@ public class Main {
         Mission mission = new Mission(obj, (Player)player);
         mission.start();
         */
-        
+        /*
         Inventory inv = new Inventory();
         Weapon wep = new Weapon();
         Goods goodie = new Goods();
@@ -45,6 +48,16 @@ public class Main {
         Player player = new Player();
         
         PlayerSlots ps = new PlayerSlots(player);
+        */
+        Armor arm = ItemGenerator.generateArmor();
+        System.out.println(arm);
+        Weapon wep = ItemGenerator.generateWeapon();
+        System.out.println(wep);
+        Helmet helm = ItemGenerator.generateHelmet();
+        System.out.println(helm);
+        Goods shit = ItemGenerator.generateGoods();
+        System.out.println(shit);
+        
         
         
     }

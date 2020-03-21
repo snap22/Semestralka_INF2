@@ -15,8 +15,38 @@ import java.util.Random;
  * Trieda ma za ulohu to, aby vytvorila nahodne itemy
  */
 public abstract class ItemGenerator {
-    
+
     private enum Type { WEAPON, HELMET, ARMOR, GOODS };
+    
+    
+    /**
+     * Vrati nahodne vytvorenu zbran podla zadaneho levelu
+     * @param level
+     * @return 
+     */
+    public static Weapon generateWeapon(int level) {
+        return (Weapon)generate(Type.WEAPON, level);
+    }
+
+    /**
+     * Vytvori nahodne vytvoreny armor podla zadaneho levelu
+     * @param level
+     * @return 
+     */
+    public static Armor generateArmor(int level) {
+        return (Armor)generate(Type.ARMOR, level);
+    }
+
+    /**
+     * Vrati nahodne vytvorenu helmu podla zadaneho levelu
+     * @param level
+     * @return 
+     */
+    public static Helmet generateHelmet(int level) {
+        return (Helmet)generate(Type.HELMET, level);
+    }
+    
+    
     
     /**
      * Vrati nahodne vytvorenu zbran
@@ -69,14 +99,36 @@ public abstract class ItemGenerator {
     }
     
     /**
-     * Vygeneruje item podla zadaneho typu
+     * Vrati nahodny item podla zadaneho levelu
+     * @param level
+     * @return 
+     */
+    public static Item2 generateRandomItem(int level) {
+        int num = new Random().nextInt(4);
+        switch (num) {
+            case 0:
+                return generateWeapon(level);
+            case 1:
+                return generateArmor(level);
+            case 2:
+                return generateHelmet(level);
+            default:
+                return generateGoods();
+        }
+    }
+    
+    /**
+     * Vygeneruje item podla zadaneho typu a levelu
      * @param type typ ktory chceme vytvorit
      * @return 
      */
-    private static Item2 generate(Type type) {
+    private static Item2 generate(Type type, int levelRequired) {
+        if (levelRequired <= 0) {
+            levelRequired = 1;
+        }
+        
         String itemName = getAdjective();
         ItemRarity rarity = ItemRarity.getRandom();
-        int levelRequired = getRandomLevelRequirement();
         switch (type) {
             case WEAPON:
                 itemName += getWeaponName();
@@ -94,6 +146,16 @@ public abstract class ItemGenerator {
                 return null;
         }
         
+    }
+    
+    /**
+     * Vygeneruje nahodny item podla zadaneho typu
+     * @param type
+     * @return 
+     */
+    private static Item2 generate(Type type) {
+        int levelRequired = getRandomLevelRequirement();
+        return generate(type, levelRequired);
     }
 
     /**

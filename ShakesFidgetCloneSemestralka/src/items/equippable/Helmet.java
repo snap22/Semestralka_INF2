@@ -20,7 +20,9 @@ public class Helmet extends Equipment {
     
     @Override
     public String toString() {
-        return String.format("Helmet{%s, health= %d, armor= %d, rarity= %s, value= %d }", super.getName(), super.getBonusHealth(), super.getBonusArmor(), super.getRarity(), super.getGoldValue());
+        return String.format("Helmet{%s, health= %d, armor= %d, rarity= %s, value= %d, required level= %d}", 
+                super.getName(), super.getBonusHealth(), super.getBonusArmor(), super.getRarity(), 
+                super.getGoldValue(), super.getLevelRequired());
     }
     
     
