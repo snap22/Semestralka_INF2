@@ -17,7 +17,7 @@ public class Goods extends Item2 {
     private final Random random;
     
     public Goods(String name, ItemRarity rarity) {
-        super(name, rarity, 0);
+        super(name, rarity);
         this.random = new Random();
         this.nastavHodnoty();
         
@@ -62,6 +62,13 @@ public class Goods extends Item2 {
     public int getGoldValue() {
         return this.goldValue;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Goods{%s , value= %d }", super.getName(), this.goldValue);
+    }
+    
+    
     
     
     

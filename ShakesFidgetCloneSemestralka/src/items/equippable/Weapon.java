@@ -19,6 +19,12 @@ public class Weapon extends Equipment {
     public Weapon() {
         this("Training Sword", ItemRarity.COMMON, 0);
     }
+
+    @Override
+    public String toString() {
+        return String.format("Weapon{%s, damage= %d, rarity= %s, value= %d }", super.getName(), super.getBonusDamage(), super.getRarity(), super.getGoldValue());
+    }
+    
     
     
 }

@@ -13,10 +13,8 @@ public abstract class Item2 {
     
     private ItemRarity rarity;
     private String name;
-    private int goldValue;
 
-    public Item2(String name, ItemRarity rarity, int goldValue) {
-        this.goldValue = goldValue;
+    public Item2(String name, ItemRarity rarity) {
         this.name = name;
         this.rarity = rarity;  
     }
@@ -25,19 +23,10 @@ public abstract class Item2 {
     public String getName() {
         return this.name;
     }
+    
+    public abstract int getGoldValue();
 
-    public int getGoldValue() {
-        return this.goldValue;
-    }
-    
-    @Override 
-    public String toString() {
-        /*return String.format("[Item - %s, rarity %s, value %d, bonus damage %d, bonus health %d, bonus armor %d%n", 
-                this.name, this.rarity, this.goldValue, this.bonusDamage, this.bonusHealth, this.bonusArmor);*/
-        return "";
-    }
-    
-    
+
     /**
      * Podla rarity vrati percentualnu sancu na drop
      * @return 

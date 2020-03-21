@@ -134,9 +134,13 @@ public abstract class ItemGenerator {
         return values[random.nextInt(values.length)];
     }
     
+    /**
+     * Nahodne vrati potrebny level od 1 do 60
+     * @return 
+     */
     private static int getRandomLevelRequirement() {
         Random random = new Random();
-        return random.nextInt(60);
+        return random.nextInt(60) + 1;
     }
     
     

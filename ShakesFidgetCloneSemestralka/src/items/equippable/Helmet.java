@@ -18,4 +18,10 @@ public class Helmet extends Equipment {
         this("Training Cap", ItemRarity.COMMON, 0);
     }
     
+    @Override
+    public String toString() {
+        return String.format("Helmet{%s, health= %d, armor= %d, rarity= %s, value= %d }", super.getName(), super.getBonusHealth(), super.getBonusArmor(), super.getRarity(), super.getGoldValue());
+    }
+    
+    
 }

@@ -18,4 +18,9 @@ public class Armor extends Equipment {
         this("Training Armor", ItemRarity.COMMON, 0);
     }
     
+    @Override
+    public String toString() {
+        return String.format("Armor{%s, health= %d, armor= %d, rarity= %s, value= %d }", super.getName(), super.getBonusHealth(), super.getBonusArmor(), super.getRarity(), super.getGoldValue());
+    }
+    
 }

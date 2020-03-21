@@ -19,7 +19,7 @@ public abstract class Equipment extends Item2 {
     private int goldValue;
 
     public Equipment(String name, ItemRarity rarity, int damage, int bonusHealth, int armor, int levelRequired) {
-        super(name, rarity, 0);
+        super(name, rarity);
         this.levelRequired = levelRequired;
         this.nastavHodnoty();
         
@@ -41,6 +41,14 @@ public abstract class Equipment extends Item2 {
         return this.levelRequired;
     }
     
+    @Override
+    public abstract String toString();
+
+    @Override
+    public int getGoldValue() {
+        return this.goldValue;
+    }
+    
     /**
      * Nastavi hodnoty podla toho, aka je vzacnost a aky je potrebny level  na to aby bol item equipnuty
      */
@@ -60,6 +68,7 @@ public abstract class Equipment extends Item2 {
         int dmg = Chance.random(min, max);
         int armor = Chance.random(min, max);
         int hp = Chance.random(min, max);
+        int gold = Chance.random(0, max);
         
         if (this.bonusArmor == 0 || this.bonusHealth == 0) {
             armor = 0;
@@ -78,6 +87,7 @@ public abstract class Equipment extends Item2 {
                 dmg *= 2;
                 armor *= 2;
                 hp *= 2;
+                gold *= 2;
                 break;
             case RARE:
                 if (this.levelRequired < 10) {
@@ -86,6 +96,7 @@ public abstract class Equipment extends Item2 {
                 dmg *= 4;
                 armor *= 4;
                 hp *= 4;
+                gold *= 4;
                 break;
             case EPIC:
                 if (this.levelRequired < 50) {
@@ -94,12 +105,19 @@ public abstract class Equipment extends Item2 {
                 dmg *= 8;
                 armor *= 8;
                 hp *= 8;
+                gold *= 8;
                 break;
             default:
         }
         this.bonusArmor = armor;
         this.bonusDamage = dmg;
         this.bonusHealth = hp;
+        this.goldValue = gold;
     }
+
+
+    
+    
+    
     
 }
