@@ -5,6 +5,7 @@
  */
 package basic;
 
+import adventure.Fight;
 import adventure.Mission;
 import adventure.Objective;
 import creatures.Creature;
@@ -50,16 +51,21 @@ public class Main {
         PlayerSlots ps = new PlayerSlots(player);
         */
         Armor arm = ItemGenerator.generateArmor(5);
-        System.out.println(arm);
-        Weapon wep = ItemGenerator.generateWeapon(4);
+        //System.out.println(arm);
+        Weapon wep = ItemGenerator.generateWeapon(1);
         System.out.println(wep);
         Helmet helm = ItemGenerator.generateHelmet(-2);
-        System.out.println(helm);
+        //System.out.println(helm);
         Goods shit = ItemGenerator.generateGoods();
-        System.out.println(shit);
+        //System.out.println(shit);
         
-        
-        
+        Player p = new Player(10, 10, null);
+        PlayerSlots ps = new PlayerSlots(p);
+        ps.equip(wep);
+        //System.out.println(p.getDamage());
+        Enemy e = new Enemy("BillyBoy", 20, 1);
+        Fight f = new Fight(p, e);
+        f.begin();
     }
     
 }

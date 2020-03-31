@@ -101,6 +101,29 @@ public abstract class Creature {
         this.currentHealth = this.health;
     }
     
+    /**
+     * Zvysi zivot o dane mnozstvo a instantne healne
+     * @param amount 
+     */
+    protected void increaseHealth(int amount) {
+        if (amount <= 0) {
+            return;
+        }
+        this.health += amount;
+        this.currentHealth = this.health;
+    }
+    
+    /**
+     * Zvysi damage o dane mnozstvo
+     * @param amount 
+     */
+    protected void increaseDamage(int amount) {
+        if (amount <= 0) {
+            return;
+        }
+        this.damage += amount;
+    }
+    
     
     
     

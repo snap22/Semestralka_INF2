@@ -23,11 +23,10 @@ public class Player extends Creature {
     private int currentXp;
     private int level;
     
-    private int damage;
     private int gold;
     
-    private int health;
-    private int currentHealth;
+    //private int health;
+    //private int currentHealth;
     
     private int armor;
     private int bonusHealth;
@@ -40,18 +39,15 @@ public class Player extends Creature {
      * Konstruktor - hlavne pre testovanie
      * @param maxHealth maximalny zivot pre hraca
      * @param damage zakladny damage
-     * @param specialCharacter specialna charakteristika
+     * @param mood specialna charakteristika
      */
-    public Player(int maxHealth, int damage, Mood specialCharacter) {
+    public Player(int maxHealth, int damage, Mood mood) {
         super("The hero", maxHealth, damage);
         
-        this.health = maxHealth;
-        this.currentHealth = maxHealth;
-        this.mood = specialCharacter;
+        this.mood = mood;
         this.requiredXp = 10;
         this.currentXp = 0;
         this.level = 1;
-        this.damage = damage;
         this.gold = 0;
         
         //bonusove veci, moznost zvysit cez itemy, alebo niektore charakteristiky
@@ -71,6 +67,7 @@ public class Player extends Creature {
         this(20, 2, new Beginner());
     }
     
+    
     /**
      * Zautoci na inu bytost, pri tom este spravi specialnu cinnost, ktoru ma kazdy character inu
      * Ak je character null - nespravi tie specialne cinnosti ani neprida bonus damage
@@ -81,7 +78,7 @@ public class Player extends Creature {
         if (super.isDead()) {
             return;
         }
-        int dmg = this.damage + this.bonusDamage; 
+        int dmg = super.getDamage() + this.bonusDamage; 
         if (this.mood != null) {
             this.mood.doSpecialStuff(this);
             dmg += this.mood.gainBonusDamage();
@@ -93,11 +90,12 @@ public class Player extends Creature {
     
     
     /**
-     * zmenit
+     * 
      * @param amount 
      */
     @Override
     public void takeDamage(int amount) {
+        //ToDO  premysliet ARMOR
         int remainingAmount = Math.abs((this.bonusHealth + this.armor) - amount);
         super.takeDamage(remainingAmount); 
         
@@ -152,10 +150,8 @@ public class Player extends Creature {
     private void levelUp() {
         this.level++;
         this.requiredXp += 5;
+        super.increaseHealth(5);
         
-        this.damage += 2;
-        this.health += 5;
-        this.currentHealth = this.health;
         
         if (this.mood != null) {
             this.mood.upgrade();

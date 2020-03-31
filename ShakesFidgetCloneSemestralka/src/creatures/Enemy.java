@@ -21,6 +21,10 @@ public class Enemy extends Creature {
         this.itemReward = ItemGenerator.generateRandomItem(damage);
     }
     
+    public Enemy(String name, int maxHealth, int damage) {
+        this(name, maxHealth, damage, 10);
+    }
+    
     /**
      * Ma sancu na dropnutie itemu
      * @return bud Item alebo null
