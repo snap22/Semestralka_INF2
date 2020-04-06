@@ -5,8 +5,10 @@
  */
 package gui;
 
+import gui.panels.MenuPanel;
 import gui.panels.WelcomePanel;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -17,17 +19,19 @@ import javax.swing.JPanel;
 public class MainFrame extends JFrame {
     
     private JPanel visiblePanel;
-    private JPanel mainPanel;
+    private JPanel menuPanel;
     
     public MainFrame() {
         this.setTitle(" Shakeless Midget - The game of the year 2020");
         this.setSize(800, 600);
-        this.mainPanel = new JPanel();
-        this.mainPanel.setSize(800, 600);
-        this.mainPanel.setLayout(new BorderLayout());
         
+        
+        this.menuPanel = new MenuPanel();
         this.visiblePanel = new WelcomePanel();
-        this.mainPanel.add(this.visiblePanel, BorderLayout.EAST);
+        this.add(this.visiblePanel, BorderLayout.CENTER);
+        this.add(this.menuPanel, BorderLayout.WEST);
+        
+        
         
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);       //ak uzivatel stlaci na X vypne sa program
         

@@ -70,7 +70,7 @@ public class Main {
         f.begin();
         */
         MainFrame mf = new MainFrame();
-        MainFrame mf2 = new MainFrame();
+        
     }
     
 }

@@ -5,7 +5,9 @@
  */
 package gui.panels;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -16,13 +18,15 @@ import javax.swing.JPanel;
 public class WelcomePanel extends JPanel {
 
     public WelcomePanel() {
-        this.setLayout(null);
+        this.setLayout(new BorderLayout());
         JLabel label = new JLabel("Hello world");
-        this.setSize(200, 200);
+        label.setForeground(Color.white);
+        
+        label.setFont(new Font("Verdana", Font.PLAIN, 70));
         
         
         this.setBackground(Color.black);
-        this.add(label);
+        this.add(label, BorderLayout.CENTER);
         
         
     }
