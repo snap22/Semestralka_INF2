@@ -11,6 +11,7 @@ import adventure.Objective;
 import creatures.Creature;
 import creatures.Enemy;
 import creatures.Imp;
+import gui.MainFrame;
 import items.Item2;
 import items.ItemGenerator;
 import items.equippable.Armor;
@@ -50,6 +51,7 @@ public class Main {
         
         PlayerSlots ps = new PlayerSlots(player);
         */
+        /*
         Armor arm = ItemGenerator.generateArmor(5);
         //System.out.println(arm);
         Weapon wep = ItemGenerator.generateWeapon(1);
@@ -66,6 +68,9 @@ public class Main {
         Enemy e = new Enemy("BillyBoy", 20, 1);
         Fight f = new Fight(p, e);
         f.begin();
+        */
+        MainFrame mf = new MainFrame();
+        MainFrame mf2 = new MainFrame();
     }
     
 }
