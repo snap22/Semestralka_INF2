@@ -8,6 +8,7 @@ package gui;
 import gui.panels.MenuPanel;
 import gui.panels.WelcomePanel;
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -25,11 +26,12 @@ public class MainFrame extends JFrame {
         this.setTitle(" Shakeless Midget - The game of the year 2020");
         this.setSize(800, 600);
         
+        Container content = this.getContentPane();
         
         this.menuPanel = new MenuPanel();
         this.visiblePanel = new WelcomePanel();
-        this.add(this.visiblePanel, BorderLayout.CENTER);
-        this.add(this.menuPanel, BorderLayout.WEST);
+        content.add(this.visiblePanel, BorderLayout.CENTER);
+        content.add(this.menuPanel, BorderLayout.WEST);
         
         
         
