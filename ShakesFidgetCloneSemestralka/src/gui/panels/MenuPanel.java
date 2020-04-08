@@ -48,7 +48,7 @@ public class MenuPanel extends JPanel {
         this.createMenuButton("Tavern");
         this.createMenuButton("Shop");
         this.createMenuButton("Hero");
-        this.createMenuButton("Dungeons");
+        //this.createMenuButton("Dungeons");
         
         this.createGap(20);
         
