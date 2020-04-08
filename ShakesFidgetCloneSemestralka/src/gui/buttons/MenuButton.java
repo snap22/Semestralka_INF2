@@ -22,10 +22,10 @@ public class MenuButton extends JButton {
 
     public MenuButton(String text, Dimension dimension) {
         super(text);
-        this.setMaximumSize(new Dimension(dimension.width, 50));
+        this.setMaximumSize(new Dimension(dimension.width, 60));    //50
         Color bgColor = new Color(16, 49, 94);
         Color textColor = new Color(189, 172, 81);
-        Font font = new Font("Comic Sans MS", Font.PLAIN, 30);
+        Font font = new Font("Comic Sans MS", Font.PLAIN, 35);  //30
         
         Border border = new LineBorder(textColor);
         //Font font = new Font("Century", Font.PLAIN, 20);
