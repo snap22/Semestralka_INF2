@@ -5,11 +5,13 @@
  */
 package gui.buttons;
 
+import gui.listeners.MenuPanelAction;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 import javax.swing.border.LineBorder;
@@ -20,9 +22,9 @@ import javax.swing.border.LineBorder;
  */
 public class MenuButton extends JButton {
 
-    
+    private JPanel panel;
 
-    public MenuButton(String text, Dimension dimension) {
+    public MenuButton(String text, Dimension dimension, MenuPanelAction action, JPanel panel) {
         super(text);
         this.setMaximumSize(new Dimension(dimension.width, 60));    //50
         Color bgColor = new Color(16, 49, 94);
@@ -38,20 +40,23 @@ public class MenuButton extends JButton {
         this.setBackground(bgColor);
         this.setForeground(textColor);
         
+        // exception ak by action bolo null?
+        this.addActionListener(action);
         
-        
-        
-       
-        
+        //exception ak by panel bolo null?
+        this.panel = panel;
         
     }
     
     public void toggle() {
-        
         this.setEnabled(!this.isEnabled());
-        
-        
     }
+
+    public JPanel getPanel() {
+        return this.panel;
+    }
+    
+    
     
     
     

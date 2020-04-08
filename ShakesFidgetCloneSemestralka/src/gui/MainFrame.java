@@ -5,11 +5,12 @@
  */
 package gui;
 
+import gui.listeners.IMenuPanelListener;
+import gui.panels.MainPanel;
 import gui.panels.MenuPanel;
 import gui.panels.WelcomePanel;
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -20,19 +21,44 @@ import javax.swing.JPanel;
 public class MainFrame extends JFrame {
     
     private JPanel visiblePanel;
-    private JPanel menuPanel;
+    private MenuPanel menuPanel;
+    
+    private final MainPanel omfg;
+    
+    
     
     public MainFrame() {
         this.setTitle(" Shakeless Midget - The game of the year 2020");
         this.setSize(800, 600);
         
+        
+        
         Container content = this.getContentPane();
         
         this.menuPanel = new MenuPanel();
-        this.visiblePanel = new WelcomePanel();
-        content.add(this.visiblePanel, BorderLayout.CENTER);
-        content.add(this.menuPanel, BorderLayout.WEST);
         
+        //final WelcomePanel text = new WelcomePanel();
+        
+        //this.visiblePanel = text;
+        this.omfg = new MainPanel();
+        final MainPanel omfg2 = new MainPanel();
+        
+        //content.add(this.visiblePanel, BorderLayout.CENTER);
+        content.add(this.menuPanel, BorderLayout.WEST);
+        content.add(this.omfg);
+        content.add(omfg2, BorderLayout.CENTER);
+        
+        this.menuPanel.getAction().setPanelListener(new IMenuPanelListener() {
+            @Override
+            public void changePanel(JPanel newPanel) {
+                omfg2.change(newPanel);
+            }
+            
+        });
+        
+        
+        //this.visiblePanel = p.getPanel();
+        System.out.println(this.visiblePanel);
         
         
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);       //ak uzivatel stlaci na X vypne sa program
@@ -40,16 +66,6 @@ public class MainFrame extends JFrame {
         
         this.setVisible(true);
     }
+
     
-    
-    /**
-     * Zmeni aktualny panel, nie som si isty ci to funguje
-     * @param newPanel 
-     */
-    public void changePanel(JPanel newPanel) {
-        if (newPanel == null || newPanel == this.visiblePanel) {
-            return;
-        } 
-        this.visiblePanel = newPanel;
-    }
 }

@@ -6,9 +6,13 @@
 package gui.panels;
 
 import gui.buttons.MenuButton;
+import gui.listeners.IMenuPanelListener;
+import gui.listeners.MenuPanelAction;
 import java.awt.Color;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import javax.swing.Box;
 
@@ -25,8 +29,11 @@ public class MenuPanel extends JPanel {
     private Dimension size;
     private HashMap<String, JButton> buttons;
     
+    private IMenuPanelListener shit;
+    private MenuPanelAction action;
+    
     public MenuPanel() {
-        
+        this.action = new MenuPanelAction();
         this.buttons = new HashMap<String, JButton>();
 
         this.size = this.getPreferredSize();
@@ -45,20 +52,22 @@ public class MenuPanel extends JPanel {
         this.createGap(10);
         
         // main game buttony
-        this.createMenuButton("Tavern");
-        this.createMenuButton("Shop");
-        this.createMenuButton("Hero");
+        this.createMenuButton("Tavern", new TavernPanel());
+        this.createMenuButton("Shop", new ShopPanel());
+        this.createMenuButton("Hero", new HeroPanel());
         //this.createMenuButton("Dungeons");
         
         this.createGap(20);
         
         //mini game buttony
-        this.createMenuButton("Gamble");    //random od 1 do i, vyska vkladu, vyska vyhry ( v zavislosti od i )
-        this.createMenuButton("Arena");
-        this.createMenuButton("Math");
+        //this.createMenuButton("Gamble");      //random od 1 do i, vyska vkladu, vyska vyhry ( v zavislosti od i )
+        //this.createMenuButton("Arena");       // kto z 2 enemy vyhra?
+        //this.createMenuButton("Math");        // priklady, vypocitat, ak spravne -> bonus gold
         
         
     }
+    
+    
     
     /**
      * Vytvori priestor za poslednym buttonom
@@ -75,13 +84,28 @@ public class MenuPanel extends JPanel {
      * Vytvori button so zadanym textom
      * @param text 
      */
-    private void createMenuButton(String text) {
-        MenuButton newButton = new MenuButton(text, this.size);
+    private void createMenuButton(String text, JPanel panel) {
+        MenuButton newButton = new MenuButton(text, this.size, this.action, panel);
+
         this.add(newButton);
         this.buttons.put(newButton.getText(), newButton);
         this.createGap(5);
+        
                 
     }
+    
+    public void setPanelListener(IMenuPanelListener listener) {
+        if (listener == null) {
+            return;
+        }
+        
+        this.shit = listener;
+    }
+
+    public MenuPanelAction getAction() {
+        return this.action;
+    }
+    
     
     
 }

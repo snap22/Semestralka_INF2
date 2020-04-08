@@ -5,6 +5,10 @@
  */
 package gui.panels;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -12,5 +16,17 @@ import javax.swing.JPanel;
  * @author marce
  */
 public class HeroPanel extends JPanel {
+
+    public HeroPanel() {
+        this.setLayout(new BorderLayout());
+        JLabel label = new JLabel("HERO");
+        label.setForeground(Color.white);
+        
+        label.setFont(new Font("Verdana", Font.PLAIN, 70));
+        
+        
+        this.setBackground(Color.black);
+        this.add(label, BorderLayout.NORTH);
+    }
     
 }
