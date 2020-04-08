@@ -26,9 +26,14 @@ public class MenuPanel extends JPanel {
     private HashMap<String, JButton> buttons;
     
     public MenuPanel() {
+        
         this.buttons = new HashMap<String, JButton>();
-        this.size = new Dimension(200, 30); //vyska moze byt 1 aj tak sa to nemeni
-        this.setBackground(new Color(20, 60, 100));
+
+        this.size = this.getPreferredSize();
+        this.size.width = 200;
+        
+        //this.setBackground(new Color(20, 60, 100));
+        this.setBackground(new Color(26, 26, 53));
         this.setPreferredSize(this.size);
         
         
@@ -43,8 +48,9 @@ public class MenuPanel extends JPanel {
         this.createMenuButton("Tavern");
         this.createMenuButton("Shop");
         this.createMenuButton("Hero");
+        this.createMenuButton("Dungeons");
         
-        this.createGap(10);
+        this.createGap(20);
         
         //mini game buttony
         this.createMenuButton("Gamble");    //random od 1 do i, vyska vkladu, vyska vyhry ( v zavislosti od i )
@@ -58,14 +64,18 @@ public class MenuPanel extends JPanel {
      * Vytvori priestor za poslednym buttonom
      * @param height 
      */
-    void createGap(int height) {
+    private void createGap(int height) {
         if (height <= 0) {
             return;
         }
         this.add(Box.createRigidArea(new Dimension(0, height)));
     }
     
-    void createMenuButton(String text) {
+    /**
+     * Vytvori button so zadanym textom
+     * @param text 
+     */
+    private void createMenuButton(String text) {
         MenuButton newButton = new MenuButton(text, this.size);
         this.add(newButton);
         this.buttons.put(newButton.getText(), newButton);

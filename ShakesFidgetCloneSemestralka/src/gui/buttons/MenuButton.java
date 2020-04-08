@@ -8,8 +8,10 @@ package gui.buttons;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.border.Border;
+
 import javax.swing.border.LineBorder;
 
 /**
@@ -27,12 +29,15 @@ public class MenuButton extends JButton {
         Color textColor = new Color(189, 172, 81);
         Font font = new Font("Comic Sans MS", Font.PLAIN, 35);  //30
         
-        Border border = new LineBorder(textColor);
+        Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
+        Border innerBorder = new LineBorder(textColor, 2);
+        this.setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
         //Font font = new Font("Century", Font.PLAIN, 20);
+        
         this.setFont(font);
         this.setBackground(bgColor);
         this.setForeground(textColor);
-        this.setBorder(border);
+        
         
         
         
