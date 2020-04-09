@@ -13,6 +13,7 @@ import gui.listeners.IMenuPanelListener;
 import gui.listeners.MenuPanelAction;
 import gui.panels.mainPanels.MainPanel;
 import gui.panels.mainPanels.MiniGamePanel;
+import gui.panels.mainPanels.PanelType;
 import java.awt.Color;
 
 import java.awt.Dimension;
@@ -57,17 +58,17 @@ public class MenuPanel extends JPanel {
         this.createGap(10);
         
         // main game buttony
-        this.createMenuButton("Tavern", new TavernPanel());
-        this.createMenuButton("Shop", new ShopPanel());
-        this.createMenuButton("Hero", new HeroPanel());
+        this.createMenuButton("Tavern", PanelType.TAVERN);
+        this.createMenuButton("Shop", PanelType.SHOP);
+        this.createMenuButton("Hero", PanelType.HERO);
         //this.createMenuButton("Dungeons");
         
         this.createGap(20);
         
-        //mini game buttony
-        this.createMenuButton("Gamble", new MiniGamePanel());      //random od 1 do i, vyska vkladu, vyska vyhry ( v zavislosti od i )
-        this.createMenuButton("Arena", new MiniGamePanel());       // kto z 2 enemy vyhra?
-        this.createMenuButton("Math", new MiniGamePanel());        // priklady, vypocitat, ak spravne -> bonus gold
+        //mini game buttony --> asi zmenit type..
+        this.createMenuButton("Gamble", PanelType.MINIGAME);      //random od 1 do i, vyska vkladu, vyska vyhry ( v zavislosti od i )
+        this.createMenuButton("Arena", PanelType.MINIGAME);       // kto z 2 enemy vyhra?
+        this.createMenuButton("Math", PanelType.MINIGAME);        // priklady, vypocitat, ak spravne -> bonus gold
         
         
     }
@@ -89,8 +90,8 @@ public class MenuPanel extends JPanel {
      * Vytvori button so zadanym textom
      * @param text 
      */
-    private void createMenuButton(String text, MainPanel panel) {
-        MenuButton newButton = new MenuButton(text, this.size, this.action, panel);
+    private void createMenuButton(String text, PanelType type) {
+        MenuButton newButton = new MenuButton(text, this.size, this.action, type);
 
         this.add(newButton);
         this.buttons.put(newButton.getText(), newButton);

@@ -6,6 +6,7 @@
 package gui;
 
 import gui.listeners.IMenuPanelListener;
+import gui.listeners.MenuPanelListener;
 import gui.panels.TemporaryPanel;
 import gui.panels.MenuPanel;
 import gui.panels.mainPanels.PanelType;
@@ -25,6 +26,7 @@ public class MainFrame extends JFrame {
     private MenuPanel menuPanel;
     
     private final TemporaryPanel temp;
+    private MenuPanelListener menuPanelListener;
     
     
     
@@ -46,15 +48,10 @@ public class MainFrame extends JFrame {
         content.add(this.menuPanel, BorderLayout.WEST);
         content.add(this.temp, BorderLayout.CENTER);
         
-        this.menuPanel.getAction().setPanelListener(new IMenuPanelListener() {
-            @Override
-            public void changePanel(PanelType type) {
-                //omfg2.change(newPanel);
-                System.out.println(type.toString());
-                temp.changePanel(type);
-            }
-            
-        });
+        this.menuPanelListener = new MenuPanelListener(this.temp);
+        this.menuPanel.getAction().setPanelListener(this.menuPanelListener);
+        
+        
         
         
         //this.visiblePanel = p.getPanel();
