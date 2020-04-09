@@ -7,6 +7,7 @@ package gui.panels.mainPanels;
 
 import adventure.Mission;
 import adventure.Objective;
+import gui.BasicGui;
 import gui.tavern.adventure.MissionPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,21 +20,53 @@ import javax.swing.JLabel;
  */
 public class TavernPanel extends MainPanel {
 
+    private MissionPanel[] adventures;
+    
+    
     public TavernPanel() {
         super(PanelType.TAVERN);
-        this.setLayout(new BorderLayout());
-        JLabel label = new JLabel("TAVERN");
-        label.setForeground(Color.blue);
+        this.adventures = new MissionPanel[3];
+        //this.setLayout(new BorderLayout());
+        JLabel label = new JLabel("TAVERN ADVENTURES");
+        label.setForeground(Color.white);
         
-        label.setFont(new Font("Verdana", Font.PLAIN, 70));
+        label.setFont(BasicGui.getFont(50));
         
         
-        this.setBackground(Color.RED);
-        this.add(label, BorderLayout.NORTH);
+        this.setBackground(Color.black);
+        this.add(label);
         
         //test
+        //Mission mis1 = new Mission(new Objective("The Hunt", "Go and kill!", null, 1, 5, 0, 10 ), null);
+        restart();
+        restart();
+        
+    }
+    
+    public void restart() {
+        this.clear();
+        for (int i = 0; i < this.adventures.length; i++) {
+            this.createMission(i);
+        }
+    }
+    
+    private void createMission(int i) {
+        if (i < 0 || i >= this.adventures.length) {
+            return;
+        }
         Mission mis = new Mission(new Objective("The Hunt", "Go and kill!", null, 1, 5, 0, 10 ), null);
-        this.add(new MissionPanel(mis), BorderLayout.CENTER);
+        
+        this.adventures[i] = new MissionPanel(mis);
+        this.add(this.adventures[i]);
+    }
+    
+    private void clear() {
+        for (int i = 0; i < this.adventures.length; i++) {
+            if (this.adventures[i] == null) {
+                continue;
+            }
+            this.remove(this.adventures[i]);
+        }
     }
     
 }

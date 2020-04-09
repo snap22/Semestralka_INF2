@@ -30,11 +30,11 @@ public class Mission {
      * Pocka dany cas a zacne misiu (t.j. zacne sa suboj). Ak ho hrac vyhra dostane odmenu
      */
     public void start() {
-        try {
+        /*try {
             TimeUnit.SECONDS.sleep(this.objective.getDuration());
         } catch (InterruptedException ex) {
             
-        }
+        }*/
         
         this.fight.begin();
         if (this.fight.playerWin()) {

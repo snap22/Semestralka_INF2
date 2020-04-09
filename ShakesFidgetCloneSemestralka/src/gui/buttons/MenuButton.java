@@ -5,6 +5,7 @@
  */
 package gui.buttons;
 
+import gui.BasicGui;
 import gui.listeners.MenuPanelAction;
 import gui.panels.mainPanels.PanelType;
 import java.awt.Color;
@@ -27,9 +28,9 @@ public class MenuButton extends JButton {
     public MenuButton(String text, Dimension dimension, MenuPanelAction action, PanelType type) {
         super(text);
         this.setMaximumSize(new Dimension(dimension.width, 60));    //50
-        Color bgColor = new Color(16, 49, 94);
-        Color textColor = new Color(189, 172, 81);
-        Font font = new Font("Comic Sans MS", Font.PLAIN, 35);  //30
+        Color bgColor = BasicGui.getDarkBlueColor();
+        Color textColor = BasicGui.getGoldenColor();
+        Font font = BasicGui.getFont(35);  //30
         
         Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
         Border innerBorder = new LineBorder(textColor, 2);
