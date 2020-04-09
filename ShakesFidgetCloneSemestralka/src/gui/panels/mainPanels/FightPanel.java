@@ -16,7 +16,7 @@ import player.basic.Player;
 public class FightPanel extends MainPanel {
 
     public FightPanel() {
-        
+        super(PanelType.OTHER);
     }
     
 }

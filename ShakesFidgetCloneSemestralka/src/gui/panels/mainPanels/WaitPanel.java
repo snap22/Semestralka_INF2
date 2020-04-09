@@ -16,7 +16,7 @@ import player.basic.Player;
 public class WaitPanel extends MainPanel {
 
     public WaitPanel() {
-        
+        super(PanelType.OTHER);
     }
     
 }

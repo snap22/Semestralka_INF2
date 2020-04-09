@@ -36,15 +36,15 @@ public class TavernPanel extends MainPanel {
         JLabel label = new JLabel("TAVERN ADVENTURES");
         label.setForeground(Color.white);
         
-        label.setFont(BasicGui.getFont(30));
-        JButton btn = new JButton("reset");
+        label.setFont(BasicGui.getFont(50));
+        /*JButton btn = new JButton("reset");
         this.add(btn);
         btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 restart();
             }
-        });
+        });*/
         
         
         this.setBackground(Color.black);
@@ -54,7 +54,7 @@ public class TavernPanel extends MainPanel {
         //Mission mis1 = new Mission(new Objective("The Hunt", "Go and kill!", null, 1, 5, 0, 10 ), null);
         this.restart();
         
-        this.repaint();
+        
         
     }
     

@@ -6,6 +6,7 @@
 package gui.panels;
 
 import generators.Generator;
+import gui.panels.mainPanels.FightPanel;
 import gui.panels.mainPanels.HeroPanel;
 import gui.panels.mainPanels.MainPanel;
 import gui.panels.mainPanels.MiniGamePanel;
@@ -54,6 +55,8 @@ public class TemporaryPanel extends JPanel {
         this.createPanel(new TavernPanel(this.gen));
         this.createPanel(new HeroPanel());
         this.createPanel(new ShopPanel());
+        this.createPanel(new MiniGamePanel());
+        this.createPanel(new FightPanel());
         this.createPanel(new MiniGamePanel());
         
         this.setupPanels();
