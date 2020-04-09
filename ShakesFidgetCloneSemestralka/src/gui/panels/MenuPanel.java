@@ -5,20 +5,13 @@
  */
 package gui.panels;
 
-import gui.panels.mainPanels.TavernPanel;
-import gui.panels.mainPanels.ShopPanel;
-import gui.panels.mainPanels.HeroPanel;
 import gui.buttons.MenuButton;
 import gui.listeners.IMenuPanelListener;
 import gui.listeners.MenuPanelAction;
-import gui.panels.mainPanels.MainPanel;
-import gui.panels.mainPanels.MiniGamePanel;
 import gui.panels.mainPanels.PanelType;
 import java.awt.Color;
 
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.HashMap;
 import javax.swing.Box;
 

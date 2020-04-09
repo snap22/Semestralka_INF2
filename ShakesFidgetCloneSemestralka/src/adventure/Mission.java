@@ -15,15 +15,15 @@ import java.util.concurrent.TimeUnit;
  */
 public class Mission {
 
-    private Objective mission;
+    private Objective objective;
     private Fight fight;
     private Player player;
 
-    public Mission(Objective mission, Player player) {
-        this.mission = mission;
+    public Mission(Objective objective, Player player) {
+        this.objective = objective;
         this.player = player;
         
-        this.fight = new Fight(this.player, this.mission.getEnemy());
+        this.fight = new Fight(this.player, this.objective.getEnemy());
     }
     
     /**
@@ -31,17 +31,31 @@ public class Mission {
      */
     public void start() {
         try {
-            TimeUnit.SECONDS.sleep(this.mission.getDuration());
+            TimeUnit.SECONDS.sleep(this.objective.getDuration());
         } catch (InterruptedException ex) {
             
         }
         
         this.fight.begin();
         if (this.fight.playerWin()) {
-            this.mission.complete();
-            this.mission.giveReward(this.player);
+            this.objective.complete();
+            this.objective.giveReward(this.player);
         }
         
         
     }
+
+    public Objective getObjective() {
+        return this.objective;
+    }
+
+    public Fight getFight() {
+        return this.fight;
+    }
+
+    public Player getPlayer() {
+        return this.player;
+    }
+    
+    
 }
