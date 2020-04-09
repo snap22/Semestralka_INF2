@@ -70,7 +70,7 @@ public class Main {
         Fight f = new Fight(p, e);
         f.begin();
         */
-        MainFrame mf = new MainFrame();
+        Game game = new Game();
         
         
     }

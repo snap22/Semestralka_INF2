@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 public abstract class MainPanel extends JPanel {
     
     private PanelType type;
+    
     public MainPanel(PanelType type) {
         this.type = type;
     }

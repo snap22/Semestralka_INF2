@@ -9,12 +9,15 @@ import adventure.Mission;
 import adventure.Objective;
 import creatures.Enemy;
 import java.util.Random;
+import player.basic.Player;
 
 /**
  *
  *  ZATIAL LEN TEST CLASS , ASI SPRAVIT NA KONKRETNU...
  */
-public abstract class Generator {
+public class Generator {
+
+    private final Player player;
     private enum Type { ENEMY, TITLE, DESCRIPTION };
     //nacitalo by zo suboru?
     private static String[] possibleMissionNames = {
@@ -38,26 +41,35 @@ public abstract class Generator {
         "Goblin",
         "Bandit",
     };
-    
-    private static Random random = new Random();
-    public static Mission generateMission() {
-        return new Mission(generateObjective(), null);
+
+    // nacitalo by zo suboru vsetky tieto veci
+    private int descriptionSize;
+    private int enemyNameSize;
+    private int questTitleSize;
+    public Generator(Player player) {
+        this.player = player;
     }
     
-    private static Objective generateObjective() {
+    
+    private static Random random = new Random();
+    public Mission generateMission() {
+        return new Mission(this.generateObjective(), this.player);
+    }
+    
+    public Objective generateObjective() {
         //public Objective(String name, String description, Enemy enemy, int goldReward, int xpReward, int duration)
-        Objective obj = new Objective(chooseWord(Type.TITLE), chooseWord(Type.DESCRIPTION), generateEnemy(), random.nextInt(100), random.nextInt(100), random.nextInt(10) + 1);
+        Objective obj = new Objective(this.chooseWord(Type.TITLE), this.chooseWord(Type.DESCRIPTION), this.generateEnemy(), random.nextInt(100), random.nextInt(100), random.nextInt(10) + 1);
         return obj;
     }
     
-    private static Enemy generateEnemy() {
+    public Enemy generateEnemy() {
         //public Enemy(String name, int maxHealth, int damage, int xpReward)
-        Enemy enemy = new Enemy(chooseWord(Type.ENEMY), random.nextInt(5) + 1, random.nextInt(1) + 1, random.nextInt(100));
+        Enemy enemy = new Enemy(this.chooseWord(Type.ENEMY), this.player.getHealth() - 3, this.player.getDamage() - 2, random.nextInt(100));
         
         return enemy;
     }
     
-    private static String chooseWord(Type type) {
+    private String chooseWord(Type type) {
         int maxSize;
         switch (type) {
             case ENEMY:

@@ -5,6 +5,7 @@
  */
 package gui.panels;
 
+import generators.Generator;
 import gui.panels.mainPanels.HeroPanel;
 import gui.panels.mainPanels.MainPanel;
 import gui.panels.mainPanels.MiniGamePanel;
@@ -20,6 +21,7 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import player.basic.Player;
 
 /**
  *
@@ -32,8 +34,12 @@ public class TemporaryPanel extends JPanel {
     
     private HashMap<String, MainPanel> panels;
     
-    
-    public TemporaryPanel() {
+    private Generator gen;
+    private Player player;
+    public TemporaryPanel(Generator generator, Player player) {
+        this.gen = generator;
+        this.player = player;
+        
         this.setLayout(new BorderLayout());
         this.panelToChange = new JPanel();
         
@@ -45,7 +51,7 @@ public class TemporaryPanel extends JPanel {
         this.panels = new HashMap<String, MainPanel>();
         
         this.createPanel(new WelcomePanel());
-        this.createPanel(new TavernPanel());
+        this.createPanel(new TavernPanel(this.gen));
         this.createPanel(new HeroPanel());
         this.createPanel(new ShopPanel());
         this.createPanel(new MiniGamePanel());

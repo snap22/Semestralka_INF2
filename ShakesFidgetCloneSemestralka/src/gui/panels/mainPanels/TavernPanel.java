@@ -25,11 +25,13 @@ import javax.swing.JLabel;
 public class TavernPanel extends MainPanel {
 
     private MissionPanel[] adventures;
+    private Generator gen;
     
-    
-    public TavernPanel() {
+    public TavernPanel(Generator gen) {
         super(PanelType.TAVERN);
         this.adventures = new MissionPanel[3];
+        
+        this.gen = gen;
         //this.setLayout(new BorderLayout());
         JLabel label = new JLabel("TAVERN ADVENTURES");
         label.setForeground(Color.white);
@@ -67,7 +69,7 @@ public class TavernPanel extends MainPanel {
         if (i < 0 || i >= this.adventures.length) {
             return;
         }
-        Mission mis = Generator.generateMission();
+        Mission mis = this.gen.generateMission();
         
         this.adventures[i] = new MissionPanel(mis);
         this.add(this.adventures[i]);

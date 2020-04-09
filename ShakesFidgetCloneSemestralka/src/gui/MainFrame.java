@@ -5,6 +5,7 @@
  */
 package gui;
 
+import basic.Game;
 import gui.listeners.IMenuPanelListener;
 import gui.listeners.MenuPanelListener;
 import gui.panels.TemporaryPanel;
@@ -27,10 +28,12 @@ public class MainFrame extends JFrame {
     
     private final TemporaryPanel temp;
     private MenuPanelListener menuPanelListener;
+    private final Game game;
     
     
     
-    public MainFrame() {
+    public MainFrame(Game game) {
+        this.game = game;
         this.setTitle(" Shakeless Midget - The game of the year 2020");
         this.setSize(800, 600);
         
@@ -43,7 +46,7 @@ public class MainFrame extends JFrame {
         //final WelcomePanel text = new WelcomePanel();
         
         //this.visiblePanel = text;
-        this.temp = new TemporaryPanel();
+        this.temp = new TemporaryPanel(this.game.getGenerator(), this.game.getPlayer());
         
         content.add(this.menuPanel, BorderLayout.WEST);
         content.add(this.temp, BorderLayout.CENTER);
