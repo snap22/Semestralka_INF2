@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.panels;
+package gui.panels.mainPanels;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,17 +15,18 @@ import javax.swing.JPanel;
  *
  * @author marce
  */
-public class TavernPanel extends JPanel {
+public class HeroPanel extends MainPanel {
 
-    public TavernPanel() {
+    public HeroPanel() {
+        super(PanelType.HERO);
         this.setLayout(new BorderLayout());
-        JLabel label = new JLabel("TAVERN");
-        label.setForeground(Color.blue);
+        JLabel label = new JLabel("HERO");
+        label.setForeground(Color.white);
         
         label.setFont(new Font("Verdana", Font.PLAIN, 70));
         
         
-        this.setBackground(Color.RED);
+        this.setBackground(Color.black);
         this.add(label, BorderLayout.NORTH);
     }
     

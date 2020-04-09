@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.panels;
-
-import javax.swing.JPanel;
+package gui.panels.mainPanels;
 
 /**
  *
  * @author marce
  */
-public class MiniGamePanel extends JPanel {
-    
+public enum PanelType {
+    WELCOME, TAVERN, SHOP, HERO, MINIGAME;//?
 }

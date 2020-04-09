@@ -6,9 +6,9 @@
 package gui;
 
 import gui.listeners.IMenuPanelListener;
-import gui.panels.MainPanel;
+import gui.panels.SwitchablePanel;
 import gui.panels.MenuPanel;
-import gui.panels.WelcomePanel;
+import gui.panels.mainPanels.WelcomePanel;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import javax.swing.JFrame;
@@ -23,7 +23,7 @@ public class MainFrame extends JFrame {
     private JPanel visiblePanel;
     private MenuPanel menuPanel;
     
-    private final MainPanel omfg;
+    private final SwitchablePanel omfg;
     
     
     
@@ -40,18 +40,18 @@ public class MainFrame extends JFrame {
         //final WelcomePanel text = new WelcomePanel();
         
         //this.visiblePanel = text;
-        this.omfg = new MainPanel();
-        final MainPanel omfg2 = new MainPanel();
+        this.omfg = new SwitchablePanel();
+        
         
         //content.add(this.visiblePanel, BorderLayout.CENTER);
         content.add(this.menuPanel, BorderLayout.WEST);
-        content.add(this.omfg);
-        content.add(omfg2, BorderLayout.CENTER);
+        content.add(this.omfg, BorderLayout.CENTER);
+        //content.add(omfg2, BorderLayout.CENTER);
         
         this.menuPanel.getAction().setPanelListener(new IMenuPanelListener() {
             @Override
             public void changePanel(JPanel newPanel) {
-                omfg2.change(newPanel);
+                //omfg2.change(newPanel);
             }
             
         });

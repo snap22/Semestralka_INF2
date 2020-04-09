@@ -5,6 +5,9 @@
  */
 package gui.panels;
 
+import gui.panels.mainPanels.TavernPanel;
+import gui.panels.mainPanels.ShopPanel;
+import gui.panels.mainPanels.HeroPanel;
 import gui.buttons.MenuButton;
 import gui.listeners.IMenuPanelListener;
 import gui.listeners.MenuPanelAction;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.panels;
+package gui.panels.mainPanels;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,12 +19,13 @@ import javax.swing.JTextArea;
  *
  * @author marce
  */
-public class WelcomePanel extends JPanel {
+public class WelcomePanel extends MainPanel {
 
     private final JTextArea text;
     private JScrollPane panel;
 
     public WelcomePanel() {
+        super(PanelType.WELCOME);
         this.setLayout(new BorderLayout());
         JLabel label = new JLabel("Hello world");
         label.setForeground(Color.white);
