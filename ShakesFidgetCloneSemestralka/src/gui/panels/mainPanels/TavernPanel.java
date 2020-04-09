@@ -5,11 +5,13 @@
  */
 package gui.panels.mainPanels;
 
+import adventure.Mission;
+import adventure.Objective;
+import gui.tavern.adventure.MissionPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
  *
@@ -28,6 +30,10 @@ public class TavernPanel extends MainPanel {
         
         this.setBackground(Color.RED);
         this.add(label, BorderLayout.NORTH);
+        
+        //test
+        Mission mis = new Mission(new Objective("The Hunt", "Go and kill!", null, 1, 5, 0, 10 ), null);
+        this.add(new MissionPanel(mis), BorderLayout.CENTER);
     }
     
 }
