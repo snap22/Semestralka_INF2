@@ -37,11 +37,14 @@ public class MenuPanelAction implements ActionListener {
         if (this.listener == null) {
             return;
         }
+        
         if (!(e.getSource() instanceof MenuButton)) {
             return;
         }
         PanelType type = ((MenuButton)e.getSource()).getPanel();
         this.listener.changePanel(type);
+        
+        
     }
     
 }
