@@ -3,20 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.panels.mainPanels;
+package gui.tavern.adventure;
 
-import generators.Generator;
-import gui.panels.TemporaryPanel;
-import player.basic.Player;
+import javax.swing.JLabel;
 
 /**
  *
  * @author marce
  */
-public class FightPanel extends MainPanel {
+public class MissionLabel extends JLabel {
 
-    public FightPanel() {
-        super(PanelType.OTHER);
+    private final String description;
+
+    
+    public MissionLabel(String text) {
+        this.description = text;
     }
     
 }

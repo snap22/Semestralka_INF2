@@ -8,9 +8,6 @@ package gui.tavern.adventure;
 import adventure.Mission;
 import adventure.Objective;
 import gui.BasicGui;
-import gui.listeners.IMenuPanelListener;
-import gui.listeners.MenuPanelAction;
-import gui.panels.mainPanels.PanelType;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -76,7 +73,7 @@ public class MissionPanel extends JPanel {
         this.startbtn.setFont(new Font(BasicGui.getFontName(), Font.BOLD, 15));
         this.startbtn.setBackground(this.gold);
         this.startbtn.setForeground(this.blue);
-       
+        
         
         //  labels setup
         this.setup(objective);
@@ -99,7 +96,7 @@ public class MissionPanel extends JPanel {
         this.createRow("Xp: ", String.valueOf(objective.getXpReward()));
         
         
-        this.movegc(2, 5);
+        this.movegc(1, 5);
         this.gc.anchor = GridBagConstraints.LINE_END;
         this.add(this.startbtn, this.gc);
         //this.gc.weightx = 5;

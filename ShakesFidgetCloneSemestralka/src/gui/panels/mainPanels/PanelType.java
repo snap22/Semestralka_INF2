@@ -10,5 +10,5 @@ package gui.panels.mainPanels;
  * @author marce
  */
 public enum PanelType {
-    WELCOME, TAVERN, SHOP, HERO, MINIGAME, FIGHT, WAIT;//?
+    WELCOME, TAVERN, SHOP, HERO, MINIGAME, OTHER;//?
 }
