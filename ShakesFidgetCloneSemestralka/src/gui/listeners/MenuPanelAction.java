@@ -9,6 +9,7 @@ import gui.buttons.MenuButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import gui.listeners.IMenuPanelListener;
+import gui.panels.mainPanels.PanelType;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -36,10 +37,11 @@ public class MenuPanelAction implements ActionListener {
         if (this.listener == null) {
             return;
         }
-        //System.out.println("Event occured!");
-        //String x = ((JButton)e.getSource()).getText();
-        JPanel switchPanel = ((MenuButton)e.getSource()).getPanel();
-        this.listener.changePanel(switchPanel);
+        if (!(e.getSource() instanceof MenuButton)) {
+            return;
+        }
+        PanelType type = ((MenuButton)e.getSource()).getPanel();
+        this.listener.changePanel(type);
     }
     
 }

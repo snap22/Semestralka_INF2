@@ -6,6 +6,8 @@
 package gui.buttons;
 
 import gui.listeners.MenuPanelAction;
+import gui.panels.mainPanels.MainPanel;
+import gui.panels.mainPanels.PanelType;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -22,9 +24,9 @@ import javax.swing.border.LineBorder;
  */
 public class MenuButton extends JButton {
 
-    private JPanel panel;
+    private MainPanel panel;
 
-    public MenuButton(String text, Dimension dimension, MenuPanelAction action, JPanel panel) {
+    public MenuButton(String text, Dimension dimension, MenuPanelAction action, MainPanel panel) {
         super(text);
         this.setMaximumSize(new Dimension(dimension.width, 60));    //50
         Color bgColor = new Color(16, 49, 94);
@@ -52,8 +54,12 @@ public class MenuButton extends JButton {
         this.setEnabled(!this.isEnabled());
     }
 
-    public JPanel getPanel() {
-        return this.panel;
+    public PanelType getPanel() {
+        return this.panel.getType();
+    }
+    
+    public String getPanelString() {
+        return this.panel.getTypeString();
     }
     
     

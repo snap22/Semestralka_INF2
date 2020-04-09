@@ -5,6 +5,7 @@
  */
 package gui.listeners;
 
+import gui.panels.mainPanels.PanelType;
 import javax.swing.JPanel;
 
 /**
@@ -13,6 +14,6 @@ import javax.swing.JPanel;
  */
 public interface IMenuPanelListener {
     //void changePanel(JPanel panel);
-    void changePanel(JPanel newPanel);
+    void changePanel(PanelType type);
     
 }

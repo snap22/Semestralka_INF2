@@ -11,6 +11,8 @@ import gui.panels.mainPanels.HeroPanel;
 import gui.buttons.MenuButton;
 import gui.listeners.IMenuPanelListener;
 import gui.listeners.MenuPanelAction;
+import gui.panels.mainPanels.MainPanel;
+import gui.panels.mainPanels.MiniGamePanel;
 import java.awt.Color;
 
 import java.awt.Dimension;
@@ -63,9 +65,9 @@ public class MenuPanel extends JPanel {
         this.createGap(20);
         
         //mini game buttony
-        //this.createMenuButton("Gamble");      //random od 1 do i, vyska vkladu, vyska vyhry ( v zavislosti od i )
-        //this.createMenuButton("Arena");       // kto z 2 enemy vyhra?
-        //this.createMenuButton("Math");        // priklady, vypocitat, ak spravne -> bonus gold
+        this.createMenuButton("Gamble", new MiniGamePanel());      //random od 1 do i, vyska vkladu, vyska vyhry ( v zavislosti od i )
+        this.createMenuButton("Arena", new MiniGamePanel());       // kto z 2 enemy vyhra?
+        this.createMenuButton("Math", new MiniGamePanel());        // priklady, vypocitat, ak spravne -> bonus gold
         
         
     }
@@ -87,7 +89,7 @@ public class MenuPanel extends JPanel {
      * Vytvori button so zadanym textom
      * @param text 
      */
-    private void createMenuButton(String text, JPanel panel) {
+    private void createMenuButton(String text, MainPanel panel) {
         MenuButton newButton = new MenuButton(text, this.size, this.action, panel);
 
         this.add(newButton);

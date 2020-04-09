@@ -12,6 +12,7 @@ import creatures.Creature;
 import creatures.Enemy;
 import creatures.Imp;
 import gui.MainFrame;
+import gui.panels.mainPanels.PanelType;
 import items.Item2;
 import items.ItemGenerator;
 import items.equippable.Armor;
@@ -70,6 +71,7 @@ public class Main {
         f.begin();
         */
         MainFrame mf = new MainFrame();
+        
         
     }
     

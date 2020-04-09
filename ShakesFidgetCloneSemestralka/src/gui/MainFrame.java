@@ -8,6 +8,7 @@ package gui;
 import gui.listeners.IMenuPanelListener;
 import gui.panels.SwitchablePanel;
 import gui.panels.MenuPanel;
+import gui.panels.mainPanels.PanelType;
 import gui.panels.mainPanels.WelcomePanel;
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -50,8 +51,9 @@ public class MainFrame extends JFrame {
         
         this.menuPanel.getAction().setPanelListener(new IMenuPanelListener() {
             @Override
-            public void changePanel(JPanel newPanel) {
+            public void changePanel(PanelType type) {
                 //omfg2.change(newPanel);
+                System.out.println(type.toString());
             }
             
         });
