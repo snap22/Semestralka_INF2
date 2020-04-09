@@ -7,11 +7,15 @@ package gui.panels.mainPanels;
 
 import adventure.Mission;
 import adventure.Objective;
+import generators.Generator;
 import gui.BasicGui;
 import gui.tavern.adventure.MissionPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
@@ -30,7 +34,15 @@ public class TavernPanel extends MainPanel {
         JLabel label = new JLabel("TAVERN ADVENTURES");
         label.setForeground(Color.white);
         
-        label.setFont(BasicGui.getFont(50));
+        label.setFont(BasicGui.getFont(30));
+        JButton btn = new JButton("reset");
+        this.add(btn);
+        btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                restart();
+            }
+        });
         
         
         this.setBackground(Color.black);
@@ -38,8 +50,9 @@ public class TavernPanel extends MainPanel {
         
         //test
         //Mission mis1 = new Mission(new Objective("The Hunt", "Go and kill!", null, 1, 5, 0, 10 ), null);
-        restart();
-        restart();
+        this.restart();
+        
+        this.repaint();
         
     }
     
@@ -54,7 +67,7 @@ public class TavernPanel extends MainPanel {
         if (i < 0 || i >= this.adventures.length) {
             return;
         }
-        Mission mis = new Mission(new Objective("The Hunt", "Go and kill!", null, 1, 5, 0, 10 ), null);
+        Mission mis = Generator.generateMission();
         
         this.adventures[i] = new MissionPanel(mis);
         this.add(this.adventures[i]);

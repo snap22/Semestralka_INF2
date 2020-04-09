@@ -13,12 +13,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Image;
-import java.awt.Insets;
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -50,7 +45,7 @@ public class MissionPanel extends JPanel {
     }
     
     public MissionPanel(Objective objective) {
-        this.setPreferredSize(new Dimension(300, 150));
+        this.setPreferredSize(new Dimension(350, 150));
         this.font = BasicGui.getFont(13);
         
         this.gold = BasicGui.getGoldenColor();
@@ -101,11 +96,11 @@ public class MissionPanel extends JPanel {
         this.createRow("Xp: ", String.valueOf(objective.getXpReward()));
         
         
-        this.movegc(7, 5);
+        this.movegc(1, 5);
         this.gc.anchor = GridBagConstraints.LINE_END;
         this.add(this.startbtn, this.gc);
-        this.gc.weightx = 5;
-        this.movegc(7, 5);
+        //this.gc.weightx = 5;
+        //this.movegc(7, 5);
         
        
         

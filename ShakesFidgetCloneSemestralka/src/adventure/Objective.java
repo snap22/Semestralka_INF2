@@ -36,7 +36,7 @@ public class Objective {
      * @param xpReward odmena v xp
      * @param duration  cas trvania 
      */
-    public Objective(String name, String description, Enemy enemy, int goldReward, int xpReward, int chanceToGetItem, int duration) {
+    public Objective(String name, String description, Enemy enemy, int goldReward, int xpReward, int duration) {
         this.name = name;
         this.description = description;
         
@@ -49,8 +49,8 @@ public class Objective {
         this.enemy = enemy; 
     }
     
-    public Objective(String name, Enemy enemy, int goldReward, int xpReward, int chanceToGetItem, int duration) {
-        this(name, "Proste chod a zabi!", enemy, goldReward, xpReward, chanceToGetItem, duration);
+    public Objective(String name, Enemy enemy, int goldReward, int xpReward, int duration) {
+        this(name, "Proste chod a zabi!", enemy, goldReward, xpReward, duration);
     }
     
     /**
@@ -69,9 +69,9 @@ public class Objective {
             return;
         }
         int xp = this.xpReward + this.enemy.getXpReward();
-        //Item2 item = this.enemy.dropItem(this.chanceToGetItem);
+        Item2 item = this.enemy.dropItem();
         
-        player.addReward(xp, this.goldReward, null);
+        player.addReward(xp, this.goldReward, item);
         
     }
 
