@@ -10,6 +10,7 @@ import adventure.Objective;
 import gui.BasicGui;
 import gui.eventTry.Testicek;
 import gui.panels.mainPanels.PanelType;
+import gui.panels.mainPanels.TavernPanel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -43,12 +44,12 @@ public class MissionPanel extends JPanel {
 
     private GridBagConstraints gc;
    
-    public MissionPanel(Mission mission) {
-        this(mission.getObjective());
+    public MissionPanel(Mission mission, TavernPanel tavern) {
+        this(mission.getObjective(), tavern);
         
     }
     
-    public MissionPanel(Objective objective) {
+    public MissionPanel(Objective objective, TavernPanel tavern) {
         this.setPreferredSize(new Dimension(350, 150));
         this.font = BasicGui.getFont(13);
         
@@ -82,11 +83,12 @@ public class MissionPanel extends JPanel {
         //  labels setup
         this.setup(objective);
         
-        final Testicek test = new Testicek();
+        
         this.startbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                test.getPanel().changePanel(PanelType.MINIGAME);
+                Testicek.getPanel().changePanel(PanelType.MINIGAME);
+                tavern.restart();
             }
         });
         

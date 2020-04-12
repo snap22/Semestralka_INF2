@@ -33,7 +33,7 @@ public class TavernPanel extends MainPanel {
         
         this.gen = gen;
         //this.setLayout(new BorderLayout());
-        JLabel label = new JLabel("TAVERN ADVENTURES");
+        JLabel label = new JLabel("Choose your adventure");
         label.setForeground(Color.white);
         
         label.setFont(BasicGui.getFont(50));
@@ -71,7 +71,7 @@ public class TavernPanel extends MainPanel {
         }
         Mission mis = this.gen.generateMission();
         
-        this.adventures[i] = new MissionPanel(mis);
+        this.adventures[i] = new MissionPanel(mis, this);
         this.add(this.adventures[i]);
     }
     
