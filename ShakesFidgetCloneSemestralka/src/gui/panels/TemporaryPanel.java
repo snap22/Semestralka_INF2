@@ -6,6 +6,7 @@
 package gui.panels;
 
 import generators.Generator;
+import gui.eventTry.Testicek;
 import gui.panels.mainPanels.FightPanel;
 import gui.panels.mainPanels.HeroPanel;
 import gui.panels.mainPanels.MainPanel;
@@ -38,6 +39,9 @@ public class TemporaryPanel extends JPanel {
     private Generator gen;
     private Player player;
     public TemporaryPanel(Generator generator, Player player) {
+        Testicek test = new Testicek();
+        test.setPanel(this);
+        
         this.gen = generator;
         this.player = player;
         
@@ -50,6 +54,8 @@ public class TemporaryPanel extends JPanel {
         this.panelToChange.setLayout(this.card);
         
         this.panels = new HashMap<String, MainPanel>();
+        
+        
         
         this.createPanel(new WelcomePanel());
         this.createPanel(new TavernPanel(this.gen));

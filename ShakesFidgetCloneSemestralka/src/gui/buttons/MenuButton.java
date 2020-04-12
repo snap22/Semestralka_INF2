@@ -6,11 +6,14 @@
 package gui.buttons;
 
 import gui.BasicGui;
+import gui.eventTry.Testicek;
 import gui.listeners.MenuPanelAction;
 import gui.panels.mainPanels.PanelType;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.border.Border;
@@ -41,8 +44,18 @@ public class MenuButton extends JButton {
         this.setBackground(bgColor);
         this.setForeground(textColor);
         
+        final PanelType testType = type;
+        
         // exception ak by action bolo null?
-        this.addActionListener(action);
+        //this.addActionListener(action);
+        
+        Testicek test = new Testicek();
+        this.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                test.getPanel().changePanel(testType);
+            }
+        });
         
         //exception ak by type bolo null?
         this.type = type;

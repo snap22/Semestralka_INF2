@@ -58,7 +58,7 @@ public class MainFrame extends JFrame {
         
         
         //this.visiblePanel = p.getPanel();
-        System.out.println(this.visiblePanel);
+        //System.out.println(this.visiblePanel);
         
         
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);       //ak uzivatel stlaci na X vypne sa program

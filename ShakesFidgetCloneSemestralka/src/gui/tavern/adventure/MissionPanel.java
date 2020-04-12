@@ -8,11 +8,15 @@ package gui.tavern.adventure;
 import adventure.Mission;
 import adventure.Objective;
 import gui.BasicGui;
+import gui.eventTry.Testicek;
+import gui.panels.mainPanels.PanelType;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -77,6 +81,14 @@ public class MissionPanel extends JPanel {
         
         //  labels setup
         this.setup(objective);
+        
+        final Testicek test = new Testicek();
+        this.startbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                test.getPanel().changePanel(PanelType.MINIGAME);
+            }
+        });
         
         
         
