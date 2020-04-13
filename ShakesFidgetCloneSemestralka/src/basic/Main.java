@@ -11,6 +11,9 @@ import adventure.Objective;
 import creatures.Creature;
 import creatures.Enemy;
 import creatures.Imp;
+import generators.Generator;
+import generators.LoadFile;
+import generators.Type;
 import gui.MainFrame;
 import gui.panels.mainPanels.PanelType;
 import items.Item2;
@@ -70,7 +73,9 @@ public class Main {
         Fight f = new Fight(p, e);
         f.begin();
         */
+        
         Game game = new Game();
+        
         
         
     }

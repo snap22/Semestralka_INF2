@@ -53,6 +53,7 @@ public class MenuButton extends JButton {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Testicek.getPanel().changePanel(testType);
+                
             }
         });
         
