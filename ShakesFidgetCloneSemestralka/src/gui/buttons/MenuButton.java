@@ -7,7 +7,6 @@ package gui.buttons;
 
 import gui.BasicGui;
 import gui.eventTry.Testicek;
-import gui.listeners.MenuPanelAction;
 import gui.panels.mainPanels.PanelType;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -28,7 +27,7 @@ public class MenuButton extends JButton {
 
     private PanelType type;
 
-    public MenuButton(String text, Dimension dimension, MenuPanelAction action, PanelType type) {
+    public MenuButton(String text, Dimension dimension, PanelType type) {
         super(text);
         this.setMaximumSize(new Dimension(dimension.width, 60));    //50
         Color bgColor = BasicGui.getDarkBlueColor();
@@ -49,11 +48,11 @@ public class MenuButton extends JButton {
         // exception ak by action bolo null?
         //this.addActionListener(action);
         
-        Testicek test = new Testicek();
+        
         this.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                test.getPanel().changePanel(testType);
+                Testicek.getPanel().changePanel(testType);
             }
         });
         

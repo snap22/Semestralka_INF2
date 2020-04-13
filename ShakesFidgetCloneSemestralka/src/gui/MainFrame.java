@@ -6,8 +6,6 @@
 package gui;
 
 import basic.Game;
-import gui.listeners.IMenuPanelListener;
-import gui.listeners.MenuPanelListener;
 import gui.panels.TemporaryPanel;
 import gui.panels.MenuPanel;
 import gui.panels.mainPanels.PanelType;
@@ -27,7 +25,6 @@ public class MainFrame extends JFrame {
     private MenuPanel menuPanel;
     
     private final TemporaryPanel temp;
-    private MenuPanelListener menuPanelListener;
     private final Game game;
     
     
@@ -51,9 +48,7 @@ public class MainFrame extends JFrame {
         content.add(this.menuPanel, BorderLayout.WEST);
         content.add(this.temp, BorderLayout.CENTER);
         
-        this.menuPanelListener = new MenuPanelListener(this.temp);
-        this.menuPanel.getAction().setPanelListener(this.menuPanelListener);
-        
+
         
         
         

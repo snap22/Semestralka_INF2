@@ -17,11 +17,7 @@ import gui.panels.mainPanels.TavernPanel;
 import gui.panels.mainPanels.WelcomePanel;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Container;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.HashMap;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import player.basic.Player;
 
@@ -39,8 +35,7 @@ public class TemporaryPanel extends JPanel {
     private Generator gen;
     private Player player;
     public TemporaryPanel(Generator generator, Player player) {
-        Testicek test = new Testicek();
-        test.setPanel(this);
+        Testicek.setPanel(this);
         
         this.gen = generator;
         this.player = player;
@@ -76,6 +71,7 @@ public class TemporaryPanel extends JPanel {
     private void setupPanels() {
         for (MainPanel panel : this.panels.values()) {
             this.panelToChange.add(panel, panel.getTypeString());
+            
         }
     }
     /**
@@ -114,21 +110,5 @@ public class TemporaryPanel extends JPanel {
         this.card.show(this.panelToChange, type);
     }
  
-    /*
-    //this.tempPanel = new WelcomePanel();
-        this.add(this.panelToChange);
-        this.firstPanel = new TavernPanel();
-        this.firstPanel.add(this.but1);
-        //this.tempPanel = this.firstPanel;
-        
-        this.secondPanel = new HeroPanel();
-        this.secondPanel.add(this.but2);
-        
-        //this.add(this.tempPanel, "0");
-        this.panelToChange.add(this.firstPanel, "1");
-        this.panelToChange.add(this.secondPanel, "2");
-        
-        
-        this.card.show(this.panelToChange, "1");
-    */
+    
 }

@@ -6,8 +6,6 @@
 package gui.panels;
 
 import gui.buttons.MenuButton;
-import gui.listeners.IMenuPanelListener;
-import gui.listeners.MenuPanelAction;
 import gui.panels.mainPanels.PanelType;
 import java.awt.Color;
 
@@ -28,11 +26,10 @@ public class MenuPanel extends JPanel {
     private Dimension size;
     private HashMap<String, JButton> buttons;
     
-    private IMenuPanelListener shit;
-    private MenuPanelAction action;
+    
     
     public MenuPanel() {
-        this.action = new MenuPanelAction();
+        
         this.buttons = new HashMap<String, JButton>();
 
         this.size = this.getPreferredSize();
@@ -84,7 +81,7 @@ public class MenuPanel extends JPanel {
      * @param text 
      */
     private void createMenuButton(String text, PanelType type) {
-        MenuButton newButton = new MenuButton(text, this.size, this.action, type);
+        MenuButton newButton = new MenuButton(text, this.size, type);
 
         this.add(newButton);
         this.buttons.put(newButton.getText(), newButton);
@@ -93,17 +90,7 @@ public class MenuPanel extends JPanel {
                 
     }
     
-    public void setPanelListener(IMenuPanelListener listener) {
-        if (listener == null) {
-            return;
-        }
-        
-        this.shit = listener;
-    }
-
-    public MenuPanelAction getAction() {
-        return this.action;
-    }
+    
     
     
     
