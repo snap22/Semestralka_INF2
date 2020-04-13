@@ -25,6 +25,14 @@ public class PlayerStats {
     private int rareItems;
     private int epicItems;
     
+    private int overallXpGained;
+
+    public PlayerStats() {
+        this.overallXpGained = 0;
+    }
+    
+    
+    
     public void gainedItem(Item2 item) {
         if (item == null) {
             return;

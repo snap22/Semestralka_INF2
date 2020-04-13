@@ -98,26 +98,7 @@ public class Player extends Creature {
         //ToDO  premysliet ARMOR
         int remainingAmount = Math.abs((this.bonusHealth + this.armor) - amount);
         super.takeDamage(remainingAmount); 
-        
-       /* if (super.isDead()) {
-            System.out.println("Already dead.");
-            return;
-        }
-        
-        if (amount <= 0) {
-            return;
-        }
-        
-        int remainingAmount = this.bonusHealth - amount;
-        //daco s armorom este
-        this.currentHealth -= remainingAmount;
-        
-        System.out.format("Player takes %d damage.%n", amount);
-        
-        if (this.currentHealth <= 0) {
-            this.die();
-        }*/
-       
+
     }
     
     
