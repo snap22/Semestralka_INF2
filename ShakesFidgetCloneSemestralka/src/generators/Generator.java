@@ -27,9 +27,9 @@ public class Generator {
     
     public Generator(Player player) {
         this.player = player;
-        this.enemyNames = new LoadFile(Type.ENEMYNAME);
-        this.objectiveTitles = new LoadFile(Type.OBJECTNAME);
-        this.objectiveDescriptions = new LoadFile(Type.OBJECTDESCRIPTION);
+        this.enemyNames = new LoadFile(ExampleType.ENEMYNAME);
+        this.objectiveTitles = new LoadFile(ExampleType.OBJECTNAME);
+        this.objectiveDescriptions = new LoadFile(ExampleType.OBJECTDESCRIPTION);
         this.random = new Random();
     }
     

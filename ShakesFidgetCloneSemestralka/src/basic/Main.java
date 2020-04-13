@@ -13,7 +13,7 @@ import creatures.Enemy;
 import creatures.Imp;
 import generators.Generator;
 import generators.LoadFile;
-import generators.Type;
+import generators.ExampleType;
 import gui.MainFrame;
 import gui.panels.mainPanels.PanelType;
 import items.Item2;

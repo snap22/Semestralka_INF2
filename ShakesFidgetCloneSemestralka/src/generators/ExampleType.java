@@ -8,6 +8,6 @@ package generators;
 /**
  *  Typ pre triedu LoadFile
  */
-public enum Type {
+public enum ExampleType {
     ENEMYNAME, GOODSNAME, ITEMSADJECTIVE, OBJECTDESCRIPTION, OBJECTNAME, WEAPONNAME,
 }

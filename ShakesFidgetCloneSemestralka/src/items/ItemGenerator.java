@@ -5,6 +5,8 @@
  */
 package items;
 
+import generators.ExampleType;
+import generators.LoadFile;
 import items.equippable.Armor;
 import items.equippable.Helmet;
 import items.equippable.Weapon;
@@ -163,9 +165,8 @@ public abstract class ItemGenerator {
      * @return 
      */
     private static String getAdjective() {
-        String[] adjectives = {"Iron ", "Golden ", "Wooden ", "Elemental ", "Magical ", "Overpowered ", "Majestic ", "Astonishing ", 
-            "Stone ", "Brutal ", "Bloody ", "Savage ", "Empowered ", "Shining ", "Diamond ", "Gladiator ", "Training "};
-        return getRandom(adjectives);
+        LoadFile lf = new LoadFile(ExampleType.ITEMSADJECTIVE);
+        return lf.getRandom();
     }
     
     /**
@@ -173,8 +174,8 @@ public abstract class ItemGenerator {
      * @return 
      */
     private static String getWeaponName() {
-        String[] weaponNames = {"Sword", "Axe", "Machette", "Mace", "Hammer", "Spear", "Dagger"};
-        return getRandom(weaponNames);
+        LoadFile lf = new LoadFile(ExampleType.WEAPONNAME);
+        return lf.getRandom();
     }
 
     /**
@@ -182,8 +183,8 @@ public abstract class ItemGenerator {
      * @return 
      */
     private static String getGoodsName() {
-        String[] names = {"Trash", "Pile of trash", "Bone", "Cup", "Broom", "Spoon"};
-        return getRandom(names);
+        LoadFile lf = new LoadFile(ExampleType.GOODSNAME);
+        return lf.getRandom();
     }
     
     /**
@@ -191,10 +192,6 @@ public abstract class ItemGenerator {
      * @param values
      * @return 
      */
-    private static String getRandom(String[] values) {
-        Random random = new Random();
-        return values[random.nextInt(values.length)];
-    }
     
     /**
      * Nahodne vrati potrebny level od 1 do 60

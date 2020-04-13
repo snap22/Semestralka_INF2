@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class LoadFile {
     private ArrayList<String> examples;
     private Random random;
-    public LoadFile(Type type) {
+    public LoadFile(ExampleType type) {
         this.examples = new ArrayList<String>();
         this.random = new Random();
         String destination = "";
