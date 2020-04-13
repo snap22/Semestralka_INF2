@@ -5,17 +5,11 @@
  */
 package gui.panels.mainPanels;
 
-import adventure.Mission;
 import adventure.Objective;
 import generators.Generator;
 import gui.BasicGui;
 import gui.tavern.adventure.MissionPanel;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
@@ -69,9 +63,9 @@ public class TavernPanel extends MainPanel {
         if (i < 0 || i >= this.adventures.length) {
             return;
         }
-        Mission mis = this.gen.generateMission();
+        Objective obj = this.gen.generateObjective();
         
-        this.adventures[i] = new MissionPanel(mis, this);
+        this.adventures[i] = new MissionPanel(obj, this);
         this.add(this.adventures[i]);
     }
     

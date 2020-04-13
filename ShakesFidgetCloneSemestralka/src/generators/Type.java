@@ -6,8 +6,7 @@
 package generators;
 
 /**
- *
- * @author marce
+ *  Typ pre triedu LoadFile
  */
 public enum Type {
     ENEMYNAME, GOODSNAME, ITEMSADJECTIVE, OBJECTDESCRIPTION, OBJECTNAME, WEAPONNAME,

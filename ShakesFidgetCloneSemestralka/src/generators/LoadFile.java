@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author marce
+ * Trieda ktora ma za ulohu precitat z daneho suboru rozne prvky
  */
 public class LoadFile {
     private ArrayList<String> examples;
@@ -63,6 +63,10 @@ public class LoadFile {
         
     }
     
+    /**
+     * Vrati nahodny retazec na zaklade toho akeho typu je trieda
+     * @return 
+     */
     public String getRandom() {
         if (this.examples.isEmpty()) {
             return "Error";
