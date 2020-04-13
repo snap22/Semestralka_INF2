@@ -14,6 +14,7 @@ import gui.panels.mainPanels.MiniGamePanel;
 import gui.panels.mainPanels.PanelType;
 import gui.panels.mainPanels.ShopPanel;
 import gui.panels.mainPanels.TavernPanel;
+import gui.panels.mainPanels.WaitPanel;
 import gui.panels.mainPanels.WelcomePanel;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -58,7 +59,7 @@ public class TemporaryPanel extends JPanel {
         this.createPanel(new ShopPanel());
         this.createPanel(new MiniGamePanel());
         this.createPanel(new FightPanel());
-        this.createPanel(new MiniGamePanel());
+        this.createPanel(new WaitPanel(generator.generateObjective()));
         
         this.setupPanels();
         

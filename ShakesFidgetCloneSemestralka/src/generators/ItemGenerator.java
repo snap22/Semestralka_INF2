@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package items;
+package generators;
 
 import generators.ExampleType;
 import generators.LoadFile;
+import items.Item2;
+import items.ItemRarity;
 import items.equippable.Armor;
 import items.equippable.Helmet;
 import items.equippable.Weapon;

@@ -83,11 +83,11 @@ public class MissionPanel extends JPanel {
         //  labels setup
         this.setup(objective);
         
-        
+        //      ABSOLUTE FAILURE
         this.startbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Testicek.getPanel().changePanel(PanelType.MINIGAME);
+                Testicek.getPanel().changePanel(PanelType.WAIT);
                 tavern.restart();
             }
         });

@@ -7,7 +7,7 @@ package creatures;
 
 import basic.Chance;
 import items.Item2;
-import items.ItemGenerator;
+import generators.ItemGenerator;
 
 
 public class Enemy extends Creature {

@@ -17,7 +17,7 @@ import generators.ExampleType;
 import gui.MainFrame;
 import gui.panels.mainPanels.PanelType;
 import items.Item2;
-import items.ItemGenerator;
+import generators.ItemGenerator;
 import items.equippable.Armor;
 import items.equippable.Helmet;
 import items.equippable.Weapon;
