@@ -5,8 +5,8 @@
  */
 package gui.panels.mainPanels;
 
-import semestralka.game.adventure.Objective;
-import semestralka.game.generators.Generator;
+import adventure.Objective;
+import generators.Generator;
 import gui.BasicGui;
 import gui.panels.TemporaryPanel;
 import java.awt.Color;
@@ -20,7 +20,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
-import semestralka.game.player.basic.Player;
+import player.basic.Player;
 
 /**
  *

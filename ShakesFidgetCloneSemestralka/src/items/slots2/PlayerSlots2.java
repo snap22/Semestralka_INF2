@@ -6,7 +6,7 @@
 package items.slots2;
 
 import wrongShit.ItemType;
-import semestralka.game.player.basic.Player;
+import player.basic.Player;
 
 /**
  *

@@ -5,7 +5,7 @@
  */
 package gui.panels;
 
-import semestralka.game.generators.Generator;
+import generators.Generator;
 import gui.eventTry.Testicek;
 import gui.panels.mainPanels.FightPanel;
 import gui.panels.mainPanels.HeroPanel;
@@ -20,7 +20,7 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.util.HashMap;
 import javax.swing.JPanel;
-import semestralka.game.player.basic.Player;
+import player.basic.Player;
 
 /**
  *
