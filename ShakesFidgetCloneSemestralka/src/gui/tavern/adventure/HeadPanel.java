@@ -16,12 +16,17 @@ import javax.swing.JPanel;
  */
 public class HeadPanel extends JPanel {
 
+    private final JLabel label;
+
     public HeadPanel(String name) {
-        JLabel label = new JLabel(name);
+        this.label = new JLabel(name);
         this.setBackground(Color.black);
-        label.setFont(BasicGui.getFont(50));
-        label.setForeground(Color.white);
-        this.add(label);
+        this.label.setFont(BasicGui.getFont(40));
+        this.label.setForeground(Color.white);
+        this.add(this.label);
     }
     
+    public void changeTitle(String text) {
+        this.label.setText(text);
+    }
 }

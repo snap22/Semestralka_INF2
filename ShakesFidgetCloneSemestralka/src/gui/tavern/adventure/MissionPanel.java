@@ -89,8 +89,8 @@ public class MissionPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 /*Testicek.getPanel().changePanel(PanelType.WAIT);
                 holder.restart();*/
-                holder.getPanel().setWait(objective);
-                System.out.println("Changing");
+                holder.getPanel().showWait(objective);
+                
             }
         });
         
@@ -156,44 +156,7 @@ public class MissionPanel extends JPanel {
         this.gc.gridy = y;
     }
     
-    /*
-    Objective obj = mission.getObjective();
-        this.nameLabel = new JLabel(String.format("Name: %s", obj.getName()));
-        this.descriptionLabel = new JLabel(String.format("Description: %s%n", obj.getDescription()));
-        this.durationLabel = new JLabel(String.format("Duration: %s%n", obj.getDuration()));
-        
-        this.goldRewardLabel = new JLabel(String.format("Gold: %s%n", obj.getGoldReward()));
-        this.xpRewardLabel = new JLabel(String.format("Xp: %s%n", obj.getXpReward()));
-        
-        this.add(this.nameLabel);
-        this.add(this.descriptionLabel);
-        this.add(this.durationLabel);
-        this.add(this.goldRewardLabel);
-        this.add(this.xpRewardLabel);
-        
-        String url = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\pictures\\mission_image.png";
-        ImageIcon img = new ImageIcon(url);
-        ImageIcon img2 = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT));   //IMPORTANT
-        JLabel asd = new JLabel(img2, JLabel.LEFT);
-        
-        this.add(asd);
-    */
     
-    /*
-    Objective obj = mission.getObjective();
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Name: %s%n", obj.getName()));
-        sb.append(String.format("Description: %s%n", obj.getDescription()));
-        sb.append(String.format("Duration: %s%n", obj.getDuration()));
-        sb.append("\n");
-        sb.append(String.format("Gold: %s%n", obj.getGoldReward()));
-        sb.append(String.format("Xp: %s%n", obj.getXpReward()));
-        
-        JLabel newLabel = new JLabel(sb.toString());
-        newLabel.setBackground(Color.red);
-        newLabel.setForeground(Color.white);
-        this.add(newLabel);
-    */
     
     //ImageIcon img2 = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)); --RESIZES THE IMAGE
     

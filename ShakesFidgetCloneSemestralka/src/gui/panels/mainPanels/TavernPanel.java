@@ -14,6 +14,7 @@ import gui.tavern.adventure.MissonHolder;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Component;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import sk.semestralka.shakelessmidget.basic.Game;
@@ -31,6 +32,9 @@ public class TavernPanel extends MainPanel {
     private MissonHolder missionsPanel;
     private final Game game;
     private final CardLayout card;
+    private WaitPanel waitPanel;
+    private final FightPanel fightPanel;
+    private final HeadPanel headPanel;
     
     public TavernPanel(Game game) {
         super(PanelType.TAVERN);
@@ -38,41 +42,40 @@ public class TavernPanel extends MainPanel {
         
         this.game = game;
         this.missionsPanel = new MissonHolder(this, game);
-        
+        this.waitPanel = new WaitPanel(this);
+        this.fightPanel = new FightPanel(game.getPlayer(), this);
         
         this.temporaryPanel = new JPanel();
         this.card = new CardLayout();
         this.temporaryPanel.setLayout(this.card);
+        this.headPanel = new HeadPanel("Choose your adventure");
         
-        
-        this.add(new HeadPanel("Choose your adventure"), BorderLayout.NORTH);
+        this.add(this.headPanel, BorderLayout.NORTH);
         this.add(this.temporaryPanel, BorderLayout.CENTER);
         
         this.setBackground(Color.black);
-        this.setMissions();
+        this.temporaryPanel.add(this.missionsPanel, "0");
+        this.temporaryPanel.add(this.waitPanel, "1");
+        this.temporaryPanel.add(this.fightPanel, "2");
+        
     }
     
-    public void setWait(Objective obj) {
-        WaitPanel newPanel = new WaitPanel(obj, this);
-        this.temporaryPanel = newPanel;
-        this.temporaryPanel.add(newPanel, "1");
-        this.card.show(this.temporaryPanel, "1");
-    }
-    
-    public void setFight() {
-        FightPanel newPanel = new FightPanel();
-        this.temporaryPanel = newPanel;
-        this.temporaryPanel.add(newPanel, "2");
+    public void showFight() {
+        this.headPanel.changeTitle("Dangerous fight in progress");
         this.card.show(this.temporaryPanel, "2");
     }
     
-    public void setMissions() {
-        
-        this.temporaryPanel.add(this.missionsPanel, "0");
-        this.card.show(this.temporaryPanel, "0");
+    public void showWait(Objective obj) {
+        this.headPanel.changeTitle("Waiting eagerly...");
+        this.waitPanel.setup(obj);
+        this.card.show(this.temporaryPanel, "1");
         this.missionsPanel.restart();
     }
     
+    public void showMissions() {
+        this.headPanel.changeTitle("Choose your adventure");
+        this.card.show(this.temporaryPanel, "0");
+    }
    
     
     

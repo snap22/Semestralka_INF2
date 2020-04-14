@@ -26,13 +26,14 @@ import sk.semestralka.shakelessmidget.player.basic.Player;
  *
  * @author marce
  */
-public class WaitPanel extends MainPanel {
+public final class WaitPanel extends MainPanel {
 
     private JButton skipButton;
     private final JProgressBar bar;
     private int timePassed;
     private final JLabel label;
     private final JLabel time;
+    private final TavernPanel tav;
     
     public WaitPanel(Objective obj, TavernPanel tav) {
         super(PanelType.WAIT);
@@ -41,11 +42,14 @@ public class WaitPanel extends MainPanel {
         this.skipButton.setToolTipText(String.format("Price for skipping: %d", price));
         this.setBackground(Color.black);
         this.timePassed = 0;
-        this.label = new JLabel(obj.getName());
+        this.tav = tav;
+        //name
+        this.label = new JLabel();
         this.label.setFont(BasicGui.getFont(50));
         this.label.setForeground(Color.WHITE);
         
-        this.time = new JLabel(String.format("Duration: %d seconds", obj.getDuration()));
+        //time
+        this.time = new JLabel();
         this.time.setFont(BasicGui.getFont(30));
         this.time.setForeground(Color.WHITE);
         
@@ -55,7 +59,7 @@ public class WaitPanel extends MainPanel {
         this.add(Box.createRigidArea(new Dimension(0, 300)));
         
         
-        this.bar = new JProgressBar(0, obj.getDuration());
+        this.bar = new JProgressBar(0, 100);
         
         
         this.add(this.bar);
@@ -77,27 +81,40 @@ public class WaitPanel extends MainPanel {
         this.add(restart);
         
         JButton change = new JButton("change");
-        restart.addActionListener(new ActionListener() {
+        change.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tav.setFight(); //zmenit cez listener
-                
+               // tav.showFight(); //zmenit cez listener
+                WaitPanel.this.timePassed += 1000;
             }
         });
         
         this.add(change);
+        if (obj != null) {
+            this.setup(obj); 
+        }
+        
         
         
         
         
     }
+
+    public WaitPanel(TavernPanel tav) {
+        this(null, tav);
+    }
+    
+    
+    
     
     public void setup(Objective newObj) {
+        this.timePassed = 0;
         this.bar.setValue(0);
         this.bar.setMaximum(newObj.getDuration());
         this.label.setText(newObj.getName());
         this.time.setText(String.format("Duration: %d seconds", newObj.getDuration()));
         this.beginCalc();
+        
     }
     
     private void beginCalc() {
@@ -112,6 +129,8 @@ public class WaitPanel extends MainPanel {
                 if (WaitPanel.this.timePassed >= WaitPanel.this.bar.getMaximum()) {
                     
                     t.cancel();
+                    
+                    tav.showFight();
                 }
             }
         }, 0, 1000);
