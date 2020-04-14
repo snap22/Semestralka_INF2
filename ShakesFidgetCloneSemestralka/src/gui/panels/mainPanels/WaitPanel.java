@@ -68,36 +68,13 @@ public final class WaitPanel extends MainPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 WaitPanel.this.beginCalc();
-            }
-        });
-        JButton restart = new JButton("restart");
-        restart.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                WaitPanel.this.timePassed = 0;
-            }
-        });
-        
-        this.add(restart);
-        
-        JButton change = new JButton("change");
-        change.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-               // tav.showFight(); //zmenit cez listener
                 WaitPanel.this.timePassed += 1000;
             }
         });
-        
-        this.add(change);
+
         if (obj != null) {
             this.setup(obj); 
         }
-        
-        
-        
-        
-        
     }
 
     public WaitPanel(TavernPanel tav) {
