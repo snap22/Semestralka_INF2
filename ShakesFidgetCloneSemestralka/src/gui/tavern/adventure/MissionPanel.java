@@ -44,12 +44,12 @@ public class MissionPanel extends JPanel {
 
     private GridBagConstraints gc;
    
-    public MissionPanel(Mission mission, TavernPanel tavern) {
-        this(mission.getObjective(), tavern);
+    public MissionPanel(Mission mission, MissonHolder holder) {
+        this(mission.getObjective(), holder);
         
     }
     
-    public MissionPanel(Objective objective, TavernPanel tavern) {
+    public MissionPanel(Objective objective, MissonHolder holder) {
         this.setPreferredSize(new Dimension(350, 150));
         this.font = BasicGui.getFont(13);
         
@@ -87,8 +87,10 @@ public class MissionPanel extends JPanel {
         this.startbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Testicek.getPanel().changePanel(PanelType.WAIT);
-                tavern.restart();
+                /*Testicek.getPanel().changePanel(PanelType.WAIT);
+                holder.restart();*/
+                holder.getPanel().setWait(objective);
+                System.out.println("Changing");
             }
         });
         

@@ -31,25 +31,27 @@ public class WaitPanel extends MainPanel {
     private JButton skipButton;
     private final JProgressBar bar;
     private int timePassed;
+    private final JLabel label;
+    private final JLabel time;
     
-    public WaitPanel(Objective obj) {
+    public WaitPanel(Objective obj, TavernPanel tav) {
         super(PanelType.WAIT);
         int price = 50;
         this.skipButton = new JButton("Skip");
         this.skipButton.setToolTipText(String.format("Price for skipping: %d", price));
         this.setBackground(Color.black);
         this.timePassed = 0;
-        JLabel label = new JLabel(obj.getName());
-        label.setFont(BasicGui.getFont(50));
-        label.setForeground(Color.WHITE);
+        this.label = new JLabel(obj.getName());
+        this.label.setFont(BasicGui.getFont(50));
+        this.label.setForeground(Color.WHITE);
         
-        JLabel time = new JLabel(String.format("Duration: %d", obj.getDuration()));
-        time.setFont(BasicGui.getFont(30));
-        time.setForeground(Color.WHITE);
+        this.time = new JLabel(String.format("Duration: %d seconds", obj.getDuration()));
+        this.time.setFont(BasicGui.getFont(30));
+        this.time.setForeground(Color.WHITE);
         
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.add(label);
-        this.add(time);
+        this.add(this.label);
+        this.add(this.time);
         this.add(Box.createRigidArea(new Dimension(0, 300)));
         
         
@@ -74,9 +76,28 @@ public class WaitPanel extends MainPanel {
         
         this.add(restart);
         
+        JButton change = new JButton("change");
+        restart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tav.setFight(); //zmenit cez listener
+                
+            }
+        });
+        
+        this.add(change);
         
         
         
+        
+    }
+    
+    public void setup(Objective newObj) {
+        this.bar.setValue(0);
+        this.bar.setMaximum(newObj.getDuration());
+        this.label.setText(newObj.getName());
+        this.time.setText(String.format("Duration: %d seconds", newObj.getDuration()));
+        this.beginCalc();
     }
     
     private void beginCalc() {

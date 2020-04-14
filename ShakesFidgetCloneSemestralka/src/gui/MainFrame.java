@@ -43,7 +43,7 @@ public class MainFrame extends JFrame {
         //final WelcomePanel text = new WelcomePanel();
         
         //this.visiblePanel = text;
-        this.temp = new TemporaryPanel(this.game.getGenerator(), this.game.getPlayer());
+        this.temp = new TemporaryPanel(this.game);
         
         content.add(this.menuPanel, BorderLayout.WEST);
         content.add(this.temp, BorderLayout.CENTER);

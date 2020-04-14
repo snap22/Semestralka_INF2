@@ -5,9 +5,9 @@
  */
 package gui.panels.mainPanels;
 
-import sk.semestralka.shakelessmidget.generators.Generator;
-import gui.panels.TemporaryPanel;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+
+import java.awt.Color;
+
 
 /**
  *
@@ -17,6 +17,7 @@ public class FightPanel extends MainPanel {
 
     public FightPanel() {
         super(PanelType.OTHER);
+        this.setBackground(Color.green);
     }
     
 }

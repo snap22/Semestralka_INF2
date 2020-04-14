@@ -20,6 +20,7 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.util.HashMap;
 import javax.swing.JPanel;
+import sk.semestralka.shakelessmidget.basic.Game;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
@@ -35,11 +36,11 @@ public class TemporaryPanel extends JPanel {
     
     private Generator gen;
     private Player player;
-    public TemporaryPanel(Generator generator, Player player) {
+    public TemporaryPanel(Game game) {
         Testicek.setPanel(this);
         
-        this.gen = generator;
-        this.player = player;
+        this.gen = game.getGenerator();
+        this.player = game.getPlayer();
         
         this.setLayout(new BorderLayout());
         this.panelToChange = new JPanel();
@@ -54,12 +55,12 @@ public class TemporaryPanel extends JPanel {
         
         
         this.createPanel(new WelcomePanel());
-        this.createPanel(new TavernPanel(this.gen));
+        this.createPanel(new TavernPanel(game));
         this.createPanel(new HeroPanel());
         this.createPanel(new ShopPanel());
         this.createPanel(new MiniGamePanel());
         this.createPanel(new FightPanel());
-        this.createPanel(new WaitPanel(generator.generateObjective()));
+        //this.createPanel(new WaitPanel(this.gen.generateObjective()));
         
         this.setupPanels();
         

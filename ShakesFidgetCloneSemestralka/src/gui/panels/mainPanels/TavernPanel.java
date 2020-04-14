@@ -8,9 +8,15 @@ package gui.panels.mainPanels;
 import sk.semestralka.shakelessmidget.adventure.Objective;
 import sk.semestralka.shakelessmidget.generators.Generator;
 import gui.BasicGui;
+import gui.tavern.adventure.HeadPanel;
 import gui.tavern.adventure.MissionPanel;
+import gui.tavern.adventure.MissonHolder;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import sk.semestralka.shakelessmidget.basic.Game;
 
 /**
  *
@@ -21,61 +27,56 @@ public class TavernPanel extends MainPanel {
     private MissionPanel[] adventures;
     private Generator gen;
     
-    public TavernPanel(Generator gen) {
+    private JPanel temporaryPanel;
+    private MissonHolder missionsPanel;
+    private final Game game;
+    private final CardLayout card;
+    
+    public TavernPanel(Game game) {
         super(PanelType.TAVERN);
-        this.adventures = new MissionPanel[3];
+        this.setLayout(new BorderLayout());
         
-        this.gen = gen;
-        //this.setLayout(new BorderLayout());
-        JLabel label = new JLabel("Choose your adventure");
-        label.setForeground(Color.white);
+        this.game = game;
+        this.missionsPanel = new MissonHolder(this, game);
         
-        label.setFont(BasicGui.getFont(50));
-        /*JButton btn = new JButton("reset");
-        this.add(btn);
-        btn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                restart();
-            }
-        });*/
         
+        this.temporaryPanel = new JPanel();
+        this.card = new CardLayout();
+        this.temporaryPanel.setLayout(this.card);
+        
+        
+        this.add(new HeadPanel("Choose your adventure"), BorderLayout.NORTH);
+        this.add(this.temporaryPanel, BorderLayout.CENTER);
         
         this.setBackground(Color.black);
-        this.add(label);
-        
-        //test
-        //Mission mis1 = new Mission(new Objective("The Hunt", "Go and kill!", null, 1, 5, 0, 10 ), null);
-        this.restart();
-        
-        
-        
+        this.setMissions();
     }
     
-    public void restart() {
-        this.clear();
-        for (int i = 0; i < this.adventures.length; i++) {
-            this.createMission(i);
-        }
+    public void setWait(Objective obj) {
+        WaitPanel newPanel = new WaitPanel(obj, this);
+        this.temporaryPanel = newPanel;
+        this.temporaryPanel.add(newPanel, "1");
+        this.card.show(this.temporaryPanel, "1");
     }
     
-    private void createMission(int i) {
-        if (i < 0 || i >= this.adventures.length) {
-            return;
-        }
-        Objective obj = this.gen.generateObjective();
+    public void setFight() {
+        FightPanel newPanel = new FightPanel();
+        this.temporaryPanel = newPanel;
+        this.temporaryPanel.add(newPanel, "2");
+        this.card.show(this.temporaryPanel, "2");
+    }
+    
+    public void setMissions() {
         
-        this.adventures[i] = new MissionPanel(obj, this);
-        this.add(this.adventures[i]);
+        this.temporaryPanel.add(this.missionsPanel, "0");
+        this.card.show(this.temporaryPanel, "0");
+        this.missionsPanel.restart();
     }
     
-    private void clear() {
-        for (int i = 0; i < this.adventures.length; i++) {
-            if (this.adventures[i] == null) {
-                continue;
-            }
-            this.remove(this.adventures[i]);
-        }
-    }
+   
+    
+    
+    
+    
     
 }

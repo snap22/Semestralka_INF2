@@ -90,7 +90,7 @@ public class Player extends Creature {
     
     
     /**
-     * 
+     * Hrac prijme utok
      * @param amount 
      */
     @Override
