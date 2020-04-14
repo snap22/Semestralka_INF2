@@ -6,7 +6,7 @@
 package items.slots2;
 
 
-import items.Item2;
+import semestralka.game.items.Item2;
 import wrongShit.ItemType;
 
 /**

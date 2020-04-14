@@ -6,8 +6,8 @@
 package wrongShit;
 
 
-import player.basic.Player;
-import player.moods.Mood;
+import semestralka.game.player.basic.Player;
+import semestralka.game.player.moods.Mood;
 import wrongShit.EquippableItem;
 import wrongShit.ItemType;
 import wrongShit.Slot;

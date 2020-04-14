@@ -5,14 +5,14 @@
  */
 package test.itemsTesting;
 
-import items.Item2;
-import items.equippable.Armor;
-import items.equippable.Helmet;
-import items.equippable.Weapon;
-import items.slots.Inventory;
-import items.slots.PlayerSlots;
-import items.slots.Slot;
-import items.valuables.Goods;
+import semestralka.game.items.Item2;
+import semestralka.game.items.equippable.Armor;
+import semestralka.game.items.equippable.Helmet;
+import semestralka.game.items.equippable.Weapon;
+import semestralka.game.items.slots.Inventory;
+import semestralka.game.items.slots.PlayerSlots;
+import semestralka.game.items.slots.Slot;
+import semestralka.game.items.valuables.Goods;
 import junit.framework.Assert;
 
 
@@ -22,7 +22,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import player.basic.Player;
+import semestralka.game.player.basic.Player;
 
 /**
  *

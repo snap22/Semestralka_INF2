@@ -5,8 +5,8 @@
  */
 package gui.tavern.adventure;
 
-import adventure.Mission;
-import adventure.Objective;
+import semestralka.game.adventure.Mission;
+import semestralka.game.adventure.Objective;
 import gui.BasicGui;
 import gui.eventTry.Testicek;
 import gui.panels.mainPanels.PanelType;

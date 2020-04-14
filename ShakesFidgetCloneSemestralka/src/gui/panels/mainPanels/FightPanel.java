@@ -5,9 +5,9 @@
  */
 package gui.panels.mainPanels;
 
-import generators.Generator;
+import semestralka.game.generators.Generator;
 import gui.panels.TemporaryPanel;
-import player.basic.Player;
+import semestralka.game.player.basic.Player;
 
 /**
  *

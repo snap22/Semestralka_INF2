@@ -5,8 +5,8 @@
  */
 package gui.panels.mainPanels;
 
-import adventure.Objective;
-import generators.Generator;
+import semestralka.game.adventure.Objective;
+import semestralka.game.generators.Generator;
 import gui.BasicGui;
 import gui.tavern.adventure.MissionPanel;
 import java.awt.Color;
