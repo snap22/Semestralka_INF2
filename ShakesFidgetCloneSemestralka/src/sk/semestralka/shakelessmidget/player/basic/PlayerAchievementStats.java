@@ -12,7 +12,7 @@ import sk.semestralka.shakelessmidget.items.items.Item2;
  * Stara sa o informacie kolko missii splnil, kolkych enemy zabil, s kolkymi bojoval (% uspesnost), kolko itemov ziskal, 
  * kolko common/uncommon/rare/epic itemov vlastnil, kolko goldov ziskal dokopy, aky ma level
  */
-public class PlayerStats {
+public class PlayerAchievementStats {
     private int creaturesKilled;
     private int missionsCompleted;
     private int missionsEntered;
@@ -27,7 +27,7 @@ public class PlayerStats {
     
     private int overallXpGained;
 
-    public PlayerStats() {
+    public PlayerAchievementStats() {
         this.overallXpGained = 0;
     }
     
