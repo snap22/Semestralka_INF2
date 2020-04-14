@@ -5,8 +5,8 @@
  */
 package gui.panels.mainPanels;
 
-import adventure.Objective;
-import generators.Generator;
+import sk.semestralka.shakelessmidget.adventure.Objective;
+import sk.semestralka.shakelessmidget.generators.Generator;
 import gui.BasicGui;
 import gui.panels.TemporaryPanel;
 import java.awt.Color;
@@ -20,7 +20,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
-import player.basic.Player;
+import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  *

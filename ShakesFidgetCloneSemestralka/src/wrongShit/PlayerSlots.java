@@ -6,8 +6,8 @@
 package wrongShit;
 
 
-import player.basic.Player;
-import player.moods.Mood;
+import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.player.moods.Mood;
 import wrongShit.EquippableItem;
 import wrongShit.ItemType;
 import wrongShit.Slot;

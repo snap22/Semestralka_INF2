@@ -5,14 +5,14 @@
  */
 package test.itemsTesting;
 
-import items.Item2;
-import items.equippable.Armor;
-import items.equippable.Helmet;
-import items.equippable.Weapon;
-import items.slots.Inventory;
-import items.slots.PlayerSlots;
-import items.slots.Slot;
-import items.valuables.Goods;
+import sk.semestralka.shakelessmidget.items.items.Item2;
+import sk.semestralka.shakelessmidget.items.equippable.Armor;
+import sk.semestralka.shakelessmidget.items.equippable.Helmet;
+import sk.semestralka.shakelessmidget.items.equippable.Weapon;
+import sk.semestralka.shakelessmidget.items.slots.Inventory;
+import sk.semestralka.shakelessmidget.items.slots.PlayerSlots;
+import sk.semestralka.shakelessmidget.items.slots.Slot;
+import sk.semestralka.shakelessmidget.items.valuables.Goods;
 import junit.framework.Assert;
 
 
@@ -22,7 +22,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import player.basic.Player;
+import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  *

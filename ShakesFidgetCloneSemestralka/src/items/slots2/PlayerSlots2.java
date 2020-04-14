@@ -6,7 +6,7 @@
 package items.slots2;
 
 import wrongShit.ItemType;
-import player.basic.Player;
+import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  *

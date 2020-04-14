@@ -5,9 +5,9 @@
  */
 package gui.panels.mainPanels;
 
-import generators.Generator;
+import sk.semestralka.shakelessmidget.generators.Generator;
 import gui.panels.TemporaryPanel;
-import player.basic.Player;
+import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  *

@@ -5,8 +5,8 @@
  */
 package gui.tavern.adventure;
 
-import adventure.Mission;
-import adventure.Objective;
+import sk.semestralka.shakelessmidget.adventure.Mission;
+import sk.semestralka.shakelessmidget.adventure.Objective;
 import gui.BasicGui;
 import gui.eventTry.Testicek;
 import gui.panels.mainPanels.PanelType;

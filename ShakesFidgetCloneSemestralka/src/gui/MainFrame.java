@@ -5,7 +5,7 @@
  */
 package gui;
 
-import basic.Game;
+import sk.semestralka.shakelessmidget.basic.Game;
 import gui.panels.TemporaryPanel;
 import gui.panels.MenuPanel;
 import gui.panels.mainPanels.PanelType;

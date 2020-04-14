@@ -5,7 +5,7 @@
  */
 package items.slots2;
 
-import items.Item2;
+import sk.semestralka.shakelessmidget.items.items.Item2;
 
 /**
  *

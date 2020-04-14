@@ -5,8 +5,8 @@
  */
 package gui.panels.mainPanels;
 
-import adventure.Objective;
-import generators.Generator;
+import sk.semestralka.shakelessmidget.adventure.Objective;
+import sk.semestralka.shakelessmidget.generators.Generator;
 import gui.BasicGui;
 import gui.tavern.adventure.MissionPanel;
 import java.awt.Color;
