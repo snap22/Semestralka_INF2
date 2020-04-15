@@ -13,7 +13,7 @@ import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  *
- *  Trieda ktora generuje nahodne veci
+ *  Trieda, ktorej úlohou je generovanie náhodných vecí
  */
 public class Generator {
 
@@ -24,7 +24,10 @@ public class Generator {
     private Random random;
  
     
-    
+    /**
+     * 
+     * @param player 
+     */
     public Generator(Player player) {
         this.player = player;
         this.enemyNames = new LoadFile(ExampleType.ENEMYNAME);
@@ -35,14 +38,21 @@ public class Generator {
     
     
     
-
+    /**
+     * Vytvorí a vráti inštanciu triedy Objective s náhodnými parametrami
+     * @return 
+     */
     public Objective generateObjective() {
         String description = this.objectiveDescriptions.getRandom();
         String title = this.objectiveTitles.getRandom();
-        Objective obj = new Objective(title, description, this.generateEnemy(), this.random.nextInt(100), this.random.nextInt(100), this.random.nextInt(10) + 1);
+        Objective obj = new Objective(title, description, this.generateEnemy(), this.random.nextInt(100) + 1, this.random.nextInt(100) + 1, this.random.nextInt(15) + 5);
         return obj;
     }
     
+    /**
+     * Vytvorí a vráti náhodného nepriateľa
+     * @return 
+     */
     public Enemy generateEnemy() {
         Enemy enemy = new Enemy(this.enemyNames.getRandom(), this.player.getHealth() - 3, this.player.getDamage() - 2, this.random.nextInt(100));
         

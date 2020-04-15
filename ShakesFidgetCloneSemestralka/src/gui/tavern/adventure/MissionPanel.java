@@ -26,7 +26,7 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 /**
- *
+ *  Trieda ktorej úlohou je grafické zobrazenie dostupných misií a ich začatie
  * @author marce
  */
 public class MissionPanel extends JPanel {
@@ -78,7 +78,7 @@ public class MissionPanel extends JPanel {
         this.startbtn.setFont(new Font(BasicGui.getFontName(), Font.BOLD, 15));
         this.startbtn.setBackground(this.gold);
         this.startbtn.setForeground(this.blue);
-        
+        this.startbtn.setToolTipText("Click here to begin your new adventure!");
         
         //  labels setup
         this.setup(objective);
