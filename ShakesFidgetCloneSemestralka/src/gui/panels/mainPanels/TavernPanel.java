@@ -35,6 +35,7 @@ public class TavernPanel extends MainPanel {
     private WaitPanel waitPanel;
     private final FightPanel fightPanel;
     private final HeadPanel headPanel;
+    private Objective tempobj;
     
     public TavernPanel(Game game) {
         super(PanelType.TAVERN);
@@ -61,6 +62,7 @@ public class TavernPanel extends MainPanel {
     }
     
     public void showFight() {
+        this.fightPanel.setup(this.tempobj);
         this.headPanel.changeTitle("Dangerous fight in progress");
         this.card.show(this.temporaryPanel, "2");
     }
@@ -68,6 +70,7 @@ public class TavernPanel extends MainPanel {
     public void showWait(Objective obj) {
         this.headPanel.changeTitle("Waiting eagerly...");
         this.waitPanel.setup(obj);
+        this.tempobj = obj;
         this.card.show(this.temporaryPanel, "1");
         this.missionsPanel.restart();
     }

@@ -10,7 +10,6 @@ import sk.semestralka.shakelessmidget.adventure.Mission;
 import sk.semestralka.shakelessmidget.adventure.Objective;
 import sk.semestralka.shakelessmidget.creatures.Creature;
 import sk.semestralka.shakelessmidget.creatures.Enemy;
-import sk.semestralka.shakelessmidget.creatures.Imp;
 import sk.semestralka.shakelessmidget.generators.Generator;
 import sk.semestralka.shakelessmidget.generators.LoadFile;
 import sk.semestralka.shakelessmidget.generators.ExampleType;

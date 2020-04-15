@@ -9,6 +9,7 @@ import sk.semestralka.shakelessmidget.adventure.Mission;
 import sk.semestralka.shakelessmidget.adventure.Objective;
 import sk.semestralka.shakelessmidget.creatures.Enemy;
 import java.util.Random;
+import sk.semestralka.shakelessmidget.items.items.Item2;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
@@ -22,6 +23,7 @@ public class Generator {
     private LoadFile objectiveTitles;
     private LoadFile objectiveDescriptions;
     private Random random;
+    private final ItemGenerator itemGen;
  
     
     /**
@@ -34,6 +36,7 @@ public class Generator {
         this.objectiveTitles = new LoadFile(ExampleType.OBJECTNAME);
         this.objectiveDescriptions = new LoadFile(ExampleType.OBJECTDESCRIPTION);
         this.random = new Random();
+        this.itemGen = new ItemGenerator();
     }
     
     
@@ -54,7 +57,8 @@ public class Generator {
      * @return 
      */
     public Enemy generateEnemy() {
-        Enemy enemy = new Enemy(this.enemyNames.getRandom(), this.player.getHealth() - 3, this.player.getDamage() - 2, this.random.nextInt(100));
+        Item2 item = this.itemGen.generateRandomItem(this.player.getLevel());
+        Enemy enemy = new Enemy(this.enemyNames.getRandom(), this.player.getHealth() - 3, this.player.getDamage() - 2, this.random.nextInt(100), item);
         
         return enemy;
     }

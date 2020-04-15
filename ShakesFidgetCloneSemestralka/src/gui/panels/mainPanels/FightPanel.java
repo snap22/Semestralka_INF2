@@ -9,13 +9,13 @@ package gui.panels.mainPanels;
 import gui.BasicGui;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import sk.semestralka.shakelessmidget.adventure.Objective;
+import sk.semestralka.shakelessmidget.creatures.Enemy;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 
@@ -57,7 +57,8 @@ public class FightPanel extends MainPanel {
         
         
         this.add(scroll, BorderLayout.CENTER);
-        this.test();
+        
+        
         
        
         this.text.setFont(BasicGui.getFont(15));
@@ -71,11 +72,10 @@ public class FightPanel extends MainPanel {
     }
     
     private void test() {
-        for (int i = 0; i < 100; i++) {
-            this.appendPlayerText("Player takes 5 damage");
-            this.appendEnemyText("Enemy takes 150 damage.");
-        }
         this.clear();
+        this.text.append(String.format("You are fighting against %s%n", this.obj.getEnemy().toString()));
+        this.text.append(String.format("Your possible reward: %s%n", ((Enemy)this.obj.getEnemy()).getItemReward().toString()));
+        
     }
     
     public void appendPlayerText(String newText) {
@@ -121,5 +121,6 @@ public class FightPanel extends MainPanel {
     
     public void setup(Objective obj) {
         this.obj = obj;
+        this.test();
     }
 }

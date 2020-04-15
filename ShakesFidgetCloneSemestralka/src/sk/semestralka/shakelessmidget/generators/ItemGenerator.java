@@ -18,9 +18,19 @@ import java.util.Random;
 /**
  * Trieda ma za ulohu to, aby vytvorila nahodne itemy
  */
-public abstract class ItemGenerator {
+public class ItemGenerator {
+
+    private final LoadFile weapons;
+    private final LoadFile itemsAdj;
+    private final LoadFile goods;
 
     private enum Type { WEAPON, HELMET, ARMOR, GOODS };
+
+    public ItemGenerator() {
+        this.weapons = new LoadFile(ExampleType.WEAPONNAME);
+        this.itemsAdj = new LoadFile(ExampleType.ITEMSADJECTIVE);
+        this.goods = new LoadFile(ExampleType.GOODSNAME);
+    }
     
     
     /**
@@ -28,8 +38,9 @@ public abstract class ItemGenerator {
      * @param level
      * @return 
      */
-    public static Weapon generateWeapon(int level) {
-        return (Weapon)generate(Type.WEAPON, level);
+    public Weapon generateWeapon(int level) {
+        return (Weapon)this.generate(Type.WEAPON, level);
+        
     }
 
     /**
@@ -37,8 +48,8 @@ public abstract class ItemGenerator {
      * @param level
      * @return 
      */
-    public static Armor generateArmor(int level) {
-        return (Armor)generate(Type.ARMOR, level);
+    public Armor generateArmor(int level) {
+        return (Armor)this.generate(Type.ARMOR, level);
     }
 
     /**
@@ -46,8 +57,8 @@ public abstract class ItemGenerator {
      * @param level
      * @return 
      */
-    public static Helmet generateHelmet(int level) {
-        return (Helmet)generate(Type.HELMET, level);
+    public Helmet generateHelmet(int level) {
+        return (Helmet)this.generate(Type.HELMET, level);
     }
     
     
@@ -56,49 +67,49 @@ public abstract class ItemGenerator {
      * Vrati nahodne vytvorenu zbran
      * @return 
      */
-    public static Weapon generateWeapon() {
-        return (Weapon)generate(Type.WEAPON);
+    public Weapon generateWeapon() {
+        return (Weapon)this.generate(Type.WEAPON);
     }
     
     /**
      * Vrati nahodne vytvorenu helmu
      * @return 
      */
-    public static Helmet generateHelmet() {
-        return (Helmet)generate(Type.HELMET);
+    public Helmet generateHelmet() {
+        return (Helmet)this.generate(Type.HELMET);
     }
     
     /**
      * Vrati nahodne vytvoreny armor
      * @return 
      */
-    public static Armor generateArmor() {
-        return (Armor)generate(Type.ARMOR);
+    public Armor generateArmor() {
+        return (Armor)this.generate(Type.ARMOR);
     }
     
     /**
      * Vrati nahodne vytvoreny goods
      * @return 
      */
-    public static Goods generateGoods() {
-        return (Goods)generate(Type.GOODS);
+    public Goods generateGoods() {
+        return (Goods)this.generate(Type.GOODS);
     }
     
     /**
      * Vrati nahodne vytvoreny item
      * @return 
      */
-    public static Item2 generateRandomItem() {
+    public Item2 generateRandomItem() {
         int num = new Random().nextInt(4);
         switch (num) {
             case 0:
-                return generateWeapon();
+                return this.generateWeapon();
             case 1:
-                return generateArmor();
+                return this.generateArmor();
             case 2:
-                return generateHelmet();
+                return this.generateHelmet();
             default:
-                return generateGoods();
+                return this.generateGoods();
         }
     }
     
@@ -107,17 +118,17 @@ public abstract class ItemGenerator {
      * @param level
      * @return 
      */
-    public static Item2 generateRandomItem(int level) {
+    public Item2 generateRandomItem(int level) {
         int num = new Random().nextInt(4);
         switch (num) {
             case 0:
-                return generateWeapon(level);
+                return this.generateWeapon(level);
             case 1:
-                return generateArmor(level);
+                return this.generateArmor(level);
             case 2:
-                return generateHelmet(level);
+                return this.generateHelmet(level);
             default:
-                return generateGoods();
+                return this.generateGoods();
         }
     }
     
@@ -126,16 +137,16 @@ public abstract class ItemGenerator {
      * @param type typ ktory chceme vytvorit
      * @return 
      */
-    private static Item2 generate(Type type, int levelRequired) {
+    private Item2 generate(Type type, int levelRequired) {
         if (levelRequired <= 0) {
             levelRequired = 1;
         }
         
-        String itemName = getAdjective();
+        String itemName = this.itemsAdj.getRandom();
         ItemRarity rarity = ItemRarity.getRandom();
         switch (type) {
             case WEAPON:
-                itemName += getWeaponName();
+                itemName += this.weapons.getRandom();
                 return new Weapon(itemName, rarity, levelRequired);
             case HELMET:
                 itemName += "Helmet";
@@ -144,7 +155,7 @@ public abstract class ItemGenerator {
                 itemName += "Armor";
                 return new Armor(itemName, rarity, levelRequired);
             case GOODS:
-                itemName = getGoodsName();
+                itemName = this.goods.getRandom();
                 return new Goods(itemName, rarity);
             default:
                 return null;
@@ -157,49 +168,13 @@ public abstract class ItemGenerator {
      * @param type
      * @return 
      */
-    private static Item2 generate(Type type) {
-        int levelRequired = getRandomLevelRequirement();
-        return generate(type, levelRequired);
+    private Item2 generate(Type type) {
+        int levelRequired = this.getRandomLevelRequirement();
+        return this.generate(type, levelRequired);
     }
 
-    /**
-     * Vrati nahodne pridavne meno pre vec
-     * @return 
-     */
-    private static String getAdjective() {
-        LoadFile lf = new LoadFile(ExampleType.ITEMSADJECTIVE);
-        return lf.getRandom();
-    }
     
-    /**
-     * Vrati nahodne meno pre zbran
-     * @return 
-     */
-    private static String getWeaponName() {
-        LoadFile lf = new LoadFile(ExampleType.WEAPONNAME);
-        return lf.getRandom();
-    }
-
-    /**
-     * Vytvori nahodne meno pre Goods
-     * @return 
-     */
-    private static String getGoodsName() {
-        LoadFile lf = new LoadFile(ExampleType.GOODSNAME);
-        return lf.getRandom();
-    }
-    
-    /**
-     * Vrati nahodny string zo zadanych moznosti
-     * @param values
-     * @return 
-     */
-    
-    /**
-     * Nahodne vrati potrebny level od 1 do 60
-     * @return 
-     */
-    private static int getRandomLevelRequirement() {
+    private int getRandomLevelRequirement() {
         Random random = new Random();
         return random.nextInt(60) + 1;
     }

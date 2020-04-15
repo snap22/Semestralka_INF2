@@ -34,6 +34,7 @@ public final class WaitPanel extends MainPanel {
     private final JLabel label;
     private final JLabel time;
     private final TavernPanel tav;
+    private final Objective obj;
     
     public WaitPanel(Objective obj, TavernPanel tav) {
         super(PanelType.WAIT);
@@ -43,6 +44,7 @@ public final class WaitPanel extends MainPanel {
         this.setBackground(Color.black);
         this.timePassed = 0;
         this.tav = tav;
+        this.obj = obj;
         //name
         this.label = new JLabel();
         this.label.setFont(BasicGui.getFont(50));
