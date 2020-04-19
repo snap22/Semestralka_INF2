@@ -6,6 +6,7 @@
 package sk.semestralka.shakelessmidget.adventure;
 
 import sk.semestralka.shakelessmidget.creatures.Creature;
+import sk.semestralka.shakelessmidget.player.basic.Player;
 
 
 /**
@@ -15,7 +16,7 @@ import sk.semestralka.shakelessmidget.creatures.Creature;
 public class Fight {
     private enum Turn { PLAYER, ENEMY };
     
-    private Creature player;
+    private Player player;
     private Creature enemy;
     
     private boolean ended;
@@ -23,8 +24,10 @@ public class Fight {
     private Turn turn;
     
     private boolean firstStart;
+    
+    private StringBuilder statusText;
 
-    public Fight(Creature player, Creature enemy) {
+    public Fight(Player player, Creature enemy) {
         this.player = player;
         this.enemy = enemy;
         this.turn = Turn.PLAYER;
@@ -33,8 +36,8 @@ public class Fight {
         
         this.firstStart = true;
         
+        this.statusText = new StringBuilder();
         
-        //this.nextTurn();
         
     }
     
@@ -43,7 +46,8 @@ public class Fight {
      */
     public void begin() {
         if (this.firstStart) {
-            System.out.println("Starting the fight");
+            this.updateStatus(String.format("The start has begun!"));
+            this.updateStatus(String.format("You are fighting against: %s", this.enemy.toString()));
             this.nextTurn();
             this.firstStart = false;
         }
@@ -56,8 +60,11 @@ public class Fight {
 
         if (this.turn == Turn.PLAYER) {
             this.player.attack(this.enemy);
+            this.updateStatus(String.format("Enemy takes %d damage.", this.player.getDamage()));
+            
             this.turn = Turn.ENEMY;
             if (this.enemy.isDead()) {
+                this.updateStatus("The player killed the enemy with ease. GG WP EZ");
                 this.ended = true;
                 this.playerWin = true;
             }
@@ -65,8 +72,11 @@ public class Fight {
         } else {
             
             this.enemy.attack(this.player);
+            int dmg = this.enemy.getDamage() - (this.player.getArmor() + this.player.getHealth());
+            this.updateStatus(String.format("Player takes %d damage.", dmg));    
             this.turn = Turn.PLAYER;
             if (this.player.isDead()) {
+                this.updateStatus("The player has suffered a humiliating defeat!");
                 this.ended = true;
                 this.playerWin = false;
             }
@@ -90,9 +100,18 @@ public class Fight {
     
     
     
+    private void updateStatus(String text) {
+        this.statusText.append(text);
+        this.statusText.append("\n");
+    }  
     
     
+    public String getStatus() {
+        return this.statusText.toString();
+    }
 }
+
+
 
 
 

@@ -6,12 +6,10 @@
 package sk.semestralka.shakelessmidget.adventure;
 
 import sk.semestralka.shakelessmidget.player.basic.Player;
-import java.util.concurrent.TimeUnit;
 
 
 /**
- *
- * @author marce
+ * Trieda, ktorej ulohou je sledovať dopad hraca v suboji s nepriatelom a podla toho mu prideliť odmenu
  */
 public class Mission {
 
@@ -27,15 +25,9 @@ public class Mission {
     }
     
     /**
-     * Pocka dany cas a zacne misiu (t.j. zacne sa suboj). Ak ho hrac vyhra dostane odmenu
+     * Metoda ktora zacne misiu t.j. zacne sa suboj. Ak ho hrac vyhra dostane odmenu
      */
     public void start() {
-        /*try {
-            TimeUnit.SECONDS.sleep(this.objective.getDuration());
-        } catch (InterruptedException ex) {
-            
-        }*/
-        
         this.fight.begin();
         if (this.fight.playerWin()) {
             this.objective.complete();

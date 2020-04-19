@@ -96,7 +96,8 @@ public class Player extends Creature {
     @Override
     public void takeDamage(int amount) {
         //ToDO  premysliet ARMOR
-        int remainingAmount = Math.abs((this.bonusHealth + this.armor) - amount);
+        //int remainingAmount = Math.abs((this.bonusHealth + this.armor) - amount);
+        int remainingAmount = amount - (this.bonusHealth + this.armor);
         super.takeDamage(remainingAmount); 
 
     }
@@ -175,12 +176,20 @@ public class Player extends Creature {
         this.mood = newMood;
     }
 
+    /**
+     * Zvysi zakladne atributy hraca, ak si da na seba item
+     * @param item 
+     */
     public void increaseStats(Equipment item) {
         this.bonusHealth += item.getBonusHealth();
         this.bonusDamage += item.getBonusDamage();
         this.armor += item.getBonusArmor();
     }
 
+    /**
+     * Znizi zakladne atributy hraca, ak si da dole zo seba item
+     * @param item 
+     */
     public void decreaseStats(Equipment item) {
         this.bonusHealth -= item.getBonusHealth();
         this.bonusDamage -= item.getBonusDamage();
@@ -194,6 +203,24 @@ public class Player extends Creature {
     public int getLevel() {
         return this.level;
     }
+
+    @Override
+    public int getDamage() {
+        int totalDamage = super.getDamage() + this.bonusDamage;
+        return totalDamage;
+    }
+
+    @Override
+    public int getHealth() {
+        int totalHealth = super.getHealth() + this.bonusHealth; 
+        return totalHealth;
+    }
+
+    public int getArmor() {
+        return this.armor;
+    }
+    
+    
     
     
     
