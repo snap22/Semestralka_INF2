@@ -58,7 +58,7 @@ public class Generator {
      */
     public Enemy generateEnemy() {
         Item2 item = this.itemGen.generateRandomItem(this.player.getLevel());
-        Enemy enemy = new Enemy(this.enemyNames.getRandom(), this.player.getHealth() - 3, this.player.getDamage() - 2, this.random.nextInt(100), item);
+        Enemy enemy = new Enemy(this.enemyNames.getRandom(), this.player.getHealth() - 3, this.player.getDamage() - 1, this.random.nextInt(100), item);
         
         return enemy;
     }

@@ -5,6 +5,7 @@
  */
 package sk.semestralka.shakelessmidget.adventure;
 
+import gui.panels.mainPanels.FightPanel;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 
@@ -16,10 +17,12 @@ public class Mission {
     private Objective objective;
     private Fight fight;
     private Player player;
+    private final FightPanel panel;
 
-    public Mission(Objective objective, Player player) {
+    public Mission(Objective objective, Player player, FightPanel panel) {
         this.objective = objective;
         this.player = player;
+        this.panel = panel;
         
         this.fight = new Fight(this.player, this.objective.getEnemy());
     }
@@ -33,6 +36,9 @@ public class Mission {
             this.objective.complete();
             this.objective.giveReward(this.player);
         }
+        
+        this.panel.appendText(this.fight.getStatus());
+        this.panel.appendText(this.objective.getStatus());
         
         
     }

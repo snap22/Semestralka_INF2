@@ -99,6 +99,7 @@ public class Player extends Creature {
         //int remainingAmount = Math.abs((this.bonusHealth + this.armor) - amount);
         int remainingAmount = amount - (this.bonusHealth + this.armor);
         super.takeDamage(remainingAmount); 
+        System.out.println("RA " + remainingAmount);
 
     }
     
@@ -112,7 +113,7 @@ public class Player extends Creature {
             return;
         }
         
-        System.out.format("Gained %d xp%n", amount);
+        
         this.currentXp += amount;
         if (this.currentXp >= this.requiredXp) {
             int numOfLevels = this.currentXp / this.requiredXp;
@@ -139,7 +140,6 @@ public class Player extends Creature {
             this.mood.upgrade();
         }
         
-        System.out.format("Reached level %d %n", this.level);
     }
     
     public void addReward(int xp, int gold, Item2 item) {
@@ -156,7 +156,6 @@ public class Player extends Creature {
         if (amount <= 0) {
             return;
         }
-        System.out.format("Gained %d gold%n", amount);
         this.gold += amount;
     }
     

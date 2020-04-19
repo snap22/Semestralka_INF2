@@ -60,11 +60,12 @@ public class Fight {
 
         if (this.turn == Turn.PLAYER) {
             this.player.attack(this.enemy);
-            this.updateStatus(String.format("Enemy takes %d damage.", this.player.getDamage()));
+            this.updateStatus(String.format("Enemy takes %d damage. Remaining health = %d", 
+                    this.player.getDamage(), this.enemy.getCurrentHealth()));
             
             this.turn = Turn.ENEMY;
             if (this.enemy.isDead()) {
-                this.updateStatus("The player killed the enemy with ease. GG WP EZ");
+                this.updateStatus("You have killed the enemy with ease.");
                 this.ended = true;
                 this.playerWin = true;
             }
@@ -73,10 +74,10 @@ public class Fight {
             
             this.enemy.attack(this.player);
             int dmg = this.enemy.getDamage() - (this.player.getArmor() + this.player.getHealth());
-            this.updateStatus(String.format("Player takes %d damage.", dmg));    
+            this.updateStatus(String.format("You take %d damage. Your remaining health = %d", dmg, this.player.getCurrentHealth()));    
             this.turn = Turn.PLAYER;
             if (this.player.isDead()) {
-                this.updateStatus("The player has suffered a humiliating defeat!");
+                this.updateStatus("You have suffered a humiliating defeat!");
                 this.ended = true;
                 this.playerWin = false;
             }

@@ -25,6 +25,8 @@ public class Objective {
     private final String name;
     private final String description;
     private boolean completed;
+    
+    private StringBuilder status;
 
     /**
      * Kazda misia bude mat nazov, popis misie, bytost ktoru treba zabit (bytost nemoze byt hrac!), 
@@ -39,18 +41,16 @@ public class Objective {
     public Objective(String name, String description, Enemy enemy, int goldReward, int xpReward, int duration) {
         this.name = name;
         this.description = description;
-        
         this.goldReward = goldReward;
         this.xpReward = xpReward;
-        //this.chanceToGetItem = chanceToGetItem;
-        
         this.duration = duration;
-        
         this.enemy = enemy; 
+        
+        this.status = new StringBuilder();
     }
     
     public Objective(String name, Enemy enemy, int goldReward, int xpReward, int duration) {
-        this(name, "Proste chod a zabi!", enemy, goldReward, xpReward, duration);
+        this(name, "Too expensive to afford description!", enemy, goldReward, xpReward, duration);
     }
     
     /**
@@ -72,6 +72,10 @@ public class Objective {
         Item2 item = this.enemy.dropItem();
         
         player.addReward(xp, this.goldReward, item);
+        this.status.append(String.format("You did it! Your reward is: %d xp, %d gold %n", xp, this.goldReward));
+        if (item != null) {
+            this.status.append(String.format("Yay! You also get:", item.toString()));
+        }
         
     }
 
@@ -102,6 +106,12 @@ public class Objective {
     public boolean isCompleted() {
         return this.completed;
     }
+
+    public String getStatus() {
+        return this.status.toString();
+    }
+    
+    
     
     
     

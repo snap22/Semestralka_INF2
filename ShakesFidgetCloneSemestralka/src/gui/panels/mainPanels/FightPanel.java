@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import sk.semestralka.shakelessmidget.adventure.Mission;
 import sk.semestralka.shakelessmidget.adventure.Objective;
 import sk.semestralka.shakelessmidget.creatures.Enemy;
 import sk.semestralka.shakelessmidget.player.basic.Player;
@@ -27,8 +28,10 @@ public class FightPanel extends MainPanel {
 
     private Objective obj;
     private final Player player;
-    private final TavernPanel tav;
+    private final TavernPanel tavern;
     private final JTextArea text;
+    
+    private Mission mission;
 
     public FightPanel(Player player, Objective obj, TavernPanel tav) {
         super(PanelType.FIGHT);
@@ -36,8 +39,8 @@ public class FightPanel extends MainPanel {
         this.setLayout(new BorderLayout());
         this.player = player;
         this.obj = obj;
-        this.tav = tav;
-        
+        this.tavern = tav;
+
         JButton change = new JButton("Return back");
         change.setFont(BasicGui.getFont(20));
         change.setBackground(Color.black);
@@ -53,16 +56,13 @@ public class FightPanel extends MainPanel {
         });
         this.text = new JTextArea();
         JScrollPane scroll = new JScrollPane(this.text);
-        
-        
-        
+
         this.add(scroll, BorderLayout.CENTER);
-        
-        
-        
-       
+
         this.text.setFont(BasicGui.getFont(15));
         this.text.setEditable(false);
+        
+        //this.clear();
         
         
     }
@@ -73,12 +73,16 @@ public class FightPanel extends MainPanel {
     
     private void test() {
         this.clear();
-        this.text.append(String.format("You are fighting against %s%n", this.obj.getEnemy().toString()));
-        this.text.append(String.format("Your possible reward: %s%n", ((Enemy)this.obj.getEnemy()).getItemReward().toString()));
+        //this.text.append(String.format("You are fighting against %s%n", this.obj.getEnemy().toString()));
+        //this.text.append(String.format("Your possible reward: %s%n", ((Enemy)this.obj.getEnemy()).getItemReward().toString()));
         
     }
     
-    public void appendPlayerText(String newText) {
+    public void appendText(String newText) {
+        this.text.append(newText);
+    }
+    
+    /*public void appendPlayerText(String newText) {
         this.createLine();
         this.text.append(String.format("%s %n", newText));
         
@@ -106,9 +110,7 @@ public class FightPanel extends MainPanel {
         
     }
     
-    public void clear() {
-        this.text.setText("");
-    }
+   
     
     private String createEmptyGap(int length) {
         return this.createShit(length, ' ', false);
@@ -117,10 +119,16 @@ public class FightPanel extends MainPanel {
     private void createLine() {
         this.text.append(this.createShit(89, '-', true));
         
+    }*/
+    
+    public void clear() {
+        this.text.setText("");
     }
     
     public void setup(Objective obj) {
+        this.clear();
         this.obj = obj;
-        this.test();
+        this.mission = new Mission(obj, this.player, this);
+        this.mission.start();
     }
 }

@@ -17,6 +17,7 @@ import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import sk.semestralka.shakelessmidget.adventure.Mission;
 import sk.semestralka.shakelessmidget.basic.Game;
 
 /**
