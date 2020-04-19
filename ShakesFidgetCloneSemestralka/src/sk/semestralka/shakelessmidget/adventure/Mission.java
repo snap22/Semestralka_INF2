@@ -38,6 +38,7 @@ public class Mission {
         }
         
         this.panel.appendText(this.fight.getStatus());
+        this.panel.appendText("\n");
         this.panel.appendText(this.objective.getStatus());
         
         

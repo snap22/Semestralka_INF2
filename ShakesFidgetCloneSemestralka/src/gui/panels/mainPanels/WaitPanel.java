@@ -6,9 +6,7 @@
 package gui.panels.mainPanels;
 
 import sk.semestralka.shakelessmidget.adventure.Objective;
-import sk.semestralka.shakelessmidget.generators.Generator;
 import gui.BasicGui;
-import gui.panels.TemporaryPanel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -20,7 +18,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
-import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  *
@@ -69,7 +66,7 @@ public final class WaitPanel extends MainPanel {
         this.skipButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                WaitPanel.this.beginCalc();
+                //WaitPanel.this.beginCalc();
                 WaitPanel.this.timePassed += 1000;
             }
         });
@@ -109,7 +106,7 @@ public final class WaitPanel extends MainPanel {
                     
                     t.cancel();
                     
-                    tav.showFight();
+                    WaitPanel.this.tav.showFight();
                 }
             }
         }, 0, 1000);

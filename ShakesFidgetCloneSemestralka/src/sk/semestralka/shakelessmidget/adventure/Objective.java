@@ -74,7 +74,7 @@ public class Objective {
         player.addReward(xp, this.goldReward, item);
         this.status.append(String.format("You did it! Your reward is: %d xp, %d gold %n", xp, this.goldReward));
         if (item != null) {
-            this.status.append(String.format("Yay! You also get:", item.toString()));
+            this.status.append(String.format("Yay! You also get: %s %n", item.toString()));
         }
         
     }

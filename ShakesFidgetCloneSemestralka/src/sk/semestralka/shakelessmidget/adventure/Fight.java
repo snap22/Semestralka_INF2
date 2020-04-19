@@ -29,6 +29,7 @@ public class Fight {
 
     public Fight(Player player, Creature enemy) {
         this.player = player;
+        this.player.heal(this.player.getHealth());  //aby zacal kazdy fight s plnym hp
         this.enemy = enemy;
         this.turn = Turn.PLAYER;
         this.ended = false;
@@ -46,13 +47,16 @@ public class Fight {
      */
     public void begin() {
         if (this.firstStart) {
-            this.updateStatus(String.format("The start has begun!"));
+            this.updateStatus(String.format("The fight has begun!"));
             this.updateStatus(String.format("You are fighting against: %s", this.enemy.toString()));
             this.nextTurn();
             this.firstStart = false;
         }
     }
     
+    /**
+     * Striedanie turnov medzi enemy a playerom
+     */
     private void nextTurn() {
         if (this.ended) {
             return;
@@ -60,7 +64,7 @@ public class Fight {
 
         if (this.turn == Turn.PLAYER) {
             this.player.attack(this.enemy);
-            this.updateStatus(String.format("Enemy takes %d damage. Remaining health = %d", 
+            this.updateStatus(String.format("           Enemy takes %d damage. Remaining health = %d", 
                     this.player.getDamage(), this.enemy.getCurrentHealth()));
             
             this.turn = Turn.ENEMY;
@@ -73,8 +77,12 @@ public class Fight {
         } else {
             
             this.enemy.attack(this.player);
-            int dmg = this.enemy.getDamage() - (this.player.getArmor() + this.player.getHealth());
-            this.updateStatus(String.format("You take %d damage. Your remaining health = %d", dmg, this.player.getCurrentHealth()));    
+            int dmg = this.enemy.getDamage() - (this.player.getArmor() + this.player.getBonusHealth());
+            if (dmg < 0) {
+                dmg = 0;
+            }
+            
+            this.updateStatus(String.format("   You take %d damage. Your remaining health = %d", dmg, this.player.getCurrentHealth()));    
             this.turn = Turn.PLAYER;
             if (this.player.isDead()) {
                 this.updateStatus("You have suffered a humiliating defeat!");

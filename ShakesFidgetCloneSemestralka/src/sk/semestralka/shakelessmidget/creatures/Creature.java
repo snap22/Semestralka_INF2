@@ -32,7 +32,6 @@ public abstract class Creature {
     
     public void takeDamage(int amount) {
         if (this.dead) {
-            System.out.println("Already dead.");
             return;
         }
         
@@ -40,7 +39,6 @@ public abstract class Creature {
             return;
         }
         
-        System.out.format("%s takes %d damage.%n", this.name, amount);
         this.currentHealth -= amount;
         if (this.currentHealth <= 0) {
             this.die();
@@ -57,7 +55,6 @@ public abstract class Creature {
     
     public void die() {
         this.dead = true;
-        System.out.format("%s died.%n", this.name);
     }
 
     public String getName() {

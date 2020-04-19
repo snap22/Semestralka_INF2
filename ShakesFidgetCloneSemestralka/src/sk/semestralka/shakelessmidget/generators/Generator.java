@@ -48,7 +48,7 @@ public class Generator {
     public Objective generateObjective() {
         String description = this.objectiveDescriptions.getRandom();
         String title = this.objectiveTitles.getRandom();
-        Objective obj = new Objective(title, description, this.generateEnemy(), this.random.nextInt(100) + 1, this.random.nextInt(100) + 1, this.random.nextInt(15) + 5);
+        Objective obj = new Objective(title, description, this.generateEnemy(), this.random.nextInt(30) + 1, this.random.nextInt(30) + 1, this.random.nextInt(15) + 5);
         return obj;
     }
     
@@ -58,7 +58,7 @@ public class Generator {
      */
     public Enemy generateEnemy() {
         Item2 item = this.itemGen.generateRandomItem(this.player.getLevel());
-        Enemy enemy = new Enemy(this.enemyNames.getRandom(), this.player.getHealth() - 3, this.player.getDamage() - 1, this.random.nextInt(100), item);
+        Enemy enemy = new Enemy(this.enemyNames.getRandom(), this.player.getHealth() - 3, this.player.getDamage() - 1, this.random.nextInt(30), item);
         
         return enemy;
     }
