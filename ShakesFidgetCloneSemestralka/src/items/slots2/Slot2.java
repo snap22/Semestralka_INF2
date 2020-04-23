@@ -7,7 +7,7 @@ package items.slots2;
 
 
 import sk.semestralka.shakelessmidget.items.items.Item2;
-import wrongShit.ItemType;
+
 
 /**
  *

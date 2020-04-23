@@ -44,6 +44,7 @@ public class MenuButton extends JButton {
         this.setForeground(textColor);
         
         final PanelType testType = type;
+        this.setFocusable(false);
         
         // exception ak by action bolo null?
         //this.addActionListener(action);

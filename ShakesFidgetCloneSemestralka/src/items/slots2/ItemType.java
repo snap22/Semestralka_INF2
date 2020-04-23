@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package wrongShit;
+package items.slots2;
 
 /**
  *
  * @author marce
  */
 public enum ItemType {
-    HELMET, ARMOR, WEAPON, TRASH;
+    HELMET, ARMOR, WEAPON;
 }

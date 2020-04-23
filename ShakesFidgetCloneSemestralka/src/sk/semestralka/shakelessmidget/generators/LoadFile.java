@@ -59,6 +59,7 @@ public class LoadFile {
             while (input.hasNextLine()) {
                 this.examples.add(input.nextLine());
             }
+            input.close();
         }
         
     }

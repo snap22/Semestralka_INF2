@@ -5,7 +5,7 @@
  */
 package items.slots2;
 
-import wrongShit.ItemType;
+
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
