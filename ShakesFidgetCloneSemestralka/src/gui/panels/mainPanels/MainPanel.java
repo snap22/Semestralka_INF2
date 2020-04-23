@@ -26,10 +26,10 @@ public abstract class MainPanel extends JPanel {
     public String getTypeString() {
         return this.type.toString();
     }
+
     
     
     
     
-    
-    
+     
 }

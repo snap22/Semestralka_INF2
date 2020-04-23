@@ -5,11 +5,13 @@
  */
 package gui.panels.mainPanels;
 
+import gui.hero.HeroStatsPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  *
@@ -17,8 +19,12 @@ import javax.swing.JPanel;
  */
 public class HeroPanel extends MainPanel {
 
-    public HeroPanel() {
+    private final Player player;
+    private final HeroStatsPanel statsPanel;
+
+    public HeroPanel(Player player) {
         super(PanelType.HERO);
+        this.player = player;
         this.setLayout(new BorderLayout());
         JLabel label = new JLabel("HERO");
         label.setForeground(Color.white);
@@ -28,6 +34,13 @@ public class HeroPanel extends MainPanel {
         
         this.setBackground(Color.black);
         this.add(label, BorderLayout.NORTH);
+        
+        this.statsPanel = new HeroStatsPanel(this.player);
+        this.add(this.statsPanel, BorderLayout.CENTER);
+    }
+
+    public void updateStats() {
+        this.statsPanel.updateAll();
     }
     
 }

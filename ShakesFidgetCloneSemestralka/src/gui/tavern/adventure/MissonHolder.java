@@ -7,7 +7,6 @@ package gui.tavern.adventure;
 
 import gui.panels.mainPanels.TavernPanel;
 import java.awt.Color;
-import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import sk.semestralka.shakelessmidget.adventure.Objective;
 import sk.semestralka.shakelessmidget.basic.Game;

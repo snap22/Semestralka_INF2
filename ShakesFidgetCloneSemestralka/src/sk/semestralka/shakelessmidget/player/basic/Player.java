@@ -235,6 +235,10 @@ public class Player extends Creature {
     public int getBonusDamage() {
         return this.bonusDamage;
     }
+
+    public int getRequiredXp() {
+        return this.requiredXp;
+    }
     
     
     

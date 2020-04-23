@@ -8,8 +8,6 @@ package gui;
 import sk.semestralka.shakelessmidget.basic.Game;
 import gui.panels.TemporaryPanel;
 import gui.panels.MenuPanel;
-import gui.panels.mainPanels.PanelType;
-import gui.panels.mainPanels.WelcomePanel;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import javax.swing.JFrame;
@@ -48,7 +46,7 @@ public class MainFrame extends JFrame {
         content.add(this.menuPanel, BorderLayout.WEST);
         content.add(this.temp, BorderLayout.CENTER);
         
-
+        //this.pack();
         
         
         

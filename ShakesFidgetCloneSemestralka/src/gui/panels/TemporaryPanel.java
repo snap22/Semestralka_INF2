@@ -7,14 +7,13 @@ package gui.panels;
 
 import sk.semestralka.shakelessmidget.generators.Generator;
 import gui.eventTry.Testicek;
-import gui.panels.mainPanels.FightPanel;
+import gui.hero.HeroStatsPanel;
 import gui.panels.mainPanels.HeroPanel;
 import gui.panels.mainPanels.MainPanel;
 import gui.panels.mainPanels.MiniGamePanel;
 import gui.panels.mainPanels.PanelType;
 import gui.panels.mainPanels.ShopPanel;
 import gui.panels.mainPanels.TavernPanel;
-import gui.panels.mainPanels.WaitPanel;
 import gui.panels.mainPanels.WelcomePanel;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -36,6 +35,7 @@ public class TemporaryPanel extends JPanel {
     
     private Generator gen;
     private Player player;
+    private final HeroPanel heroPanel;
     public TemporaryPanel(Game game) {
         Testicek.setPanel(this);
         
@@ -52,11 +52,11 @@ public class TemporaryPanel extends JPanel {
         
         this.panels = new HashMap<String, MainPanel>();
         
-        
+        this.heroPanel = new HeroPanel(this.player);
         
         this.createPanel(new WelcomePanel());
         this.createPanel(new TavernPanel(game));
-        this.createPanel(new HeroPanel());
+        this.createPanel(this.heroPanel);
         this.createPanel(new ShopPanel());
         this.createPanel(new MiniGamePanel());
         
@@ -109,8 +109,14 @@ public class TemporaryPanel extends JPanel {
             return;
         }
         
+        
         this.card.show(this.panelToChange, type);
+        this.heroPanel.updateStats();
+        
+        
     }
+    
+    
  
     
 }
