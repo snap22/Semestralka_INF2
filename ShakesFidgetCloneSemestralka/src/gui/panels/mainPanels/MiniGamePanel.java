@@ -9,11 +9,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
- *
- * @author marce
+ * Zatial nic  nerobi
  */
 public class MiniGamePanel extends MainPanel {
 

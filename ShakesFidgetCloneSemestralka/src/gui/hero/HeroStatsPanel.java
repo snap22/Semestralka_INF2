@@ -8,27 +8,21 @@ package gui.hero;
 import java.awt.Color;
 import java.util.HashMap;
 import javax.swing.BoxLayout;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
- *
- * @author marce
+ * Trieda HeroStatsPanel sluzi pre zobrazovanie zakladnych informacii o hracovi
  */
 public class HeroStatsPanel extends JPanel {
-    private String name;    //
-    private String health;
-    private String armor;
-    private String damage;
-    private String level;
-    private String currentxp;
-    private String requiredXp;
-    private String gold;
     
     private HashMap<String, HeroStatLabel> labels;
     private final Player player;
 
+    /**
+     * Konstruktor pre triedu, vytvoria sa udaje ktore udavaju zakladne informacie o hracovi
+     * @param player 
+     */
     public HeroStatsPanel(Player player) {
         this.player = player;
         this.labels = new HashMap<String, HeroStatLabel>();
@@ -45,11 +39,22 @@ public class HeroStatsPanel extends JPanel {
         
         this.setBackground(Color.green);
         
-        
-        
-        
-        
-        
+    }
+    
+    /**
+     * Aktualizuje text v kazdom labely
+     */
+    public void updateAll() {
+        this.updateText("Health", this.player.getHealth());
+        this.updateText("Armor", this.player.getArmor());
+        this.updateText("Damage", this.player.getDamage());
+        this.updateText("Level", this.player.getLevel());
+        this.updateText("Xp", this.player.getCurrentXp(), this.player.getRequiredXp());
+    }
+    
+    
+    private void createLabel(String name, int description) {
+        this.createLabel(name, String.valueOf(description));
     }
     
     private void createLabel(String name, String description) {
@@ -60,15 +65,8 @@ public class HeroStatsPanel extends JPanel {
         HeroStatLabel newLabel = new HeroStatLabel(name, description);
         this.labels.put(name, newLabel);
         this.add(newLabel);
-        
-        
-       
     }
-    
-    private void createLabel(String name, int description) {
-        this.createLabel(name, String.valueOf(description));
-    }
-    
+
     private void createLabel(String name, int curr, int max) {
         HeroStatLabel newLabel = new HeroStatLabel(name, curr, max);
         this.labels.put(name, newLabel);
@@ -94,22 +92,12 @@ public class HeroStatsPanel extends JPanel {
         this.labels.get(labelName).setDescription(newText);
     }
     
+    
     private void updateText(String labelName, int current, int required) {
         if (!this.labels.containsKey(labelName)) {
             return;
         }
         this.labels.get(labelName).setDescription(current, required);
-    }
-    
-    public void updateAll() {
-        this.updateText("Health", this.player.getHealth());
-        this.updateText("Armor", this.player.getArmor());
-        this.updateText("Damage", this.player.getDamage());
-        this.updateText("Level", this.player.getLevel());
-        this.updateText("Xp", this.player.getCurrentXp(), this.player.getRequiredXp());
-        
-        
-    
     }
     
     

@@ -5,15 +5,19 @@
  */
 package sk.semestralka.shakelessmidget.items.slots;
 
-import sk.semestralka.shakelessmidget.items.items.Item2;
+import sk.semestralka.shakelessmidget.items.items.Item;
 
 /**
  * Slot sluzi na ukladanie itemu do objeku, a jeho vymazanie
  * @author marce
+ * @param <E> Predmet ktory si uklada
  */
-public class Slot<E extends Item2> {
+public class Slot<E extends Item> {
     private E item;
     
+    /**
+     * Vytvori instanciu, ktora je zatial prazdna
+     */
     public Slot() {
         this.item = null;
     }

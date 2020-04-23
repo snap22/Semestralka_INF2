@@ -10,12 +10,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
- *
- * @author marce
+ * Trieda HeroPanel sluzi na zobrazenie informacii o hracovi
  */
 public class HeroPanel extends MainPanel {
 
@@ -39,6 +37,9 @@ public class HeroPanel extends MainPanel {
         this.add(this.statsPanel, BorderLayout.CENTER);
     }
 
+    /**
+     * Aktualizuje vsetky hodnoty hraca
+     */
     public void updateStats() {
         this.statsPanel.updateAll();
     }

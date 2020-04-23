@@ -5,7 +5,7 @@
  */
 package test.itemsTesting;
 
-import sk.semestralka.shakelessmidget.items.items.Item2;
+import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.equippable.Armor;
 import sk.semestralka.shakelessmidget.items.equippable.Helmet;
 import sk.semestralka.shakelessmidget.items.equippable.Weapon;

@@ -5,11 +5,10 @@
  */
 package sk.semestralka.shakelessmidget.generators;
 
-import sk.semestralka.shakelessmidget.adventure.Mission;
 import sk.semestralka.shakelessmidget.adventure.Objective;
 import sk.semestralka.shakelessmidget.creatures.Enemy;
 import java.util.Random;
-import sk.semestralka.shakelessmidget.items.items.Item2;
+import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
@@ -27,8 +26,8 @@ public class Generator {
  
     
     /**
-     * 
-     * @param player 
+     * Konstruktor, vytvori instanciu
+     * @param player hrac
      */
     public Generator(Player player) {
         this.player = player;
@@ -57,7 +56,7 @@ public class Generator {
      * @return 
      */
     public Enemy generateEnemy() {
-        Item2 item = this.itemGen.generateRandomItem(this.player.getLevel());
+        Item item = this.itemGen.generateRandomItem(this.player.getLevel());
         Enemy enemy = new Enemy(this.enemyNames.getRandom(), this.player.getHealth() - 3, this.player.getDamage() - 1, this.random.nextInt(30), item);
         
         return enemy;

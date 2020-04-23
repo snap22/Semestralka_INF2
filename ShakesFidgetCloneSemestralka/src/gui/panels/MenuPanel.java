@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 
 /**
  *
- *  Trieda (panel) obsahujuca hlavne buttony
+ *  Trieda MenuPanel obsahujuca hlavne buttony sluziace pre zmenu okna
  */
 public class MenuPanel extends JPanel {
 
@@ -27,7 +27,9 @@ public class MenuPanel extends JPanel {
     private HashMap<String, JButton> buttons;
     
     
-    
+    /**
+     * Konstruktor, zobrazi panel
+     */
     public MenuPanel() {
         
         this.buttons = new HashMap<String, JButton>();

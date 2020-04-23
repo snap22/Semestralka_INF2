@@ -8,7 +8,7 @@ package sk.semestralka.shakelessmidget.basic;
 import java.util.Random;
 
 /**
-   Trieda na generovanie nahodnej sance
+   Trieda na generovanie nahody
 */
 public abstract class Chance {
     

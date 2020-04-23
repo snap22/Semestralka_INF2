@@ -7,22 +7,17 @@ package gui.panels.mainPanels;
 
 import sk.semestralka.shakelessmidget.adventure.Objective;
 import sk.semestralka.shakelessmidget.generators.Generator;
-import gui.BasicGui;
 import gui.tavern.adventure.HeadPanel;
 import gui.tavern.adventure.MissionPanel;
 import gui.tavern.adventure.MissonHolder;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Component;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import sk.semestralka.shakelessmidget.adventure.Mission;
 import sk.semestralka.shakelessmidget.basic.Game;
 
 /**
- *
- * @author marce
+ * Trieda TavernPanel sluzi na zobrazenie dostupnych uloh a na prepinanie medzi vybranymi scenkami
  */
 public class TavernPanel extends MainPanel {
 
@@ -38,6 +33,10 @@ public class TavernPanel extends MainPanel {
     private final HeadPanel headPanel;
     private Objective tempobj;
     
+    /**
+     * Konstruktor, zobrazi panel
+     * @param game hra
+     */
     public TavernPanel(Game game) {
         super(PanelType.TAVERN);
         this.setLayout(new BorderLayout());
@@ -62,12 +61,19 @@ public class TavernPanel extends MainPanel {
         
     }
     
+    /**
+     * Ukaze FightPanel, t.j priebeh suboja medzi hracom a nepriatelom
+     */
     public void showFight() {
         this.fightPanel.setup(this.tempobj);
         this.headPanel.changeTitle("Dangerous fight in progress");
         this.card.show(this.temporaryPanel, "2");
     }
     
+    /**
+     * Ukaze cakaci panel, t.j panel kde hrac musi cakat
+     * @param obj 
+     */
     public void showWait(Objective obj) {
         this.headPanel.changeTitle("Waiting eagerly...");
         this.waitPanel.setup(obj);
@@ -76,6 +82,9 @@ public class TavernPanel extends MainPanel {
         this.missionsPanel.restart();
     }
     
+    /**
+     * Ukaze dostupne misie
+     */
     public void showMissions() {
         this.headPanel.changeTitle("Choose your adventure");
         this.card.show(this.temporaryPanel, "0");

@@ -6,8 +6,7 @@
 package gui.panels.mainPanels;
 
 /**
- *
- * @author marce
+ * Trieda PanelType urcuje typ panela
  */
 public enum PanelType {
     WELCOME, TAVERN, SHOP, HERO, MINIGAME, OTHER, WAIT, FIGHT;//?

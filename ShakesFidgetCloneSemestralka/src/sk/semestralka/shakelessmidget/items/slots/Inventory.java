@@ -5,28 +5,34 @@
  */
 package sk.semestralka.shakelessmidget.items.slots;
 
-import sk.semestralka.shakelessmidget.items.items.Item2;
+import sk.semestralka.shakelessmidget.items.items.Item;
 import java.util.ArrayList;
 
 
 /**
- *
- * @author marce
+ * Trieda Inventory sluzi na ukladanie predmetov hraca
  */
 public class Inventory {
     private int size;
-    private ArrayList<Item2> slots;
+    private ArrayList<Item> slots;
     
+    /**
+     * Vytvori instanciu podla danej hodnoty
+     * @param size velkost inventory
+     */
     public Inventory(int size) {
         if (size <= 0) {
             size = 1;
         }
         
-        this.slots = new ArrayList<Item2>();
+        this.slots = new ArrayList<Item>();
         this.size = size;
         
     }
     
+    /**
+     * Vytvori instanciu s preddefinovanou hodnotou (8)
+     */
     public Inventory() {
         this(8);
     }
@@ -35,7 +41,7 @@ public class Inventory {
      * Prida item do prveho volneho miesta v inventory
      * @param item 
      */
-    public void addItem(Item2 item) {
+    public void addItem(Item item) {
         if (this.slots.size() > this.size) {
             return;
         }
@@ -62,7 +68,7 @@ public class Inventory {
      * Vymaze dany item z inventory ak sa v nom nachadza
      * @param item 
      */
-    public void removeItem(Item2 item) {
+    public void removeItem(Item item) {
         if (item == null) {
             return;
         }
@@ -74,11 +80,20 @@ public class Inventory {
         this.slots.remove(item);
     }
     
+    /**
+     * Vrati booelan ci je plny
+     * @return 
+     */
     public boolean isFull() {
         return this.slots.size() == this.size;
     }
     
-    public Item2 getItem(int index) {
+    /**
+     * Vrati item podla zadaneho indexu
+     * @param index
+     * @return 
+     */
+    public Item getItem(int index) {
         if (index < 0 || index >= this.slots.size()) {
             return null;
         }
@@ -86,10 +101,18 @@ public class Inventory {
         return this.slots.get(index);
     }
     
+    /**
+     * Vrati pocet zaplnenych miest
+     * @return 
+     */
     public int getCurrentSize() {
         return this.slots.size();
     }
     
+    /**
+     * Vrati maximalne mnozstvo ktore moze mat hrac
+     * @return 
+     */
     public int getMaxSize() {
         return this.size;
     }

@@ -7,17 +7,33 @@ package sk.semestralka.shakelessmidget.items.equippable;
 
 import sk.semestralka.shakelessmidget.items.items.ItemRarity;
 
-
+/**
+ * Trieda Armor sluzi ako podtyp pre Equipment
+ * @author marce
+ */
 public class Armor extends Equipment {
 
+    /**
+     * Vytvori instanciu
+     * @param name nazov
+     * @param rarity vzacnost
+     * @param levelRequired potrebny level
+     */
     public Armor(String name, ItemRarity rarity, int levelRequired) {
         super(name, rarity, 0, 1, 1, levelRequired);
     }
     
+    /**
+     * Testovaci konstruktor
+     */
     public Armor() {
         this("Training Armor", ItemRarity.COMMON, 0);
     }
     
+    /**
+     * Vrati triedu v podobe stringu
+     * @return 
+     */
     @Override
     public String toString() {
         return String.format("Armor{%s, health= %d, armor= %d, rarity= %s, value= %d, required level= %d}", 

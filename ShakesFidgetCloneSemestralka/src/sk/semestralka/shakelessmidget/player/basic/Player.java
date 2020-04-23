@@ -8,19 +8,23 @@ package sk.semestralka.shakelessmidget.player.basic;
 import sk.semestralka.shakelessmidget.items.slots.PlayerSlots;
 import sk.semestralka.shakelessmidget.items.slots.Inventory;
 import sk.semestralka.shakelessmidget.creatures.Creature;
-import sk.semestralka.shakelessmidget.items.items.Item2;
+import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.equippable.Equipment;
 
 import sk.semestralka.shakelessmidget.player.moods.Beginner;
 import sk.semestralka.shakelessmidget.player.moods.Mood;
 
-
+/**
+ * Trieda Player sluzi pre hraca
+ * @author marce
+ */
 public class Player extends Creature {
 
     private Mood mood;
     
     private int requiredXp;
     private int currentXp;
+    private int overallXp;
     private int level;
     
     private int gold;
@@ -35,8 +39,9 @@ public class Player extends Creature {
     private Inventory inventory;
     private PlayerSlots slots;
     
+    
     /**
-     * Konstruktor - hlavne pre testovanie
+     * Testovaci konstruktor
      * @param maxHealth maximalny zivot pre hraca
      * @param damage zakladny damage
      * @param mood specialna charakteristika
@@ -47,6 +52,7 @@ public class Player extends Creature {
         this.mood = mood;
         this.requiredXp = 10;
         this.currentXp = 0;
+        this.overallXp = 0;
         this.level = 1;
         this.gold = 0;
         
@@ -61,7 +67,7 @@ public class Player extends Creature {
     }
     
     /**
-     * Normalny konstruktor pocas hry!
+     * Normalny konstruktor 
      */
     public Player() {
         this(20, 2, new Beginner());
@@ -112,6 +118,7 @@ public class Player extends Creature {
             return;
         }
         this.currentXp += amount;
+        this.overallXp += amount;
         if (this.currentXp >= this.requiredXp) {
             int numOfLevels = this.currentXp / this.requiredXp;
             this.currentXp %= this.requiredXp;
@@ -139,7 +146,13 @@ public class Player extends Creature {
         
     }
     
-    public void addReward(int xp, int gold, Item2 item) {
+    /**
+     * Da odmenu hracovi
+     * @param xp xp
+     * @param gold goldy
+     * @param item  predmet
+     */
+    public void addReward(int xp, int gold, Item item) {
         this.addXp(xp);
         this.addGold(gold);
         this.inventory.addItem(item);
@@ -192,50 +205,94 @@ public class Player extends Creature {
         this.armor -= item.getBonusArmor();
     }
     
+    /**
+     * Vrati inventory
+     * @return 
+     */
     public Inventory getInventory() {
         return this.inventory;
     }
 
+    /**
+     * Vrati level
+     * @return 
+     */
     public int getLevel() {
         return this.level;
     }
 
+    /**
+     * Vrati vlastnu hodnotu sily utoku
+     * @return 
+     */
     @Override
     public int getDamage() {
         int totalDamage = super.getDamage() + this.bonusDamage;
         return totalDamage;
     }
 
+    /**
+     * Vrati vlastnu hodnotu zivotov
+     * @return 
+     */
     @Override
     public int getHealth() {
         int totalHealth = super.getHealth() + this.bonusHealth; 
         return totalHealth;
     }
 
+    /**
+     * Vrati armor
+     * @return 
+     */
     public int getArmor() {
         return this.armor;
     }
 
+    /**
+     * Vrati naladu hraca
+     * @return 
+     */
     public Mood getMood() {
         return this.mood;
     }
 
+    /**
+     * Vrati aktualnu hodnotu xp
+     * @return 
+     */
     public int getCurrentXp() {
         return this.currentXp;
     }
 
+    /**
+     * Vrati pocet goldov kolko vlastni hrac
+     * @return 
+     */
     public int getGold() {
         return this.gold;
     }
 
+    /**
+     * Vrati pocet zivotov ktore ma z itemov
+     * @return 
+     */
     public int getBonusHealth() {
         return this.bonusHealth;
     }
 
+    /**
+     * VRati silu utoku ktoru ma z itemov
+     * @return 
+     */
     public int getBonusDamage() {
         return this.bonusDamage;
     }
 
+    /**
+     * Vrati potrebny pocet XP na dalsie kolo
+     * @return 
+     */
     public int getRequiredXp() {
         return this.requiredXp;
     }

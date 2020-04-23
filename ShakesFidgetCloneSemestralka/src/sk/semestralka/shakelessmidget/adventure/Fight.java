@@ -10,8 +10,7 @@ import sk.semestralka.shakelessmidget.player.basic.Player;
 
 
 /**
- *
- * 
+ * Trieda Fight sluzi na suboj medzi hracom a nepriatelom
  */
 public class Fight {
     private enum Turn { PLAYER, ENEMY };
@@ -27,6 +26,11 @@ public class Fight {
     
     private StringBuilder statusText;
 
+    /**
+     * Vytvori sa instancia, nastavia sa pociatocne hodnoty
+     * @param player hrac
+     * @param enemy nepriatel
+     */
     public Fight(Player player, Creature enemy) {
         this.player = player;
         this.player.heal(this.player.getHealth());  //aby zacal kazdy fight s plnym hp
@@ -53,6 +57,32 @@ public class Fight {
             this.firstStart = false;
         }
     }
+    
+    /**
+     * Vrati nepriatela
+     * @return 
+     */
+    public Creature getEnemy() {
+        return this.enemy;
+    }
+
+    /**
+     * Vrati boolean ci sa hra skoncila
+     * @return 
+     */
+    public boolean isEnded() {
+        return this.ended;
+    }
+
+    /**
+     * Vrati boolean ci hrac vyhral
+     * @return 
+     */
+    public boolean playerWin() {
+        return this.playerWin;
+    }
+    
+    
     
     /**
      * Striedanie turnov medzi enemy a playerom
@@ -95,26 +125,19 @@ public class Fight {
         
     }
 
-    public Creature getEnemy() {
-        return this.enemy;
-    }
-
-    public boolean isEnded() {
-        return this.ended;
-    }
-
-    public boolean playerWin() {
-        return this.playerWin;
-    }
-    
-    
-    
+    /**
+     * Aktualizuje status
+     * @param text 
+     */
     private void updateStatus(String text) {
         this.statusText.append(text);
         this.statusText.append("\n");
     }  
     
-    
+    /**
+     * Vrati status vo forme stringu
+     * @return 
+     */
     public String getStatus() {
         return this.statusText.toString();
     }

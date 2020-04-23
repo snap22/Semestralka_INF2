@@ -12,8 +12,7 @@ import sk.semestralka.shakelessmidget.adventure.Objective;
 import sk.semestralka.shakelessmidget.basic.Game;
 
 /**
- *
- * @author marce
+ * Trieda MissionHolder sluzi na zobrazenie informacii o misii
  */
 public class MissonHolder extends JPanel {
 
@@ -21,6 +20,11 @@ public class MissonHolder extends JPanel {
     private final TavernPanel panel;
     private final Game game;
 
+    /**
+     * Konstruktor, vytvori instanciu a zobrazi hodnoty
+     * @param panel Tavern Panel
+     * @param game hra
+     */
     public MissonHolder(TavernPanel panel, Game game) {
         this.adventures = new MissionPanel[3];
         this.panel = panel;
@@ -30,6 +34,9 @@ public class MissonHolder extends JPanel {
         this.restart();
     }
     
+    /**
+     * Vytvori novu misiu ktora sa zobrazi
+     */
     public void restart() {
         this.clear();
         for (int i = 0; i < this.adventures.length; i++) {
@@ -37,6 +44,18 @@ public class MissonHolder extends JPanel {
         }
     }
     
+    /**
+     * Vrati Tavern Panel
+     * @return 
+     */
+    public TavernPanel getPanel() {
+        return this.panel;
+    }
+    
+    /**
+     * Vytvori misiu a jej hodnoty sa zobrazia
+     * @param i 
+     */
     private void createMission(int i) {
         if (i < 0 || i >= this.adventures.length) {
             return;
@@ -47,6 +66,9 @@ public class MissonHolder extends JPanel {
         this.add(this.adventures[i]);
     }
     
+    /**
+     * Vycisti vsetky informacie
+     */
     private void clear() {
         for (int i = 0; i < this.adventures.length; i++) {
             if (this.adventures[i] == null) {
@@ -56,9 +78,5 @@ public class MissonHolder extends JPanel {
         }
     }
 
-    public TavernPanel getPanel() {
-        return this.panel;
-    }
-    
-    
+
 }

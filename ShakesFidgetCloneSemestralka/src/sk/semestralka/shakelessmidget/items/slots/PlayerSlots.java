@@ -6,7 +6,7 @@
 package sk.semestralka.shakelessmidget.items.slots;
 
 
-import sk.semestralka.shakelessmidget.items.items.Item2;
+import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.equippable.Armor;
 import sk.semestralka.shakelessmidget.items.equippable.Equipment;
 import sk.semestralka.shakelessmidget.items.equippable.Helmet;
@@ -15,7 +15,6 @@ import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  * Trieda zodpoveda za to aby si hrac mohol dať na seba (equipnut) a zo seba rozne predmety a zabezpecuje aby sa vratili do inventory
- * 
  */
 public class PlayerSlots {
     private Slot<Weapon> weaponSlot;
@@ -25,7 +24,7 @@ public class PlayerSlots {
     private Inventory inventory;
     
     /**
-     * 
+     * Konstruktor, vytvori instanciu
      * @param player hrac ktoreho equipnute itemy bude spravovat
      */
     public PlayerSlots(Player player) {
@@ -43,7 +42,7 @@ public class PlayerSlots {
      * Pozrie sa kde pasuje dany predmet a ak sa da tak ho da na seba
      * @param item 
      */
-    public void equip(Item2 item) {
+    public void equip(Item item) {
         if (item instanceof Helmet) {
             this.equip((Helmet)item);
             
@@ -83,28 +82,7 @@ public class PlayerSlots {
         this.equipItem(this.weaponSlot, item);
     }
     
-   /**
-    * Vyberie z inventory a da na hraca. Ak uz je na hracovi equipnuty predmet, tak ho najskor da dole a da do inventory
-    * @return 
-    */
-    private void equipItem(Slot slot, Equipment item) {
-        if (item.getLevelRequired() > this.player.getLevel()) {
-            return;
-        }
-        if (!slot.isEmpty()) {
-            Item2 removedItem = slot.remove();
-            this.player.decreaseStats((Equipment)removedItem);
-            this.inventory.addItem(removedItem);  
-        }
-        
-        this.inventory.removeItem(item);
-        this.player.increaseStats(item);
-        slot.insert(item);
-        
-    }
-    
-    
-    
+
     /**
      * Dá dole zo seba zbraň
      */
@@ -135,7 +113,24 @@ public class PlayerSlots {
         this.unequipHelmet();
     }
     
-    /**
+   
+    
+    //      ******    Getters   *******
+    
+    public Slot<Weapon> getWeaponSlot() {
+        return this.weaponSlot;
+    }
+
+    public Slot<Armor> getArmorSlot() {
+        return this.armorSlot;
+    }
+
+    public Slot<Helmet> getHeadSlot() {
+        return this.headSlot;
+    }
+    
+    
+     /**
      * Podla danej pozicie vymaze item zo slotu, hodi ho do inventory a z hraca da dole staty
      * @param index
      * @return 
@@ -160,20 +155,26 @@ public class PlayerSlots {
         
     }
 
+    /**
+    * Vyberie z inventory a da na hraca. Ak uz je na hracovi equipnuty predmet, tak ho najskor da dole a da do inventory
+    * @return 
+    */
+    private void equipItem(Slot slot, Equipment item) {
+        if (item.getLevelRequired() > this.player.getLevel()) {
+            return;
+        }
+        if (!slot.isEmpty()) {
+            Item removedItem = slot.remove();
+            this.player.decreaseStats((Equipment)removedItem);
+            this.inventory.addItem(removedItem);  
+        }
+        
+        this.inventory.removeItem(item);
+        this.player.increaseStats(item);
+        slot.insert(item);
+        
+    }
     
-    //      ******    Getters   *******
-    
-    public Slot<Weapon> getWeaponSlot() {
-        return this.weaponSlot;
-    }
-
-    public Slot<Armor> getArmorSlot() {
-        return this.armorSlot;
-    }
-
-    public Slot<Helmet> getHeadSlot() {
-        return this.headSlot;
-    }
     
     
 }

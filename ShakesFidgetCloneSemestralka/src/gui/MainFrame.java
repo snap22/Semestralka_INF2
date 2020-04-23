@@ -14,8 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- *
- * @author marce
+ * Hlavne okno pre graficke rozhranie
  */
 public class MainFrame extends JFrame {
     
@@ -26,7 +25,10 @@ public class MainFrame extends JFrame {
     private final Game game;
     
     
-    
+    /**
+     * Konstruktor, spusti graficke rozhranie.
+     * @param game hra
+     */
     public MainFrame(Game game) {
         this.game = game;
         this.setTitle(" Shakeless Midget - The game of the year 2020");

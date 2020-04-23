@@ -7,13 +7,12 @@ package sk.semestralka.shakelessmidget.adventure;
 
 import sk.semestralka.shakelessmidget.creatures.Creature;
 import sk.semestralka.shakelessmidget.creatures.Enemy;
-import sk.semestralka.shakelessmidget.items.items.Item2;
+import sk.semestralka.shakelessmidget.items.items.Item;
 
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
- *
- * @author marce
+ * Trieda Objective sluzi ako uloha pre hraca ktoru musi splnit
  */
 public class Objective {
     
@@ -29,10 +28,10 @@ public class Objective {
     private StringBuilder status;
 
     /**
-     * Kazda misia bude mat nazov, popis misie, bytost ktoru treba zabit (bytost nemoze byt hrac!), 
+     * Kazda uloha bude mat nazov, popis misie, bytost ktoru treba zabit (bytost nemoze byt hrac!), 
      * odmena v goldoch a xp, a aky cas trva kym sa zacne misia
-     * @param name nazov misie
-     * @param description popis misie
+     * @param name nazov ulohy
+     * @param description popis ulohy
      * @param enemy nepriatel - nemoze to byt hrac
      * @param goldReward odmena v goldoch
      * @param xpReward odmena v xp
@@ -49,12 +48,21 @@ public class Objective {
         this.status = new StringBuilder();
     }
     
+    /**
+     * Kazda uloha bude mat nazov, popis misie, bytost ktoru treba zabit (bytost nemoze byt hrac!), 
+     * odmena v goldoch a xp, a aky cas trva kym sa zacne misia. Alternativny konstruktor bez popisu ulohy
+     * @param name nazov ulohy
+     * @param enemy nepriatel - nemoze to byt hrac
+     * @param goldReward odmena v goldoch
+     * @param xpReward odmena v xp
+     * @param duration  cas trvania 
+     */
     public Objective(String name, Enemy enemy, int goldReward, int xpReward, int duration) {
         this(name, "Too expensive to afford description!", enemy, goldReward, xpReward, duration);
     }
     
     /**
-     * Splni misiu
+     * Splni ulohu
      */
     public void complete() {
         this.completed = true;
@@ -69,7 +77,7 @@ public class Objective {
             return;
         }
         int xp = this.xpReward + this.enemy.getXpReward();
-        Item2 item = this.enemy.dropItem();
+        Item item = this.enemy.dropItem();
         
         player.addReward(xp, this.goldReward, item);
         this.status.append(String.format("You did it! Your reward is: %d xp, %d gold %n", xp, this.goldReward));
@@ -79,34 +87,66 @@ public class Objective {
         
     }
 
+    /**
+     * Vrati nepriatela
+     * @return 
+     */
     public Creature getEnemy() {
         return this.enemy;
     }
 
+    /**
+     * Vrati odmenu goldov
+     * @return 
+     */
     public int getGoldReward() {
         return this.goldReward;
     }
 
+    /**
+     * Vrati odmenu xp
+     * @return 
+     */
     public int getXpReward() {
         return this.xpReward;
     }
 
+    /**
+     * Vrati cas trvania ulohy
+     * @return 
+     */
     public int getDuration() {
         return this.duration;
     }
 
+    /**
+     * Vrati nazov ulohy
+     * @return 
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * Vrati popis ulohy
+     * @return 
+     */
     public String getDescription() {
         return this.description;
     }
 
+    /**
+     * Vrati boolean ci je splnena uloha
+     * @return 
+     */
     public boolean isCompleted() {
         return this.completed;
     }
 
+    /**
+     * Vrati status ulohy
+     * @return 
+     */
     public String getStatus() {
         return this.status.toString();
     }

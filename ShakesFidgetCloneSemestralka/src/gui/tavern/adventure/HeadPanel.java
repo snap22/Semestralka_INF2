@@ -11,8 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- *
- * @author marce
+ * Trieda HeadPanel sluzi cisto ako Header pre jednotlive MainPanely
  */
 public class HeadPanel extends JPanel {
 
@@ -26,6 +25,10 @@ public class HeadPanel extends JPanel {
         this.add(this.label);
     }
     
+    /**
+     * Zmeni text
+     * @param text novy text ktory sa zobrazi
+     */
     public void changeTitle(String text) {
         this.label.setText(text);
     }

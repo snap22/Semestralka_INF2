@@ -5,9 +5,14 @@
  */
 package sk.semestralka.shakelessmidget.player.moods;
 
-
+/**
+ * Podtyp pre naladu
+ */
 public class Beginner extends Mood {
 
+    /**
+     * Vytvori naladu
+     */
     public Beginner() {
         super("Beginner", 1, 100);
     }

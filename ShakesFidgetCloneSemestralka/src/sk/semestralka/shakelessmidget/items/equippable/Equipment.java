@@ -6,11 +6,14 @@
 package sk.semestralka.shakelessmidget.items.equippable;
 
 import sk.semestralka.shakelessmidget.basic.Chance;
-import sk.semestralka.shakelessmidget.items.items.Item2;
+import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.items.ItemRarity;
 
-
-public abstract class Equipment extends Item2 {
+/**
+ * Trieda sluzi ako nadtyp pre triedy ktore si hrac moze na seba zobrat
+ * @author marce
+ */
+public abstract class Equipment extends Item {
 
     private int bonusHealth;
     private int bonusDamage;
@@ -18,6 +21,15 @@ public abstract class Equipment extends Item2 {
     private int levelRequired;
     private int goldValue;
 
+    /**
+     * Vytvori instanciu
+     * @param name nazov
+     * @param rarity vzacnost
+     * @param damage sila utoku
+     * @param bonusHealth zivot
+     * @param armor armor
+     * @param levelRequired potrebny level
+     */
     public Equipment(String name, ItemRarity rarity, int damage, int bonusHealth, int armor, int levelRequired) {
         super(name, rarity);
         this.levelRequired = levelRequired;
@@ -25,25 +37,46 @@ public abstract class Equipment extends Item2 {
         
     }
 
+    /**
+     * Vrati zivoty ktore pridava
+     * @return 
+     */
     public int getBonusHealth() {
         return this.bonusHealth;
     }
 
+    /**
+     * Vrati silu utoku ktoru pridava
+     * @return 
+     */
     public int getBonusDamage() {
         return this.bonusDamage;
     }
 
+    /**
+     * Vrati armor ktory pridava
+     * @return 
+     */
     public int getBonusArmor() {
         return this.bonusArmor;
     }
 
+    /**
+     * Vrati potrebny level
+     * @return 
+     */
     public int getLevelRequired() {
         return this.levelRequired;
     }
     
+
     @Override
     public abstract String toString();
 
+    /**
+     * Vrati hodnotu v goldoch
+     * @return 
+     */
     @Override
     public int getGoldValue() {
         return this.goldValue;

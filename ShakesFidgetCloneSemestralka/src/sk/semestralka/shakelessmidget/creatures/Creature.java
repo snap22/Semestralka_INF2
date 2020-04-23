@@ -6,8 +6,7 @@
 package sk.semestralka.shakelessmidget.creatures;
 
 /**
- *
- * @author marce
+ * Trieda Creature sluzi ako nadtyp 
  */
 public abstract class Creature {
 
@@ -21,7 +20,12 @@ public abstract class Creature {
     private boolean dead;
     
     
-
+    /**
+     * Vytvori instanciu
+     * @param name meno
+     * @param maxHealth zivoty
+     * @param damage sila utoku
+     */
     public Creature(String name, int maxHealth, int damage) {
         this.name = name;
         this.health = maxHealth;
@@ -30,6 +34,10 @@ public abstract class Creature {
         this.dead = false;
     }
     
+    /**
+     * Prijme utok
+     * @param amount sila utoku
+     */
     public void takeDamage(int amount) {
         if (this.dead) {
             return;
@@ -46,6 +54,10 @@ public abstract class Creature {
         }
     }
     
+    /**
+     * Zautoci na protivnika
+     * @param opponent protivnik
+     */
     public void attack(Creature opponent) {
         if (this.dead) {
             return; 
@@ -53,18 +65,33 @@ public abstract class Creature {
         opponent.takeDamage(this.damage);
     }
     
+    /**
+     * Zomrie
+     */
     public void die() {
         this.dead = true;
     }
 
+    /**
+     * Vrati meno
+     * @return 
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * Vrati boolean ci je mrtvy
+     * @return 
+     */
     public boolean isDead() {
         return this.dead;
     }
     
+    /**
+     * Vylieci o dane mnozstvo
+     * @param amount mnozstvo
+     */
     public void heal(int amount) {
         if (this.dead) {
             return;
@@ -79,14 +106,26 @@ public abstract class Creature {
         }
     }
 
+    /**
+     * Vrati zivoty
+     * @return 
+     */
     public int getHealth() {
         return this.health;
     }
 
+    /**
+     * Vrati aktualne mnozstvo zivotov
+     * @return 
+     */
     public int getCurrentHealth() {
         return this.currentHealth;
     }
 
+    /**
+     * Vrati silu utoku
+     * @return 
+     */
     public int getDamage() {
         return this.damage;
     }

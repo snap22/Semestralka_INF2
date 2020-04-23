@@ -8,8 +8,8 @@ package gui.eventTry;
 import gui.panels.TemporaryPanel;
 
 /**
- *
- * @author marce
+ * Cisto test trieda
+ * 
  */
 public class Testicek {
     private static TemporaryPanel temp;

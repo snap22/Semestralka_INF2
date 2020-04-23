@@ -5,7 +5,7 @@
  */
 package items.slots2;
 
-import sk.semestralka.shakelessmidget.items.items.Item2;
+import sk.semestralka.shakelessmidget.items.items.Item;
 
 /**
  *
@@ -25,7 +25,7 @@ public class Inventory2 {
      * Prejde vsetky sloty a ked najde prve vhodne miesto na ulozenie predmetu, tak ho tam vlozi
      * @param item 
      */
-    public boolean addItem(Item2 item) {
+    public boolean addItem(Item item) {
         for (int i = 0; i < this.slots.length; i++) {
             if (this.slots[i].insert(item)) {
                 return true;
@@ -34,7 +34,7 @@ public class Inventory2 {
         return false;
     }
     
-    public boolean addItem(Item2 item, int index) {
+    public boolean addItem(Item item, int index) {
         if (index < 0 || index >= this.slots.length) {
             return false;
         }

@@ -20,8 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
 /**
- *
- * @author marce
+ * Trieda WaitPanel sluzi ako panel ktory ukazuje hracovi kolko ma cakat
  */
 public final class WaitPanel extends MainPanel {
 
@@ -33,6 +32,11 @@ public final class WaitPanel extends MainPanel {
     private final TavernPanel tav;
     private final Objective obj;
     
+    /**
+     * Konstruktor. Vytvori potrebne komponenty
+     * @param obj uloha 
+     * @param tav Tavern Panel
+     */
     public WaitPanel(Objective obj, TavernPanel tav) {
         super(PanelType.WAIT);
         int price = 50;
@@ -76,13 +80,18 @@ public final class WaitPanel extends MainPanel {
         }
     }
 
+    /**
+     * Pociatocny konstruktor bez ulohy
+     * @param tav Tavern Panel
+     */
     public WaitPanel(TavernPanel tav) {
         this(null, tav);
     }
-    
-    
-    
-    
+
+    /**
+     * Nastavi ulohu
+     * @param newObj 
+     */
     public void setup(Objective newObj) {
         this.timePassed = 0;
         this.bar.setValue(0);
@@ -93,6 +102,9 @@ public final class WaitPanel extends MainPanel {
         
     }
     
+    /**
+     * Zacina odpocitavanie
+     */
     private void beginCalc() {
         Timer t = new Timer();
         t.schedule(new TimerTask() {

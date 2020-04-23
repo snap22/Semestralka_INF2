@@ -9,16 +9,18 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
+import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
- *
- * @author marce
+ * Trieda ShopPanel sluzi ako obchod v ktorom si hrac moze kupit nahodnu vec 
  */
 public class ShopPanel extends MainPanel {
 
-    public ShopPanel() {
+    private final Player player;
+
+    public ShopPanel(Player player) {
         super(PanelType.SHOP);
+        this.player = player;
         this.setLayout(new BorderLayout());
         JLabel label = new JLabel("THIS IS SHOP");
         label.setForeground(Color.white);
@@ -29,5 +31,7 @@ public class ShopPanel extends MainPanel {
         this.setBackground(Color.black);
         this.add(label, BorderLayout.NORTH);
     }
+    
+    // button - po kliknuti prida hracovi item, zoberie goldy. Pozn. ak je inventory full --> error- dialog box, popup window
     
 }

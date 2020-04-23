@@ -34,7 +34,10 @@ public class Bursting extends Mood {
         }
         return 0;
     }
-
+    /**
+     * Vrati triedu v podobe stringu
+     * @return 
+     */
     @Override
     public String toString() {
         return String.format("Sanca na critical strike: %d %n", this.chanceToCrit);

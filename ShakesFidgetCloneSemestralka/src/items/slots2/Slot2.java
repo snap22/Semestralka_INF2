@@ -6,7 +6,7 @@
 package items.slots2;
 
 
-import sk.semestralka.shakelessmidget.items.items.Item2;
+import sk.semestralka.shakelessmidget.items.items.Item;
 
 
 /**
@@ -15,7 +15,7 @@ import sk.semestralka.shakelessmidget.items.items.Item2;
  */
 public class Slot2 {
 
-    private Item2 item;
+    private Item item;
     private ItemType type;
 
     
@@ -34,7 +34,7 @@ public class Slot2 {
      * 
      * @param item 
      */
-    public boolean insert(Item2 item) {
+    public boolean insert(Item item) {
         if (item == null) {
             return false;
         }
@@ -59,7 +59,7 @@ public class Slot2 {
         this.item = null;
     }
     
-    public Item2 getItem() {
+    public Item getItem() {
         return this.item;
     }
     

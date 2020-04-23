@@ -10,23 +10,33 @@ import gui.MainFrame;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
- *
- * @author marce
+ * Hlavna trieda ktora obsahuje zakladne logicke prvky
  */
 public class Game {
     private Player player;
     private Generator generator;
     
+    /**
+     * Vytvori instanciu
+     */
     public Game() {
         this.player = new Player();
         this.generator = new Generator(this.player);
         MainFrame mf = new MainFrame(this);
     }
 
+    /**
+     * Vrati hraca
+     * @return 
+     */
     public Player getPlayer() {
         return this.player;
     }
 
+    /**
+     * Vrati generator
+     * @return 
+     */
     public Generator getGenerator() {
         return this.generator;
     }

@@ -19,6 +19,12 @@ public class Mission {
     private Player player;
     private final FightPanel panel;
 
+    /**
+     * Konstruktor, vytovri instanciu
+     * @param objective uloha
+     * @param player hrac
+     * @param panel panel na ktorom sa to ma zobrazit
+     */
     public Mission(Objective objective, Player player, FightPanel panel) {
         this.objective = objective;
         this.player = player;
@@ -44,14 +50,26 @@ public class Mission {
         
     }
 
+    /**
+     * Vrati ulohu
+     * @return 
+     */
     public Objective getObjective() {
         return this.objective;
     }
 
+    /**
+     * Vrati triedu Fight
+     * @return 
+     */
     public Fight getFight() {
         return this.fight;
     }
 
+    /**
+     * Vrati hraca
+     * @return 
+     */
     public Player getPlayer() {
         return this.player;
     }

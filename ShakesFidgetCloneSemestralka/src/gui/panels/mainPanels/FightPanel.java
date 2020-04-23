@@ -16,13 +16,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import sk.semestralka.shakelessmidget.adventure.Mission;
 import sk.semestralka.shakelessmidget.adventure.Objective;
-import sk.semestralka.shakelessmidget.creatures.Enemy;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 
 /**
- *
- * @author marce
+ * Trieda FightPanel sluzi na zobrazenie suboja medzi hracom a nepriatelom
  */
 public class FightPanel extends MainPanel {
 
@@ -33,6 +31,12 @@ public class FightPanel extends MainPanel {
     
     private Mission mission;
 
+    /**
+     * Konstruktor ktory zobrazi priebeh boja
+     * @param player hrac
+     * @param obj uloha ktoru ma hrac splnit
+     * @param tav Tavern Panel
+     */
     public FightPanel(Player player, Objective obj, TavernPanel tav) {
         super(PanelType.FIGHT);
         this.setBackground(Color.black);
@@ -67,68 +71,42 @@ public class FightPanel extends MainPanel {
         
     }
 
+    /**
+     * Pociatocny konstruktor
+     * @param player hrac
+     * @param tav Tavern Panel
+     */
     public FightPanel(Player player, TavernPanel tav) {
         this(player, null, tav);
     }
-    
-    private void test() {
-        this.clear();
-        //this.text.append(String.format("You are fighting against %s%n", this.obj.getEnemy().toString()));
-        //this.text.append(String.format("Your possible reward: %s%n", ((Enemy)this.obj.getEnemy()).getItemReward().toString()));
-        
-    }
-    
+
+    /**
+     * Prida do priebehu suboja text
+     * @param newText 
+     */
     public void appendText(String newText) {
         this.text.append(newText);
     }
     
-    /*public void appendPlayerText(String newText) {
-        this.createLine();
-        this.text.append(String.format("%s %n", newText));
-        
-    }
-    
-    public void appendEnemyText(String newText) {
-        this.createLine();
-        this.text.append(String.format("%s %s %n", this.createEmptyGap(80), newText));
-        
-    }
-    
-    private String createShit(int length, char c, boolean br) {
-        if (length < 0) {
-            length = 1;
-        }
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            sb.append(c);
-        }
-        if (br) {
-            sb.append("\n");
-        }
-        
-        return sb.toString();
-        
-    }
-    
-   
-    
-    private String createEmptyGap(int length) {
-        return this.createShit(length, ' ', false);
-    }
-    
-    private void createLine() {
-        this.text.append(this.createShit(89, '-', true));
-        
-    }*/
-    
+    /**
+     * Vycisty priebeh suboja
+     */
     public void clear() {
         this.text.setText("");
     }
     
+    /**
+     * Nastavi ulohu podla zadaneho parametra
+     * @param obj 
+     */
     public void setup(Objective obj) {
+        if (obj == null) {
+            return;
+        }
         this.clear();
         this.obj = obj;
         this.mission = new Mission(obj, this.player, this);
         this.mission.start();
     }
+
 }

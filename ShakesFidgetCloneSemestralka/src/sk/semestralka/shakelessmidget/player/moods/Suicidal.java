@@ -29,7 +29,10 @@ public class Suicidal extends Mood {
         
     }
 
-
+    /**
+     * Vrati triedu v podobe stringu
+     * @return 
+     */
     @Override
     public String toString() {
         return String.format("Má %d šancu že počas útoku zomrie.%n", this.chanceToDie);

@@ -40,7 +40,10 @@ public class Greedy extends Mood {
         
         this.chanceToGetGold++;
     }
-
+    /**
+     * Vrati triedu v podobe stringu
+     * @return 
+     */
     @Override
     public String toString() {
         return String.format("Sanca ze dostane %d goldov: %d%n", this.goldAmount, this.chanceToGetGold);

@@ -10,8 +10,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 
 /**
- *
- * @author marce
+ * Trieda HeroStatLabel sluzi na zobrazenie daneho udaju
  */
 public class HeroStatLabel extends JLabel {
 
@@ -20,8 +19,8 @@ public class HeroStatLabel extends JLabel {
 
     /**
      * Konštruktor ktory berie 2 stringy, jeden pre nazov druhy pre description
-     * @param name
-     * @param description 
+     * @param name  nazov 
+     * @param description popis, upresnujuci udaj
      */
     public HeroStatLabel(String name, String description) {
         super("");      //bez toho to ani neukaze
@@ -33,7 +32,6 @@ public class HeroStatLabel extends JLabel {
         this.setOpaque(true);
         
         this.updateText();
-        
     }
 
     /**
@@ -48,16 +46,9 @@ public class HeroStatLabel extends JLabel {
     }
     
     
-    /**
-     * Aktualizuje text
-     */
-    private void updateText() {
-        String newText = String.format("%s : %s", this.nameText, this.description);
-        super.setText(newText);
-    }
     
     /**
-     * Zmeni hodnotu v description
+     * Nastavi popis podla danej hodnoty
      * @param newDescription nový text ktorý chceme mať v danom labely
      */
     public void setDescription(String newDescription) {
@@ -69,10 +60,20 @@ public class HeroStatLabel extends JLabel {
         this.updateText();
     }
     
+    /**
+     * Nastavi popis podla danej hodnoty
+     * @param newDescription  cislo, ktore sa ukaze v popise
+     */
     public void setDescription(int newDescription) {
         this.setDescription(String.valueOf(newDescription));
     }
     
+    /**
+     * Nastavi popis podla danych hodnot. Vysledne sa ukaze ako retazec vo forme
+     * " <i> zaciatocne cislo} </i> / <i> koncove cislo </i> "
+     * @param current zaciatocne cislo
+     * @param required  koncove cislo
+     */
     public void setDescription(int current, int required) {
         this.description = String.format("%d / %d", current, required);
     }
@@ -92,6 +93,14 @@ public class HeroStatLabel extends JLabel {
         return this.nameText;
     }
     
+    
+    /**
+     * Aktualizuje text
+     */
+    private void updateText() {
+        String newText = String.format("%s : %s", this.nameText, this.description);
+        super.setText(newText);
+    }
     
     
 }

@@ -6,17 +6,25 @@
 package sk.semestralka.shakelessmidget.items.valuables;
 
 import sk.semestralka.shakelessmidget.basic.Chance;
-import sk.semestralka.shakelessmidget.items.items.Item2;
+import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.items.ItemRarity;
 import java.util.Random;
 
-
-public class Goods extends Item2 {
+/**
+ * Trieda Goods sluzi ako nepouzitelny predmet pre hraca
+ * @author marce
+ */
+public class Goods extends Item {
 
     private int dropChance;
     private int goldValue;
     private final Random random;
     
+    /**
+     * Konstruktor, vytvori instanciu
+     * @param name meno
+     * @param rarity  vzacnost
+     */
     public Goods(String name, ItemRarity rarity) {
         super(name, rarity);
         this.random = new Random();
@@ -24,8 +32,38 @@ public class Goods extends Item2 {
         
     }
     
+    /**
+     * Testovaci konstruktor
+     */
     public Goods() {
         this("Trash", ItemRarity.COMMON);
+    }
+    
+        /**
+     * Vrati vlastnu hodnotu sance na drop
+     * @return 
+     */
+    @Override
+    public int getDropChance() {
+        return this.dropChance;
+    }
+
+    /**
+     * Vrati vlastnu hodnotu v goldoch
+     * @return 
+     */
+    @Override
+    public int getGoldValue() {
+        return this.goldValue;
+    }
+
+    /**
+     * Vrati triedu v podobe stringu
+     * @return 
+     */
+    @Override
+    public String toString() {
+        return String.format("Goods{%s ,rarity=%s value= %d }", super.getName(), super.getRarity(),  this.goldValue);
     }
     
     /**
@@ -59,23 +97,4 @@ public class Goods extends Item2 {
         }
     }
 
-    @Override
-    public int getDropChance() {
-        return this.dropChance;
-    }
-
-    @Override
-    public int getGoldValue() {
-        return this.goldValue;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Goods{%s ,rarity=%s value= %d }", super.getName(), super.getRarity(),  this.goldValue);
-    }
-    
-    
-    
-    
-    
 }

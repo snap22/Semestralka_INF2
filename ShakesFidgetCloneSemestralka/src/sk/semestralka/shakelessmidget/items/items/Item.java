@@ -9,17 +9,26 @@ package sk.semestralka.shakelessmidget.items.items;
  * Trieda Item reprezentuje predmety. Kazdy predmet ma svoje meno, penaznu hodnotu a svoju vzacnost
  * @author marce
  */
-public abstract class Item2 {
+public abstract class Item {
     
     private ItemRarity rarity;
     private String name;
 
-    public Item2(String name, ItemRarity rarity) {
+    /**
+     * Konstruktor, vytvori instanciu s danymi hodnotami
+     * @param name meno
+     * @param rarity  vzacnost
+     */
+    public Item(String name, ItemRarity rarity) {
         this.name = name;
         this.rarity = rarity;  
     }
 
 
+    /**
+     * Vrati meno
+     * @return 
+     */
     public String getName() {
         return this.name;
     }
@@ -47,18 +56,12 @@ public abstract class Item2 {
         }
     }
 
-    
+    /**
+     * Vrati vzacnost predmetu
+     * @return 
+     */
     public ItemRarity getRarity() {
         return this.rarity;
     }
-    
-    /* 
-    public boolean equals(Item2 another) {
-        return (this.name.equals(another.getName()) && (this.rarity == another.getRarity()));
-    }
-    */
 
-    
-    
-    
 }

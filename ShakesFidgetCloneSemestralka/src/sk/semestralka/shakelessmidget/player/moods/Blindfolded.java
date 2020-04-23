@@ -9,12 +9,17 @@ import sk.semestralka.shakelessmidget.basic.Chance;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 
-
+/**
+ * Podtyp pre naladu
+ */
 public class Blindfolded extends Mood {
 
     private int chanceToMiss;
     private int playerDamage;
 
+    /**
+     * Vytvori naladu
+     */
     public Blindfolded() {
         super("BlindFolder", 50, 10);
         this.chanceToMiss = 50;
@@ -45,6 +50,10 @@ public class Blindfolded extends Mood {
         this.chanceToMiss--;
     }
 
+    /**
+     * Vrati triedu v podobe stringu
+     * @return 
+     */
     @Override
     public String toString() {
         return String.format("Sanca ze missne: %d %n", this.chanceToMiss);

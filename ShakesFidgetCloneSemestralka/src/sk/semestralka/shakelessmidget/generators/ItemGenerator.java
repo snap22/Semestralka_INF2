@@ -5,9 +5,7 @@
  */
 package sk.semestralka.shakelessmidget.generators;
 
-import sk.semestralka.shakelessmidget.generators.ExampleType;
-import sk.semestralka.shakelessmidget.generators.LoadFile;
-import sk.semestralka.shakelessmidget.items.items.Item2;
+import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.items.ItemRarity;
 import sk.semestralka.shakelessmidget.items.equippable.Armor;
 import sk.semestralka.shakelessmidget.items.equippable.Helmet;
@@ -16,7 +14,7 @@ import sk.semestralka.shakelessmidget.items.valuables.Goods;
 import java.util.Random;
 
 /**
- * Trieda ma za ulohu to, aby vytvorila nahodne itemy
+ * Trieda ItemGenerator ma za ulohu to, aby vytvorila nahodne itemy
  */
 public class ItemGenerator {
 
@@ -99,7 +97,7 @@ public class ItemGenerator {
      * Vrati nahodne vytvoreny item
      * @return 
      */
-    public Item2 generateRandomItem() {
+    public Item generateRandomItem() {
         int num = new Random().nextInt(4);
         switch (num) {
             case 0:
@@ -118,7 +116,7 @@ public class ItemGenerator {
      * @param level
      * @return 
      */
-    public Item2 generateRandomItem(int level) {
+    public Item generateRandomItem(int level) {
         int num = new Random().nextInt(4);
         switch (num) {
             case 0:
@@ -137,7 +135,7 @@ public class ItemGenerator {
      * @param type typ ktory chceme vytvorit
      * @return 
      */
-    private Item2 generate(Type type, int levelRequired) {
+    private Item generate(Type type, int levelRequired) {
         if (levelRequired <= 0) {
             levelRequired = 1;
         }
@@ -168,7 +166,7 @@ public class ItemGenerator {
      * @param type
      * @return 
      */
-    private Item2 generate(Type type) {
+    private Item generate(Type type) {
         int levelRequired = this.getRandomLevelRequirement();
         return this.generate(type, levelRequired);
     }

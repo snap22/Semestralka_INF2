@@ -11,13 +11,12 @@ import java.awt.Dimension;
 import java.awt.Font;
 
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 /**
- *
- * @author marce
+ * Trieda WelcomePanel sluzi ako uvitacia trieda pre hraca ked spusti hru
+ * Pocas hry nie je mozne opat sa dostat do tohto panela
  */
 public class WelcomePanel extends MainPanel {
 
@@ -47,6 +46,10 @@ public class WelcomePanel extends MainPanel {
         
     }
     
+    /**
+     * Prida text
+     * @param text 
+     */
     public void appendText(String text) {
         this.text.append(text);
         this.text.append("\n");

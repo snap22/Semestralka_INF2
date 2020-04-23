@@ -7,7 +7,6 @@ package gui.panels;
 
 import sk.semestralka.shakelessmidget.generators.Generator;
 import gui.eventTry.Testicek;
-import gui.hero.HeroStatsPanel;
 import gui.panels.mainPanels.HeroPanel;
 import gui.panels.mainPanels.MainPanel;
 import gui.panels.mainPanels.MiniGamePanel;
@@ -24,7 +23,7 @@ import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  *
- * @author marce
+ * Trieda TemporaryPanel sluzi na prepinanie panelov
  */
 public class TemporaryPanel extends JPanel {
 
@@ -36,6 +35,11 @@ public class TemporaryPanel extends JPanel {
     private Generator gen;
     private Player player;
     private final HeroPanel heroPanel;
+    
+    /**
+     * Konstruktor pre TemporaryPanel, po vytvoreni sa zobrazi uvitaci panel
+     * @param game hra
+     */
     public TemporaryPanel(Game game) {
         Testicek.setPanel(this);
         
@@ -57,7 +61,7 @@ public class TemporaryPanel extends JPanel {
         this.createPanel(new WelcomePanel());
         this.createPanel(new TavernPanel(game));
         this.createPanel(this.heroPanel);
-        this.createPanel(new ShopPanel());
+        this.createPanel(new ShopPanel(this.player));
         this.createPanel(new MiniGamePanel());
         
         //this.createPanel(new WaitPanel(this.gen.generateObjective()));
@@ -67,29 +71,10 @@ public class TemporaryPanel extends JPanel {
         this.changePanel("WELCOME");    //na zaciatku nastavi welcome panel aby bol viditelny
     }
 
-    /**
-     * Nastavi panely, prida ich do JPanel a každemu da identifikator podla jeho typu
-     */
-    private void setupPanels() {
-        for (MainPanel panel : this.panels.values()) {
-            this.panelToChange.add(panel, panel.getTypeString());
-            
-        }
-    }
-    /**
-     * Vytvori panel a da ho do hashmapu
-     * @param newPanel 
-     */
-    private void createPanel(MainPanel newPanel) {
-        if (newPanel == null) {
-            return;
-        }
-        
-        this.panels.put(newPanel.getTypeString(), newPanel);
-    }
+    
     
     /**
-     * Na zaklade zadaneho parametra ukaze dany panel, ak je v paneloch
+     * Na zaklade zadaneho parametra ukaze dany panel
      * @param type 
      */
     public void changePanel(PanelType type) {
@@ -100,6 +85,10 @@ public class TemporaryPanel extends JPanel {
         
     }
     
+    /**
+     * Na zaklade zadaneho retazca ukaze dany panel
+     * @param type 
+     */
     public void changePanel(String type) {
         if (type == null) {
             return;
@@ -116,7 +105,27 @@ public class TemporaryPanel extends JPanel {
         
     }
     
+    /**
+     * Nastavi panely, prida ich do kontajnera a každemu da identifikator podla jeho typu
+     */
+    private void setupPanels() {
+        for (MainPanel panel : this.panels.values()) {
+            this.panelToChange.add(panel, panel.getTypeString());
+            
+        }
+    }
     
+    /**
+     * Vytvori panel a da ho do hashmapu
+     * @param newPanel 
+     */
+    private void createPanel(MainPanel newPanel) {
+        if (newPanel == null) {
+            return;
+        }
+        
+        this.panels.put(newPanel.getTypeString(), newPanel);
+    }
  
     
 }
