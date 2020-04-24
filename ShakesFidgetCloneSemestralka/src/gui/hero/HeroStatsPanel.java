@@ -27,7 +27,8 @@ public class HeroStatsPanel extends JPanel {
     private HashMap<String, HeroStatLabel> labels;
     private final Player player;
     private JProgressBar bar;
-    private final HeroItems items;
+    private final HeroItems2 equippedItems;
+    private final PlayerItems inventoryItems;
 
     /**
      * Konstruktor pre triedu, vytvoria sa udaje ktore udavaju zakladne informacie o hracovi
@@ -58,21 +59,22 @@ public class HeroStatsPanel extends JPanel {
         
         JLabel equippedItemsLabel = new JLabel("Equipped:");
         equippedItemsLabel.setFont(BasicGui.getFont());
+        this.add(Box.createRigidArea(new Dimension(5, 10)));
         
         this.add(equippedItemsLabel);
-        this.items = new HeroItems(this.player);
-        JScrollPane scrollPane = new JScrollPane(this.items);
-        this.add(scrollPane);
+        this.equippedItems = new HeroItems2(this.player);
+        this.inventoryItems = new PlayerItems(this.player);
+        JScrollPane equippedScrollPane = new JScrollPane(this.equippedItems);
+        JScrollPane inventoryScrollPane = new JScrollPane(this.inventoryItems);
+        this.add(equippedScrollPane);
         
-        /*this.items.addListSelectionListener(new ListSelectionListener() {
+        JLabel inventoryItemsLabel = new JLabel("Inventory:");
+        equippedItemsLabel.setFont(BasicGui.getFont());
+        this.add(Box.createRigidArea(new Dimension(5, 10)));
+        this.add(inventoryItemsLabel);
+        this.add(inventoryScrollPane);
         
-        @Override
-        public void valueChanged(ListSelectionEvent arg0) {
-        if (!arg0.getValueIsAdjusting()) {
-        System.out.println(items.getSelectedValue());
-        }
-        }
-        });*/
+        
         
     }
     
@@ -86,7 +88,7 @@ public class HeroStatsPanel extends JPanel {
         this.updateText("Level", this.player.getLevel());
         this.updateText("Gold", this.player.getGold());
         this.updateBar();
-        this.items.update();
+        this.equippedItems.update();
         
     }
     

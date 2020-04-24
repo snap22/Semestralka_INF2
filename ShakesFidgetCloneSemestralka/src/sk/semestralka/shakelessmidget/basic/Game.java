@@ -11,6 +11,7 @@ import sk.semestralka.shakelessmidget.player.basic.Player;
 import sk.semestralka.shakelessmidget.items.equippable.Armor;
 import sk.semestralka.shakelessmidget.items.equippable.Helmet;
 import sk.semestralka.shakelessmidget.items.equippable.Weapon;
+import sk.semestralka.shakelessmidget.items.valuables.Goods;
 
 /**
  * Hlavna trieda ktora obsahuje zakladne logicke prvky
@@ -51,15 +52,17 @@ public class Game {
         Weapon zbran = new Weapon();
         Helmet helma = new Helmet();
         Armor armor = new Armor();
+        Goods goodies = new Goods();
         
         this.player.getInventory().addItem(helma);
         this.player.getInventory().addItem(zbran);
         this.player.getInventory().addItem(armor);
+        this.player.getInventory().addItem(goodies);
         
         this.player.getSlots().equip(armor);
         this.player.getSlots().equip(helma);
         this.player.getSlots().equip(zbran);
-        System.out.println(this.player.getSlots().getArmorSlot().getItem());
+        //System.out.println(this.player.getSlots().getArmorSlot().getItem());
     }
     
    
