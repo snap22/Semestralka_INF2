@@ -10,7 +10,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
-import sk.semestralka.shakelessmidget.creatures.Player;
+import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  * Trieda HeroPanel sluzi na zobrazenie informacii o hracovi

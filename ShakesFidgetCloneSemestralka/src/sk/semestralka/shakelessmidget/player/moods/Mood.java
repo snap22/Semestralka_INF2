@@ -6,7 +6,7 @@
 package sk.semestralka.shakelessmidget.player.moods;
 
 
-import sk.semestralka.shakelessmidget.creatures.Player;
+import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  *

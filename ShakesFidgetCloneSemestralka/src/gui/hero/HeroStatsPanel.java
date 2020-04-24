@@ -5,14 +5,19 @@
  */
 package gui.hero;
 
+import gui.BasicGui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.HashMap;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
-import sk.semestralka.shakelessmidget.creatures.Player;
+import javax.swing.JScrollPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  * Trieda HeroStatsPanel sluzi pre zobrazovanie zakladnych informacii o hracovi
@@ -22,6 +27,7 @@ public class HeroStatsPanel extends JPanel {
     private HashMap<String, HeroStatLabel> labels;
     private final Player player;
     private JProgressBar bar;
+    private final HeroItems items;
 
     /**
      * Konstruktor pre triedu, vytvoria sa udaje ktore udavaju zakladne informacie o hracovi
@@ -50,10 +56,28 @@ public class HeroStatsPanel extends JPanel {
         this.bar.setString("XP");
         this.setBackground(Color.green);
         
+        JLabel equippedItemsLabel = new JLabel("Equipped:");
+        equippedItemsLabel.setFont(BasicGui.getFont());
+        
+        this.add(equippedItemsLabel);
+        this.items = new HeroItems(this.player);
+        JScrollPane scrollPane = new JScrollPane(this.items);
+        this.add(scrollPane);
+        
+        /*this.items.addListSelectionListener(new ListSelectionListener() {
+        
+        @Override
+        public void valueChanged(ListSelectionEvent arg0) {
+        if (!arg0.getValueIsAdjusting()) {
+        System.out.println(items.getSelectedValue());
+        }
+        }
+        });*/
+        
     }
     
     /**
-     * Aktualizuje text v kazdom labely
+     * Aktualizuje vsetky komponenty
      */
     public void updateAll() {
         this.updateText("Health", this.player.getHealth());
@@ -62,7 +86,7 @@ public class HeroStatsPanel extends JPanel {
         this.updateText("Level", this.player.getLevel());
         this.updateText("Gold", this.player.getGold());
         this.updateBar();
-        
+        this.items.update();
         
     }
     

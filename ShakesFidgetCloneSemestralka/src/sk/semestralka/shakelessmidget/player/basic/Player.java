@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sk.semestralka.shakelessmidget.creatures;
+package sk.semestralka.shakelessmidget.player.basic;
 
 import sk.semestralka.shakelessmidget.items.slots.PlayerSlots;
 import sk.semestralka.shakelessmidget.items.slots.Inventory;
+import sk.semestralka.shakelessmidget.creatures.Creature;
 import sk.semestralka.shakelessmidget.creatures.Creature;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.equippable.Equipment;
@@ -295,6 +296,10 @@ public class Player extends Creature {
      */
     public int getRequiredXp() {
         return this.requiredXp;
+    }
+
+    public PlayerSlots getSlots() {
+        return this.slots;
     }
     
     

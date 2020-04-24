@@ -7,7 +7,10 @@ package sk.semestralka.shakelessmidget.basic;
 
 import sk.semestralka.shakelessmidget.generators.Generator;
 import gui.MainFrame;
-import sk.semestralka.shakelessmidget.creatures.Player;
+import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.items.equippable.Armor;
+import sk.semestralka.shakelessmidget.items.equippable.Helmet;
+import sk.semestralka.shakelessmidget.items.equippable.Weapon;
 
 /**
  * Hlavna trieda ktora obsahuje zakladne logicke prvky
@@ -22,7 +25,9 @@ public class Game {
     public Game() {
         this.player = new Player();
         this.generator = new Generator(this.player);
+        test();
         MainFrame mf = new MainFrame(this);
+        
     }
 
     /**
@@ -41,6 +46,21 @@ public class Game {
         return this.generator;
     }
     
+    
+    private void test() {
+        Weapon zbran = new Weapon();
+        Helmet helma = new Helmet();
+        Armor armor = new Armor();
+        
+        this.player.getInventory().addItem(helma);
+        this.player.getInventory().addItem(zbran);
+        this.player.getInventory().addItem(armor);
+        
+        this.player.getSlots().equip(armor);
+        this.player.getSlots().equip(helma);
+        this.player.getSlots().equip(zbran);
+        System.out.println(this.player.getSlots().getArmorSlot().getItem());
+    }
     
    
     

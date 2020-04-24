@@ -9,7 +9,7 @@ import sk.semestralka.shakelessmidget.adventure.Objective;
 import sk.semestralka.shakelessmidget.creatures.Enemy;
 import java.util.Random;
 import sk.semestralka.shakelessmidget.items.items.Item;
-import sk.semestralka.shakelessmidget.creatures.Player;
+import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  *

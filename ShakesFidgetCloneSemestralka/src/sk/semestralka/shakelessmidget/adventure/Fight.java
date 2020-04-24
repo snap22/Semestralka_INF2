@@ -6,7 +6,7 @@
 package sk.semestralka.shakelessmidget.adventure;
 
 import sk.semestralka.shakelessmidget.creatures.Creature;
-import sk.semestralka.shakelessmidget.creatures.Player;
+import sk.semestralka.shakelessmidget.player.basic.Player;
 
 
 /**
