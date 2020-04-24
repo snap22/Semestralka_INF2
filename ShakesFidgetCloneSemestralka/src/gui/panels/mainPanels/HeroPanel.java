@@ -10,7 +10,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
  * Trieda HeroPanel sluzi na zobrazenie informacii o hracovi
@@ -34,7 +34,7 @@ public class HeroPanel extends MainPanel {
         this.add(label, BorderLayout.NORTH);
         
         this.statsPanel = new HeroStatsPanel(this.player);
-        this.add(this.statsPanel, BorderLayout.CENTER);
+        this.add(this.statsPanel, BorderLayout.WEST);
     }
 
     /**

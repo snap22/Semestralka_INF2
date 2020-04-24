@@ -19,7 +19,7 @@ import java.awt.CardLayout;
 import java.util.HashMap;
 import javax.swing.JPanel;
 import sk.semestralka.shakelessmidget.basic.Game;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
  *

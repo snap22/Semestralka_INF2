@@ -16,7 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import sk.semestralka.shakelessmidget.adventure.Mission;
 import sk.semestralka.shakelessmidget.adventure.Objective;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 
 
 /**

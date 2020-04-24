@@ -8,6 +8,7 @@ package gui.panels.mainPanels;
 import sk.semestralka.shakelessmidget.adventure.Objective;
 import gui.BasicGui;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -63,6 +64,7 @@ public final class WaitPanel extends MainPanel {
         
         
         this.bar = new JProgressBar(0, 100);
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         
         
         this.add(this.bar);

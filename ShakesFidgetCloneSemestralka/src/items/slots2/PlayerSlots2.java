@@ -6,7 +6,7 @@
 package items.slots2;
 
 
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
  *

@@ -7,7 +7,7 @@ package sk.semestralka.shakelessmidget.basic;
 
 import sk.semestralka.shakelessmidget.generators.Generator;
 import gui.MainFrame;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
  * Hlavna trieda ktora obsahuje zakladne logicke prvky

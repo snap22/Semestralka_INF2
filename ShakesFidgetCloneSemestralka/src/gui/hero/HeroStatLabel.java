@@ -35,19 +35,6 @@ public class HeroStatLabel extends JLabel {
     }
 
     /**
-     * Konštruktor pre pripady, ked by bolo potrebne vytvoriť inštanciu s textom ktory udava 
-     * kolko danej hodnoty mame a kolko treba, napr. pri xp
-     * @param name
-     * @param current
-     * @param required 
-     */
-    public HeroStatLabel(String name, int current, int required) {
-        this(name, String.format("%d / %d", current, required));
-    }
-    
-    
-    
-    /**
      * Nastavi popis podla danej hodnoty
      * @param newDescription nový text ktorý chceme mať v danom labely
      */
@@ -68,15 +55,7 @@ public class HeroStatLabel extends JLabel {
         this.setDescription(String.valueOf(newDescription));
     }
     
-    /**
-     * Nastavi popis podla danych hodnot. Vysledne sa ukaze ako retazec vo forme
-     * " <i> zaciatocne cislo} </i> / <i> koncove cislo </i> "
-     * @param current zaciatocne cislo
-     * @param required  koncove cislo
-     */
-    public void setDescription(int current, int required) {
-        this.description = String.format("%d / %d", current, required);
-    }
+    
     
     /**
      * Vrati description

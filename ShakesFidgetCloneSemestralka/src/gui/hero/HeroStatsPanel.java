@@ -6,10 +6,13 @@
 package gui.hero;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.HashMap;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import javax.swing.JProgressBar;
+import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
  * Trieda HeroStatsPanel sluzi pre zobrazovanie zakladnych informacii o hracovi
@@ -18,6 +21,7 @@ public class HeroStatsPanel extends JPanel {
     
     private HashMap<String, HeroStatLabel> labels;
     private final Player player;
+    private JProgressBar bar;
 
     /**
      * Konstruktor pre triedu, vytvoria sa udaje ktore udavaju zakladne informacie o hracovi
@@ -26,6 +30,8 @@ public class HeroStatsPanel extends JPanel {
     public HeroStatsPanel(Player player) {
         this.player = player;
         this.labels = new HashMap<String, HeroStatLabel>();
+        this.bar = new JProgressBar(0, this.player.getRequiredXp());
+        
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
         this.createLabel("Name", player.getName());
@@ -33,10 +39,15 @@ public class HeroStatsPanel extends JPanel {
         this.createLabel("Armor", player.getArmor());
         this.createLabel("Damage", player.getDamage());
         this.createLabel("Level", player.getLevel());
-        this.createLabel("Xp", player.getCurrentXp(), player.getRequiredXp());    
-        
         this.createLabel("Gold", player.getGold());
         
+        //this.bar.setMaximumSize(new Dimension(150, 20));
+        this.add(Box.createRigidArea(new Dimension(5, 30)));
+        
+        this.add(this.bar);
+        this.bar.setStringPainted(true);
+        this.bar.setForeground(Color.orange);
+        this.bar.setString("XP");
         this.setBackground(Color.green);
         
     }
@@ -49,9 +60,16 @@ public class HeroStatsPanel extends JPanel {
         this.updateText("Armor", this.player.getArmor());
         this.updateText("Damage", this.player.getDamage());
         this.updateText("Level", this.player.getLevel());
-        this.updateText("Xp", this.player.getCurrentXp(), this.player.getRequiredXp());
+        this.updateText("Gold", this.player.getGold());
+        this.updateBar();
+        
+        
     }
     
+    private void updateBar() {
+        this.bar.setMaximum(this.player.getRequiredXp());
+        this.bar.setValue(this.player.getCurrentXp());
+    }
     
     private void createLabel(String name, int description) {
         this.createLabel(name, String.valueOf(description));
@@ -67,11 +85,6 @@ public class HeroStatsPanel extends JPanel {
         this.add(newLabel);
     }
 
-    private void createLabel(String name, int curr, int max) {
-        HeroStatLabel newLabel = new HeroStatLabel(name, curr, max);
-        this.labels.put(name, newLabel);
-        this.add(newLabel);
-    }
     
     /**
      * Aktualizuje text v danom label-y
@@ -93,12 +106,7 @@ public class HeroStatsPanel extends JPanel {
     }
     
     
-    private void updateText(String labelName, int current, int required) {
-        if (!this.labels.containsKey(labelName)) {
-            return;
-        }
-        this.labels.get(labelName).setDescription(current, required);
-    }
+    
     
     
     
