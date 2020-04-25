@@ -5,6 +5,7 @@
  */
 package sk.semestralka.shakelessmidget.items.equippable;
 
+import sk.semestralka.shakelessmidget.items.items.Equipment;
 import sk.semestralka.shakelessmidget.items.items.ItemRarity;
 
 

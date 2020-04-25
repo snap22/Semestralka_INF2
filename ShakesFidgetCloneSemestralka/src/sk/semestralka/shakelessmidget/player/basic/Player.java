@@ -10,7 +10,7 @@ import sk.semestralka.shakelessmidget.items.slots.Inventory;
 import sk.semestralka.shakelessmidget.creatures.Creature;
 import sk.semestralka.shakelessmidget.creatures.Creature;
 import sk.semestralka.shakelessmidget.items.items.Item;
-import sk.semestralka.shakelessmidget.items.equippable.Equipment;
+import sk.semestralka.shakelessmidget.items.items.Equipment;
 
 import sk.semestralka.shakelessmidget.player.moods.Beginner;
 import sk.semestralka.shakelessmidget.player.moods.Mood;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sk.semestralka.shakelessmidget.items.valuables;
+package sk.semestralka.shakelessmidget.items.items;
 
 import sk.semestralka.shakelessmidget.basic.Chance;
 import sk.semestralka.shakelessmidget.items.items.Item;

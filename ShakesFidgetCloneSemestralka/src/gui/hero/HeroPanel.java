@@ -5,7 +5,6 @@
  */
 package gui.hero;
 
-import gui.hero.HeroStatsPanel;
 import gui.panels.mainPanels.MainPanel;
 import gui.panels.mainPanels.PanelType;
 import java.awt.BorderLayout;
@@ -39,7 +38,7 @@ public class HeroPanel extends MainPanel {
         this.statsPanel = new HeroStatsPanel2(this.player);
         this.add(this.statsPanel, BorderLayout.WEST);
         
-        this.itemDetailsPanel = new ItemDetailsPanel();
+        this.itemDetailsPanel = new ItemDetailsPanel(this.player);
         this.add(this.itemDetailsPanel, BorderLayout.CENTER);
     }
 

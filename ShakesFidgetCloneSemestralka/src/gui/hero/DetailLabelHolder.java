@@ -5,6 +5,7 @@
  */
 package gui.hero;
 
+import java.awt.Color;
 import java.util.HashMap;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -22,6 +23,7 @@ public class DetailLabelHolder extends JPanel {
     public DetailLabelHolder() {
         this.labels = new HashMap<String, DetailLabel>();
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.setBackground(Color.white);
     }
     
     /**
@@ -64,5 +66,12 @@ public class DetailLabelHolder extends JPanel {
      */
     public void updateText(String labelName, int newText) {
         this.updateText(labelName, String.valueOf(newText));
+    }
+    
+    /**
+     * Zmaze vsetky labely
+     */
+    public void clear() {
+        this.labels.clear();
     }
 }

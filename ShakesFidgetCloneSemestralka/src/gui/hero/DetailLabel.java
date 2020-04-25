@@ -27,7 +27,7 @@ public class DetailLabel extends JLabel {
         this.nameText = name;
         this.description = description;
         this.setFont(BasicGui.getFont(18));
-        
+        this.setBackground(Color.white);
         this.setOpaque(true);
         
         this.updateText();

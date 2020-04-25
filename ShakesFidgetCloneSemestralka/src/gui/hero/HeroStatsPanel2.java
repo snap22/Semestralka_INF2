@@ -16,8 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
+import javax.swing.JSeparator;
 import sk.semestralka.shakelessmidget.items.slots.Inventory;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
@@ -45,6 +44,7 @@ public class HeroStatsPanel2 extends JPanel {
         
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.add(this.labelsManager);
+        
         this.labelsManager.addLabel("Name", player.getName());
         this.labelsManager.addLabel("Health", player.getHealth());
         this.labelsManager.addLabel("Armor", player.getArmor());
@@ -52,36 +52,44 @@ public class HeroStatsPanel2 extends JPanel {
         this.labelsManager.addLabel("Level", player.getLevel());
         this.labelsManager.addLabel("Gold", player.getGold());
         
-        //this.bar.setMaximumSize(new Dimension(150, 20));
-        this.add(Box.createRigidArea(new Dimension(5, 30)));
+        this.add(Box.createRigidArea(new Dimension(5, 10)));
         
         this.add(this.bar);
         this.bar.setStringPainted(true);
         this.bar.setForeground(Color.orange);
         this.bar.setString("XP");
-        this.setBackground(Color.green);
+        this.setBackground(Color.white);
         
+        this.add(Box.createRigidArea(new Dimension(5, 5)));
+        this.add(new JSeparator());
+        
+        //  Equipped label
         JLabel equippedItemsLabel = new JLabel("Equipped:");
         equippedItemsLabel.setFont(BasicGui.getFont());
-        this.add(Box.createRigidArea(new Dimension(5, 10)));
-        
         this.add(equippedItemsLabel);
-        this.equippedItems = new HeroEquippedItems(this.player);
-        this.inventoryItems = new HeroInventoryItems(this.player);
+        
+        //  medzera
+       
+        
+        //  Equipped items
+        this.equippedItems = new HeroEquippedItems(this.player); 
         JScrollPane equippedScrollPane = new JScrollPane(this.equippedItems);
-        JScrollPane inventoryScrollPane = new JScrollPane(this.inventoryItems);
         this.add(equippedScrollPane);
         
-        this.inventoryItemsLabel = new JLabel("Inventory:");
-        equippedItemsLabel.setFont(BasicGui.getFont());
+        //  medzera
         this.add(Box.createRigidArea(new Dimension(5, 10)));
+        
+        // Inventory Label
+        this.inventoryItemsLabel = new JLabel("Inventory:");
+        this.inventoryItemsLabel.setFont(BasicGui.getFont());
         this.add(this.inventoryItemsLabel);
+        
+        
+        //  Inventory Items
+        this.inventoryItems = new HeroInventoryItems(this.player);
+        JScrollPane inventoryScrollPane = new JScrollPane(this.inventoryItems);
         this.add(inventoryScrollPane);
-        
-        Border outerBorder = BorderFactory.createEmptyBorder(1, 1, 1, 1);
-        Border innerBorder = new LineBorder(Color.black, 3);
-        this.setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
-        
+       
     }
     
     /**
@@ -109,10 +117,6 @@ public class HeroStatsPanel2 extends JPanel {
         this.bar.setMaximum(this.player.getRequiredXp());
         this.bar.setValue(this.player.getCurrentXp());
     }
-    
-    
-    
-
     
     /**
      * Aktualizuje text v danom label-y

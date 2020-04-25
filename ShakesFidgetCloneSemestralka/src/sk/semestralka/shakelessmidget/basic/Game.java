@@ -12,7 +12,7 @@ import sk.semestralka.shakelessmidget.player.basic.Player;
 import sk.semestralka.shakelessmidget.items.equippable.Armor;
 import sk.semestralka.shakelessmidget.items.equippable.Helmet;
 import sk.semestralka.shakelessmidget.items.equippable.Weapon;
-import sk.semestralka.shakelessmidget.items.valuables.Goods;
+import sk.semestralka.shakelessmidget.items.items.Goods;
 
 /**
  * Hlavna trieda ktora obsahuje zakladne logicke prvky

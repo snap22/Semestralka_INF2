@@ -12,7 +12,7 @@ import sk.semestralka.shakelessmidget.items.equippable.Weapon;
 import sk.semestralka.shakelessmidget.items.slots.Inventory;
 import sk.semestralka.shakelessmidget.items.slots.PlayerSlots;
 import sk.semestralka.shakelessmidget.items.slots.Slot;
-import sk.semestralka.shakelessmidget.items.valuables.Goods;
+import sk.semestralka.shakelessmidget.items.items.Goods;
 import junit.framework.Assert;
 
 

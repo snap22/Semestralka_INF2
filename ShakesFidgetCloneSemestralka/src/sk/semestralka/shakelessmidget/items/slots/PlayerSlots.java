@@ -8,7 +8,7 @@ package sk.semestralka.shakelessmidget.items.slots;
 
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.equippable.Armor;
-import sk.semestralka.shakelessmidget.items.equippable.Equipment;
+import sk.semestralka.shakelessmidget.items.items.Equipment;
 import sk.semestralka.shakelessmidget.items.equippable.Helmet;
 import sk.semestralka.shakelessmidget.items.equippable.Weapon;
 import sk.semestralka.shakelessmidget.player.basic.Player;
