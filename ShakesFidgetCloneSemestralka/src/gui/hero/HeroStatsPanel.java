@@ -17,6 +17,7 @@ import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import sk.semestralka.shakelessmidget.items.slots.Inventory;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
@@ -29,6 +30,7 @@ public class HeroStatsPanel extends JPanel {
     private JProgressBar bar;
     private final HeroItems2 equippedItems;
     private final PlayerItems inventoryItems;
+    private final JLabel inventoryItemsLabel;
 
     /**
      * Konstruktor pre triedu, vytvoria sa udaje ktore udavaju zakladne informacie o hracovi
@@ -68,10 +70,10 @@ public class HeroStatsPanel extends JPanel {
         JScrollPane inventoryScrollPane = new JScrollPane(this.inventoryItems);
         this.add(equippedScrollPane);
         
-        JLabel inventoryItemsLabel = new JLabel("Inventory:");
+        this.inventoryItemsLabel = new JLabel("Inventory:");
         equippedItemsLabel.setFont(BasicGui.getFont());
         this.add(Box.createRigidArea(new Dimension(5, 10)));
-        this.add(inventoryItemsLabel);
+        this.add(this.inventoryItemsLabel);
         this.add(inventoryScrollPane);
         
         
@@ -90,7 +92,13 @@ public class HeroStatsPanel extends JPanel {
         this.updateBar();
         this.equippedItems.update();
         this.inventoryItems.update();
+        this.updateInventoryLabel();
         
+    }
+    
+    private void updateInventoryLabel() {
+        Inventory inv = this.player.getInventory();
+        this.inventoryItemsLabel.setText(String.format("Inventory: %d / %d", inv.getCurrentSize(), inv.getMaxSize()));
     }
     
     private void updateBar() {

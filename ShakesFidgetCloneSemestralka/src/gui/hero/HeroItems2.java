@@ -24,6 +24,11 @@ public class HeroItems2 extends PlayerItems {
         super(player);
         this.getPlayerItems();
         super.changeSize(10, 10);
+        this.setVisibleRowCount(3);
+        
+        for (int i = 0; i < player.getInventory().getCurrentSize(); i++) {
+            System.out.println(player.getInventory().getItem(i));
+        }
     }
     
     

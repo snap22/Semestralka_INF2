@@ -163,15 +163,18 @@ public class PlayerSlots {
         if (item.getLevelRequired() > this.player.getLevel()) {
             return;
         }
+        
+        Item removedItem = null;
         if (!slot.isEmpty()) {
-            Item removedItem = slot.remove();
-            this.player.decreaseStats((Equipment)removedItem);
-            this.inventory.addItem(removedItem);  
+            removedItem = slot.remove();
+            this.player.decreaseStats((Equipment)removedItem);      
         }
         
         this.inventory.removeItem(item);
         this.player.increaseStats(item);
         slot.insert(item);
+        
+        this.inventory.addItem(removedItem); 
         
     }
     

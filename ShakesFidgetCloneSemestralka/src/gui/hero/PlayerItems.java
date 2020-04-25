@@ -37,6 +37,9 @@ public class PlayerItems extends JList {
         this.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         
         this.getPlayerItems();
+        this.setVisibleRowCount(8);
+        
+        
         this.addListSelectionListener(new ListSelectionListener() {
 
             @Override
@@ -104,4 +107,6 @@ public class PlayerItems extends JList {
         this.setMaximumSize(new Dimension(x, y));
         
     }
+    
+    
 }

@@ -42,7 +42,7 @@ public class Inventory {
      * @param item 
      */
     public void addItem(Item item) {
-        if (this.slots.size() > this.size) {
+        if (this.slots.size() >= this.size) {
             return;
         }
         
@@ -61,6 +61,7 @@ public class Inventory {
         if (index < 0 || index >= this.slots.size()) {
             return;
         }
+        
         this.slots.remove(index);
     }
     
