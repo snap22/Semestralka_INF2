@@ -5,17 +5,11 @@
  */
 package gui.hero;
 
-import java.util.ArrayList;
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+
 import sk.semestralka.shakelessmidget.player.basic.Player;
-import sk.semestralka.shakelessmidget.items.items.Item;
 
 /**
- * Trieda HeroItems sluzi na zobrazenie predmetov hraca
+ * Trieda HeroItems sluzi na zobrazenie equipnutych predmetov hraca, specialny pripad pre PlayerItems
  */
 public class HeroItems2 extends PlayerItems {
 
@@ -29,6 +23,7 @@ public class HeroItems2 extends PlayerItems {
     public HeroItems2(Player player) {
         super(player);
         this.getPlayerItems();
+        super.changeSize(10, 10);
     }
     
     
@@ -40,16 +35,8 @@ public class HeroItems2 extends PlayerItems {
     protected void getPlayerItems() {
         super.addItem(super.getPlayer().getSlots().getHeadSlot().getItem());
         super.addItem(super.getPlayer().getSlots().getArmorSlot().getItem());
-        super.addItem(super.getPlayer().getSlots().getWeaponSlot().getItem());
-        
-        
-    }
-    
-   
-    
-    
-    
-    
+        super.addItem(super.getPlayer().getSlots().getWeaponSlot().getItem());  
+    } 
     
 }
 

@@ -5,6 +5,7 @@
  */
 package gui.hero;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -16,8 +17,7 @@ import sk.semestralka.shakelessmidget.items.slots.Inventory;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
- *
- * @author marce
+ * Trieda PlayerItems sluzi na zobrazenie itemov hraca v inventari
  */
 public class PlayerItems extends JList {
     private final Player player;
@@ -98,5 +98,10 @@ public class PlayerItems extends JList {
     
     public Player getPlayer() {
         return this.player;
+    }
+    
+    protected void changeSize(int x, int y) {
+        this.setMaximumSize(new Dimension(x, y));
+        
     }
 }
