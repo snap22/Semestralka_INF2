@@ -17,9 +17,9 @@ import sk.semestralka.shakelessmidget.items.slots.Inventory;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
- * Trieda PlayerItems sluzi na zobrazenie itemov hraca v inventari
+ * Trieda HeroInventoryItems sluzi na zobrazenie itemov hraca v inventari
  */
-public class PlayerItems extends JList {
+public class HeroInventoryItems extends JList {
     private final Player player;
     private final ArrayList<Item> items;
     private final DefaultListModel listModel;
@@ -28,7 +28,7 @@ public class PlayerItems extends JList {
      * Konstruktor. Nastavi pociatocne hodnoty
      * @param player 
      */
-    public PlayerItems(Player player) {
+    public HeroInventoryItems(Player player) {
         this.player = player;
         this.items = new ArrayList<Item>();
         this.listModel = new DefaultListModel();
@@ -46,7 +46,7 @@ public class PlayerItems extends JList {
             public void valueChanged(ListSelectionEvent arg0) {
                 if (!arg0.getValueIsAdjusting()) {
                     if (getSelectedIndex() != -1) {     //osetruje ak by bol selectnuty predmet a prepne sa panel
-                        System.out.println(PlayerItems.this.items.get(getSelectedIndex()).toString());
+                        System.out.println(HeroInventoryItems.this.items.get(getSelectedIndex()).toString());
                     }
                     
                     

@@ -9,9 +9,9 @@ package gui.hero;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
- * Trieda HeroItems sluzi na zobrazenie equipnutych predmetov hraca, specialny pripad pre PlayerItems
+ * Trieda HeroEquippedItems sluzi na zobrazenie equipnutych predmetov hraca, specialny pripad pre HeroInventoryItems
  */
-public class HeroItems extends PlayerItems {
+public class HeroEquippedItems extends HeroInventoryItems {
 
     //private final Player player;
     
@@ -20,7 +20,7 @@ public class HeroItems extends PlayerItems {
      * Konstruktor. Nastavi pociatocne hodnoty
      * @param player 
      */
-    public HeroItems(Player player) {
+    public HeroEquippedItems(Player player) {
         super(player);
         this.getPlayerItems();
         super.changeSize(10, 10);
