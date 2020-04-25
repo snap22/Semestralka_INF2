@@ -39,7 +39,7 @@ public class Inventory {
     
     /**
      * Prida item do prveho volneho miesta v inventory
-     * @param item 
+     * @param item predmet
      */
     public void addItem(Item item) {
         if (this.slots.size() >= this.size) {
@@ -67,7 +67,7 @@ public class Inventory {
     
     /**
      * Vymaze dany item z inventory ak sa v nom nachadza
-     * @param item 
+     * @param item predmet
      */
     public void removeItem(Item item) {
         if (item == null) {
@@ -91,7 +91,7 @@ public class Inventory {
     
     /**
      * Vrati item podla zadaneho indexu
-     * @param index
+     * @param index 
      * @return 
      */
     public Item getItem(int index) {
