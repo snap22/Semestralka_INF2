@@ -42,8 +42,11 @@ public class PlayerItems extends JList {
             @Override
             public void valueChanged(ListSelectionEvent arg0) {
                 if (!arg0.getValueIsAdjusting()) {
-                    System.out.println("wii");
-                    System.out.println(PlayerItems.this.items.get(getSelectedIndex()).toString());
+                    if (getSelectedIndex() != -1) {     //osetruje ak by bol selectnuty predmet a prepne sa panel
+                        System.out.println(PlayerItems.this.items.get(getSelectedIndex()).toString());
+                    }
+                    
+                    
                 }
             }
         });

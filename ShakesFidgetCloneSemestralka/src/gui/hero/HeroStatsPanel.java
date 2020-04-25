@@ -89,6 +89,7 @@ public class HeroStatsPanel extends JPanel {
         this.updateText("Gold", this.player.getGold());
         this.updateBar();
         this.equippedItems.update();
+        this.inventoryItems.update();
         
     }
     

@@ -156,6 +156,14 @@ public class Player extends Creature {
     public void addReward(int xp, int gold, Item item) {
         this.addXp(xp);
         this.addGold(gold);
+        this.addItem(item);
+    }
+    
+    /**
+     * Prida hracovi predmet
+     * @param item predmet
+     */
+    public void addItem(Item item) {
         this.inventory.addItem(item);
     }
 
