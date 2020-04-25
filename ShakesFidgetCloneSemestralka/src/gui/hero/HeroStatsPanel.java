@@ -28,7 +28,7 @@ public class HeroStatsPanel extends JPanel {
     private HashMap<String, HeroStatLabel> labels;
     private final Player player;
     private JProgressBar bar;
-    private final HeroItems2 equippedItems;
+    private final HeroItems equippedItems;
     private final PlayerItems inventoryItems;
     private final JLabel inventoryItemsLabel;
 
@@ -64,7 +64,7 @@ public class HeroStatsPanel extends JPanel {
         this.add(Box.createRigidArea(new Dimension(5, 10)));
         
         this.add(equippedItemsLabel);
-        this.equippedItems = new HeroItems2(this.player);
+        this.equippedItems = new HeroItems(this.player);
         this.inventoryItems = new PlayerItems(this.player);
         JScrollPane equippedScrollPane = new JScrollPane(this.equippedItems);
         JScrollPane inventoryScrollPane = new JScrollPane(this.inventoryItems);

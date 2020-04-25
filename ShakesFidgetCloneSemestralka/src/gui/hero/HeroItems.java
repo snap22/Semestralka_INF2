@@ -5,97 +5,43 @@
  */
 package gui.hero;
 
-import java.util.ArrayList;
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+
 import sk.semestralka.shakelessmidget.player.basic.Player;
-import sk.semestralka.shakelessmidget.items.items.Item;
 
 /**
- * Trieda HeroItems sluzi na zobrazenie predmetov hraca
+ * Trieda HeroItems sluzi na zobrazenie equipnutych predmetov hraca, specialny pripad pre PlayerItems
  */
-public class HeroItems extends JList {
+public class HeroItems extends PlayerItems {
 
-    private final Player player;
-    private final ArrayList<Item> items;
-    private final DefaultListModel listModel;
+    //private final Player player;
+    
 
     /**
      * Konstruktor. Nastavi pociatocne hodnoty
      * @param player 
      */
     public HeroItems(Player player) {
-        this.player = player;
-        this.items = new ArrayList<Item>();
-        //this.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-        this.listModel = new DefaultListModel();
-        this.setModel(this.listModel);
-        //this.getPlayerItems();
-        this.update();
-        
-        //this.listModel.add(0, "Hello");
-        //this.listModel.add(1, "World");
-        //System.out.println(" item " + this.player.getSlots().getHeadSlot().getItem());
-        this.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-        
-        test();
-        
-        this.addListSelectionListener(new ListSelectionListener() {
-
-            @Override
-            public void valueChanged(ListSelectionEvent arg0) {
-                if (!arg0.getValueIsAdjusting()) {
-                    System.out.println(items.get(getSelectedIndex()).toString());
-                }
-            }
-        });
-    }
-    
-    private void test() {
+        super(player);
         this.getPlayerItems();
-    }
-    
-    /**
-     * Metoda sluzi na pridanie predmetov do zoznamu
-     */
-    public void update() {
-        if (this.items.isEmpty()) {
-            return;
-        }
+        super.changeSize(10, 10);
+        this.setVisibleRowCount(3);
         
-        this.clear();
-        
-        this.getPlayerItems();
-        
-        for (int item = 0; item < this.items.size(); item++) {
-            this.listModel.add(item, this.items.get(item).getName());
+        for (int i = 0; i < player.getInventory().getCurrentSize(); i++) {
+            System.out.println(player.getInventory().getItem(i));
         }
     }
+    
+    
     
     /**
      * Ziska equipnute predmety od hraca
      */
-    private void getPlayerItems() {
-        this.items.add(this.player.getSlots().getHeadSlot().getItem());
-        this.items.add(this.player.getSlots().getArmorSlot().getItem());
-        this.items.add(this.player.getSlots().getWeaponSlot().getItem());
-        
-        
-    }
-    
-    /**
-     * Vymaze predmety
-     */
-    private void clear() {
-        this.listModel.removeAllElements();
-        this.items.clear();
-    }
-    
-    
-    
-    
+    @Override
+    protected void getPlayerItems() {
+        super.addItem(super.getPlayer().getSlots().getHeadSlot().getItem());
+        super.addItem(super.getPlayer().getSlots().getArmorSlot().getItem());
+        super.addItem(super.getPlayer().getSlots().getWeaponSlot().getItem());  
+    } 
     
 }
+
