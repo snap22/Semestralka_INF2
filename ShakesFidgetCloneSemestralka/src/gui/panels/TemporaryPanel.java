@@ -7,7 +7,7 @@ package gui.panels;
 
 import sk.semestralka.shakelessmidget.generators.Generator;
 import gui.eventTry.Testicek;
-import gui.panels.mainPanels.HeroPanel;
+import gui.hero.HeroPanel;
 import gui.panels.mainPanels.MainPanel;
 import gui.panels.mainPanels.MiniGamePanel;
 import gui.panels.mainPanels.PanelType;

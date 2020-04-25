@@ -26,9 +26,7 @@ public class HeroEquippedItems extends HeroInventoryItems {
         super.changeSize(10, 10);
         this.setVisibleRowCount(3);
         
-        for (int i = 0; i < player.getInventory().getCurrentSize(); i++) {
-            System.out.println(player.getInventory().getItem(i));
-        }
+        
     }
     
     

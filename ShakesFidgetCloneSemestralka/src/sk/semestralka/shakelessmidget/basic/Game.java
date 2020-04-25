@@ -68,20 +68,10 @@ public class Game {
         this.player.getSlots().equip(zbran);
         
         this.player.getInventory().addItem(goodies);
-        this.player.getInventory().addItem(new Weapon());
-        this.player.getInventory().addItem(goodies);
-        this.player.getInventory().addItem(goodies);
-        this.player.getInventory().addItem(new Helmet());
-        this.player.getInventory().addItem(goodies);
-        this.player.getInventory().addItem(goodies);
-        this.player.getInventory().addItem(new Armor());
-        this.player.getInventory().addItem(goodies);
-        this.player.getInventory().addItem(goodies);
+        
         this.player.getSlots().equip(armor2);
         //po equipnuti
-        System.out.println(player.getInventory().getCurrentSize());
-        System.out.println(player.getInventory().getMaxSize());
-        //System.out.println(this.player.getSlots().getArmorSlot().getItem());
+        
     }
     
    

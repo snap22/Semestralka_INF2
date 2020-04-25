@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.panels.mainPanels;
+package gui.hero;
 
 import gui.hero.HeroStatsPanel;
+import gui.panels.mainPanels.MainPanel;
+import gui.panels.mainPanels.PanelType;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -18,7 +20,8 @@ import sk.semestralka.shakelessmidget.player.basic.Player;
 public class HeroPanel extends MainPanel {
 
     private final Player player;
-    private final HeroStatsPanel statsPanel;
+    private final HeroStatsPanel2 statsPanel;
+    private final ItemDetailsPanel itemDetailsPanel;
 
     public HeroPanel(Player player) {
         super(PanelType.HERO);
@@ -33,8 +36,11 @@ public class HeroPanel extends MainPanel {
         this.setBackground(Color.black);
         this.add(label, BorderLayout.NORTH);
         
-        this.statsPanel = new HeroStatsPanel(this.player);
+        this.statsPanel = new HeroStatsPanel2(this.player);
         this.add(this.statsPanel, BorderLayout.WEST);
+        
+        this.itemDetailsPanel = new ItemDetailsPanel();
+        this.add(this.itemDetailsPanel, BorderLayout.CENTER);
     }
 
     /**

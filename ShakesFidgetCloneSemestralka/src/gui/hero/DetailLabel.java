@@ -10,9 +10,9 @@ import java.awt.Color;
 import javax.swing.JLabel;
 
 /**
- * Trieda HeroStatLabel sluzi na zobrazenie daneho udaju
+ * Trieda DetailLabel sluzi na zobrazenie daneho udaju
  */
-public class HeroStatLabel extends JLabel {
+public class DetailLabel extends JLabel {
 
     private final String nameText;
     private String description;
@@ -22,13 +22,12 @@ public class HeroStatLabel extends JLabel {
      * @param name  nazov 
      * @param description popis, upresnujuci udaj
      */
-    public HeroStatLabel(String name, String description) {
+    public DetailLabel(String name, String description) {
         super("");      //bez toho to ani neukaze
         this.nameText = name;
         this.description = description;
         this.setFont(BasicGui.getFont(18));
-        this.setForeground(Color.WHITE);
-        this.setBackground(Color.red);
+        
         this.setOpaque(true);
         
         this.updateText();

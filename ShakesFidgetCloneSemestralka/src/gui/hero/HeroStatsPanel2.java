@@ -9,19 +9,22 @@ import gui.BasicGui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.HashMap;
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import sk.semestralka.shakelessmidget.items.slots.Inventory;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  * Trieda HeroStatsPanel sluzi pre zobrazovanie zakladnych informacii o hracovi
  */
-public class HeroStatsPanel extends JPanel {
+public class HeroStatsPanel2 extends JPanel {
     
     private HashMap<String, DetailLabel> labels;
     private final Player player;
@@ -29,24 +32,25 @@ public class HeroStatsPanel extends JPanel {
     private final HeroEquippedItems equippedItems;
     private final HeroInventoryItems inventoryItems;
     private final JLabel inventoryItemsLabel;
+    private final DetailLabelHolder labelsManager;
 
     /**
      * Konstruktor pre triedu, vytvoria sa udaje ktore udavaju zakladne informacie o hracovi
      * @param player 
      */
-    public HeroStatsPanel(Player player) {
+    public HeroStatsPanel2(Player player) {
         this.player = player;
-        this.labels = new HashMap<String, DetailLabel>();
+        this.labelsManager = new DetailLabelHolder();
         this.bar = new JProgressBar(0, this.player.getRequiredXp());
         
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        
-        this.createLabel("Name", player.getName());
-        this.createLabel("Health", player.getHealth());
-        this.createLabel("Armor", player.getArmor());
-        this.createLabel("Damage", player.getDamage());
-        this.createLabel("Level", player.getLevel());
-        this.createLabel("Gold", player.getGold());
+        this.add(this.labelsManager);
+        this.labelsManager.addLabel("Name", player.getName());
+        this.labelsManager.addLabel("Health", player.getHealth());
+        this.labelsManager.addLabel("Armor", player.getArmor());
+        this.labelsManager.addLabel("Damage", player.getDamage());
+        this.labelsManager.addLabel("Level", player.getLevel());
+        this.labelsManager.addLabel("Gold", player.getGold());
         
         //this.bar.setMaximumSize(new Dimension(150, 20));
         this.add(Box.createRigidArea(new Dimension(5, 30)));
@@ -74,7 +78,9 @@ public class HeroStatsPanel extends JPanel {
         this.add(this.inventoryItemsLabel);
         this.add(inventoryScrollPane);
         
-        
+        Border outerBorder = BorderFactory.createEmptyBorder(1, 1, 1, 1);
+        Border innerBorder = new LineBorder(Color.black, 3);
+        this.setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
         
     }
     
@@ -82,11 +88,11 @@ public class HeroStatsPanel extends JPanel {
      * Aktualizuje vsetky komponenty
      */
     public void updateAll() {
-        this.updateText("Health", this.player.getHealth());
-        this.updateText("Armor", this.player.getArmor());
-        this.updateText("Damage", this.player.getDamage());
-        this.updateText("Level", this.player.getLevel());
-        this.updateText("Gold", this.player.getGold());
+        this.labelsManager.updateText("Health", this.player.getHealth());
+        this.labelsManager.updateText("Armor", this.player.getArmor());
+        this.labelsManager.updateText("Damage", this.player.getDamage());
+        this.labelsManager.updateText("Level", this.player.getLevel());
+        this.labelsManager.updateText("Gold", this.player.getGold());
         this.updateBar();
         this.equippedItems.update();
         this.inventoryItems.update();
@@ -104,19 +110,8 @@ public class HeroStatsPanel extends JPanel {
         this.bar.setValue(this.player.getCurrentXp());
     }
     
-    private void createLabel(String name, int description) {
-        this.createLabel(name, String.valueOf(description));
-    }
     
-    private void createLabel(String name, String description) {
-        if (name == null || description == null) {
-            return;
-        }
-        
-        DetailLabel newLabel = new DetailLabel(name, description);
-        this.labels.put(name, newLabel);
-        this.add(newLabel);
-    }
+    
 
     
     /**
