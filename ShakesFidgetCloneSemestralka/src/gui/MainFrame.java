@@ -10,9 +10,8 @@ import gui.panels.TemporaryPanel;
 import gui.panels.MenuPanel;
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -21,7 +20,6 @@ import javax.swing.JPanel;
  */
 public class MainFrame extends JFrame {
     
-    private JPanel visiblePanel;
     private MenuPanel menuPanel;
     
     private final TemporaryPanel temp;
@@ -42,29 +40,29 @@ public class MainFrame extends JFrame {
         Container content = this.getContentPane();
         
         this.menuPanel = new MenuPanel();
-        
-        //final WelcomePanel text = new WelcomePanel();
-        
-        //this.visiblePanel = text;
+
         this.temp = new TemporaryPanel(this.game);
         
         content.add(this.menuPanel, BorderLayout.WEST);
         content.add(this.temp, BorderLayout.CENTER);
-        
-        //this.pack();
-        
-        
-        
-        //this.visiblePanel = p.getPanel();
-        //System.out.println(this.visiblePanel);
-        
-        
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);       //ak uzivatel stlaci na X vypne sa program
-        
+
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);       //ak uzivatel stlaci na X vypne sa program
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent evt) {
+                onExit();
+            }
+        });
         
         this.setVisible(true);
         
     }
+    
+    private void onExit() {
+        this.game.save();
+        System.exit(0);
+    }
+    
+    
 
     
 }

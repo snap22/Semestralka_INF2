@@ -26,8 +26,13 @@ public class ItemCreator {
     }
     
     public Item createItem(DataInputStream file) throws IOException, WrongTypeException {
-        String type = file.readUTF();
-        Item newItem = this.loadEquipment(file, type);
+        String type = file.readUTF().toLowerCase();
+        Item newItem;
+        if (type.equals("goods")) {
+            newItem = this.loadGoods(file);
+        } else {
+            newItem = this.loadEquipment(file, type);
+        }
         return newItem;
     }
     
@@ -50,11 +55,16 @@ public class ItemCreator {
                 return new Armor(itemName, rarity, health, armor, levelRequired, goldValue);
             case "helmet":
                 return new Helmet(itemName, rarity, health, armor, levelRequired, goldValue);
-            case "goods":
-                return new Goods(itemName, rarity, goldValue);
             default:
                 throw new WrongTypeException();
         }
+    }
+    
+    private Goods loadGoods(DataInputStream file) throws IOException {
+        String itemName = file.readUTF();
+        ItemRarity rarity = ItemRarity.valueOf(file.readUTF());
+        int goldValue = file.readInt();
+        return new Goods(itemName, rarity, goldValue);
     }
     
     

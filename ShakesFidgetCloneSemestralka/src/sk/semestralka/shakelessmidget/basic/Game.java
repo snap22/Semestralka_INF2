@@ -35,17 +35,19 @@ public class Game {
     public Game() {
         this.player = new Player();
         this.generator = new Generator(this.player);
-        this.test();
+        //this.test();
+        this.load();
         MainFrame mf = new MainFrame(this);
         
     }
     
+    /**
+     * Ulozi zakladne veci do suboru
+     */
     public void save() {
         String path = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\saves\\currentSave.slm";
         File file = new File(path);
-        try {
-            FileOutputStream fos = new FileOutputStream(file);
-            DataOutputStream data = new DataOutputStream(fos);
+        try (DataOutputStream data = new DataOutputStream(new FileOutputStream(file));) {
             this.player.save(data);
             
         } catch (FileNotFoundException ex) {
@@ -54,14 +56,17 @@ public class Game {
             System.out.println("Nieco sa pokazilo v save");
         }
         
+        System.out.println("uklada sa..");
+        
     }
     
+    /**
+     * Nacita zo suboru
+     */
     public void load() {
         String path = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\saves\\currentSave.slm";
         File file = new File(path);
-        try {
-            FileInputStream fos = new FileInputStream(file);
-            DataInputStream data = new DataInputStream(fos);
+        try (DataInputStream data = new DataInputStream(new FileInputStream(file))) {
             this.player.load(data);
             
         } catch (FileNotFoundException ex) {
@@ -69,11 +74,20 @@ public class Game {
         } catch (IOException ex) {
             System.out.println("Nieco sa pokazilo v loade");
         } catch (WrongTypeException ex) {
-            System.out.println("Zly typ pre itemy");    //toto asi nie tu treba
+            System.out.println("Zly typ");    //toto asi nie tu treba
         }
         
         
     
+    }
+    
+    /**
+     * Vymaze subor so savemi
+     */
+    public void deleteFile() {
+        String path = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\saves\\currentSave.slm";
+        File file = new File(path);
+        file.delete();
     }
     
     

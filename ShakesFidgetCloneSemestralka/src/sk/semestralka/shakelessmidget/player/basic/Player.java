@@ -351,7 +351,7 @@ public class Player extends Creature {
         this.slots.save(file);
         this.inventory.save(file);
         
-        //this.mood.save(file);
+        this.mood.save(file);
     }
     
     /**
@@ -370,17 +370,14 @@ public class Player extends Creature {
         super.setStats(hp, dmg);    //nie prave najlepsi sposob
         
         this.slots.load(file);
-        System.out.println("Sloty uspesne");
         this.inventory.load(file);
-        System.out.println("Inventory uspesne");
-        
+
         this.addGold(currentGold);
         this.addXp(xp);
         
-        /*Mood newMood = new MoodCreator().createMood(file);
-        this.changeMood(newMood);*/
+        Mood newMood = new MoodCreator().createMood(file);
+        this.changeMood(newMood);
         
-        System.out.println("Moody uspesne");
     }
     
     
