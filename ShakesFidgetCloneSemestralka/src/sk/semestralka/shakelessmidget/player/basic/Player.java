@@ -9,6 +9,7 @@ import sk.semestralka.shakelessmidget.items.slots.PlayerSlots;
 import sk.semestralka.shakelessmidget.items.slots.Inventory;
 import sk.semestralka.shakelessmidget.creatures.Creature;
 import sk.semestralka.shakelessmidget.creatures.Creature;
+import sk.semestralka.shakelessmidget.exceptions.NoMoneyException;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.items.Equipment;
 
@@ -176,6 +177,24 @@ public class Player extends Creature {
             return;
         }
         this.gold += amount;
+    }
+    
+    /**
+     * Zoberie hracovi peniaze
+     * @param amount pocet goldov
+     * @throws NoMoneyException ak hrac nema dostatok penazi
+     */
+    public void removeGold(int amount) throws NoMoneyException {
+        if (amount <= 0) {
+            return;
+        }
+        
+        int remaining = this.gold - amount;
+        if (remaining < 0) {
+            throw new NoMoneyException();
+        }
+        
+        this.gold -= amount;
     }
     
     /**
