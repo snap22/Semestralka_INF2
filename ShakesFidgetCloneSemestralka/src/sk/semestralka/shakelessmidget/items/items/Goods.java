@@ -5,6 +5,8 @@
  */
 package sk.semestralka.shakelessmidget.items.items;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
 import sk.semestralka.shakelessmidget.basic.Chance;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.items.ItemRarity;
@@ -67,6 +69,20 @@ public class Goods extends Item {
     }
     
     /**
+     * Ulozi hodnoty do suboru
+     * @param file
+     * @throws IOException 
+     */
+    @Override
+    public void save(DataOutputStream file) throws IOException {
+        file.writeUTF("goods");
+        file.writeUTF(super.getName());
+        file.writeUTF(super.getRarity().toString());
+        file.writeInt(this.goldValue);
+    }
+    
+    
+    /**
      * Meni hodnotu sance na drop a ceny v goldoch podla toho aka je vzacnost
      */
     private void nastavHodnoty() {
@@ -96,5 +112,6 @@ public class Goods extends Item {
                 this.goldValue = 0;
         }
     }
+
 
 }

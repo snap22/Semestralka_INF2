@@ -5,10 +5,9 @@
  */
 package sk.semestralka.shakelessmidget.items.items;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
 import sk.semestralka.shakelessmidget.basic.Chance;
-import sk.semestralka.shakelessmidget.items.items.Item;
-import sk.semestralka.shakelessmidget.items.items.ItemRarity;
-
 /**
  * Trieda sluzi ako nadtyp pre triedy ktore si hrac moze na seba zobrat
  * @author marce
@@ -70,8 +69,7 @@ public abstract class Equipment extends Item {
     }
     
 
-    @Override
-    public abstract String toString();
+    
 
     /**
      * Vrati hodnotu v goldoch
@@ -80,6 +78,23 @@ public abstract class Equipment extends Item {
     @Override
     public int getGoldValue() {
         return this.goldValue;
+    }
+    
+    /**
+     * Ulozi hodnoty do suboru
+     * @param file
+     * @throws IOException 
+     */
+    @Override
+    public void save(DataOutputStream file) throws IOException {
+        file.writeUTF(super.getName());
+        file.writeUTF(super.getRarity().toString());
+        file.writeInt(this.goldValue);
+        file.writeInt(this.bonusArmor);
+        file.writeInt(this.bonusDamage);
+        file.writeInt(this.bonusHealth);
+        file.writeInt(this.levelRequired);
+        
     }
     
     /**

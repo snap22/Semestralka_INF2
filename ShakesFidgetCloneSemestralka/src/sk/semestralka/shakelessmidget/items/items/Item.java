@@ -5,6 +5,9 @@
  */
 package sk.semestralka.shakelessmidget.items.items;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
+
 /**
  * Trieda Item reprezentuje predmety. Kazdy predmet ma svoje meno, penaznu hodnotu a svoju vzacnost
  * @author marce
@@ -63,5 +66,7 @@ public abstract class Item {
     public ItemRarity getRarity() {
         return this.rarity;
     }
+
+    public abstract void save(DataOutputStream file) throws IOException;
 
 }

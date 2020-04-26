@@ -5,6 +5,8 @@
  */
 package sk.semestralka.shakelessmidget.items.equippable;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
 import sk.semestralka.shakelessmidget.items.items.Equipment;
 import sk.semestralka.shakelessmidget.items.items.ItemRarity;
 
@@ -39,6 +41,17 @@ public class Weapon extends Equipment {
         return String.format("Weapon{%s, damage= %d, rarity= %s, value= %d , required level= %d}", 
                 super.getName(), super.getBonusDamage(), super.getRarity(), 
                 super.getGoldValue(), super.getLevelRequired());
+    }
+
+    /**
+     * Ulozi hodnoty do suboru
+     * @param file
+     * @throws IOException 
+     */
+    @Override
+    public void save(DataOutputStream file) throws IOException {
+        file.writeUTF("weapon");
+        super.save(file);
     }
     
     

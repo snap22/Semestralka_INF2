@@ -125,7 +125,9 @@ public class Inventory {
     }
 
     public void save(DataOutputStream file) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (Item item : this.slots) {
+            item.save(file);
+        }
     }
     
     
