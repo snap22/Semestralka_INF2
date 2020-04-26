@@ -15,6 +15,7 @@ import sk.semestralka.shakelessmidget.items.items.Goods;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.items.ItemRarity;
 
+
 /**
  *
  * @author marce
@@ -26,11 +27,13 @@ public class ItemCreator {
     
     public Item createItem(DataInputStream file) throws IOException, WrongTypeException {
         String type = file.readUTF();
-        Item newItem = this.loadItem(file, type);
+        Item newItem = this.loadEquipment(file, type);
         return newItem;
     }
     
-    private Item loadItem(DataInputStream file, String type) throws IOException, WrongTypeException {
+    
+    
+    private Item loadEquipment(DataInputStream file, String type) throws IOException, WrongTypeException {
         String itemName = file.readUTF();
         ItemRarity rarity = ItemRarity.valueOf(file.readUTF());
         int goldValue = file.readInt();
@@ -38,6 +41,7 @@ public class ItemCreator {
         int damage = file.readInt();
         int health = file.readInt();
         int levelRequired = file.readInt();
+        //chybicka se vbloudila pre Goods je toto cele zle!
         
         switch (type) {
             case "weapon":
@@ -53,18 +57,8 @@ public class ItemCreator {
         }
     }
     
-    //String name, ItemRarity rarity, int damage, int bonusHealth, int armor, int levelRequired, int goldValue
-    /*
-     public void save(DataOutputStream file) throws IOException {
-        file.writeUTF(super.getName());
-        file.writeUTF(super.getRarity().toString());
-        file.writeInt(this.goldValue);
-        file.writeInt(this.bonusArmor);
-        file.writeInt(this.bonusDamage);
-        file.writeInt(this.bonusHealth);
-        file.writeInt(this.levelRequired);
-        
-    }
-    */
+    
+    
+   
     
 }

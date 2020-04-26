@@ -18,6 +18,7 @@ import sk.semestralka.shakelessmidget.items.items.Equipment;
 
 import sk.semestralka.shakelessmidget.player.moods.Beginner;
 import sk.semestralka.shakelessmidget.player.moods.Mood;
+import sk.semestralka.shakelessmidget.player.moods.MoodCreator;
 
 /**
  * Trieda Player sluzi pre hraca
@@ -69,6 +70,7 @@ public class Player extends Creature {
         //item manazment
         this.inventory = new Inventory(6);
         this.slots = new PlayerSlots(this); 
+        
     }
     
     /**
@@ -349,6 +351,7 @@ public class Player extends Creature {
         this.slots.save(file);
         this.inventory.save(file);
         
+        //this.mood.save(file);
     }
     
     /**
@@ -374,6 +377,10 @@ public class Player extends Creature {
         this.addGold(currentGold);
         this.addXp(xp);
         
+        /*Mood newMood = new MoodCreator().createMood(file);
+        this.changeMood(newMood);*/
+        
+        System.out.println("Moody uspesne");
     }
     
     

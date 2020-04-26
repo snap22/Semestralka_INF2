@@ -21,7 +21,7 @@ public class Blindfolded extends Mood {
      * Vytvori naladu
      */
     public Blindfolded() {
-        super("BlindFolder", 50, 10);
+        super("BlindFolded", 50, 10);
         this.chanceToMiss = 50;
     }
 

@@ -7,6 +7,7 @@ package sk.semestralka.shakelessmidget.player.moods;
 
 
 import java.io.DataOutputStream;
+import java.io.IOException;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
@@ -105,7 +106,12 @@ public abstract class Mood {
         return this.name.equals(other.getName());
     }
 
-    public void save(DataOutputStream file) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * Metoda na ulozenie
+     * @param file
+     * @throws IOException 
+     */
+    public void save(DataOutputStream file) throws IOException {
+        file.writeUTF(this.name);
     }
 }

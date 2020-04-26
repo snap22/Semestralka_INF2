@@ -134,7 +134,7 @@ public class Inventory {
         ItemCreator itemCreator = new ItemCreator();
         int sizeOfInventory = file.readInt();
         System.out.println(sizeOfInventory);
-        
+        System.out.println("===nacitane itemy====");
         for (int i = 0; i < sizeOfInventory; i++) {
             Item newItem = itemCreator.createItem(file);
             this.slots.add(newItem);
@@ -149,9 +149,11 @@ public class Inventory {
      * @throws IOException 
      */
     public void save(DataOutputStream file) throws IOException {
+        System.out.println("====ukladane itemy=====");
         file.writeInt(this.slots.size());
         for (Item item : this.slots) {
             item.save(file);
+            System.out.println(item);
         }
     }
     
