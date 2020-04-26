@@ -5,6 +5,8 @@
  */
 package sk.semestralka.shakelessmidget.items.slots;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import java.util.ArrayList;
 
@@ -116,6 +118,14 @@ public class Inventory {
      */
     public int getMaxSize() {
         return this.size;
+    }
+
+    public void load(DataInputStream file) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void save(DataOutputStream file) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

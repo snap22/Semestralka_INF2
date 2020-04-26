@@ -5,9 +5,11 @@
  */
 package sk.semestralka.shakelessmidget.player.basic;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import sk.semestralka.shakelessmidget.items.slots.PlayerSlots;
 import sk.semestralka.shakelessmidget.items.slots.Inventory;
-import sk.semestralka.shakelessmidget.creatures.Creature;
 import sk.semestralka.shakelessmidget.creatures.Creature;
 import sk.semestralka.shakelessmidget.exceptions.NoMoneyException;
 import sk.semestralka.shakelessmidget.items.items.Item;
@@ -140,6 +142,7 @@ public class Player extends Creature {
         this.level++;
         this.requiredXp += 5;
         super.increaseHealth(5);
+        super.increaseDamage(2);
         
         
         if (this.mood != null) {
@@ -330,13 +333,42 @@ public class Player extends Creature {
     }
     
     
+    /**
+     * Ulozi hracove atributy
+     * @param file 
+     */
+    public void save(DataOutputStream file) throws IOException {
+        file.writeInt(super.getHealth());   //basic hp
+        file.writeInt(super.getDamage());   //basic dmg
+        file.writeInt(this.overallXp);      //xp
+        file.writeInt(this.gold);           //gold
+        
+        this.mood.save(file);
+        this.inventory.save(file);
+        this.slots.save(file);
+    }
+    
+    public void load(DataInputStream file) {
+        //this.inventory.load(file);
+        //this.slots.load(file);
+    }
     
     
     
-    
-    
-    
-
+/*
+    hp dmg
+     this.mood = mood;
+        this.requiredXp = 10;
+        this.currentXp = 0;
+        this.overallXp = 0;
+        this.level = 1;
+        this.gold = 0;
+        
+        //bonusove veci, moznost zvysit cez itemy, alebo niektore charakteristiky
+        this.bonusHealth = 0;   //increased by item
+        this.bonusDamage = 0;   //increased by weapon or characteristic
+        this.armor = 0;         //increased by item
+    */
     
     
 } //koniec Player

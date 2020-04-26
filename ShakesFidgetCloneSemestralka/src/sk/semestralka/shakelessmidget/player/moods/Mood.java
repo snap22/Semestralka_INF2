@@ -6,6 +6,7 @@
 package sk.semestralka.shakelessmidget.player.moods;
 
 
+import java.io.DataOutputStream;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
@@ -102,5 +103,9 @@ public abstract class Mood {
      */
     public boolean equals(Mood other) {
         return this.name.equals(other.getName());
+    }
+
+    public void save(DataOutputStream file) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

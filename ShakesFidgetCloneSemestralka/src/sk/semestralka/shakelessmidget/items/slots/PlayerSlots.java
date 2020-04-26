@@ -6,6 +6,8 @@
 package sk.semestralka.shakelessmidget.items.slots;
 
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.equippable.Armor;
 import sk.semestralka.shakelessmidget.items.items.Equipment;
@@ -176,6 +178,14 @@ public class PlayerSlots {
         
         this.inventory.addItem(removedItem); 
         
+    }
+
+    public void load(DataInputStream file) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void save(DataOutputStream file) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
