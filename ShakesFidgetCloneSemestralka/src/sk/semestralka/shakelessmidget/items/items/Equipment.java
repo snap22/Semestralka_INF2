@@ -29,10 +29,30 @@ public abstract class Equipment extends Item {
      * @param armor armor
      * @param levelRequired potrebny level
      */
-    public Equipment(String name, ItemRarity rarity, int damage, int bonusHealth, int armor, int levelRequired) {
+    protected Equipment(String name, ItemRarity rarity, int damage, int bonusHealth, int armor, int levelRequired) {
         super(name, rarity);
         this.levelRequired = levelRequired;
         this.nastavHodnoty();
+        
+    }
+    
+    /**
+     * Vytvori predmet s presne definovanymi hodnotami
+     * @param name
+     * @param rarity
+     * @param damage
+     * @param bonusHealth
+     * @param armor
+     * @param levelRequired
+     * @param goldValue 
+     */
+    protected Equipment(String name, ItemRarity rarity, int damage, int bonusHealth, int armor, int levelRequired, int goldValue) {
+        super(name, rarity);
+        this.levelRequired = levelRequired;
+        this.bonusDamage = damage;
+        this.bonusArmor = armor;
+        this.bonusHealth = bonusHealth;
+        this.goldValue = goldValue;
         
     }
 

@@ -27,6 +27,19 @@ public class Armor extends Equipment {
     }
     
     /**
+     * Vytvori velmi konkretnu instanciu
+     * @param name nazov
+     * @param rarity vzacnost
+     * @param bonusHealth zivot
+     * @param armor armor
+     * @param levelRequired potrebny level
+     * @param goldValue penazna hodnota
+     */
+    public Armor(String name, ItemRarity rarity, int bonusHealth, int armor, int levelRequired, int goldValue) {
+        super(name, rarity, 0, bonusHealth, armor, levelRequired, goldValue);
+    }
+    
+    /**
      * Testovaci konstruktor
      */
     public Armor() {

@@ -12,6 +12,7 @@ import sk.semestralka.shakelessmidget.items.slots.PlayerSlots;
 import sk.semestralka.shakelessmidget.items.slots.Inventory;
 import sk.semestralka.shakelessmidget.creatures.Creature;
 import sk.semestralka.shakelessmidget.exceptions.NoMoneyException;
+import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.items.Equipment;
 
@@ -340,17 +341,39 @@ public class Player extends Creature {
     public void save(DataOutputStream file) throws IOException {
         file.writeInt(super.getHealth());   //basic hp
         file.writeInt(super.getDamage());   //basic dmg
+        
         file.writeInt(this.overallXp);      //xp
         file.writeInt(this.gold);           //gold
         
-        this.mood.save(file);
-        this.inventory.save(file);
+        //this.mood.save(file);
         this.slots.save(file);
+        this.inventory.save(file);
+        
     }
     
-    public void load(DataInputStream file) {
-        //this.inventory.load(file);
-        //this.slots.load(file);
+    /**
+     * Nacita hraca
+     * @param file
+     * @throws IOException
+     * @throws WrongTypeException 
+     */
+    public void load(DataInputStream file) throws IOException, WrongTypeException {
+        int hp = file.readInt();
+        int dmg = file.readInt();
+        
+        int xp = file.readInt();
+        int currentGold = file.readInt();
+        
+        super.setStats(hp, dmg);    //nie prave najlepsi sposob
+        
+        this.slots.load(file);
+        System.out.println("Sloty uspesne");
+        this.inventory.load(file);
+        System.out.println("Inventory uspesne");
+        
+        this.addGold(currentGold);
+        this.addXp(xp);
+        
     }
     
     

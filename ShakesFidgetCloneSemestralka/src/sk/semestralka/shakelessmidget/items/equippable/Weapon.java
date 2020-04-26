@@ -26,6 +26,19 @@ public class Weapon extends Equipment {
     } 
     
     /**
+     * Vytvori velmi konkretnu instanciu
+     * @param name nazov
+     * @param rarity vzacnost
+     * @param bonusHealth zivot
+     * @param armor armor
+     * @param levelRequired potrebny level
+     * @param goldValue penazna hodnota
+     */
+    public Weapon(String name, ItemRarity rarity, int bonusDamage, int levelRequired, int goldValue) {
+        super(name, rarity, bonusDamage, 0, 0, levelRequired, goldValue);
+    }
+    
+    /**
      * Testovaci konstruktor
      */
     public Weapon() {

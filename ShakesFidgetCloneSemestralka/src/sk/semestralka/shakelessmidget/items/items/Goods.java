@@ -8,8 +8,6 @@ package sk.semestralka.shakelessmidget.items.items;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import sk.semestralka.shakelessmidget.basic.Chance;
-import sk.semestralka.shakelessmidget.items.items.Item;
-import sk.semestralka.shakelessmidget.items.items.ItemRarity;
 import java.util.Random;
 
 /**
@@ -31,6 +29,20 @@ public class Goods extends Item {
         super(name, rarity);
         this.random = new Random();
         this.nastavHodnoty();
+        
+    }
+    
+    /**
+     * Vytvori konkretnu instanciu
+     * @param name nazov
+     * @param rarity vzacnost
+     * @param goldValue penazna hodnota
+     */
+    public Goods(String name, ItemRarity rarity, int goldValue) {
+        super(name, rarity);
+        this.random = new Random();
+        this.nastavHodnoty();
+        this.goldValue = goldValue;
         
     }
     

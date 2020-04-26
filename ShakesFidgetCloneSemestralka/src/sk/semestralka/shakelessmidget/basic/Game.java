@@ -7,6 +7,14 @@ package sk.semestralka.shakelessmidget.basic;
 
 import sk.semestralka.shakelessmidget.generators.Generator;
 import gui.MainFrame;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
 import sk.semestralka.shakelessmidget.generators.ItemGenerator;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 import sk.semestralka.shakelessmidget.items.equippable.Armor;
@@ -27,10 +35,48 @@ public class Game {
     public Game() {
         this.player = new Player();
         this.generator = new Generator(this.player);
-        test();
+        this.test();
         MainFrame mf = new MainFrame(this);
         
     }
+    
+    public void save() {
+        String path = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\saves\\currentSave.slm";
+        File file = new File(path);
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            DataOutputStream data = new DataOutputStream(fos);
+            this.player.save(data);
+            
+        } catch (FileNotFoundException ex) {
+            System.out.println("Subor sa nenasiel");
+        } catch (IOException ex) {
+            System.out.println("Nieco sa pokazilo v save");
+        }
+        
+    }
+    
+    public void load() {
+        String path = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\saves\\currentSave.slm";
+        File file = new File(path);
+        try {
+            FileInputStream fos = new FileInputStream(file);
+            DataInputStream data = new DataInputStream(fos);
+            this.player.load(data);
+            
+        } catch (FileNotFoundException ex) {
+            System.out.println("Subor sa nenasiel");
+        } catch (IOException ex) {
+            System.out.println("Nieco sa pokazilo v loade");
+        } catch (WrongTypeException ex) {
+            System.out.println("Zly typ pre itemy");    //toto asi nie tu treba
+        }
+        
+        
+    
+    }
+    
+    
 
     /**
      * Vrati hraca

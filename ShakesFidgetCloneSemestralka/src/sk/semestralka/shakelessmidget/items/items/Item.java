@@ -22,7 +22,7 @@ public abstract class Item {
      * @param name meno
      * @param rarity  vzacnost
      */
-    public Item(String name, ItemRarity rarity) {
+    protected Item(String name, ItemRarity rarity) {
         this.name = name;
         this.rarity = rarity;  
     }

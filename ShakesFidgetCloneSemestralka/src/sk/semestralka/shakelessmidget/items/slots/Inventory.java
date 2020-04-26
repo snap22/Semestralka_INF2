@@ -7,8 +7,11 @@ package sk.semestralka.shakelessmidget.items.slots;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import java.util.ArrayList;
+import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
+import sk.semestralka.shakelessmidget.generators.ItemCreator;
 
 
 /**
@@ -120,11 +123,33 @@ public class Inventory {
         return this.size;
     }
 
-    public void load(DataInputStream file) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * Nacita itemy a prida ich do inventory
+     * @param file
+     * @throws IOException
+     * @throws WrongTypeException 
+     */
+    public void load(DataInputStream file) throws IOException, WrongTypeException {
+        this.slots.clear(); //vyprazdni inventory   ?
+        ItemCreator itemCreator = new ItemCreator();
+        int sizeOfInventory = file.readInt();
+        System.out.println(sizeOfInventory);
+        
+        for (int i = 0; i < sizeOfInventory; i++) {
+            Item newItem = itemCreator.createItem(file);
+            this.slots.add(newItem);
+            System.out.println(newItem);
+            
+        }
     }
 
-    public void save(DataOutputStream file) {
+    /**
+     * Ulozi itemy
+     * @param file
+     * @throws IOException 
+     */
+    public void save(DataOutputStream file) throws IOException {
+        file.writeInt(this.slots.size());
         for (Item item : this.slots) {
             item.save(file);
         }

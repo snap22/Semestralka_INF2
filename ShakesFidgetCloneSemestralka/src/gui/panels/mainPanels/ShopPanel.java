@@ -30,6 +30,8 @@ public class ShopPanel extends MainPanel {
         
         this.setBackground(Color.black);
         this.add(label, BorderLayout.NORTH);
+        
+        
     }
     
     // button - po kliknuti prida hracovi item, zoberie goldy. Pozn. ak je inventory full --> error- dialog box, popup window

@@ -9,6 +9,8 @@ package sk.semestralka.shakelessmidget.items.slots;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
+import sk.semestralka.shakelessmidget.generators.ItemCreator;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.equippable.Armor;
 import sk.semestralka.shakelessmidget.items.items.Equipment;
@@ -180,11 +182,35 @@ public class PlayerSlots {
         this.inventory.addItem(removedItem); 
         
     }
-
-    public void load(DataInputStream file) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    /**
+     * Najprv da predmet do inventory a potom ho equipne
+     * @param item predmet
+     */
+    private void equipAfterLoad(Item item) {
+        this.inventory.addItem(item);
+        this.equip(item);
     }
 
+    /**
+     * Nacita jednotlive predmety a da ich do slotov
+     * @param file
+     * @throws IOException
+     * @throws WrongTypeException 
+     */
+    public void load(DataInputStream file) throws IOException, WrongTypeException {
+        ItemCreator itemCreator = new ItemCreator();
+        for (int i = 0; i < 3; i++) {
+            this.equipAfterLoad(itemCreator.createItem(file));
+        }
+        
+    }
+
+    /**
+     * Ulozi jednotlive predmety
+     * @param file
+     * @throws IOException 
+     */
     public void save(DataOutputStream file) throws IOException {
         this.weaponSlot.getItem().save(file);
         this.armorSlot.getItem().save(file);

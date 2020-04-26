@@ -62,7 +62,7 @@ public class TemporaryPanel extends JPanel {
         this.createPanel(new TavernPanel(game));
         this.createPanel(this.heroPanel);
         this.createPanel(new ShopPanel(this.player));
-        this.createPanel(new MiniGamePanel());
+        this.createPanel(new MiniGamePanel(game));
         
         //this.createPanel(new WaitPanel(this.gen.generateObjective()));
         
