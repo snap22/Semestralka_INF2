@@ -34,7 +34,7 @@ public class MiniGamePanel extends MainPanel {
         this.add(label, BorderLayout.NORTH);
         
         JButton saveButton = new JButton("Save");
-        JButton loadButton = new JButton("Load");
+        JButton loadButton = new JButton("NEW");
         this.add(saveButton, BorderLayout.WEST);
         this.add(loadButton, BorderLayout.EAST);
         
@@ -50,7 +50,7 @@ public class MiniGamePanel extends MainPanel {
         loadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                game.load();
+                game.newGame();
             }
         });
         

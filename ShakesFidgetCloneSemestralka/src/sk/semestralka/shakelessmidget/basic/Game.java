@@ -60,6 +60,8 @@ public class Game {
         
     }
     
+    
+    
     /**
      * Nacita zo suboru
      */
@@ -91,7 +93,12 @@ public class Game {
         file.delete();
     }
     
-    
+    public void newGame() {
+        this.player = new Player();
+        this.deleteFile();
+        this.save();
+        this.load();
+    }
 
     /**
      * Vrati hraca
