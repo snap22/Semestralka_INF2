@@ -224,6 +224,9 @@ public class Player extends Creature {
      * @param item 
      */
     public void increaseStats(Equipment item) {
+        if (item == null) {
+            return;
+        }
         this.bonusHealth += item.getBonusHealth();
         this.bonusDamage += item.getBonusDamage();
         this.armor += item.getBonusArmor();
@@ -234,6 +237,9 @@ public class Player extends Creature {
      * @param item 
      */
     public void decreaseStats(Equipment item) {
+        if (item == null) {
+            return;
+        }
         this.bonusHealth -= item.getBonusHealth();
         this.bonusDamage -= item.getBonusDamage();
         this.armor -= item.getBonusArmor();
@@ -367,7 +373,7 @@ public class Player extends Creature {
         int xp = file.readInt();
         int currentGold = file.readInt();
         
-        super.setStats(hp, dmg);    //nie prave najlepsi sposob
+        //super.setStats(hp, dmg);    //nie prave najlepsi sposob
         
         this.slots.load(file);
         this.inventory.load(file);
@@ -382,20 +388,6 @@ public class Player extends Creature {
     
     
     
-/*
-    hp dmg
-     this.mood = mood;
-        this.requiredXp = 10;
-        this.currentXp = 0;
-        this.overallXp = 0;
-        this.level = 1;
-        this.gold = 0;
-        
-        //bonusove veci, moznost zvysit cez itemy, alebo niektore charakteristiky
-        this.bonusHealth = 0;   //increased by item
-        this.bonusDamage = 0;   //increased by weapon or characteristic
-        this.armor = 0;         //increased by item
-    */
     
     
 } //koniec Player

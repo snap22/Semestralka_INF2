@@ -9,6 +9,7 @@ package sk.semestralka.shakelessmidget.items.slots;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
 import sk.semestralka.shakelessmidget.generators.ItemCreator;
 import sk.semestralka.shakelessmidget.items.items.Item;
@@ -22,6 +23,7 @@ import sk.semestralka.shakelessmidget.player.basic.Player;
  * Trieda zodpoveda za to aby si hrac mohol dať na seba (equipnut) a zo seba rozne predmety a zabezpecuje aby sa vratili do inventory
  */
 public class PlayerSlots {
+    private ArrayList<Item> currentItemsEquipped;
     private Slot<Weapon> weaponSlot;
     private Slot<Armor> armorSlot;
     private Slot<Helmet> headSlot;
@@ -33,6 +35,7 @@ public class PlayerSlots {
      * @param player hrac ktoreho equipnute itemy bude spravovat
      */
     public PlayerSlots(Player player) {
+        this.currentItemsEquipped = new ArrayList<Item>();
         this.weaponSlot = new Slot<Weapon>();
         this.armorSlot = new Slot<Armor>();
         this.headSlot = new Slot<Helmet>();
@@ -172,7 +175,8 @@ public class PlayerSlots {
         Item removedItem = null;
         if (!slot.isEmpty()) {
             removedItem = slot.remove();
-            this.player.decreaseStats((Equipment)removedItem);      
+            this.player.decreaseStats((Equipment)removedItem);   
+            this.currentItemsEquipped.remove(removedItem);
         }
         
         this.inventory.removeItem(item);
@@ -180,6 +184,7 @@ public class PlayerSlots {
         slot.insert(item);
         
         this.inventory.addItem(removedItem); 
+        this.currentItemsEquipped.add(item);
         
     }
     
@@ -200,7 +205,8 @@ public class PlayerSlots {
      */
     public void load(DataInputStream file) throws IOException, WrongTypeException {
         ItemCreator itemCreator = new ItemCreator();
-        for (int i = 0; i < 3; i++) {
+        int numberOfItems = file.readInt();
+        for (int i = 0; i < numberOfItems; i++) {
             this.equipAfterLoad(itemCreator.createItem(file));
         }
         
@@ -212,9 +218,16 @@ public class PlayerSlots {
      * @throws IOException 
      */
     public void save(DataOutputStream file) throws IOException {
-        this.weaponSlot.getItem().save(file);
-        this.armorSlot.getItem().save(file);
-        this.headSlot.getItem().save(file);
+        int numberOfItems = this.currentItemsEquipped.size();
+        file.writeInt(numberOfItems);
+        
+        for (int i = 0; i < numberOfItems; i++) {
+            this.currentItemsEquipped.get(i).save(file);
+            
+        }
+        
+        //this.unequipAll();   // --> kvoli tomuto spadne program
+        
     }
     
     

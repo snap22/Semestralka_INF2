@@ -77,6 +77,7 @@ public class Game {
             System.out.println("Zly typ");    //toto asi nie tu treba
         }
         
+        System.out.println("Nacita sa..");
         
     
     }
@@ -109,7 +110,7 @@ public class Game {
     }
     
     
-    private void test() {
+    public void test() {
         Weapon zbran = new Weapon();
         Helmet helma = new Helmet();
         Armor armor = new Armor();

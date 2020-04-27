@@ -38,6 +38,8 @@ public class MiniGamePanel extends MainPanel {
         this.add(saveButton, BorderLayout.WEST);
         this.add(loadButton, BorderLayout.EAST);
         
+        
+        //toto pekne vymazat, pekne sa to buguje
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -49,6 +51,15 @@ public class MiniGamePanel extends MainPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 game.load();
+            }
+        });
+        
+        JButton testButton = new JButton("test");
+        this.add(testButton);
+        testButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                game.test();
             }
         });
     }
