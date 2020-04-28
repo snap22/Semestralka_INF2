@@ -60,8 +60,9 @@ public class ItemDetailsPanel extends JPanel {
         this.add(buttonsPanel, BorderLayout.NORTH);
      
         JPanel separatorPanel = new JPanel();
-        separatorPanel.setBackground(Color.black);
-        separatorPanel.setPreferredSize(new Dimension(80, 100));
+        
+        separatorPanel.setBackground(Color.lightGray);
+        separatorPanel.setPreferredSize(new Dimension(55, 100));
         this.add(separatorPanel, BorderLayout.WEST);
         
         
