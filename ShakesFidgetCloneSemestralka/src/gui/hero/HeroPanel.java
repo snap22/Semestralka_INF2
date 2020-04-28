@@ -22,7 +22,7 @@ import gui.hero.listener.IUpdatePlayerListener;
 public class HeroPanel extends MainPanel {
 
     private final Player player;
-    private final HeroStatsPanel2 heroStatsPanel;
+    private final HeroStatsPanel heroStatsPanel;
     private final ItemDetailsPanel itemDetailsPanel;
 
     public HeroPanel(Player player) {
@@ -38,7 +38,7 @@ public class HeroPanel extends MainPanel {
         this.setBackground(Color.black);
         this.add(label, BorderLayout.NORTH);
         
-        this.heroStatsPanel = new HeroStatsPanel2(this.player);
+        this.heroStatsPanel = new HeroStatsPanel(this.player);
         this.add(this.heroStatsPanel, BorderLayout.WEST);
         
         this.itemDetailsPanel = new ItemDetailsPanel(this.player);

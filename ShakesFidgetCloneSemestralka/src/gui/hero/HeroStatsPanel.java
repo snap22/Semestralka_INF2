@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import sk.semestralka.shakelessmidget.items.slots.Inventory;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
@@ -29,6 +30,7 @@ public class HeroStatsPanel extends JPanel {
     private final HeroEquippedItems equippedItems;
     private final HeroInventoryItems inventoryItems;
     private final JLabel inventoryItemsLabel;
+    private final DetailLabelHolder labelsManager;
 
     /**
      * Konstruktor pre triedu, vytvoria sa udaje ktore udavaju zakladne informacie o hracovi
@@ -36,57 +38,94 @@ public class HeroStatsPanel extends JPanel {
      */
     public HeroStatsPanel(Player player) {
         this.player = player;
-        this.labels = new HashMap<String, DetailLabel>();
+        this.labelsManager = new DetailLabelHolder();
         this.bar = new JProgressBar(0, this.player.getRequiredXp());
         
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.add(this.labelsManager);
         
-        this.createLabel("Name", player.getName());
-        this.createLabel("Health", player.getHealth());
-        this.createLabel("Armor", player.getArmor());
-        this.createLabel("Damage", player.getDamage());
-        this.createLabel("Level", player.getLevel());
-        this.createLabel("Gold", player.getGold());
+        this.labelsManager.addLabel("Name", player.getName());
+        this.labelsManager.addLabel("Health", player.getHealth());
+        this.labelsManager.addLabel("Armor", player.getArmor());
+        this.labelsManager.addLabel("Damage", player.getDamage());
+        this.labelsManager.addLabel("Level", player.getLevel());
+        this.labelsManager.addLabel("Gold", player.getGold());
         
-        //this.bar.setMaximumSize(new Dimension(150, 20));
-        this.add(Box.createRigidArea(new Dimension(5, 30)));
+        this.add(Box.createRigidArea(new Dimension(5, 10)));
         
         this.add(this.bar);
         this.bar.setStringPainted(true);
         this.bar.setForeground(Color.orange);
         this.bar.setString("XP");
-        this.setBackground(Color.green);
+        this.setBackground(Color.white);
         
+        this.add(Box.createRigidArea(new Dimension(5, 5)));
+        this.add(new JSeparator());
+        
+        //  Equipped label
         JLabel equippedItemsLabel = new JLabel("Equipped:");
         equippedItemsLabel.setFont(BasicGui.getFont());
-        this.add(Box.createRigidArea(new Dimension(5, 10)));
-        
         this.add(equippedItemsLabel);
-        this.equippedItems = new HeroEquippedItems(this.player);
-        this.inventoryItems = new HeroInventoryItems(this.player);
+        
+        //  medzera
+       
+        
+        //  Equipped items
+        this.equippedItems = new HeroEquippedItems(this.player); 
         JScrollPane equippedScrollPane = new JScrollPane(this.equippedItems);
-        JScrollPane inventoryScrollPane = new JScrollPane(this.inventoryItems);
         this.add(equippedScrollPane);
         
-        this.inventoryItemsLabel = new JLabel("Inventory:");
-        equippedItemsLabel.setFont(BasicGui.getFont());
+        //  medzera
         this.add(Box.createRigidArea(new Dimension(5, 10)));
+        
+        // Inventory Label
+        this.inventoryItemsLabel = new JLabel("Inventory:");
+        this.inventoryItemsLabel.setFont(BasicGui.getFont());
         this.add(this.inventoryItemsLabel);
+        
+        
+        //  Inventory Items
+        this.inventoryItems = new HeroInventoryItems(this.player);
+        JScrollPane inventoryScrollPane = new JScrollPane(this.inventoryItems);
         this.add(inventoryScrollPane);
         
+        /*this.inventoryItems.setListener(new IShowItemListener() {
+        @Override
+        public void itemEmitted(Item item) {
+        System.out.println(item);
+        }
+        });
         
-        
+        this.equippedItems.setListener(new IShowItemListener() {
+        @Override
+        public void itemEmitted(Item item) {
+        System.out.println(item);
+        }
+        });*/
+       
     }
+    
+    
+
+    public HeroEquippedItems getEquippedItems() {
+        return this.equippedItems;
+    }
+
+    public HeroInventoryItems getInventoryItems() {
+        return this.inventoryItems;
+    }
+    
+    
     
     /**
      * Aktualizuje vsetky komponenty
      */
     public void updateAll() {
-        this.updateText("Health", this.player.getHealth());
-        this.updateText("Armor", this.player.getArmor());
-        this.updateText("Damage", this.player.getDamage());
-        this.updateText("Level", this.player.getLevel());
-        this.updateText("Gold", this.player.getGold());
+        this.labelsManager.updateText("Health", this.player.getHealth());
+        this.labelsManager.updateText("Armor", this.player.getArmor());
+        this.labelsManager.updateText("Damage", this.player.getDamage());
+        this.labelsManager.updateText("Level", this.player.getLevel());
+        this.labelsManager.updateText("Gold", this.player.getGold());
         this.updateBar();
         this.equippedItems.update();
         this.inventoryItems.update();
@@ -103,21 +142,6 @@ public class HeroStatsPanel extends JPanel {
         this.bar.setMaximum(this.player.getRequiredXp());
         this.bar.setValue(this.player.getCurrentXp());
     }
-    
-    private void createLabel(String name, int description) {
-        this.createLabel(name, String.valueOf(description));
-    }
-    
-    private void createLabel(String name, String description) {
-        if (name == null || description == null) {
-            return;
-        }
-        
-        DetailLabel newLabel = new DetailLabel(name, description);
-        this.labels.put(name, newLabel);
-        this.add(newLabel);
-    }
-
     
     /**
      * Aktualizuje text v danom label-y
