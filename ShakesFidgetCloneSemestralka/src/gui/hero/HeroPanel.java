@@ -11,7 +11,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
+import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.player.basic.Player;
+import gui.hero.listener.IShowItemListener;
 
 /**
  * Trieda HeroPanel sluzi na zobrazenie informacii o hracovi
@@ -19,7 +21,7 @@ import sk.semestralka.shakelessmidget.player.basic.Player;
 public class HeroPanel extends MainPanel {
 
     private final Player player;
-    private final HeroStatsPanel2 statsPanel;
+    private final HeroStatsPanel2 heroStatsPanel;
     private final ItemDetailsPanel itemDetailsPanel;
 
     public HeroPanel(Player player) {
@@ -35,18 +37,42 @@ public class HeroPanel extends MainPanel {
         this.setBackground(Color.black);
         this.add(label, BorderLayout.NORTH);
         
-        this.statsPanel = new HeroStatsPanel2(this.player);
-        this.add(this.statsPanel, BorderLayout.WEST);
+        this.heroStatsPanel = new HeroStatsPanel2(this.player);
+        this.add(this.heroStatsPanel, BorderLayout.WEST);
         
         this.itemDetailsPanel = new ItemDetailsPanel(this.player);
         this.add(this.itemDetailsPanel, BorderLayout.CENTER);
+        
+        
+        // listenery 
+        this.setupListeners();
+        
+        
     }
 
+    private void setupListeners() {
+        this.heroStatsPanel.getInventoryItems().setListener(new IShowItemListener() {
+            @Override
+            public void itemSelected(Item item) {
+                HeroPanel.this.itemDetailsPanel.showInfo(item);
+                
+            }
+        });
+        
+        this.heroStatsPanel.getEquippedItems().setListener(new IShowItemListener() {
+            @Override
+            public void itemSelected(Item item) {
+                HeroPanel.this.itemDetailsPanel.showInfo(item);
+                
+            }
+        });
+    }
     /**
      * Aktualizuje vsetky hodnoty hraca
      */
     public void updateStats() {
-        this.statsPanel.updateAll();
+        
+        this.heroStatsPanel.updateAll();
     }
     
 }

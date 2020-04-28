@@ -15,6 +15,7 @@ import javax.swing.event.ListSelectionListener;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.slots.Inventory;
 import sk.semestralka.shakelessmidget.player.basic.Player;
+import gui.hero.listener.IShowItemListener;
 
 /**
  * Trieda HeroInventoryItems sluzi na zobrazenie itemov hraca v inventari
@@ -23,7 +24,8 @@ public class HeroInventoryItems extends JList {
     private final Player player;
     private final ArrayList<Item> items;
     private final DefaultListModel listModel;
-
+    
+    private IShowItemListener listener;
     /**
      * Konstruktor. Nastavi pociatocne hodnoty
      * @param player 
@@ -43,16 +45,26 @@ public class HeroInventoryItems extends JList {
         this.addListSelectionListener(new ListSelectionListener() {
 
             @Override
-            public void valueChanged(ListSelectionEvent arg0) {
-                if (!arg0.getValueIsAdjusting()) {
+            public void valueChanged(ListSelectionEvent event) {
+                if (!event.getValueIsAdjusting()) {
                     if (getSelectedIndex() != -1) {     //osetruje ak by bol selectnuty predmet a prepne sa panel
-                        System.out.println(HeroInventoryItems.this.items.get(getSelectedIndex()).toString());
+                        //System.out.println(HeroInventoryItems.this.items.get(getSelectedIndex()).toString());
+                        if (HeroInventoryItems.this.listener != null) {
+                            HeroInventoryItems.this.listener.itemSelected(HeroInventoryItems.this.items.get(getSelectedIndex()));
+                        }
                     }
                     
                     
                 }
             }
         });
+    }
+    
+    public void setListener(IShowItemListener listener) {
+        if (listener == null) {
+            return;
+        }
+        this.listener = listener;
     }
     
 

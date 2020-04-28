@@ -16,8 +16,10 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
+import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.slots.Inventory;
 import sk.semestralka.shakelessmidget.player.basic.Player;
+import gui.hero.listener.IShowItemListener;
 
 /**
  * Trieda HeroStatsPanel sluzi pre zobrazovanie zakladnych informacii o hracovi
@@ -88,8 +90,34 @@ public class HeroStatsPanel2 extends JPanel {
         this.inventoryItems = new HeroInventoryItems(this.player);
         JScrollPane inventoryScrollPane = new JScrollPane(this.inventoryItems);
         this.add(inventoryScrollPane);
+        
+        /*this.inventoryItems.setListener(new IShowItemListener() {
+        @Override
+        public void itemEmitted(Item item) {
+        System.out.println(item);
+        }
+        });
+        
+        this.equippedItems.setListener(new IShowItemListener() {
+        @Override
+        public void itemEmitted(Item item) {
+        System.out.println(item);
+        }
+        });*/
        
     }
+    
+    
+
+    public HeroEquippedItems getEquippedItems() {
+        return this.equippedItems;
+    }
+
+    public HeroInventoryItems getInventoryItems() {
+        return this.inventoryItems;
+    }
+    
+    
     
     /**
      * Aktualizuje vsetky komponenty
