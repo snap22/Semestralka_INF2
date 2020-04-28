@@ -89,20 +89,28 @@ public class ItemDetailsPanel extends JPanel {
         this.labelsManager.updateText("Name", item.getName());
         this.labelsManager.updateText("Rarity", item.getRarity().toString());
         this.labelsManager.updateText("Value", item.getGoldValue());
-        
-        int damage = 0;
-        int armor = 0;
-        int health = 0;
         if (item instanceof Equipment) {
             Equipment equipment = (Equipment)item;
+            int damage = 0;
+            int armor = 0;
+            int health = 0;
             damage = equipment.getBonusDamage();
             armor = equipment.getBonusArmor();
             health = equipment.getBonusHealth();
+            this.labelsManager.updateText("Damage", damage);
+            this.labelsManager.updateText("Armor", armor);
+            this.labelsManager.updateText("Health", health);
+            
+            this.labelsManager.showLabel("Damage");
+            this.labelsManager.showLabel("Armor");
+            this.labelsManager.showLabel("Health");
+        
+        } else {
+            this.labelsManager.hideLabel("Damage");
+            this.labelsManager.hideLabel("Armor");
+            this.labelsManager.hideLabel("Health");
         }
         
-        this.labelsManager.updateText("Damage", damage);
-        this.labelsManager.updateText("Armor", armor);
-        this.labelsManager.updateText("Damage", health);
         
         this.setEnabledAll(shouldBeEquippable);
         
