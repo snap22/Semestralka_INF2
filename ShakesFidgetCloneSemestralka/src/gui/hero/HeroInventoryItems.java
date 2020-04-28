@@ -51,11 +51,12 @@ public class HeroInventoryItems extends JList {
                         //System.out.println(HeroInventoryItems.this.items.get(getSelectedIndex()).toString());
                         if (HeroInventoryItems.this.listener != null) {
                             HeroInventoryItems.this.listener.itemSelected(HeroInventoryItems.this.items.get(getSelectedIndex()));
+                            HeroInventoryItems.this.clearSelection();
                         }
                     }
                     
                     
-                }
+                } 
             }
         });
     }

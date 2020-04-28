@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 import gui.hero.listener.IShowItemListener;
+import gui.hero.listener.IUpdatePlayerListener;
 
 /**
  * Trieda HeroPanel sluzi na zobrazenie informacii o hracovi
@@ -54,7 +55,7 @@ public class HeroPanel extends MainPanel {
         this.heroStatsPanel.getInventoryItems().setListener(new IShowItemListener() {
             @Override
             public void itemSelected(Item item) {
-                HeroPanel.this.itemDetailsPanel.showInfo(item);
+                HeroPanel.this.itemDetailsPanel.showInfo(item, true);
                 
             }
         });
@@ -62,10 +63,19 @@ public class HeroPanel extends MainPanel {
         this.heroStatsPanel.getEquippedItems().setListener(new IShowItemListener() {
             @Override
             public void itemSelected(Item item) {
-                HeroPanel.this.itemDetailsPanel.showInfo(item);
+                HeroPanel.this.itemDetailsPanel.showInfo(item, false);
                 
             }
         });
+        
+        this.itemDetailsPanel.setListener(new IUpdatePlayerListener() {
+            @Override
+            public void update() {
+                HeroPanel.this.updateStats();
+            }
+        });
+        
+        
     }
     /**
      * Aktualizuje vsetky hodnoty hraca
