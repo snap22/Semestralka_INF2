@@ -86,6 +86,10 @@ public class ItemDetailsPanel extends JPanel {
      */
     public void showInfo(Item item, boolean shouldBeEquippable) {
         this.currentItem = item;
+        if (item == null) {
+            return;
+        }
+        
         this.labelsManager.updateText("Name", item.getName());
         this.labelsManager.updateText("Rarity", item.getRarity().toString());
         this.labelsManager.updateText("Value", item.getGoldValue());
@@ -194,6 +198,8 @@ public class ItemDetailsPanel extends JPanel {
         this.labelsManager.updateText("Damage", 0);
         this.labelsManager.updateText("Armor", 0);
         this.labelsManager.updateText("Damage", 0);
+        
+        this.showInfo(null, false);
     }
     
     /**

@@ -31,7 +31,7 @@ public abstract class Mood {
      * @param limit maximalne dosiahnutie sance
      * @param bonusDamage  ak zvysuje damage, tak o kolko
      */
-    public Mood(String name, int chance, int limit, int bonusDamage) {
+    protected Mood(String name, int chance, int limit, int bonusDamage) {
         this.chance = chance;
         this.name = name;
         this.limit = limit;
@@ -54,10 +54,7 @@ public abstract class Mood {
      * Specialna metoda, kazda podtrieda vykona nieco ine
      * @param player 
      */
-    public void doSpecialStuff(Player player) {
-        
-    }
-
+    public abstract void doSpecialStuff(Player player); 
     /**
      * Kolko damage zvysi hracovi
      * @return 
@@ -114,4 +111,6 @@ public abstract class Mood {
     public void save(DataOutputStream file) throws IOException {
         file.writeUTF(this.name);
     }
+    
+    public abstract String getDescription();
 }

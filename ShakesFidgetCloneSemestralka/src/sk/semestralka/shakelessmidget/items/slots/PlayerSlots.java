@@ -209,7 +209,6 @@ public class PlayerSlots {
         for (int i = 0; i < numberOfItems; i++) {
             Item newItem = itemCreator.createItem(file);
             this.equipAfterLoad(newItem);
-            System.out.println(newItem);
         }
         
     }
@@ -222,7 +221,6 @@ public class PlayerSlots {
     public void save(DataOutputStream file) throws IOException {
         int numberOfItems = this.currentItemsEquipped.size();
         file.writeInt(numberOfItems);
-        System.out.println("Equipped: " + numberOfItems);
         for (int i = 0; i < numberOfItems; i++) {
             this.currentItemsEquipped.get(i).save(file);
             

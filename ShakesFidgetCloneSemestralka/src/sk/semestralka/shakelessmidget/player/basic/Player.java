@@ -342,6 +342,8 @@ public class Player extends Creature {
     }
     
     
+    
+    
     /**
      * Ulozi hracove atributy
      * @param file 

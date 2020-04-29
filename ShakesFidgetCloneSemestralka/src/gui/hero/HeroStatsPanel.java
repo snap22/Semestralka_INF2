@@ -44,7 +44,7 @@ public class HeroStatsPanel extends JPanel {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.add(this.labelsManager);
         
-        this.labelsManager.addLabel("Name", player.getName());
+        this.labelsManager.addLabel("Mood", player.getMood().getName());
         this.labelsManager.addLabel("Health", player.getHealth());
         this.labelsManager.addLabel("Armor", player.getArmor());
         this.labelsManager.addLabel("Damage", player.getDamage());
@@ -108,6 +108,7 @@ public class HeroStatsPanel extends JPanel {
      * Aktualizuje vsetky komponenty
      */
     public void updateAll() {
+        this.labelsManager.updateText("Mood", this.player.getMood().getName());
         this.labelsManager.updateText("Health", this.player.getHealth());
         this.labelsManager.updateText("Armor", this.player.getArmor());
         this.labelsManager.updateText("Damage", this.player.getDamage());

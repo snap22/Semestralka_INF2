@@ -73,9 +73,9 @@ public class HeroInventoryItems extends JList {
      * Metoda sluzi na pridanie predmetov do zoznamu
      */
     public void update() {
-        if (this.items.isEmpty()) {
+        /*if (this.items.isEmpty()) {
             return;
-        }
+        }*/
         
         this.clear();
         

@@ -16,6 +16,11 @@ public class Beginner extends Mood {
     public Beginner() {
         super("Beginner", 1, 100);
     }
+
+    @Override
+    public String getDescription() {
+        
+    }
     
     
     
