@@ -47,7 +47,7 @@ public class Game {
     public void save() {
         String path = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\saves\\currentSave.slm";
         File file = new File(path);
-        try (DataOutputStream data = new DataOutputStream(new FileOutputStream(file));) {
+        try (DataOutputStream data = new DataOutputStream(new FileOutputStream(file, false));) {    //overwrite-ne subor ak je false
             this.player.save(data);
             
         } catch (FileNotFoundException ex) {

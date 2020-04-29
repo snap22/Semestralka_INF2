@@ -183,6 +183,9 @@ public class ItemDetailsPanel extends JPanel {
         }
     }
     
+    /**
+     * Vycisti labely
+     */
     private void clearInfo() {
         this.labelsManager.updateText("Name", "None");
         this.labelsManager.updateText("Rarity", "None");

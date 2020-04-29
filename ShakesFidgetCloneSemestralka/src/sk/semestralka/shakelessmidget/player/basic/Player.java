@@ -373,13 +373,14 @@ public class Player extends Creature {
         int xp = file.readInt();
         int currentGold = file.readInt();
         
-        //super.setStats(hp, dmg);    //nie prave najlepsi sposob
-        
+        this.addXp(xp);
+        this.addGold(currentGold);
+
         this.slots.load(file);
         this.inventory.load(file);
 
-        this.addGold(currentGold);
-        this.addXp(xp);
+        
+        
         
         Mood newMood = new MoodCreator().createMood(file);
         this.changeMood(newMood);

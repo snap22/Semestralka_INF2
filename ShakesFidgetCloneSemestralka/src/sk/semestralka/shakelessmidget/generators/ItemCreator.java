@@ -46,7 +46,6 @@ public class ItemCreator {
         int damage = file.readInt();
         int health = file.readInt();
         int levelRequired = file.readInt();
-        //chybicka se vbloudila pre Goods je toto cele zle!
         
         switch (type) {
             case "weapon":
