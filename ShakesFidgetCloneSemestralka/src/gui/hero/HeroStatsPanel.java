@@ -88,20 +88,7 @@ public class HeroStatsPanel extends JPanel {
         this.inventoryItems = new HeroInventoryItems(this.player);
         JScrollPane inventoryScrollPane = new JScrollPane(this.inventoryItems);
         this.add(inventoryScrollPane);
-        
-        /*this.inventoryItems.setListener(new IShowItemListener() {
-        @Override
-        public void itemEmitted(Item item) {
-        System.out.println(item);
-        }
-        });
-        
-        this.equippedItems.setListener(new IShowItemListener() {
-        @Override
-        public void itemEmitted(Item item) {
-        System.out.println(item);
-        }
-        });*/
+
        
     }
     

@@ -83,7 +83,11 @@ public class HeroInventoryItems extends JList {
         
         for (int item = 0; item < this.items.size(); item++) {
             this.listModel.add(item, this.items.get(item).getName());
+            
         }
+        
+        this.updateUI();
+        
     }
     
     /**
@@ -110,6 +114,7 @@ public class HeroInventoryItems extends JList {
         }
         
         this.items.add(item);
+        
     }
     
     public Player getPlayer() {

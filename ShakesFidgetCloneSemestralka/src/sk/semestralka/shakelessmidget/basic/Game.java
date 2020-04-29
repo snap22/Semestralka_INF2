@@ -95,9 +95,12 @@ public class Game {
     
     public void newGame() {
         this.player = new Player();
+        
         this.deleteFile();
         this.save();
         this.load();
+        
+        System.exit(0);
     }
 
     /**

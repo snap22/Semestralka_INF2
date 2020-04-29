@@ -81,6 +81,11 @@ public class TemporaryPanel extends JPanel {
         if (type == null) {
             return;
         }
+        
+        if (type == PanelType.HERO) {
+            this.heroPanel.updateStats();
+        }
+        
         this.changePanel(type.toString());
         
     }
