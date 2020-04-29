@@ -32,6 +32,10 @@ public abstract class Equipment extends Item {
     protected Equipment(String name, ItemRarity rarity, int damage, int bonusHealth, int armor, int levelRequired) {
         super(name, rarity);
         this.levelRequired = levelRequired;
+        this.bonusDamage = damage;
+        this.bonusArmor = armor;
+        this.bonusHealth = bonusHealth;
+        
         this.nastavHodnoty();
         
     }
@@ -56,50 +60,7 @@ public abstract class Equipment extends Item {
         
     }
 
-    /**
-     * Vrati zivoty ktore pridava
-     * @return 
-     */
-    public int getBonusHealth() {
-        return this.bonusHealth;
-    }
 
-    /**
-     * Vrati silu utoku ktoru pridava
-     * @return 
-     */
-    public int getBonusDamage() {
-        return this.bonusDamage;
-    }
-
-    /**
-     * Vrati armor ktory pridava
-     * @return 
-     */
-    public int getBonusArmor() {
-        return this.bonusArmor;
-    }
-
-    /**
-     * Vrati potrebny level
-     * @return 
-     */
-    public int getLevelRequired() {
-        return this.levelRequired;
-    }
-    
-
-    
-
-    /**
-     * Vrati hodnotu v goldoch
-     * @return 
-     */
-    @Override
-    public int getGoldValue() {
-        return this.goldValue;
-    }
-    
     /**
      * Ulozi hodnoty do suboru
      * @param file
@@ -137,14 +98,12 @@ public abstract class Equipment extends Item {
         int armor = Chance.random(min, max);
         int hp = Chance.random(min, max);
         int gold = Chance.random(0, max);
-        
         if (this.bonusArmor == 0 || this.bonusHealth == 0) {
             armor = 0;
             hp = 0;
         } else {
             dmg = 0;
         }
-        
         switch (super.getRarity()) {   
             case COMMON:
                 break;
@@ -185,6 +144,49 @@ public abstract class Equipment extends Item {
 
 
     
+    /**
+     * Vrati zivoty ktore pridava
+     * @return 
+     */
+    public int getBonusHealth() {
+        return this.bonusHealth;
+    }
+
+    /**
+     * Vrati silu utoku ktoru pridava
+     * @return 
+     */
+    public int getBonusDamage() {
+        return this.bonusDamage;
+    }
+
+    /**
+     * Vrati armor ktory pridava
+     * @return 
+     */
+    public int getBonusArmor() {
+        return this.bonusArmor;
+    }
+
+    /**
+     * Vrati potrebny level
+     * @return 
+     */
+    public int getLevelRequired() {
+        return this.levelRequired;
+    }
+    
+    /**
+     * Vrati hodnotu v goldoch
+     * @return 
+     */
+    @Override
+    public int getGoldValue() {
+        return this.goldValue;
+    }
+    
+    
+
     
     
     
