@@ -381,9 +381,6 @@ public class Player extends Creature {
         this.slots.load(file);
         this.inventory.load(file);
 
-        
-        
-        
         Mood newMood = new MoodLoader().createMood(file);
         this.changeMood(newMood);
         
