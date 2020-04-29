@@ -28,7 +28,7 @@ public class Newbie extends Mood {
 
     @Override
     public String getDescription() {
-        return String.format("You have %d for.. Never mind, nothing is going to happen.", super.getChance());
+        return String.format("You have %d chance for.. Never mind, nothing is going to happen.", super.getChance());
     }
 
     

@@ -22,9 +22,19 @@ import sk.semestralka.shakelessmidget.items.items.ItemRarity;
  */
 public class ItemLoader {
 
+    /**
+     * Vytvori instanciu
+     */
     public ItemLoader() {
     }
     
+    /**
+     * Nacita zo suboru predmet a vytvori ho
+     * @param file subor
+     * @return
+     * @throws IOException
+     * @throws WrongTypeException 
+     */
     public Item createItem(DataInputStream file) throws IOException, WrongTypeException {
         String type = file.readUTF().toLowerCase();
         Item newItem;
@@ -37,7 +47,14 @@ public class ItemLoader {
     }
     
     
-    
+    /**
+     * Vrati predmet typu Equipment
+     * @param file subor
+     * @param type typ
+     * @return
+     * @throws IOException
+     * @throws WrongTypeException 
+     */
     private Item loadEquipment(DataInputStream file, String type) throws IOException, WrongTypeException {
         String itemName = file.readUTF();
         ItemRarity rarity = ItemRarity.valueOf(file.readUTF());
@@ -59,6 +76,12 @@ public class ItemLoader {
         }
     }
     
+    /**
+     * Vrati predmet typu Goods
+     * @param file subor
+     * @return
+     * @throws IOException 
+     */
     private Goods loadGoods(DataInputStream file) throws IOException {
         String itemName = file.readUTF();
         ItemRarity rarity = ItemRarity.valueOf(file.readUTF());

@@ -17,14 +17,23 @@ import sk.semestralka.shakelessmidget.player.moods.Newbie;
 import sk.semestralka.shakelessmidget.player.moods.Suicidal;
 
 /**
- *
- * @author marce
+ * Nacita naladu zo suboru
  */
 public class MoodLoader {
 
+    /**
+     * Vytvori instanciu
+     */
     public MoodLoader() {
     }
     
+    /**
+     * Vytvori naladu podla zadaneho vstupneho parametra
+     * @param file subor
+     * @return nalada
+     * @throws IOException
+     * @throws WrongTypeException 
+     */
     public Mood createMood(DataInputStream file) throws IOException, WrongTypeException {
         String moodName = file.readUTF().toLowerCase();
         switch (moodName) {

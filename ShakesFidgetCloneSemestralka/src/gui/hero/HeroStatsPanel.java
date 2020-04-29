@@ -109,6 +109,7 @@ public class HeroStatsPanel extends JPanel {
      */
     public void updateAll() {
         this.labelsManager.updateText("Mood", this.player.getMood().getName());
+        this.labelsManager.getLabel("Mood").setToolTipText(this.player.getMood().getDescription());
         this.labelsManager.updateText("Health", this.player.getHealth());
         this.labelsManager.updateText("Armor", this.player.getArmor());
         this.labelsManager.updateText("Damage", this.player.getDamage());

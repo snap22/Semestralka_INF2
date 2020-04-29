@@ -76,6 +76,14 @@ public class DetailLabelHolder extends JPanel {
         this.toggleVisible(labelName, true);
     }
     
+    public DetailLabel getLabel(String labelName) {
+        if (!this.labels.containsKey(labelName)) {
+            return null;
+        }
+        
+        return this.labels.get(labelName);
+    }
+    
     private void toggleVisible(String labelName, boolean visible) {
         if (!this.labels.containsKey(labelName)) {
             return;
