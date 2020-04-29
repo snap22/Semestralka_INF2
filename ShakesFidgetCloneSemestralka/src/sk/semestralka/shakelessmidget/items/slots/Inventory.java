@@ -11,7 +11,7 @@ import java.io.IOException;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import java.util.ArrayList;
 import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
-import sk.semestralka.shakelessmidget.generators.ItemCreator;
+import sk.semestralka.shakelessmidget.generators.ItemLoader;
 
 
 /**
@@ -131,7 +131,7 @@ public class Inventory {
      */
     public void load(DataInputStream file) throws IOException, WrongTypeException {
         this.slots.clear(); //vyprazdni inventory   ?
-        ItemCreator itemCreator = new ItemCreator();
+        ItemLoader itemCreator = new ItemLoader();
         int sizeOfInventory = file.readInt();
         for (int i = 0; i < sizeOfInventory; i++) {
             Item newItem = itemCreator.createItem(file);

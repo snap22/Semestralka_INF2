@@ -3,19 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sk.semestralka.shakelessmidget.player.moods;
+package sk.semestralka.shakelessmidget.generators;
 
 import java.io.DataInputStream;
 import java.io.IOException;
 import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
+import sk.semestralka.shakelessmidget.player.moods.Blindfolded;
+import sk.semestralka.shakelessmidget.player.moods.BloodThirsty;
+import sk.semestralka.shakelessmidget.player.moods.Bursting;
+import sk.semestralka.shakelessmidget.player.moods.Greedy;
+import sk.semestralka.shakelessmidget.player.moods.Mood;
+import sk.semestralka.shakelessmidget.player.moods.Newbie;
+import sk.semestralka.shakelessmidget.player.moods.Suicidal;
 
 /**
  *
  * @author marce
  */
-public class MoodCreator {
+public class MoodLoader {
 
-    public MoodCreator() {
+    public MoodLoader() {
     }
     
     public Mood createMood(DataInputStream file) throws IOException, WrongTypeException {

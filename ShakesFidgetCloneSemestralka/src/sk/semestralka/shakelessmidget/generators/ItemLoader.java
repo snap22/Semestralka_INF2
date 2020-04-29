@@ -20,9 +20,9 @@ import sk.semestralka.shakelessmidget.items.items.ItemRarity;
  *
  * @author marce
  */
-public class ItemCreator {
+public class ItemLoader {
 
-    public ItemCreator() {
+    public ItemLoader() {
     }
     
     public Item createItem(DataInputStream file) throws IOException, WrongTypeException {

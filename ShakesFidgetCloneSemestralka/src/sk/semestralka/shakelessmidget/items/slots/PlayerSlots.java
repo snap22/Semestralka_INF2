@@ -11,7 +11,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
-import sk.semestralka.shakelessmidget.generators.ItemCreator;
+import sk.semestralka.shakelessmidget.generators.ItemLoader;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.equippable.Armor;
 import sk.semestralka.shakelessmidget.items.items.Equipment;
@@ -204,7 +204,7 @@ public class PlayerSlots {
      * @throws WrongTypeException 
      */
     public void load(DataInputStream file) throws IOException, WrongTypeException {
-        ItemCreator itemCreator = new ItemCreator();
+        ItemLoader itemCreator = new ItemLoader();
         int numberOfItems = file.readInt();
         for (int i = 0; i < numberOfItems; i++) {
             Item newItem = itemCreator.createItem(file);

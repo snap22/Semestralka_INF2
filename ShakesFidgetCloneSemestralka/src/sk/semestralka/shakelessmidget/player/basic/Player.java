@@ -18,7 +18,7 @@ import sk.semestralka.shakelessmidget.items.items.Equipment;
 
 import sk.semestralka.shakelessmidget.player.moods.Newbie;
 import sk.semestralka.shakelessmidget.player.moods.Mood;
-import sk.semestralka.shakelessmidget.player.moods.MoodCreator;
+import sk.semestralka.shakelessmidget.generators.MoodLoader;
 
 /**
  * Trieda Player sluzi pre hraca
@@ -384,7 +384,7 @@ public class Player extends Creature {
         
         
         
-        Mood newMood = new MoodCreator().createMood(file);
+        Mood newMood = new MoodLoader().createMood(file);
         this.changeMood(newMood);
         
     }
