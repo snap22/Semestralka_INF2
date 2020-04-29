@@ -113,4 +113,8 @@ public abstract class Mood {
     }
     
     public abstract String getDescription();
+    
+    protected int getChance() {
+        return this.chance;
+    }
 }

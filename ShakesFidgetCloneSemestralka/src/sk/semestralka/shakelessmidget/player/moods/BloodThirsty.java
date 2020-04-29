@@ -44,5 +44,10 @@ public class BloodThirsty extends Mood {
     public String toString() {
         return String.format("Sanca ze sa healne: %d%n", this.chanceToHeal);
     }
+
+    @Override
+    public String getDescription() {
+        return String.format("You have %d chance that you will heal yourself during an attack", this.chanceToHeal);
+    }
     
 }

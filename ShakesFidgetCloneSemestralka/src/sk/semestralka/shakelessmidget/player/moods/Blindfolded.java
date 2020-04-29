@@ -50,13 +50,10 @@ public class Blindfolded extends Mood {
         this.chanceToMiss--;
     }
 
-    /**
-     * Vrati triedu v podobe stringu
-     * @return 
-     */
+
     @Override
-    public String toString() {
-        return String.format("Sanca ze missne: %d %n", this.chanceToMiss);
+    public String getDescription() {
+        return String.format("You have %d chance that you will miss", this.chanceToMiss);
     }
     
 }

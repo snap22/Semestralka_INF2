@@ -16,7 +16,7 @@ import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.items.Equipment;
 
-import sk.semestralka.shakelessmidget.player.moods.Beginner;
+import sk.semestralka.shakelessmidget.player.moods.Newbie;
 import sk.semestralka.shakelessmidget.player.moods.Mood;
 import sk.semestralka.shakelessmidget.player.moods.MoodCreator;
 
@@ -77,7 +77,7 @@ public class Player extends Creature {
      * Normalny konstruktor 
      */
     public Player() {
-        this(20, 2, new Beginner());
+        this(20, 2, new Newbie());
     }
     
     

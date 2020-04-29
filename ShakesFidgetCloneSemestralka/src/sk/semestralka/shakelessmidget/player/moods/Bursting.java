@@ -42,5 +42,10 @@ public class Bursting extends Mood {
     public String toString() {
         return String.format("Sanca na critical strike: %d %n", this.chanceToCrit);
     }
+
+    @Override
+    public String getDescription() {
+        return String.format("You have %d chance that you will deal extra damage", this.chanceToCrit);
+    }
     
 }

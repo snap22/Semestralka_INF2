@@ -5,22 +5,33 @@
  */
 package sk.semestralka.shakelessmidget.player.moods;
 
+
+import sk.semestralka.shakelessmidget.player.basic.Player;
+
+
 /**
  * Podtyp pre naladu
  */
-public class Beginner extends Mood {
+public class Newbie extends Mood {
 
     /**
      * Vytvori naladu
      */
-    public Beginner() {
-        super("Beginner", 1, 100);
+    public Newbie() {
+        super("Newbie", 1, 100);
+    }
+    
+    @Override
+    public void doSpecialStuff(Player player) {
+        
     }
 
     @Override
     public String getDescription() {
-        
+        return String.format("You have %d for.. Never mind, nothing is going to happen.", super.getChance());
     }
+
+    
     
     
     

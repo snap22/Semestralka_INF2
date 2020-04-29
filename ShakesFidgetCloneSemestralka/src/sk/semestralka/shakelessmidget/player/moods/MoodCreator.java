@@ -22,7 +22,7 @@ public class MoodCreator {
         String moodName = file.readUTF().toLowerCase();
         switch (moodName) {
             case "beginner":
-                return new Beginner();
+                return new Newbie();
             case "blindfolded":
                 return new Blindfolded();
             case "bloodthirsty":
