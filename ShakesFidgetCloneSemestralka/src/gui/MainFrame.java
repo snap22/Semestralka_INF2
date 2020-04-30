@@ -13,7 +13,6 @@ import java.awt.Container;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 /**
  * Hlavne okno pre graficke rozhranie
@@ -49,7 +48,7 @@ public class MainFrame extends JFrame {
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);       //ak uzivatel stlaci na X vypne sa program
         this.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent evt) {
-                onExit();
+                MainFrame.this.onExit();
             }
         });
         
@@ -63,6 +62,6 @@ public class MainFrame extends JFrame {
     }
     
     
-
+    
     
 }

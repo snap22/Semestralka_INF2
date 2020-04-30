@@ -5,6 +5,7 @@
  */
 package gui.hero;
 
+import gui.BasicGui;
 import gui.panels.mainPanels.MainPanel;
 import gui.panels.mainPanels.PanelType;
 import java.awt.BorderLayout;
@@ -30,10 +31,9 @@ public class HeroPanel extends MainPanel {
         this.player = player;
         this.setLayout(new BorderLayout());
         JLabel label = new JLabel("HERO");
+        
+        label.setFont(BasicGui.getFont(60));
         label.setForeground(Color.white);
-        
-        label.setFont(new Font("Verdana", Font.PLAIN, 70));
-        
         
         this.setBackground(Color.black);
         this.add(label, BorderLayout.NORTH);

@@ -5,44 +5,63 @@
  */
 package sk.semestralka.shakelessmidget.shop;
 
+import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
+import sk.semestralka.shakelessmidget.exceptions.NoMoneyException;
 import sk.semestralka.shakelessmidget.generators.ItemGenerator;
+import sk.semestralka.shakelessmidget.generators.MoodGenerator;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.player.moods.Mood;
 
 /**
- *
- * @author marce
+ * Trieda sluzi na nakup itemov a nalad
  */
 public class Shop {
 
     private final Player player;
     private final ItemGenerator itemGen;
+    private final MoodGenerator generator;
 
+    /**
+     * Nastavi pociatocne hodnoty
+     * @param player hrac
+     */
     public Shop(Player player) {
         this.player = player;
         this.itemGen = new ItemGenerator();   
+        this.generator = new MoodGenerator();
     }
     
     /**
-     * Metoda ktora sluzi na to aby si hrac mohol kupit nahodny predmet za peniaze
+     * Metoda sluzi na to aby si hrac mohol kupit nahodny predmet za urcitu cenu
+     * @param price cena
+     * @throws InventoryFullException
+     * @throws NoMoneyException 
      */
-    public void buyItem() {
+    public void buyItem(int price) throws InventoryFullException, NoMoneyException {
         //Sem tad try catch pre "Nemas dostatok penazi"
         Item item = this.itemGen.generateRandomItem(this.player.getLevel());
+        this.player.removeGold(price);
         this.player.addItem(item);
+        
         
     }
     
     /**
      * Metoda ktora sluzi na to aby zmenila hracovi naladu za peniaze
      */
-    public void switchMood() {
-        //Sem tad try catch pre "Nemas dostatok penazi"
-        //spravit moodgenerator :D
+    public void switchMood(int price) throws NoMoneyException {
+        Mood newMood = this.generator.generateRandomMood();
+        this.player.removeGold(price);
+        this.player.changeMood(newMood);
+        
     }
     
+    /**
+     * Metoda na predanie predmetu
+     * @param item predmet
+     */
     public void sellItem(Item item) {
-        //sem dat try catch pre "Nie je taky item v inventory"
         this.player.getInventory().removeItem(item);
     }
     

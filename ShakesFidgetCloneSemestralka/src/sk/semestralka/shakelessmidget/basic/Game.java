@@ -131,18 +131,11 @@ public class Game {
         this.player.getInventory().addItem(helma);
         this.player.getInventory().addItem(zbran);
         this.player.getInventory().addItem(armor);
-        this.player.getInventory().addItem(armor2);
 
-        
-        this.player.getSlots().equip(armor);
-        this.player.getSlots().equip(helma);
-        this.player.getSlots().equip(zbran);
         
         this.player.getInventory().addItem(goodies);
         
-        this.player.getSlots().equip(armor2);
-        //po equipnuti
-        
+
     }
     
    

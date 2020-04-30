@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import sk.semestralka.shakelessmidget.basic.Game;
 
 /**
@@ -43,7 +44,7 @@ public class MiniGamePanel extends MainPanel {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                game.save();
+                reset();
             }
         });
         
@@ -69,4 +70,24 @@ public class MiniGamePanel extends MainPanel {
         this.game = game;
     }
     
+    private void reset() {
+        JOptionPane pane = new JOptionPane();
+        int f = (Integer)pane.showConfirmDialog(
+                null, 
+                "To play a new game you have to restart.\n Do you want to proceed? ", 
+                "Silly question", 
+                JOptionPane.YES_NO_OPTION
+        );
+        if (f == 0) {   //ak stlacene YES
+            this.game.newGame();
+        } 
+    }
+    /*
+    int n = JOptionPane.showConfirmDialog(
+    frame,
+    "Would you like green eggs and ham?",
+    "An Inane Question",
+    JOptionPane.YES_NO_OPTION);
+
+    */
 }

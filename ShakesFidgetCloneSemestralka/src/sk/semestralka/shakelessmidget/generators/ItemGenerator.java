@@ -147,10 +147,10 @@ public class ItemGenerator {
                 itemName += this.weapons.getRandom();
                 return new Weapon(itemName, rarity, levelRequired);
             case HELMET:
-                itemName += "Helmet";
+                itemName += " Helmet";
                 return new Helmet(itemName, rarity, levelRequired);
             case ARMOR:
-                itemName += "Armor";
+                itemName += " Armor";
                 return new Armor(itemName, rarity, levelRequired);
             case GOODS:
                 itemName = this.goods.getRandom();

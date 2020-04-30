@@ -160,6 +160,7 @@ public class PlayerSlots {
         }
         this.inventory.addItem(item);
         this.player.decreaseStats(item);
+        this.currentItemsEquipped.remove(item);
         
     }
 
