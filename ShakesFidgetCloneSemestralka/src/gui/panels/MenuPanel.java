@@ -5,6 +5,7 @@
  */
 package gui.panels;
 
+import gui.MainFrame;
 import gui.buttons.MenuButton;
 import gui.panels.mainPanels.PanelType;
 import java.awt.Color;
@@ -25,13 +26,15 @@ public class MenuPanel extends JPanel {
 
     private Dimension size;
     private HashMap<String, JButton> buttons;
+    private final MainFrame frame;
+    private final LowerButtonsPanel lowPanel;
     
     
     /**
      * Konstruktor, zobrazi panel
      */
-    public MenuPanel() {
-        
+    public MenuPanel(MainFrame frame) {
+        this.frame = frame;
         this.buttons = new HashMap<String, JButton>();
 
         this.size = this.getPreferredSize();
@@ -57,11 +60,13 @@ public class MenuPanel extends JPanel {
         
         this.createGap(20);
         
-        //mini game buttony --> asi zmenit type..
         this.createMenuButton("Gamble", PanelType.MINIGAME);      //random od 1 do i, vyska vkladu, vyska vyhry ( v zavislosti od i )
         this.createMenuButton("Arena", PanelType.MINIGAME);       // kto z 2 enemy vyhra?
         this.createMenuButton("Math", PanelType.MINIGAME);        // priklady, vypocitat, ak spravne -> bonus gold
         
+        this.createGap(50);
+        this.lowPanel = new LowerButtonsPanel(this.frame.getGame()); 
+        this.add(this.lowPanel);
         
     }
     

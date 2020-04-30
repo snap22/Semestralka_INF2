@@ -38,7 +38,7 @@ public class MainFrame extends JFrame {
         
         Container content = this.getContentPane();
         
-        this.menuPanel = new MenuPanel();
+        this.menuPanel = new MenuPanel(this);
 
         this.temp = new TemporaryPanel(this.game);
         
@@ -59,6 +59,14 @@ public class MainFrame extends JFrame {
     private void onExit() {
         this.game.save();
         System.exit(0);
+    }
+    
+    /**
+     * Getter pre hru
+     * @return 
+     */
+    public Game getGame() {
+        return this.game;
     }
     
     

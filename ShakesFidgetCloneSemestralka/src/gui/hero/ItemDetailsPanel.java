@@ -59,9 +59,9 @@ public class ItemDetailsPanel extends JPanel {
         
         this.add(buttonsPanel, BorderLayout.NORTH);
      
+        //na oddelenie
         JPanel separatorPanel = new JPanel();
-        
-        separatorPanel.setBackground(Color.lightGray);
+        separatorPanel.setBackground(Color.white);
         separatorPanel.setPreferredSize(new Dimension(55, 100));
         this.add(separatorPanel, BorderLayout.WEST);
         
