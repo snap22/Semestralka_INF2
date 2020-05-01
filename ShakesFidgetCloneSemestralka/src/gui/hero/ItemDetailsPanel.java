@@ -26,7 +26,6 @@ import sk.semestralka.shakelessmidget.player.basic.Player;
 public class ItemDetailsPanel extends JPanel {
 
     private ArrayList<JButton> buttons;
-    private JButton unequipButton;
     private JButton equipButton;
     private JButton sellButton;
     private final DetailLabelHolder labelsManager;
@@ -52,7 +51,6 @@ public class ItemDetailsPanel extends JPanel {
         this.setBackground(Color.white);
         
         JPanel buttonsPanel = new JPanel();
-        buttonsPanel.add(this.unequipButton);
         buttonsPanel.add(this.equipButton);
         buttonsPanel.add(this.sellButton);
         buttonsPanel.setBackground(Color.black);
@@ -93,26 +91,33 @@ public class ItemDetailsPanel extends JPanel {
         this.labelsManager.updateText("Name", item.getName());
         this.labelsManager.updateText("Rarity", item.getRarity().toString());
         this.labelsManager.updateText("Value", item.getGoldValue());
+        
+        int damage = 0;
+        int armor = 0;
+        int health = 0;
+        int level = 0;
         if (item instanceof Equipment) {
             Equipment equipment = (Equipment)item;
-            int damage = 0;
-            int armor = 0;
-            int health = 0;
+            
             damage = equipment.getBonusDamage();
             armor = equipment.getBonusArmor();
             health = equipment.getBonusHealth();
+            level = equipment.getLevelRequired();
             this.labelsManager.updateText("Damage", damage);
             this.labelsManager.updateText("Armor", armor);
             this.labelsManager.updateText("Health", health);
+            this.labelsManager.updateText("Level", level);
             
             this.labelsManager.showLabel("Damage");
             this.labelsManager.showLabel("Armor");
             this.labelsManager.showLabel("Health");
+            this.labelsManager.showLabel("Level");
         
         } else {
             this.labelsManager.hideLabel("Damage");
             this.labelsManager.hideLabel("Armor");
             this.labelsManager.hideLabel("Health");
+            this.labelsManager.hideLabel("Level");
         }
         
         
@@ -136,6 +141,7 @@ public class ItemDetailsPanel extends JPanel {
         this.labelsManager.addLabel("Damage", 0);
         this.labelsManager.addLabel("Armor", 0);
         this.labelsManager.addLabel("Health", 0);
+        this.labelsManager.addLabel("Level", 0);
         
         
     }
@@ -145,10 +151,9 @@ public class ItemDetailsPanel extends JPanel {
      */
     private void setupButtons() {
         this.equipButton = new JButton("Equip");
-        this.unequipButton = new JButton("Remove");
         this.sellButton = new JButton("Sell");
         
-        this.buttons.add(this.unequipButton);
+        
         this.buttons.add(this.equipButton);
         this.buttons.add(this.sellButton);
         
@@ -159,12 +164,7 @@ public class ItemDetailsPanel extends JPanel {
             }
         });
         
-        this.unequipButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ItemDetailsPanel.this.removeItem();
-            }
-        });
+        
         
         this.sellButton.addActionListener(new ActionListener() {
             @Override
@@ -198,6 +198,7 @@ public class ItemDetailsPanel extends JPanel {
         this.labelsManager.updateText("Damage", 0);
         this.labelsManager.updateText("Armor", 0);
         this.labelsManager.updateText("Damage", 0);
+        this.labelsManager.updateText("Level", 0);
         
         this.showInfo(null, false);
     }

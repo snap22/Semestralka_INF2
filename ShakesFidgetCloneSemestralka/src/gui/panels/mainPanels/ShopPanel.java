@@ -15,7 +15,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 import sk.semestralka.shakelessmidget.exceptions.NoMoneyException;
+import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.player.moods.Mood;
 import sk.semestralka.shakelessmidget.shop.Shop;
 
 /**
@@ -34,7 +36,6 @@ public class ShopPanel extends MainPanel {
         super(PanelType.SHOP);
         this.shop = new Shop(player);
         this.player = player;
-        //this.setLayout(new BorderLayout());
         JLabel label = new JLabel("THIS IS THE BEST SHOP");
         label.setFont(BasicGui.getFont(40));
         label.setForeground(Color.white);
@@ -51,7 +52,8 @@ public class ShopPanel extends MainPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    ShopPanel.this.shop.switchMood(ShopPanel.this.priceForMood);
+                    Mood boughtMood = ShopPanel.this.shop.switchMood(ShopPanel.this.priceForMood);
+                    ShopPanel.this.showBoughtMessage(boughtMood);
                 } catch (NoMoneyException ex) {
                     ShopPanel.this.showNoMoneyError();
                 }
@@ -63,7 +65,8 @@ public class ShopPanel extends MainPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    ShopPanel.this.shop.buyItem(ShopPanel.this.priceForItem);
+                    Item boughtItem = ShopPanel.this.shop.buyItem(ShopPanel.this.priceForItem);
+                    ShopPanel.this.showBoughtMessage(boughtItem);
                 } catch (NoMoneyException ex) {
                     ShopPanel.this.showNoMoneyError();
                 } catch (InventoryFullException ex) {
@@ -77,6 +80,9 @@ public class ShopPanel extends MainPanel {
         
         this.setupButton(this.moodBtn, String.format("Price for a mood: %d", this.priceForMood));
         this.setupButton(this.buyBtn, String.format("Price for an item: %d", this.priceForItem));
+        
+        
+        
     }
     
     /**
@@ -112,6 +118,14 @@ public class ShopPanel extends MainPanel {
      */
     private void showNoMoneyError() {
         this.showError("No money", "You don't have enough money!");
+    }
+    
+    private void showBoughtMessage(Mood mood) {
+        JOptionPane.showMessageDialog(null , String.format("You acquired %s mood!", mood.getName()));
+    }
+    
+    private void showBoughtMessage(Item item) {
+        JOptionPane.showMessageDialog(null , String.format("You acquired %s !", item.getName()));
     }
     
     

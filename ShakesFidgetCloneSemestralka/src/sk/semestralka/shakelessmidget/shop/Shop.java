@@ -35,26 +35,30 @@ public class Shop {
     /**
      * Metoda sluzi na to aby si hrac mohol kupit nahodny predmet za urcitu cenu
      * @param price cena
+     * @return 
      * @throws InventoryFullException
      * @throws NoMoneyException 
      */
-    public void buyItem(int price) throws InventoryFullException, NoMoneyException {
+    public Item buyItem(int price) throws InventoryFullException, NoMoneyException {
         Item item = this.itemGen.generateRandomItem(this.player.getLevel());
         this.player.removeGold(price);
         this.player.addItem(item);
-        
+        return item;
         
     }
     
     /**
      * Metoda ktora sluzi na to aby zmenila hracovi naladu za peniaze
+     * @param price cena
+     * @return 
+     * @throws NoMoneyException
      */
-    public void switchMood(int price) throws NoMoneyException {
+    public Mood switchMood(int price) throws NoMoneyException {
         Mood currentMood = this.player.getMood();
         Mood newMood = this.generator.generateRandomMood(currentMood);
         this.player.removeGold(price);
         this.player.changeMood(newMood);
-        
+        return newMood;
     }
     
     /**
