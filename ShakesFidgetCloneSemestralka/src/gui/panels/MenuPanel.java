@@ -58,13 +58,7 @@ public class MenuPanel extends JPanel {
         this.createMenuButton("Hero", PanelType.HERO);
         //this.createMenuButton("Dungeons");
         
-        this.createGap(20);
-        
-        this.createMenuButton("Gamble", PanelType.MINIGAME);      //random od 1 do i, vyska vkladu, vyska vyhry ( v zavislosti od i )
-        this.createMenuButton("Arena", PanelType.MINIGAME);       // kto z 2 enemy vyhra?
-        this.createMenuButton("Math", PanelType.MINIGAME);        // priklady, vypocitat, ak spravne -> bonus gold
-        
-        this.createGap(50);
+        this.createGap(270);
         this.lowPanel = new LowerButtonsPanel(this.frame.getGame()); 
         this.add(this.lowPanel);
         

@@ -9,7 +9,6 @@ import sk.semestralka.shakelessmidget.generators.Generator;
 import gui.eventTry.Testicek;
 import gui.hero.HeroPanel;
 import gui.panels.mainPanels.MainPanel;
-import gui.panels.mainPanels.MiniGamePanel;
 import gui.panels.mainPanels.PanelType;
 import gui.panels.mainPanels.ShopPanel;
 import gui.panels.mainPanels.TavernPanel;
@@ -62,7 +61,7 @@ public class TemporaryPanel extends JPanel {
         this.createPanel(new TavernPanel(game));
         this.createPanel(this.heroPanel);
         this.createPanel(new ShopPanel(this.player, 200, 50));
-        this.createPanel(new MiniGamePanel(game));
+        
         
         //this.createPanel(new WaitPanel(this.gen.generateObjective()));
         
