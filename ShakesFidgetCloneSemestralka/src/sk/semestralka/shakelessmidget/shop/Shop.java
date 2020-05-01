@@ -39,7 +39,6 @@ public class Shop {
      * @throws NoMoneyException 
      */
     public void buyItem(int price) throws InventoryFullException, NoMoneyException {
-        //Sem tad try catch pre "Nemas dostatok penazi"
         Item item = this.itemGen.generateRandomItem(this.player.getLevel());
         this.player.removeGold(price);
         this.player.addItem(item);
@@ -51,7 +50,8 @@ public class Shop {
      * Metoda ktora sluzi na to aby zmenila hracovi naladu za peniaze
      */
     public void switchMood(int price) throws NoMoneyException {
-        Mood newMood = this.generator.generateRandomMood();
+        Mood currentMood = this.player.getMood();
+        Mood newMood = this.generator.generateRandomMood(currentMood);
         this.player.removeGold(price);
         this.player.changeMood(newMood);
         

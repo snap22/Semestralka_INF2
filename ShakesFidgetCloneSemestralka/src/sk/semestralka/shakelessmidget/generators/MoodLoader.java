@@ -37,7 +37,7 @@ public class MoodLoader {
     public Mood createMood(DataInputStream file) throws IOException, WrongTypeException {
         String moodName = file.readUTF().toLowerCase();
         switch (moodName) {
-            case "beginner":
+            case "newbie":
                 return new Newbie();
             case "blindfolded":
                 return new Blindfolded();

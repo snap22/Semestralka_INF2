@@ -40,7 +40,7 @@ public class HeroStatsPanel extends JPanel {
         this.player = player;
         this.labelsManager = new DetailLabelHolder();
         this.bar = new JProgressBar(0, this.player.getRequiredXp());
-        
+        this.setBackground(Color.white);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.add(this.labelsManager);
         
@@ -57,7 +57,9 @@ public class HeroStatsPanel extends JPanel {
         this.bar.setStringPainted(true);
         this.bar.setForeground(Color.orange);
         this.bar.setString("XP");
-        this.setBackground(Color.white);
+        
+        
+        
         
         this.add(Box.createRigidArea(new Dimension(5, 5)));
         this.add(new JSeparator());
@@ -66,8 +68,6 @@ public class HeroStatsPanel extends JPanel {
         JLabel equippedItemsLabel = new JLabel("Equipped:");
         equippedItemsLabel.setFont(BasicGui.getFont());
         this.add(equippedItemsLabel);
-        
-        //  medzera
        
         
         //  Equipped items

@@ -35,9 +35,6 @@ public class Player extends Creature {
     
     private int gold;
     
-    //private int health;
-    //private int currentHealth;
-    
     private int armor;
     private int bonusHealth;
     private int bonusDamage;
@@ -108,8 +105,6 @@ public class Player extends Creature {
      */
     @Override
     public void takeDamage(int amount) {
-        //ToDO  premysliet ARMOR
-        //int remainingAmount = Math.abs((this.bonusHealth + this.armor) - amount);
         int remainingAmount = amount - (this.bonusHealth + this.armor);
         super.takeDamage(remainingAmount); 
 
@@ -349,8 +344,8 @@ public class Player extends Creature {
      * @param file 
      */
     public void save(DataOutputStream file) throws IOException {
-        file.writeInt(super.getHealth());   //basic hp
-        file.writeInt(super.getDamage());   //basic dmg
+        //file.writeInt(super.getHealth());   //basic hp
+        //file.writeInt(super.getDamage());   //basic dmg
         
         file.writeInt(this.overallXp);      //xp
         file.writeInt(this.gold);           //gold
@@ -369,8 +364,8 @@ public class Player extends Creature {
      * @throws WrongTypeException 
      */
     public void load(DataInputStream file) throws IOException, WrongTypeException {
-        int hp = file.readInt();
-        int dmg = file.readInt();
+        //int hp = file.readInt();
+        //int dmg = file.readInt();
         
         int xp = file.readInt();
         int currentGold = file.readInt();

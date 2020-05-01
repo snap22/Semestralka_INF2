@@ -45,7 +45,8 @@ public class Game {
      * Ulozi zakladne veci do suboru
      */
     public void save() {
-        String path = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\saves\\currentSave.slm";
+        //String path = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\saves\\currentSave.slm";
+        String path = "currentSave.sms";
         File file = new File(path);
         try (DataOutputStream data = new DataOutputStream(new FileOutputStream(file, false));) {    //overwrite-ne subor ak je false
             this.player.save(data);
@@ -66,7 +67,8 @@ public class Game {
      * Nacita zo suboru
      */
     public void load() {
-        String path = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\saves\\currentSave.slm";
+        //String path = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\saves\\currentSave.slm";
+        String path = "currentSave.sms";
         File file = new File(path);
         try (DataInputStream data = new DataInputStream(new FileInputStream(file))) {
             this.player.load(data);
@@ -77,6 +79,7 @@ public class Game {
             System.out.println("Nieco sa pokazilo v loade");
         } catch (WrongTypeException ex) {
             System.out.println("Zly typ");    //toto asi nie tu treba
+            ex.printStackTrace();
         }
         
         System.out.println("Nacita sa..");
@@ -134,6 +137,7 @@ public class Game {
 
         
         this.player.getInventory().addItem(goodies);
+        this.player.addGold(500);
         
 
     }

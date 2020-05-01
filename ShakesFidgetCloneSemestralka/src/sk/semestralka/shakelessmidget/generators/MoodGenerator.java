@@ -49,4 +49,18 @@ public class MoodGenerator {
                 return new Newbie();
         }
     }
+    
+    /**
+     * Vygeneruje naladu inu ako zadana v parametri
+     * @param currentMood nalada ktoru nechceme vygenerovat
+     * @return 
+     */
+    public Mood generateRandomMood(Mood currentMood) {
+        Mood newMood;
+        do {
+            newMood = this.generateRandomMood();
+        } while (newMood.equals(currentMood));
+
+        return newMood;
+    }
 }
