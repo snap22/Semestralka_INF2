@@ -10,6 +10,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import java.util.ArrayList;
+import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
 import sk.semestralka.shakelessmidget.generators.ItemLoader;
 
@@ -46,9 +47,9 @@ public class Inventory {
      * Prida item do prveho volneho miesta v inventory
      * @param item predmet
      */
-    public void addItem(Item item) {
+    public void addItem(Item item) throws InventoryFullException {
         if (this.slots.size() >= this.size) {
-            return;
+            throw new InventoryFullException();
         }
         
         if (item == null) {

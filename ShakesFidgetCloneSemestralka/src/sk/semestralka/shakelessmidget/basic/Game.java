@@ -14,6 +14,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
 import sk.semestralka.shakelessmidget.generators.ItemGenerator;
 import sk.semestralka.shakelessmidget.player.basic.Player;
@@ -123,7 +124,7 @@ public class Game {
     }
     
     
-    public void test() {
+    public void test() throws InventoryFullException {
         Weapon zbran = new Weapon();
         Helmet helma = new Helmet();
         Armor armor = new Armor();

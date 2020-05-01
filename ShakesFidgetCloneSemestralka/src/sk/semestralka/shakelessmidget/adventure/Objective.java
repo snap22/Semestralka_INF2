@@ -7,6 +7,7 @@ package sk.semestralka.shakelessmidget.adventure;
 
 import sk.semestralka.shakelessmidget.creatures.Creature;
 import sk.semestralka.shakelessmidget.creatures.Enemy;
+import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 import sk.semestralka.shakelessmidget.items.items.Item;
 
 import sk.semestralka.shakelessmidget.player.basic.Player;
@@ -79,7 +80,13 @@ public class Objective {
         int xp = this.xpReward + this.enemy.getXpReward();
         Item item = this.enemy.dropItem();
         
-        player.addReward(xp, this.goldReward, item);
+        try {
+            player.addReward(xp, this.goldReward, item);
+        } catch (InventoryFullException ex) {
+            player.addXp(xp);
+            player.addGold(this.goldReward);
+        }
+        
         this.status.append(String.format("You did it! Your reward is: %d xp, %d gold %n", xp, this.goldReward));
         if (item != null) {
             this.status.append(String.format("Yay! You also get: %s %n", item.toString()));

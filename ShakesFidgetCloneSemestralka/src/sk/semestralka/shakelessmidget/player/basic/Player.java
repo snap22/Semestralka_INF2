@@ -11,6 +11,7 @@ import java.io.IOException;
 import sk.semestralka.shakelessmidget.items.slots.PlayerSlots;
 import sk.semestralka.shakelessmidget.items.slots.Inventory;
 import sk.semestralka.shakelessmidget.creatures.Creature;
+import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 import sk.semestralka.shakelessmidget.exceptions.NoMoneyException;
 import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
 import sk.semestralka.shakelessmidget.items.items.Item;
@@ -155,17 +156,18 @@ public class Player extends Creature {
      * @param gold goldy
      * @param item  predmet
      */
-    public void addReward(int xp, int gold, Item item) {
+    public void addReward(int xp, int gold, Item item) throws InventoryFullException {
+        this.addItem(item);
         this.addXp(xp);
         this.addGold(gold);
-        this.addItem(item);
+        
     }
     
     /**
      * Prida hracovi predmet
      * @param item predmet
      */
-    public void addItem(Item item) {
+    public void addItem(Item item) throws InventoryFullException {
         this.inventory.addItem(item);
     }
 

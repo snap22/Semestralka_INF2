@@ -10,6 +10,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
 import sk.semestralka.shakelessmidget.generators.ItemLoader;
 import sk.semestralka.shakelessmidget.items.items.Item;
@@ -50,7 +51,7 @@ public class PlayerSlots {
      * Pozrie sa kde pasuje dany predmet a ak sa da tak ho da na seba
      * @param item 
      */
-    public void equip(Item item) {
+    public void equip(Item item) throws InventoryFullException {
         if (item instanceof Helmet) {
             this.equip((Helmet)item);
             
@@ -70,7 +71,7 @@ public class PlayerSlots {
      * Dá na seba helmu
      * @param item 
      */
-    public void equip(Helmet item) {
+    public void equip(Helmet item) throws InventoryFullException {
         this.equipItem(this.headSlot, item);
     }
     
@@ -78,7 +79,7 @@ public class PlayerSlots {
      * Dá na seba armor
      * @param item 
      */
-    public void equip(Armor item) {
+    public void equip(Armor item) throws InventoryFullException {
         this.equipItem(this.armorSlot, item);
     }
     
@@ -86,7 +87,7 @@ public class PlayerSlots {
      * Dá na seba zbraň
      * @param item 
      */
-    public void equip(Weapon item) {
+    public void equip(Weapon item) throws InventoryFullException {
         this.equipItem(this.weaponSlot, item);
     }
     
@@ -94,28 +95,28 @@ public class PlayerSlots {
     /**
      * Dá dole zo seba zbraň
      */
-    public void unequipWeapon() {
+    public void unequipWeapon() throws InventoryFullException {
         this.unequipAtPosition(0);
     }
     
     /**
      * Dá dole zo seba armor
      */
-    public void unequipArmor() {
+    public void unequipArmor() throws InventoryFullException {
         this.unequipAtPosition(1);
     }
     
     /**
      * Dá dole zo seba helmu
      */
-    public void unequipHelmet() {
+    public void unequipHelmet() throws InventoryFullException {
         this.unequipAtPosition(2);
     }
     
     /**
      * Dá dole zo seba vsetky veci
      */
-    public void unequipAll() {
+    public void unequipAll() throws InventoryFullException {
         this.unequipWeapon();
         this.unequipArmor();
         this.unequipHelmet();
@@ -143,7 +144,7 @@ public class PlayerSlots {
      * @param index
      * @return 
      */
-    private void unequipAtPosition(int index) {
+    private void unequipAtPosition(int index) throws InventoryFullException {
         Equipment item = null;
         switch (index) {
             case 0:
@@ -168,7 +169,7 @@ public class PlayerSlots {
     * Vyberie z inventory a da na hraca. Ak uz je na hracovi equipnuty predmet, tak ho najskor da dole a da do inventory
     * @return 
     */
-    private void equipItem(Slot slot, Equipment item) {
+    private void equipItem(Slot slot, Equipment item) throws InventoryFullException {
         if (item.getLevelRequired() > this.player.getLevel()) {
             return;
         }
@@ -194,8 +195,15 @@ public class PlayerSlots {
      * @param item predmet
      */
     private void equipAfterLoad(Item item) {
-        this.inventory.addItem(item);
-        this.equip(item);
+        try {
+            this.inventory.addItem(item);
+            this.equip(item);
+        } catch (InventoryFullException ex) {
+            //nikdy sa to nestane lebo sa najprv nacitaju itemy ktore ma equipnute , teda inventory bude prazdny
+        }
+        
+            
+        
     }
 
     /**

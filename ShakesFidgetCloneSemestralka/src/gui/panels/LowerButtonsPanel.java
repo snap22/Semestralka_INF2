@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import sk.semestralka.shakelessmidget.basic.Game;
+import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 
 /**
  *
@@ -50,7 +51,11 @@ public class LowerButtonsPanel extends JPanel {
         this.testButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                LowerButtonsPanel.this.game.test();
+                try {
+                    LowerButtonsPanel.this.game.test();
+                } catch (InventoryFullException ex) {
+                    //to je jedno
+                }
             }
         });
         

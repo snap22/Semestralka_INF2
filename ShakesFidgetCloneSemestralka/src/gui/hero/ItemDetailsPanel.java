@@ -14,7 +14,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 import sk.semestralka.shakelessmidget.items.items.Equipment;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.player.basic.Player;
@@ -160,7 +162,11 @@ public class ItemDetailsPanel extends JPanel {
         this.equipButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ItemDetailsPanel.this.equipItem();
+                try {
+                    ItemDetailsPanel.this.equipItem();
+                } catch (InventoryFullException ex) {
+                    JOptionPane.showMessageDialog(null, "Your inventory is full", "No space", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         
@@ -206,20 +212,12 @@ public class ItemDetailsPanel extends JPanel {
     /**
      * Da si item na seba
      */
-    private void equipItem() {
+    private void equipItem() throws InventoryFullException {
         this.player.getSlots().equip(this.currentItem);
         this.clearInfo();
         this.callListener();
     }
     
-    /**
-     * Vymaze item
-     */
-    private void removeItem() {
-        this.player.getInventory().removeItem(this.currentItem);
-        this.clearInfo();
-        this.callListener();
-    }
     
     /**
      * Preda item
@@ -229,7 +227,9 @@ public class ItemDetailsPanel extends JPanel {
             return;
         }
         this.player.addGold(this.currentItem.getGoldValue());
-        this.removeItem();
+        this.player.getInventory().removeItem(this.currentItem);
+        this.clearInfo();
+        this.callListener();
         
     }
 }

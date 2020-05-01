@@ -41,8 +41,9 @@ public class Shop {
      */
     public Item buyItem(int price) throws InventoryFullException, NoMoneyException {
         Item item = this.itemGen.generateRandomItem(this.player.getLevel());
-        this.player.removeGold(price);
         this.player.addItem(item);
+        this.player.removeGold(price);
+        
         return item;
         
     }
