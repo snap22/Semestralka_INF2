@@ -43,7 +43,7 @@ public final class WaitPanel extends MainPanel {
      */
     public WaitPanel(Objective obj, TavernPanel tav, Player player) {
         super(PanelType.WAIT);
-        int price = 50;
+        int price = 100;
         this.skipButton = new JButton("Skip");
         this.skipButton.setToolTipText(String.format("Price for skipping: %d", price));
         this.setBackground(Color.black);

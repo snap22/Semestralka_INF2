@@ -48,7 +48,8 @@ public class Generator {
     public Objective generateObjective() {
         String description = this.objectiveDescriptions.getRandom();
         String title = this.objectiveTitles.getRandom();
-        Objective obj = new Objective(title, description, this.generateEnemy(), this.random.nextInt(30) + 1, this.random.nextInt(30) + 1, this.random.nextInt(15) + 5);
+        int xpToGet = this.random.nextInt(this.player.getRequiredXp()) + 1;     //aby  nevychadzal milion levelov pocas jedneho fightu
+        Objective obj = new Objective(title, description, this.generateEnemy(), this.random.nextInt(30) + 1, xpToGet, this.random.nextInt(15) + 5);
         return obj;
     }
     
