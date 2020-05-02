@@ -33,7 +33,7 @@ public class Fight {
      */
     public Fight(Player player, Creature enemy) {
         this.player = player;
-        this.player.heal(this.player.getHealth());  //aby zacal kazdy fight s plnym hp
+        this.player.resetHealth();  //na zaciatku kazdeho fightu hrac zacina s plnym hp
         this.enemy = enemy;
         this.turn = Turn.PLAYER;
         this.ended = false;
@@ -52,7 +52,11 @@ public class Fight {
     public void begin() {
         if (this.firstStart) {
             this.updateStatus(String.format("The fight has begun!"));
+            this.updateStatus(String.format("Your stats: %s", this.player.getCurrentStats()));
+            this.updateStatus(String.format("Your hp: %s", this.player.getCurrentHealth()));
             this.updateStatus(String.format("You are fighting against: %s", this.enemy.toString()));
+            this.updateStatus("\n");
+            
             this.nextTurn();
             this.firstStart = false;
         }

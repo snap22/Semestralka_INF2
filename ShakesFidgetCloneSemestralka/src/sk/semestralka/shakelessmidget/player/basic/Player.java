@@ -202,6 +202,10 @@ public class Player extends Creature {
         this.gold -= amount;
     }
     
+    public void resetHealth() {
+        super.revive();
+    }
+    
     /**
      * Zmeni naladu hraca. Ak je nova nalada null, alebo je to ta ista, tak to nezmeni.
      * @param newMood 
@@ -229,6 +233,7 @@ public class Player extends Creature {
         this.bonusHealth += item.getBonusHealth();
         this.bonusDamage += item.getBonusDamage();
         this.armor += item.getBonusArmor();
+
     }
 
     /**
@@ -340,7 +345,9 @@ public class Player extends Creature {
         return this.slots;
     }
     
-    
+    public String getCurrentStats() {
+        return String.format("Health = %d, Damage = %d, Armor = %d", this.getHealth(), this.getDamage(), this.getArmor());
+    }
     
     
     /**

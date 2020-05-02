@@ -131,10 +131,11 @@ public abstract class Creature {
     }
     
     /**
-     * Healne creature, moze iba podtrieda (resp. trieda), nikto iny zvonka
+     * ozivi bytost
      */
-    protected void fullyHealUp() {
+    protected void revive() {
         this.currentHealth = this.health;
+        this.dead = false;
     }
     
     /**

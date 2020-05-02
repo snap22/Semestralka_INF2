@@ -61,7 +61,7 @@ public class Enemy extends Creature {
      * @return 
      */
     public String toString() {
-        return String.format("Enemy{name=%s, hp=%d, dmg=%d, xp=%d}%n", this.getName(), this.getHealth(), this.getDamage(), this.getXpReward());
+        return String.format("Enemy{name=%s, hp=%d, dmg=%d, xp=%d}", this.getName(), this.getHealth(), this.getDamage(), this.getXpReward());
     }
     
     
