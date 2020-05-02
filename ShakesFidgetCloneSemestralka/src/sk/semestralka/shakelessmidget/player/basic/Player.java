@@ -341,12 +341,28 @@ public class Player extends Creature {
         return this.requiredXp;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public PlayerSlots getSlots() {
         return this.slots;
     }
     
-    public String getCurrentStats() {
-        return String.format("Health = %d, Damage = %d, Armor = %d", this.getHealth(), this.getDamage(), this.getArmor());
+    /**
+     * Vrati info ohladom toho, čo je basic hp a čo bonusove
+     * @return 
+     */
+    public String getHealthStats() {
+        return String.format("Health Basic: %d Bonus: %d", super.getHealth(), this.bonusHealth);
+    }
+    
+    /**
+     * Vrati info ohladom toho, čo je basic dmg a čo bonusove
+     * @return 
+     */
+    public String getDamageStats() {
+        return String.format("Damage Basic: %d Bonus: %d", super.getDamage(), this.bonusDamage);
     }
     
     

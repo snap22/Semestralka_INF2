@@ -111,8 +111,10 @@ public class HeroStatsPanel extends JPanel {
         this.labelsManager.updateText("Mood", this.player.getMood().getName());
         this.labelsManager.getLabel("Mood").setToolTipText(this.player.getMood().getDescription());
         this.labelsManager.updateText("Health", this.player.getHealth());
+        this.labelsManager.getLabel("Health").setToolTipText(this.player.getHealthStats());
         this.labelsManager.updateText("Armor", this.player.getArmor());
         this.labelsManager.updateText("Damage", this.player.getDamage());
+        this.labelsManager.getLabel("Damage").setToolTipText(this.player.getDamageStats());
         this.labelsManager.updateText("Level", this.player.getLevel());
         this.labelsManager.updateText("Gold", this.player.getGold());
         this.updateBar();
@@ -131,29 +133,6 @@ public class HeroStatsPanel extends JPanel {
         this.bar.setMaximum(this.player.getRequiredXp());
         this.bar.setValue(this.player.getCurrentXp());
     }
-    
-    /**
-     * Aktualizuje text v danom label-y
-     * @param labelName
-     * @param newText 
-     */
-    private void updateText(String labelName, String newText) {
-        if (!this.labels.containsKey(labelName)) {
-            return;
-        }
-        this.labels.get(labelName).setDescription(newText);
-    }
-    
-    private void updateText(String labelName, int newText) {
-        if (!this.labels.containsKey(labelName)) {
-            return;
-        }
-        this.labels.get(labelName).setDescription(newText);
-    }
-    
-    
-    
-    
-    
+
     
 }
