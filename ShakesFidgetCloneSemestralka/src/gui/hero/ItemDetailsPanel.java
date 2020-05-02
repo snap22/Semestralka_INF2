@@ -17,6 +17,8 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
+import sk.semestralka.shakelessmidget.exceptions.LowLevelException;
+import sk.semestralka.shakelessmidget.exceptions.NotEquippableException;
 import sk.semestralka.shakelessmidget.items.items.Equipment;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.player.basic.Player;
@@ -34,6 +36,7 @@ public class ItemDetailsPanel extends JPanel {
     private final Player player;
     private Item currentItem;
     private IUpdatePlayerListener listener;
+    private JButton unequipButton;
     
     /**
      * Vytvori instanciu
@@ -55,6 +58,7 @@ public class ItemDetailsPanel extends JPanel {
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.add(this.equipButton);
         buttonsPanel.add(this.sellButton);
+        buttonsPanel.add(this.unequipButton);
         buttonsPanel.setBackground(Color.darkGray);
         
         this.add(buttonsPanel, BorderLayout.NORTH);
@@ -131,6 +135,7 @@ public class ItemDetailsPanel extends JPanel {
         for (JButton button : this.buttons) {
             button.setEnabled(enabled);
         }
+        this.unequipButton.setEnabled(!enabled);
     }
     
     /**
@@ -154,10 +159,12 @@ public class ItemDetailsPanel extends JPanel {
     private void setupButtons() {
         this.equipButton = new JButton("Equip");
         this.sellButton = new JButton("Sell");
+        this.unequipButton = new JButton("Unequip");
         
         
         this.buttons.add(this.equipButton);
         this.buttons.add(this.sellButton);
+        this.buttons.add(this.unequipButton);
         
         this.equipButton.addActionListener(new ActionListener() {
             @Override
@@ -165,7 +172,11 @@ public class ItemDetailsPanel extends JPanel {
                 try {
                     ItemDetailsPanel.this.equipItem();
                 } catch (InventoryFullException ex) {
-                    JOptionPane.showMessageDialog(null, "Your inventory is full", "No space", JOptionPane.ERROR_MESSAGE);
+                    ItemDetailsPanel.this.showInventoryFull();
+                } catch (LowLevelException ex) {
+                    JOptionPane.showMessageDialog(null, "Your level is not high enough", "Low level", JOptionPane.ERROR_MESSAGE);
+                } catch (NotEquippableException ex) {
+                    JOptionPane.showMessageDialog(null, "You cannot equip this item", "Wrong item", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -176,6 +187,17 @@ public class ItemDetailsPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ItemDetailsPanel.this.sellItem();
+            }
+        });
+        
+        this.unequipButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    ItemDetailsPanel.this.unequipItem();
+                } catch (InventoryFullException ex) {
+                    ItemDetailsPanel.this.showInventoryFull();
+                }
             }
         });
         
@@ -212,8 +234,14 @@ public class ItemDetailsPanel extends JPanel {
     /**
      * Da si item na seba
      */
-    private void equipItem() throws InventoryFullException {
+    private void equipItem() throws InventoryFullException, LowLevelException, NotEquippableException {
         this.player.getSlots().equip(this.currentItem);
+        this.clearInfo();
+        this.callListener();
+    }
+    
+    private void unequipItem() throws InventoryFullException {
+        this.player.getSlots().unequip(this.currentItem);
         this.clearInfo();
         this.callListener();
     }
@@ -231,5 +259,9 @@ public class ItemDetailsPanel extends JPanel {
         this.clearInfo();
         this.callListener();
         
+    }
+    
+    private void showInventoryFull() {
+        JOptionPane.showMessageDialog(null, "Your inventory is full", "No space", JOptionPane.ERROR_MESSAGE);
     }
 }

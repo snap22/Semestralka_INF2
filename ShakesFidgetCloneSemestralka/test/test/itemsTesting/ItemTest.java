@@ -5,7 +5,6 @@
  */
 package test.itemsTesting;
 
-import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.equippable.Armor;
 import sk.semestralka.shakelessmidget.items.equippable.Helmet;
 import sk.semestralka.shakelessmidget.items.equippable.Weapon;
@@ -17,11 +16,10 @@ import junit.framework.Assert;
 
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
@@ -70,7 +68,7 @@ public class ItemTest {
      * Otestuje či je inventory full
      */
     @Test
-    public void inventoryTest() {
+    public void inventoryTest() throws InventoryFullException {
         Inventory inv = new Inventory(3);
         inv.addItem(this.wep);
         inv.addItem(this.wep);
@@ -97,7 +95,7 @@ public class ItemTest {
      * Otestuje či je inventory full
      */
     @Test
-    public void inventoryTest2() {
+    public void inventoryTest2() throws InventoryFullException {
         Inventory inv = new Inventory(3);
         inv.addItem(this.wep);
         inv.addItem(this.wep);
@@ -111,7 +109,7 @@ public class ItemTest {
      * Otestuje ci maze spravne itemy pri spravnych a nespravnych parametroch
      */
     @Test
-    public void inventoryTest3() {
+    public void inventoryTest3() throws InventoryFullException {
         Inventory inv = new Inventory(1);
         inv.addItem(this.trash);
         inv.removeItem(this.wep);
@@ -126,7 +124,7 @@ public class ItemTest {
      * Otestuje ci maze spravne itemy pri roznych indexoch
      */
     @Test
-    public void inventoryTest4() {
+    public void inventoryTest4() throws InventoryFullException {
         Inventory inv = new Inventory(1);
         inv.addItem(this.trash);
         inv.removeItem(5);
@@ -139,7 +137,7 @@ public class ItemTest {
      * Testovanie spravnosti equipovania itemov
      */
     @Test
-    public void playerSlotTesting() {
+    public void playerSlotTesting() throws InventoryFullException {
         
         Player player = new Player();
         PlayerSlots ps = new PlayerSlots(player);

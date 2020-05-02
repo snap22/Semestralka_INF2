@@ -11,6 +11,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
+import sk.semestralka.shakelessmidget.exceptions.LowLevelException;
+import sk.semestralka.shakelessmidget.exceptions.NotEquippableException;
 import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
 import sk.semestralka.shakelessmidget.loaders.ItemLoader;
 import sk.semestralka.shakelessmidget.items.items.Item;
@@ -49,10 +51,12 @@ public class PlayerSlots {
     
     /**
      * Pozrie sa kde pasuje dany predmet a ak sa da tak ho da na seba
-     * @param item 
+     * @param item predmet
      * @throws InventoryFullException
+     * @throws LowLevelException
+     * @throws NotEquippableException
      */
-    public void equip(Item item) throws InventoryFullException {
+    public void equip(Item item) throws InventoryFullException, LowLevelException, NotEquippableException {
         if (item instanceof Helmet) {
             this.equip((Helmet)item);
             
@@ -63,9 +67,24 @@ public class PlayerSlots {
             this.equip((Weapon)item);
             
         } else {
-            System.out.println("Nevhodny item pre playera");
+            throw new NotEquippableException();
         }
         
+    }
+    
+    public void unequip(Item item) throws InventoryFullException {
+        if (item instanceof Helmet) {
+            this.unequipHelmet();
+            
+        } else if (item instanceof Armor) {
+            this.unequipArmor();
+            
+        } else if (item instanceof Weapon) {
+            this.unequipWeapon();
+            
+        } else {
+            System.out.println("How did this happen?");
+        }
     }
     
     /**
@@ -73,7 +92,7 @@ public class PlayerSlots {
      * @param item 
      * @throws InventoryFullException
      */
-    public void equip(Helmet item) throws InventoryFullException {
+    public void equip(Helmet item) throws InventoryFullException, LowLevelException {
         this.equipItem(this.headSlot, item);
     }
     
@@ -82,7 +101,7 @@ public class PlayerSlots {
      * @param item 
      * @throws InventoryFullException
      */
-    public void equip(Armor item) throws InventoryFullException {
+    public void equip(Armor item) throws InventoryFullException, LowLevelException {
         this.equipItem(this.armorSlot, item);
     }
     
@@ -91,7 +110,7 @@ public class PlayerSlots {
      * @param item 
      * @throws InventoryFullException 
      */
-    public void equip(Weapon item) throws InventoryFullException {
+    public void equip(Weapon item) throws InventoryFullException, LowLevelException {
         this.equipItem(this.weaponSlot, item);
     }
     
@@ -154,6 +173,9 @@ public class PlayerSlots {
      */
     private void unequipAtPosition(int index) throws InventoryFullException {
         Equipment item = null;
+        if (this.inventory.isFull()) {
+            throw new InventoryFullException();     //aby najprv vyhodilo vynimku a nevymazalo ziadny predmet
+        }
         switch (index) {
             case 0:
                 item = this.weaponSlot.remove();
@@ -168,6 +190,7 @@ public class PlayerSlots {
                 return;
         }
         this.inventory.addItem(item);
+        
         this.player.decreaseStats(item);
         this.currentItemsEquipped.remove(item);
         
@@ -177,9 +200,9 @@ public class PlayerSlots {
     * Vyberie z inventory a da na hraca. Ak uz je na hracovi equipnuty predmet, tak ho najskor da dole a da do inventory
     * @return 
     */
-    private void equipItem(Slot slot, Equipment item) throws InventoryFullException {
+    private void equipItem(Slot slot, Equipment item) throws InventoryFullException, LowLevelException {
         if (item.getLevelRequired() > this.player.getLevel()) {
-            
+            throw new LowLevelException();
         }
         
         Item removedItem = null;
@@ -208,6 +231,10 @@ public class PlayerSlots {
             this.equip(item);
         } catch (InventoryFullException ex) {
             //nikdy sa to nestane lebo sa najprv nacitaju itemy ktore ma equipnute , teda inventory bude prazdny
+        } catch (LowLevelException ex) {
+            //nikdy sa to nestane lebo ak uz bol item equipnuty pred saveom tak urcite bude moct byt equipnuty aj pri loade
+        } catch (NotEquippableException ex) {
+            //tiez sa to nikdy nestane...
         }
         
             
@@ -216,7 +243,7 @@ public class PlayerSlots {
 
     /**
      * Nacita jednotlive predmety a da ich do slotov
-     * @param file
+     * @param file subor
      * @throws IOException
      * @throws WrongTypeException 
      */
@@ -232,7 +259,7 @@ public class PlayerSlots {
 
     /**
      * Ulozi jednotlive predmety
-     * @param file
+     * @param file subor
      * @throws IOException 
      */
     public void save(DataOutputStream file) throws IOException {
