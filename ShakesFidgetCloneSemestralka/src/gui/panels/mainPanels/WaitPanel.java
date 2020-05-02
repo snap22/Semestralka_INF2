@@ -18,7 +18,10 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
+import sk.semestralka.shakelessmidget.exceptions.NoMoneyException;
+import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
  * Trieda WaitPanel sluzi ako panel ktory ukazuje hracovi kolko ma cakat
@@ -38,7 +41,7 @@ public final class WaitPanel extends MainPanel {
      * @param obj uloha 
      * @param tav Tavern Panel
      */
-    public WaitPanel(Objective obj, TavernPanel tav) {
+    public WaitPanel(Objective obj, TavernPanel tav, Player player) {
         super(PanelType.WAIT);
         int price = 50;
         this.skipButton = new JButton("Skip");
@@ -73,7 +76,13 @@ public final class WaitPanel extends MainPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //WaitPanel.this.beginCalc();
-                WaitPanel.this.timePassed += 1000;
+                
+                try {
+                    player.removeGold(price);
+                    WaitPanel.this.timePassed += 1000;
+                } catch (NoMoneyException ex) {
+                    JOptionPane.showMessageDialog(null, "Only the rich ones can skip", "No money", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
 
@@ -86,8 +95,8 @@ public final class WaitPanel extends MainPanel {
      * Pociatocny konstruktor bez ulohy
      * @param tav Tavern Panel
      */
-    public WaitPanel(TavernPanel tav) {
-        this(null, tav);
+    public WaitPanel(TavernPanel tav, Player player) {
+        this(null, tav, player);
     }
 
     /**

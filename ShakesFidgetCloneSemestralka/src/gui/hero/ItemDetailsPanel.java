@@ -55,7 +55,7 @@ public class ItemDetailsPanel extends JPanel {
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.add(this.equipButton);
         buttonsPanel.add(this.sellButton);
-        buttonsPanel.setBackground(Color.black);
+        buttonsPanel.setBackground(Color.darkGray);
         
         this.add(buttonsPanel, BorderLayout.NORTH);
      

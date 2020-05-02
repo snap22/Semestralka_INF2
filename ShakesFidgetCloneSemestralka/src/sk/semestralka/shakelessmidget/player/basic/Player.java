@@ -155,6 +155,7 @@ public class Player extends Creature {
      * @param xp xp
      * @param gold goldy
      * @param item  predmet
+     * @throws sk.semestralka.shakelessmidget.exceptions.InventoryFullException
      */
     public void addReward(int xp, int gold, Item item) throws InventoryFullException {
         this.addItem(item);
@@ -166,6 +167,7 @@ public class Player extends Creature {
     /**
      * Prida hracovi predmet
      * @param item predmet
+     * @throws sk.semestralka.shakelessmidget.exceptions.InventoryFullException
      */
     public void addItem(Item item) throws InventoryFullException {
         this.inventory.addItem(item);
@@ -387,4 +389,4 @@ public class Player extends Creature {
     
     
     
-} //koniec Player
+} 

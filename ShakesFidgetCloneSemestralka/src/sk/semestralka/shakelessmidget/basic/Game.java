@@ -125,6 +125,7 @@ public class Game {
     
     
     public void test() throws InventoryFullException {
+        this.player.addGold(500);
         Weapon zbran = new Weapon();
         Helmet helma = new Helmet();
         Armor armor = new Armor();
@@ -138,7 +139,7 @@ public class Game {
 
         
         this.player.getInventory().addItem(goodies);
-        this.player.addGold(500);
+        
         
 
     }

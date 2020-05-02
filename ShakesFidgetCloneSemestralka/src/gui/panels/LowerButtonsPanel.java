@@ -54,7 +54,7 @@ public class LowerButtonsPanel extends JPanel {
                 try {
                     LowerButtonsPanel.this.game.test();
                 } catch (InventoryFullException ex) {
-                    //to je jedno
+                    //
                 }
             }
         });
@@ -87,7 +87,7 @@ public class LowerButtonsPanel extends JPanel {
         int f = (Integer)pane.showConfirmDialog(
                 null, 
                 "To play a new game you have to restart.\n Do you want to proceed? ", 
-                "Silly question", 
+                "Restart required", 
                 JOptionPane.YES_NO_OPTION
         );
         if (f == 0) {   //ak stlacene YES

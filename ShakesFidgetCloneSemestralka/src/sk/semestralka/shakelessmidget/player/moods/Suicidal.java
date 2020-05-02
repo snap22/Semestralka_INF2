@@ -13,8 +13,8 @@ public class Suicidal extends Mood {
     private int chanceToDie;
     
     public Suicidal() {
-        super("Suicidal", 50, 25);
-        this.chanceToDie = 50;
+        super("Suicidal", 30, 5);
+        this.chanceToDie = 30;
     }
 
     /**

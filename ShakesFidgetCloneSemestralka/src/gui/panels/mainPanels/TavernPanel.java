@@ -43,7 +43,7 @@ public class TavernPanel extends MainPanel {
         
         this.game = game;
         this.missionsPanel = new MissonHolder(this, game);
-        this.waitPanel = new WaitPanel(this);
+        this.waitPanel = new WaitPanel(this, game.getPlayer());
         this.fightPanel = new FightPanel(game.getPlayer(), this);
         
         this.temporaryPanel = new JPanel();
