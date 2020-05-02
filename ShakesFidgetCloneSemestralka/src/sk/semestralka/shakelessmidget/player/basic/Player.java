@@ -19,7 +19,7 @@ import sk.semestralka.shakelessmidget.items.items.Equipment;
 
 import sk.semestralka.shakelessmidget.player.moods.Newbie;
 import sk.semestralka.shakelessmidget.player.moods.Mood;
-import sk.semestralka.shakelessmidget.generators.MoodLoader;
+import sk.semestralka.shakelessmidget.loaders.MoodLoader;
 
 /**
  * Trieda Player sluzi pre hraca

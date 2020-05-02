@@ -159,19 +159,6 @@ public abstract class Creature {
         }
         this.damage += amount;
     }
-    
-    /**
-     * Pre nacitanie
-     * @param health
-     * @param damage 
-     */
-    protected void setStats(int health, int damage) {
-        this.health = health;
-        this.damage = damage;
-    }
-    
-    
-    
-    
+ 
     
 }

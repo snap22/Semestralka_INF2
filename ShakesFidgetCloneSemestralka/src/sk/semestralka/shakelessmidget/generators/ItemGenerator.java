@@ -5,6 +5,7 @@
  */
 package sk.semestralka.shakelessmidget.generators;
 
+import sk.semestralka.shakelessmidget.loaders.LoadFile;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.items.ItemRarity;
 import sk.semestralka.shakelessmidget.items.equippable.Armor;

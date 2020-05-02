@@ -5,6 +5,7 @@
  */
 package sk.semestralka.shakelessmidget.generators;
 
+import sk.semestralka.shakelessmidget.loaders.LoadFile;
 import sk.semestralka.shakelessmidget.adventure.Objective;
 import sk.semestralka.shakelessmidget.creatures.Enemy;
 import java.util.Random;

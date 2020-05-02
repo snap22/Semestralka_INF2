@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
-import sk.semestralka.shakelessmidget.generators.ItemLoader;
+import sk.semestralka.shakelessmidget.loaders.ItemLoader;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.items.equippable.Armor;
 import sk.semestralka.shakelessmidget.items.items.Equipment;
@@ -50,6 +50,7 @@ public class PlayerSlots {
     /**
      * Pozrie sa kde pasuje dany predmet a ak sa da tak ho da na seba
      * @param item 
+     * @throws InventoryFullException
      */
     public void equip(Item item) throws InventoryFullException {
         if (item instanceof Helmet) {
@@ -70,6 +71,7 @@ public class PlayerSlots {
     /**
      * Dá na seba helmu
      * @param item 
+     * @throws InventoryFullException
      */
     public void equip(Helmet item) throws InventoryFullException {
         this.equipItem(this.headSlot, item);
@@ -78,6 +80,7 @@ public class PlayerSlots {
     /**
      * Dá na seba armor
      * @param item 
+     * @throws InventoryFullException
      */
     public void equip(Armor item) throws InventoryFullException {
         this.equipItem(this.armorSlot, item);
@@ -86,6 +89,7 @@ public class PlayerSlots {
     /**
      * Dá na seba zbraň
      * @param item 
+     * @throws InventoryFullException 
      */
     public void equip(Weapon item) throws InventoryFullException {
         this.equipItem(this.weaponSlot, item);
@@ -94,6 +98,7 @@ public class PlayerSlots {
 
     /**
      * Dá dole zo seba zbraň
+     * @throws InventoryFullException
      */
     public void unequipWeapon() throws InventoryFullException {
         this.unequipAtPosition(0);
@@ -101,6 +106,7 @@ public class PlayerSlots {
     
     /**
      * Dá dole zo seba armor
+     * @throws InventoryFullException
      */
     public void unequipArmor() throws InventoryFullException {
         this.unequipAtPosition(1);
@@ -108,6 +114,7 @@ public class PlayerSlots {
     
     /**
      * Dá dole zo seba helmu
+     * @throws InventoryFullException
      */
     public void unequipHelmet() throws InventoryFullException {
         this.unequipAtPosition(2);
@@ -115,6 +122,7 @@ public class PlayerSlots {
     
     /**
      * Dá dole zo seba vsetky veci
+     * @throws InventoryFullException
      */
     public void unequipAll() throws InventoryFullException {
         this.unequipWeapon();
@@ -171,7 +179,7 @@ public class PlayerSlots {
     */
     private void equipItem(Slot slot, Equipment item) throws InventoryFullException {
         if (item.getLevelRequired() > this.player.getLevel()) {
-            return;
+            
         }
         
         Item removedItem = null;

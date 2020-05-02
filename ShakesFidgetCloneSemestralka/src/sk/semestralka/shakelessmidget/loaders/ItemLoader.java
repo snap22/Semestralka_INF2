@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sk.semestralka.shakelessmidget.generators;
+package sk.semestralka.shakelessmidget.loaders;
 
 import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
 import java.io.DataInputStream;

@@ -12,7 +12,7 @@ import sk.semestralka.shakelessmidget.items.items.Item;
 import java.util.ArrayList;
 import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
-import sk.semestralka.shakelessmidget.generators.ItemLoader;
+import sk.semestralka.shakelessmidget.loaders.ItemLoader;
 
 
 /**

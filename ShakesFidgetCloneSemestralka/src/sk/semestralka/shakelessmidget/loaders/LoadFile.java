@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sk.semestralka.shakelessmidget.generators;
+package sk.semestralka.shakelessmidget.loaders;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import sk.semestralka.shakelessmidget.generators.ExampleType;
 
 
 /**
