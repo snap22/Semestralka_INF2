@@ -20,6 +20,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
+import sk.semestralka.shakelessmidget.exceptions.LowLevelException;
+import sk.semestralka.shakelessmidget.exceptions.NotEquippableException;
+import sk.semestralka.shakelessmidget.generators.ItemGenerator;
+import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 /**
@@ -134,10 +138,10 @@ public class ItemTest {
     }
     
     /**
-     * Testovanie spravnosti equipovania itemov
+     * Testovanie spravnosti equipovania itemov a ci sa da equipnut neequipnutelny item
      */
-    @Test
-    public void playerSlotTesting() throws InventoryFullException {
+    @Test (expected = NotEquippableException.class)
+    public void playerSlotTesting() throws InventoryFullException, LowLevelException, NotEquippableException {
         
         Player player = new Player();
         PlayerSlots ps = new PlayerSlots(player);
@@ -162,8 +166,18 @@ public class ItemTest {
         Assert.assertEquals("Neumozni equipnut trash item", 1, inv.getCurrentSize());
     }
     
-    
-    
+    /**
+     * Skusi si na seba equipnut 12 levelovy item aj ked sam je level 1
+     * @throws InventoryFullException
+     * @throws LowLevelException 
+     */
+    @Test (expected = LowLevelException.class)
+    public void lowLevelTest() throws InventoryFullException, LowLevelException, NotEquippableException {
+        ItemGenerator gen = new ItemGenerator();
+        Item item = gen.generateArmor(12);
+        Player player = new Player();
+        player.getSlots().equip(item);
+    }
     
     
 }
