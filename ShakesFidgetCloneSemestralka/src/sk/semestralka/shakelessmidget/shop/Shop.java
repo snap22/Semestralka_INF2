@@ -33,14 +33,14 @@ public class Shop {
     }
     
     /**
-     * Metoda sluzi na to aby si hrac mohol kupit nahodny predmet za urcitu cenu
+     * Metoda sluzi na to aby si hrac mohol kupit nahodny predmet s nahodnym potrebnym levelom za urcitu cenu
      * @param price cena
      * @return 
      * @throws InventoryFullException
      * @throws NoMoneyException 
      */
     public Item buyItem(int price) throws InventoryFullException, NoMoneyException {
-        Item item = this.itemGen.generateRandomItem(this.player.getLevel());
+        Item item = this.itemGen.generateRandomItem();
         this.player.addItem(item);
         this.player.removeGold(price);
         

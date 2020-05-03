@@ -108,27 +108,18 @@ public abstract class Equipment extends Item {
             case COMMON:
                 break;
             case UNCOMMON:
-                if (this.levelRequired < 5) {
-                    break;
-                }
                 dmg *= 2;
                 armor *= 2;
                 hp *= 2;
                 gold *= 2;
                 break;
             case RARE:
-                if (this.levelRequired < 10) {
-                    break;
-                }
                 dmg *= 4;
                 armor *= 4;
                 hp *= 4;
                 gold *= 4;
                 break;
             case EPIC:
-                if (this.levelRequired < 50) {
-                    break;
-                }
                 dmg *= 8;
                 armor *= 8;
                 hp *= 8;
