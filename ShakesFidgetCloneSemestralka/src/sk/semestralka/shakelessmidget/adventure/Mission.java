@@ -5,7 +5,7 @@
  */
 package sk.semestralka.shakelessmidget.adventure;
 
-import gui.panels.mainPanels.FightPanel;
+import sk.semestralka.shakelessmidget.a.gui.tavern.FightPanel;
 import sk.semestralka.shakelessmidget.player.basic.Player;
 
 

@@ -5,7 +5,7 @@
  */
 package gui.eventTry;
 
-import gui.panels.TemporaryPanel;
+import sk.semestralka.shakelessmidget.a.gui.main.TemporaryPanel;
 
 /**
  * Cisto test trieda
