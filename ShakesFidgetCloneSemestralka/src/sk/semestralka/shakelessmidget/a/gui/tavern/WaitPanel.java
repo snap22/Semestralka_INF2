@@ -5,7 +5,6 @@
  */
 package sk.semestralka.shakelessmidget.a.gui.tavern;
 
-import sk.semestralka.shakelessmidget.a.gui.tavern.TavernPanel;
 import sk.semestralka.shakelessmidget.adventure.Objective;
 import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
 import sk.semestralka.shakelessmidget.a.gui.main.MainPanel;
@@ -112,14 +111,14 @@ public final class WaitPanel extends MainPanel {
         this.bar.setMaximum(newObj.getDuration());
         this.label.setText(newObj.getName());
         this.time.setText(String.format("Duration: %d seconds", newObj.getDuration()));
-        this.beginCalc();
+        this.beginCounting();
         
     }
     
     /**
      * Zacina odpocitavanie
      */
-    private void beginCalc() {
+    private void beginCounting() {
         Timer t = new Timer();
         t.schedule(new TimerTask() {
             @Override

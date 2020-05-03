@@ -27,22 +27,28 @@ public class LoadFile {
         
         switch (type) {
             case ENEMYNAME:
-                destination = "C:/Users/marce/Documents/NetBeansProjects/Semestralka_ShakesAndFidget/ShakesFidgetCloneSemestralka/src/a_other/EnemyNamesExamples";
+                //destination = "C:/Users/marce/Documents/NetBeansProjects/Semestralka_ShakesAndFidget/ShakesFidgetCloneSemestralka/src/a_other/EnemyNamesExamples";
+                destination = "filesForGenerators/EnemyNamesExamples";
                 break;
             case GOODSNAME:
-                destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\GoodiesName";
+                //destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\GoodiesName";
+                destination = "filesForGenerators/GoodiesName";
                 break;
             case ITEMSADJECTIVE:
-                destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\ItemAdjective";
+                //destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\ItemAdjective";
+                destination = "filesForGenerators/ItemAdjective";
                 break;
             case OBJECTDESCRIPTION:
-                destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\ObjectiveDescriptionExamples";
+                //destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\ObjectiveDescriptionExamples";
+                destination = "filesForGenerators/ObjectiveDescriptionExamples";
                 break;
             case OBJECTNAME:
-                destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\ObjectiveNameExamples";
+                //destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\ObjectiveNameExamples";
+                destination = "filesForGenerators/ObjectiveNameExamples";
                 break;
             case WEAPONNAME:
-                destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\WeaponName";
+                //destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\WeaponName";
+                destination = "filesForGenerators/WeaponName";
                 break;
             default:
                 throw new AssertionError();
