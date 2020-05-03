@@ -124,6 +124,9 @@ public class HeroStatsPanel extends JPanel {
         
     }
     
+    /**
+     * 
+     */
     private void updateInventoryLabel() {
         Inventory inv = this.player.getInventory();
         this.inventoryItemsLabel.setText(String.format("Inventory: %d / %d", inv.getCurrentSize(), inv.getMaxSize()));
@@ -132,6 +135,8 @@ public class HeroStatsPanel extends JPanel {
     private void updateBar() {
         this.bar.setMaximum(this.player.getRequiredXp());
         this.bar.setValue(this.player.getCurrentXp());
+        String req = String.format("XP %d / %d", this.player.getCurrentXp(), this.player.getRequiredXp());
+        this.bar.setString(req);
     }
 
     

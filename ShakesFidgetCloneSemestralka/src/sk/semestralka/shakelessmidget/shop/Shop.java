@@ -62,12 +62,6 @@ public class Shop {
         return newMood;
     }
     
-    /**
-     * Metoda na predanie predmetu
-     * @param item predmet
-     */
-    public void sellItem(Item item) {
-        this.player.getInventory().removeItem(item);
-    }
+    
     
 }

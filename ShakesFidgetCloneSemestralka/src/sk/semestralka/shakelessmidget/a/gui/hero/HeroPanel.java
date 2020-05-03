@@ -10,7 +10,6 @@ import sk.semestralka.shakelessmidget.a.gui.main.MainPanel;
 import sk.semestralka.shakelessmidget.a.gui.main.PanelType;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
 import javax.swing.JLabel;
 import sk.semestralka.shakelessmidget.items.items.Item;
 import sk.semestralka.shakelessmidget.player.basic.Player;
