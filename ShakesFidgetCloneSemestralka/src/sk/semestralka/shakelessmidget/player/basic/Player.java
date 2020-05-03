@@ -122,16 +122,12 @@ public class Player extends Creature {
         }
         this.currentXp += amount;
         this.overallXp += amount;
-        if (this.currentXp >= this.requiredXp) {
-            int numOfLevels = this.currentXp / this.requiredXp;
-            this.currentXp %= this.requiredXp;
-            
-            for (int i = 0; i < numOfLevels; i++) {
-                this.levelUp();
-            }
-
-        }
         
+        while (this.currentXp >= this.requiredXp) {
+            this.currentXp -= this.requiredXp;
+            this.levelUp();
+        }
+
     }
     
     /**
@@ -366,18 +362,18 @@ public class Player extends Creature {
     }
     
     
+    
+    //      SAVE & LOAD
+    
+    
     /**
      * Ulozi hracove atributy
      * @param file 
      */
     public void save(DataOutputStream file) throws IOException {
-        //file.writeInt(super.getHealth());   //basic hp
-        //file.writeInt(super.getDamage());   //basic dmg
-        
         file.writeInt(this.overallXp);      //xp
         file.writeInt(this.gold);           //gold
-        
-        //this.mood.save(file);
+
         this.slots.save(file);
         this.inventory.save(file);
         
@@ -391,12 +387,8 @@ public class Player extends Creature {
      * @throws WrongTypeException 
      */
     public void load(DataInputStream file) throws IOException, WrongTypeException {
-        //int hp = file.readInt();
-        //int dmg = file.readInt();
-        
         int xp = file.readInt();
         int currentGold = file.readInt();
-        
         this.addXp(xp);
         this.addGold(currentGold);
 
