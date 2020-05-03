@@ -16,6 +16,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import sk.semestralka.shakelessmidget.a.gui.listeners.ISwitchPanelListener;
 
 /**
  *
@@ -24,17 +25,20 @@ import javax.swing.JPanel;
 public class MenuPanel extends JPanel {
 
     private Dimension size;
-    private HashMap<String, JButton> buttons;
+    private HashMap<String, MenuButton> buttons;
     private final MainFrame frame;
     private final LowerButtonsPanel lowPanel;
+    
+    private ISwitchPanelListener listener;
     
     
     /**
      * Konstruktor, zobrazi panel
      */
     public MenuPanel(MainFrame frame) {
+        this.listener = null;
         this.frame = frame;
-        this.buttons = new HashMap<String, JButton>();
+        this.buttons = new HashMap<String, MenuButton>();
 
         this.size = this.getPreferredSize();
         this.size.width = 200;
@@ -63,7 +67,15 @@ public class MenuPanel extends JPanel {
         
     }
     
-    
+    /**
+     * Absolutely not fucking sure about this
+     * @param listener 
+     */
+    public void setListener(ISwitchPanelListener listener) {
+        for (MenuButton button : this.buttons.values()) {
+            button.setListener(listener);
+        }
+    }
     
     /**
      * Vytvori priestor za poslednym buttonom

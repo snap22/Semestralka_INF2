@@ -48,7 +48,6 @@ public class HeroInventoryItems extends JList {
             public void valueChanged(ListSelectionEvent event) {
                 if (!event.getValueIsAdjusting()) {
                     if (getSelectedIndex() != -1) {     //osetruje ak by bol selectnuty predmet a prepne sa panel
-                        //System.out.println(HeroInventoryItems.this.items.get(getSelectedIndex()).toString());
                         if (HeroInventoryItems.this.listener != null) {
                             HeroInventoryItems.this.listener.itemSelected(HeroInventoryItems.this.items.get(getSelectedIndex()));
                             HeroInventoryItems.this.clearSelection();

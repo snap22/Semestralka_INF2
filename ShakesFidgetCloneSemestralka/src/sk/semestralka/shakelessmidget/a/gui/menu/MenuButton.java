@@ -6,7 +6,6 @@
 package sk.semestralka.shakelessmidget.a.gui.menu;
 
 import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
-import gui.eventTry.Testicek;
 import sk.semestralka.shakelessmidget.a.gui.main.PanelType;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -18,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.border.Border;
 
 import javax.swing.border.LineBorder;
+import sk.semestralka.shakelessmidget.a.gui.listeners.ISwitchPanelListener;
 
 /**
  * Trieda MenuButton sluzi ako predvoleny button do hlavneho menu
@@ -25,6 +25,7 @@ import javax.swing.border.LineBorder;
 public class MenuButton extends JButton {
 
     private PanelType type;
+    private ISwitchPanelListener listener;
 
     /**
      * Konstruktor ktory vytvori MenuButton so zadanymi parametrami.
@@ -51,17 +52,17 @@ public class MenuButton extends JButton {
         final PanelType testType = type;
         this.setFocusable(false);
         
-        // exception ak by action bolo null?
-        //this.addActionListener(action);
         
         
         this.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Testicek.getPanel().changePanel(testType);
+                MenuButton.this.listener.switchPanel(type);
                 
             }
         });
+        
+        
         
         //exception ak by type bolo null?
         this.type = type;
@@ -89,6 +90,12 @@ public class MenuButton extends JButton {
      */
     public String getPanelString() {
         return this.type.toString();
+    }
+    
+    public void setListener(ISwitchPanelListener listener) {
+        if (listener != null) {
+            this.listener = listener;
+        }
     }
 }
 

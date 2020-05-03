@@ -6,7 +6,6 @@
 package sk.semestralka.shakelessmidget.a.gui.main;
 
 import sk.semestralka.shakelessmidget.generators.Generator;
-import gui.eventTry.Testicek;
 import sk.semestralka.shakelessmidget.a.gui.hero.HeroPanel;
 import sk.semestralka.shakelessmidget.a.gui.firstAndShop.ShopPanel;
 import sk.semestralka.shakelessmidget.a.gui.tavern.TavernPanel;
@@ -38,8 +37,7 @@ public class TemporaryPanel extends JPanel {
      * @param game hra
      */
     public TemporaryPanel(Game game) {
-        Testicek.setPanel(this);
-        
+
         this.gen = game.getGenerator();
         this.player = game.getPlayer();
         

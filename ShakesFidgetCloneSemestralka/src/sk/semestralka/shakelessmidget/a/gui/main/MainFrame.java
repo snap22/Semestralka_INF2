@@ -12,6 +12,7 @@ import java.awt.Container;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+import sk.semestralka.shakelessmidget.a.gui.listeners.ISwitchPanelListener;
 
 /**
  * Hlavne okno pre graficke rozhranie
@@ -52,6 +53,14 @@ public class MainFrame extends JFrame {
         });
         
         this.setVisible(true);
+        
+        
+        this.menuPanel.setListener(new ISwitchPanelListener() {
+            @Override
+            public void switchPanel(PanelType type) {
+                MainFrame.this.temp.changePanel(type);
+            }
+        });
         
     }
     
