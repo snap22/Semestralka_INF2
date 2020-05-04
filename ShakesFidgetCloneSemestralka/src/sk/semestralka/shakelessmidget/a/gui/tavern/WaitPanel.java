@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.a.gui.tavern;
 
 import sk.semestralka.shakelessmidget.adventure.Objective;
@@ -39,9 +35,10 @@ public final class WaitPanel extends MainPanel {
     private final Objective obj;
     
     /**
-     * Konstruktor. Vytvori potrebne komponenty
+     * Konstruktor.Vytvori potrebne komponenty
      * @param obj uloha 
      * @param tav Tavern Panel
+     * @param player
      */
     public WaitPanel(Objective obj, TavernPanel tav, Player player) {
         super(PanelType.WAIT);
@@ -96,6 +93,7 @@ public final class WaitPanel extends MainPanel {
     /**
      * Pociatocny konstruktor bez ulohy
      * @param tav Tavern Panel
+     * @param player hrac
      */
     public WaitPanel(TavernPanel tav, Player player) {
         this(null, tav, player);

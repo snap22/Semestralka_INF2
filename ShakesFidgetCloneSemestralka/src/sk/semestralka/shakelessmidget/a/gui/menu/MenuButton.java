@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.a.gui.menu;
 
 import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
@@ -43,7 +39,6 @@ public class MenuButton extends JButton {
         Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
         Border innerBorder = new LineBorder(textColor, 2);
         this.setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
-        //Font font = new Font("Century", Font.PLAIN, 20);
         
         this.setFont(font);
         this.setBackground(bgColor);
@@ -68,13 +63,7 @@ public class MenuButton extends JButton {
         this.type = type;
         
     }
-    
-    /**
-     * Nastavi na pasivny button, ak je aktivny a naopak
-     */
-    public void toggle() {
-        this.setEnabled(!this.isEnabled());
-    }
+
 
     /**
      * Vrati typ panela ktory meni ked sa na button klikne

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.a.gui.menu;
 
 import sk.semestralka.shakelessmidget.a.gui.main.MainFrame;
@@ -14,7 +10,6 @@ import java.util.HashMap;
 import javax.swing.Box;
 
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import sk.semestralka.shakelessmidget.a.gui.listeners.ISwitchPanelListener;
 
@@ -34,6 +29,7 @@ public class MenuPanel extends JPanel {
     
     /**
      * Konstruktor, zobrazi panel
+     * @param frame
      */
     public MenuPanel(MainFrame frame) {
         this.listener = null;
@@ -43,7 +39,6 @@ public class MenuPanel extends JPanel {
         this.size = this.getPreferredSize();
         this.size.width = 200;
         
-        //this.setBackground(new Color(20, 60, 100));
         this.setBackground(new Color(26, 26, 53));
         this.setPreferredSize(this.size);
         

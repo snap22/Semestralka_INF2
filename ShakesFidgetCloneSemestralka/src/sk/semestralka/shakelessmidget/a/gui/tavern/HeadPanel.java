@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.a.gui.tavern;
 
 import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
@@ -17,6 +13,10 @@ public class HeadPanel extends JPanel {
 
     private final JLabel label;
 
+    /**
+     * Vytvori potrebne komponenty
+     * @param name 
+     */
     public HeadPanel(String name) {
         this.label = new JLabel(name);
         this.setBackground(Color.black);

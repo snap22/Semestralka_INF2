@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.a.gui.menu;
 
 import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
@@ -21,7 +17,7 @@ import sk.semestralka.shakelessmidget.basic.Game;
 import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 
 /**
- *
+ * Trieda sluzi na ulozenie buttonov na spodku menu
  * @author marce
  */
 public class LowerButtonsPanel extends JPanel {
@@ -30,6 +26,10 @@ public class LowerButtonsPanel extends JPanel {
     private final JButton newGameButton;
     private final JButton testButton;
 
+    /**
+     * Vytvori potrebne komponenty a nastavi pociatocne hodnoty
+     * @param game 
+     */
     public LowerButtonsPanel(Game game) {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.game = game;
@@ -73,6 +73,10 @@ public class LowerButtonsPanel extends JPanel {
         
     }
     
+    /**
+     * Nastavenie tlacidla
+     * @param button 
+     */
     private void setupButton(JButton button) {
         button.setFont(BasicGui.getFont());
         button.setForeground(BasicGui.getGoldenColor());

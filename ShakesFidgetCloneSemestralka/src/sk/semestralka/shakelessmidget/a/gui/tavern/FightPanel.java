@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.a.gui.tavern;
 
 
-import sk.semestralka.shakelessmidget.a.gui.tavern.TavernPanel;
 import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
 import sk.semestralka.shakelessmidget.a.gui.main.MainPanel;
 import sk.semestralka.shakelessmidget.a.gui.main.PanelType;
@@ -57,7 +52,6 @@ public class FightPanel extends MainPanel {
         change.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               // tav.showFight(); //zmenit cez listener
                 tav.showMissions();
             }
         });
@@ -68,9 +62,6 @@ public class FightPanel extends MainPanel {
 
         this.text.setFont(BasicGui.getFont(15));
         this.text.setEditable(false);
-        
-        //this.clear();
-        
         
     }
 
