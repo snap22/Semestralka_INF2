@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.a.gui.hero;
 
 import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
@@ -51,7 +47,7 @@ public class HeroStatsPanel extends JPanel {
         this.labelsManager.addLabel("Level", player.getLevel());
         this.labelsManager.addLabel("Gold", player.getGold());
         
-        this.add(Box.createRigidArea(new Dimension(5, 10)));
+        this.add(Box.createRigidArea(new Dimension(5, 10)));    //medzera
         
         this.add(this.bar);
         this.bar.setStringPainted(true);
@@ -91,13 +87,19 @@ public class HeroStatsPanel extends JPanel {
 
        
     }
-    
-    
 
+    /**
+     * Vrati zoznam predmetov ktore ma hrac equipnute
+     * @return 
+     */
     public HeroEquippedItems getEquippedItems() {
         return this.equippedItems;
     }
 
+    /**
+     * Vrati zoznam predmetov ktore ma hrac v inventory
+     * @return 
+     */
     public HeroInventoryItems getInventoryItems() {
         return this.inventoryItems;
     }
@@ -108,15 +110,13 @@ public class HeroStatsPanel extends JPanel {
      * Aktualizuje vsetky komponenty
      */
     public void updateAll() {
-        this.labelsManager.updateText("Mood", this.player.getMood().getName());
-        this.labelsManager.getLabel("Mood").setToolTipText(this.player.getMood().getDescription());
-        this.labelsManager.updateText("Health", this.player.getHealth());
-        this.labelsManager.getLabel("Health").setToolTipText(this.player.getHealthStats());
-        this.labelsManager.updateText("Armor", this.player.getArmor());
-        this.labelsManager.updateText("Damage", this.player.getDamage());
-        this.labelsManager.getLabel("Damage").setToolTipText(this.player.getDamageStats());
-        this.labelsManager.updateText("Level", this.player.getLevel());
-        this.labelsManager.updateText("Gold", this.player.getGold());
+        this.updateLabel("Mood", this.player.getMood().getName(), this.player.getMood().getDescription());
+        this.updateLabel("Health", this.player.getHealth(), this.player.getHealthStats());
+        this.updateLabel("Armor", this.player.getArmor(), null);
+        this.updateLabel("Damage", this.player.getDamage(), this.player.getDamageStats());
+        this.updateLabel("Level", this.player.getLevel(), null);
+        this.updateLabel("Gold", this.player.getGold(), null);
+
         this.updateBar();
         this.equippedItems.update();
         this.inventoryItems.update();
@@ -125,13 +125,40 @@ public class HeroStatsPanel extends JPanel {
     }
     
     /**
-     * 
+     * Aktualizuje labely
+     * @param labelName nazov labelu
+     * @param text text v labelu
+     * @param tooltip  hover tip labelu
+     */
+    private void updateLabel(String labelName, String text, String tooltip) {
+        this.labelsManager.updateText(labelName, text);
+        if (tooltip != null) {
+            this.labelsManager.getLabel(labelName).setToolTipText(tooltip);
+        }
+        
+    }
+    
+    /**
+     * Pretazenie, aktualizuje labely
+     * @param labelName nazov labelu
+     * @param number cislo v labelu
+     * @param tooltip  hover tip labelu
+     */
+    private void updateLabel(String labelName, int number, String tooltip) {
+        this.updateLabel(labelName, String.valueOf(number), tooltip);
+    }
+    
+    /**
+     * aktualizuje predmety v inventory hraca
      */
     private void updateInventoryLabel() {
         Inventory inv = this.player.getInventory();
         this.inventoryItemsLabel.setText(String.format("Inventory: %d / %d", inv.getCurrentSize(), inv.getMaxSize()));
     }
     
+    /**
+     * Aktualizuje progressbar
+     */
     private void updateBar() {
         this.bar.setMaximum(this.player.getRequiredXp());
         this.bar.setValue(this.player.getCurrentXp());

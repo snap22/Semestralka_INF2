@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.a.gui.firstAndShop;
 
 import sk.semestralka.shakelessmidget.a.gui.main.MainPanel;
@@ -23,21 +19,27 @@ import sk.semestralka.shakelessmidget.player.moods.Mood;
 import sk.semestralka.shakelessmidget.shop.Shop;
 
 /**
- * Trieda ShopPanel sluzi ako obchod v ktorom si hrac moze kupit nahodnu vec 
+ * Trieda ShopPanel sluzi na zobrazenie obchodu v ktorom hrac moze nakupovat 
  */
 public class ShopPanel extends MainPanel {
 
-    private final Player player;
+    
     private final Shop shop;
     private final JButton buyBtn;
     private final JButton moodBtn;
     private final int priceForMood;
     private final int priceForItem;
 
+    /**
+     * Nastavi pociatocne hodnoty a vytvori potrebne komponenty
+     * @param player
+     * @param priceForMood
+     * @param priceForItem 
+     */
     public ShopPanel(Player player, int priceForMood, int priceForItem) {
         super(PanelType.SHOP);
         this.shop = new Shop(player);
-        this.player = player;
+        
         JLabel label = new JLabel("THIS IS THE BEST SHOP");
         label.setFont(BasicGui.getFont(40));
         label.setForeground(Color.white);
@@ -49,7 +51,8 @@ public class ShopPanel extends MainPanel {
         this.setBackground(Color.black);
         this.add(label, BorderLayout.NORTH);
         
-        this.moodBtn = new JButton("Buy a mood");
+        this.moodBtn = this.createButton("Buy a mood", String.format("Price for a mood: %d", this.priceForMood));
+        this.buyBtn = this.createButton("Buy an item", String.format("Price for an item: %d", this.priceForItem));
         this.moodBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -62,7 +65,7 @@ public class ShopPanel extends MainPanel {
             }
         });
         
-        this.buyBtn = new JButton("Buy an item");
+        
         this.buyBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,26 +80,22 @@ public class ShopPanel extends MainPanel {
             }
         });
         
-        this.add(this.moodBtn);
-        this.add(this.buyBtn);
-        
-        this.setupButton(this.moodBtn, String.format("Price for a mood: %d", this.priceForMood));
-        this.setupButton(this.buyBtn, String.format("Price for an item: %d", this.priceForItem));
-        
-        
-        
     }
-    
+
     /**
-     * Nastavi vizualne tlacitka
-     * @param button ktoreho tlacitka sa to tyka
-     * @param toolTip aky text sa objavi ak sa s myskou pozriem na tlacitko
+     * Pociatocne vytvorenie tlacidla a nastavenie zakladnych hodnot
+     * @param text text na tlacidle
+     * @param tooltip co bude zobrazovat ak sa nan s mysou pozrie
+     * @return 
      */
-    private void setupButton(JButton button, String toolTip) {
+    private JButton createButton(String text, String tooltip) {
+        JButton button = new JButton(text);
         button.setFont(BasicGui.getFont());
         button.setBackground(Color.white);
         button.setForeground(Color.black);
-        button.setToolTipText(toolTip);
+        button.setToolTipText(tooltip);
+        this.add(button);
+        return button;
     }
     
     /**
@@ -122,10 +121,18 @@ public class ShopPanel extends MainPanel {
         this.showError("No money", "You don't have enough money!");
     }
     
+    /**
+     * Vyhodi okno ze co si hrac kupil
+     * @param mood 
+     */
     private void showBoughtMessage(Mood mood) {
         JOptionPane.showMessageDialog(null , String.format("You acquired %s mood!", mood.getName()));
     }
     
+    /**
+     * Vyhodi okno ze co si hrac kupil
+     * @param item 
+     */
     private void showBoughtMessage(Item item) {
         JOptionPane.showMessageDialog(null , String.format("You acquired %s !", item.getName()));
     }

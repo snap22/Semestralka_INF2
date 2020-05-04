@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.a.gui.hero;
 
 import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
@@ -12,7 +8,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -29,7 +24,6 @@ import sk.semestralka.shakelessmidget.player.basic.Player;
  */
 public class ItemDetailsPanel extends JPanel {
 
-    private ArrayList<JButton> buttons;
     private JButton equipButton;
     private JButton sellButton;
     private final DetailLabelHolder labelsManager;
@@ -45,7 +39,6 @@ public class ItemDetailsPanel extends JPanel {
     public ItemDetailsPanel(Player player) {
         this.currentItem = null;
         this.player = player;
-        this.buttons = new ArrayList<JButton>();
         this.setupButtons();
         this.labelsManager = new DetailLabelHolder();
         
@@ -98,17 +91,13 @@ public class ItemDetailsPanel extends JPanel {
         this.labelsManager.updateText("Rarity", item.getRarity().toString());
         this.labelsManager.updateText("Value", item.getGoldValue());
         
-        int damage = 0;
-        int armor = 0;
-        int health = 0;
-        int level = 0;
         if (item instanceof Equipment) {
             Equipment equipment = (Equipment)item;
             
-            damage = equipment.getBonusDamage();
-            armor = equipment.getBonusArmor();
-            health = equipment.getBonusHealth();
-            level = equipment.getLevelRequired();
+            int damage = equipment.getBonusDamage();
+            int armor = equipment.getBonusArmor();
+            int health = equipment.getBonusHealth();
+            int level = equipment.getLevelRequired();
             this.labelsManager.updateText("Damage", damage);
             this.labelsManager.updateText("Armor", armor);
             this.labelsManager.updateText("Health", health);
@@ -131,10 +120,13 @@ public class ItemDetailsPanel extends JPanel {
         
     }
     
+    /**
+     * Nastavi pouzitelnost jednotlivych tlacidiel, unequip tlacidlo nastavi stale na opacne
+     * @param enabled 
+     */
     private void setEnabledAll(boolean enabled) {
-        for (JButton button : this.buttons) {
-            button.setEnabled(enabled);
-        }
+        this.sellButton.setEnabled(enabled);
+        this.equipButton.setEnabled(enabled);
         this.unequipButton.setEnabled(!enabled);
     }
     
@@ -162,9 +154,6 @@ public class ItemDetailsPanel extends JPanel {
         this.unequipButton = new JButton("Unequip");
         
         
-        this.buttons.add(this.equipButton);
-        this.buttons.add(this.sellButton);
-        this.buttons.add(this.unequipButton);
         
         this.equipButton.addActionListener(new ActionListener() {
             @Override
@@ -201,14 +190,25 @@ public class ItemDetailsPanel extends JPanel {
             }
         });
         
-        for (JButton button : this.buttons) {
-            button.setFont(BasicGui.getFont());
-            button.setBackground(Color.white);
-            button.setFocusable(false);
-        }
+        this.adjustButton(this.sellButton);
+        this.adjustButton(this.equipButton);
+        this.adjustButton(this.unequipButton);
         
     }
     
+    /**
+     * Nastavi pociatocne hodnoty tlacidla
+     * @param button 
+     */
+    private void adjustButton(JButton button) {
+        button.setFont(BasicGui.getFont());
+        button.setBackground(Color.white);
+        button.setFocusable(false);
+    }
+    
+    /**
+     * Zavola posluchaca
+     */
     private void callListener() {
         if (this.listener != null) {
             this.listener.update();
@@ -240,6 +240,10 @@ public class ItemDetailsPanel extends JPanel {
         this.callListener();
     }
     
+    /**
+     * Da predmet dole zo seba
+     * @throws InventoryFullException 
+     */
     private void unequipItem() throws InventoryFullException {
         this.player.getSlots().unequip(this.currentItem);
         this.clearInfo();
@@ -261,6 +265,9 @@ public class ItemDetailsPanel extends JPanel {
         
     }
     
+    /**
+     * Vrati okno ze inventory je plny
+     */
     private void showInventoryFull() {
         JOptionPane.showMessageDialog(null, "Your inventory is full", "No space", JOptionPane.ERROR_MESSAGE);
     }

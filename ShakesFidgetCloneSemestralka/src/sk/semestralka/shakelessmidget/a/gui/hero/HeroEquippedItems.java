@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.a.gui.hero;
 
 
@@ -23,13 +19,10 @@ public class HeroEquippedItems extends HeroInventoryItems {
     public HeroEquippedItems(Player player) {
         super(player);
         this.getPlayerItems();
-        super.changeSize(10, 10);
         this.setVisibleRowCount(3);
         
         
     }
-    
-    
     
     /**
      * Ziska equipnute predmety od hraca

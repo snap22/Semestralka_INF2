@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.a.gui.firstAndShop;
 
 import sk.semestralka.shakelessmidget.a.gui.main.MainPanel;
@@ -13,6 +9,7 @@ import javax.swing.ImageIcon;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
+import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
 
 
 /**
@@ -23,10 +20,15 @@ public class WelcomePanel extends MainPanel {
 
     private JScrollPane panel;
 
+    /**
+     * Vytvori potrebne komponenty
+     */
     public WelcomePanel() {
         super(PanelType.WELCOME);
         this.setLayout(new BorderLayout());
-        JLabel label = new JLabel();
+        JLabel label = new JLabel("Welcome to the game");
+        label.setForeground(Color.white);
+        label.setFont(BasicGui.getFont(50));
         this.setBackground(Color.black);
         this.add(label, BorderLayout.NORTH);
         

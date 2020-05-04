@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.a.gui.hero;
 
-import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -60,6 +55,10 @@ public class HeroInventoryItems extends JList {
         });
     }
     
+    /**
+     * Nastavi posluchaca
+     * @param listener 
+     */
     public void setListener(IShowItemListener listener) {
         if (listener == null) {
             return;
@@ -72,10 +71,7 @@ public class HeroInventoryItems extends JList {
      * Metoda sluzi na pridanie predmetov do zoznamu
      */
     public void update() {
-        /*if (this.items.isEmpty()) {
-            return;
-        }*/
-        
+
         this.clear();
         
         this.getPlayerItems();
@@ -107,6 +103,10 @@ public class HeroInventoryItems extends JList {
         this.items.clear();
     }
     
+    /**
+     * Prida predmet
+     * @param item 
+     */
     protected void addItem(Item item) {
         if (item == null) {
             return;
@@ -116,14 +116,14 @@ public class HeroInventoryItems extends JList {
         
     }
     
+    /**
+     * Vrati hraca
+     * @return 
+     */
     public Player getPlayer() {
         return this.player;
     }
     
-    protected void changeSize(int x, int y) {
-        this.setMaximumSize(new Dimension(x, y));
-        
-    }
     
     
 }
