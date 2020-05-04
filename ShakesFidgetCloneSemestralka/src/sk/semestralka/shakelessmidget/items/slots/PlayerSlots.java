@@ -54,22 +54,30 @@ public class PlayerSlots {
      */
     public void equip(Item item) throws InventoryFullException, LowLevelException, NotEquippableException {
 
-        Slot slot = this.getSlot(item);
-        if (slot != null) {
+        Slot slot;
+        try {
+            slot = this.getSlot(item);
             this.equipItem(slot, (Equipment)item);
+        } catch (WrongItemTypeException ex) {
+            throw new NotEquippableException();
+        }
+        
+        
+    }
+    
+    public void unequip(Item item) throws InventoryFullException, NotEquippableException {
+
+        Slot slot;
+        try {
+            slot = this.getSlot(item);
+            this.unequipSlot(slot);
+        } catch (WrongItemTypeException ex) {
+            throw new NotEquippableException();
         }
         
     }
     
-    public void unequip(Item item) throws InventoryFullException {
-
-        Slot slot = this.getSlot(item);
-        if (slot != null) {
-            this.unequipSlot(slot);
-        }
-    }
-    
-    private Slot getSlot(Item item) {
+    private Slot getSlot(Item item) throws WrongItemTypeException {
         if (item instanceof Helmet) {
             return this.headSlot;
             
@@ -80,7 +88,7 @@ public class PlayerSlots {
             return this.weaponSlot;
             
         } else {
-            return null;
+            throw new WrongItemTypeException();
         }
     }
     

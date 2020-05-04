@@ -183,7 +183,11 @@ public class ItemDetailsPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    ItemDetailsPanel.this.unequipItem();
+                    try {
+                        ItemDetailsPanel.this.unequipItem();
+                    } catch (NotEquippableException ex) {
+                        JOptionPane.showMessageDialog(null, "You cannot unequip this item", "Wrong item", JOptionPane.ERROR_MESSAGE);
+                    }
                 } catch (InventoryFullException ex) {
                     ItemDetailsPanel.this.showInventoryFull();
                 }
@@ -244,7 +248,7 @@ public class ItemDetailsPanel extends JPanel {
      * Da predmet dole zo seba
      * @throws InventoryFullException 
      */
-    private void unequipItem() throws InventoryFullException {
+    private void unequipItem() throws InventoryFullException, NotEquippableException {
         this.player.getSlots().unequip(this.currentItem);
         this.clearInfo();
         this.callListener();
