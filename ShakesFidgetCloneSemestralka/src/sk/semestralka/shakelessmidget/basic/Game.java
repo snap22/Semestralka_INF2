@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.basic;
 
 import sk.semestralka.shakelessmidget.generators.Generator;
@@ -116,7 +112,7 @@ public class Game {
     }
     
     /**
-     * Metoda ktora da hracovi peniaze a zopar nahodnych predmetov z kazdeho druhu
+     * Metoda ktora da hracovi peniaze a 4 nahodne predmety z kazdeho druhu
      * @throws InventoryFullException 
      */
     public void giveALittleBoost() throws InventoryFullException {
@@ -132,9 +128,6 @@ public class Game {
         this.player.getInventory().addItem(zbran);
         this.player.getInventory().addItem(armor);
         this.player.getInventory().addItem(goodies);
-        
-        
-
     }
     
    

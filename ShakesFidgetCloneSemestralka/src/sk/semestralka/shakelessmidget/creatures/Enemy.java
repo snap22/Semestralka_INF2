@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.creatures;
 
 import sk.semestralka.shakelessmidget.basic.Chance;
@@ -51,11 +47,6 @@ public class Enemy extends Creature {
         return this.xpReward;
     }
 
-    /*
-    public Item getItemReward() {
-        return this.itemReward;
-    }*/
-    
     /**
      * Vypise nepriatela vo forme stringu
      * @return 
