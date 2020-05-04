@@ -27,15 +27,10 @@ public class WelcomePanel extends MainPanel {
         super(PanelType.WELCOME);
         this.setLayout(new BorderLayout());
         JLabel label = new JLabel();
-        label.setForeground(Color.white);
         this.setBackground(Color.black);
         this.add(label, BorderLayout.NORTH);
         
-
-        //ImageIcon icon = new ImageIcon("files/logoSM.png");
-        //ImageIcon icon = new ImageIcon(new ImageIcon("files/logoSmall.png").getImage().getScaledInstance(600, 600, Image.SCALE_DEFAULT));
         ImageIcon icon = new ImageIcon("files/logoSmall.png");
-        
         JLabel imgLabel = new JLabel(icon);
         this.add(imgLabel, BorderLayout.CENTER);
     }

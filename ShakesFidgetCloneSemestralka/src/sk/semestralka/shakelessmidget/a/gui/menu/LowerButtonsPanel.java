@@ -52,7 +52,7 @@ public class LowerButtonsPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    LowerButtonsPanel.this.game.test();
+                    LowerButtonsPanel.this.game.giveALittleBoost();
                 } catch (InventoryFullException ex) {
                     //
                 }

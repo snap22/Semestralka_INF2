@@ -36,7 +36,6 @@ public class Game {
     public Game() {
         this.player = new Player();
         this.generator = new Generator(this.player);
-        //this.test();
         this.load();
         MainFrame mf = new MainFrame(this);
         
@@ -87,20 +86,13 @@ public class Game {
         
     
     }
-    
+ 
     /**
-     * Vymaze subor so savemi
+     * Vytvori novu hru
      */
-    public void deleteFile() {
-        String path = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\saves\\currentSave.slm";
-        File file = new File(path);
-        file.delete();
-    }
-    
     public void newGame() {
         this.player = new Player();
-        
-        this.deleteFile();
+
         this.save();
         this.load();
         
@@ -123,21 +115,22 @@ public class Game {
         return this.generator;
     }
     
-    
-    public void test() throws InventoryFullException {
+    /**
+     * Metoda ktora da hracovi peniaze a zopar nahodnych predmetov z kazdeho druhu
+     * @throws InventoryFullException 
+     */
+    public void giveALittleBoost() throws InventoryFullException {
         this.player.addGold(500);
-        Weapon zbran = new Weapon();
-        Helmet helma = new Helmet();
-        Armor armor = new Armor();
-        Goods goodies = new Goods();
+        ItemGenerator gen = new ItemGenerator();
         
-        Armor armor2 = new ItemGenerator().generateArmor(1);
+        Weapon zbran = gen.generateWeapon();
+        Helmet helma = gen.generateHelmet();
+        Armor armor = gen.generateArmor();
+        Goods goodies = gen.generateGoods();
         
         this.player.getInventory().addItem(helma);
         this.player.getInventory().addItem(zbran);
         this.player.getInventory().addItem(armor);
-
-        
         this.player.getInventory().addItem(goodies);
         
         
