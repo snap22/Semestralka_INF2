@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.items.slots;
 
 import java.io.DataInputStream;
@@ -46,6 +42,7 @@ public class Inventory {
     /**
      * Prida item do prveho volneho miesta v inventory
      * @param item predmet
+     * @throws InventoryFullException
      */
     public void addItem(Item item) throws InventoryFullException {
         if (this.slots.size() >= this.size) {

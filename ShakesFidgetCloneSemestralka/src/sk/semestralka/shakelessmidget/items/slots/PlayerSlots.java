@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.items.slots;
 
 
@@ -57,33 +53,34 @@ public class PlayerSlots {
      * @throws NotEquippableException
      */
     public void equip(Item item) throws InventoryFullException, LowLevelException, NotEquippableException {
-        if (item instanceof Helmet) {
-            this.equip((Helmet)item);
-            
-        } else if (item instanceof Armor) {
-            this.equip((Armor)item);
-            
-        } else if (item instanceof Weapon) {
-            this.equip((Weapon)item);
-            
-        } else {
-            throw new NotEquippableException();
+
+        Slot slot = this.getSlot(item);
+        if (slot != null) {
+            this.equipItem(slot, (Equipment)item);
         }
         
     }
     
     public void unequip(Item item) throws InventoryFullException {
+
+        Slot slot = this.getSlot(item);
+        if (slot != null) {
+            this.unequipSlot(slot);
+        }
+    }
+    
+    private Slot getSlot(Item item) {
         if (item instanceof Helmet) {
-            this.unequipHelmet();
+            return this.headSlot;
             
         } else if (item instanceof Armor) {
-            this.unequipArmor();
+            return this.armorSlot;
             
         } else if (item instanceof Weapon) {
-            this.unequipWeapon();
+            return this.weaponSlot;
             
         } else {
-            System.out.println("How did this happen?");
+            return null;
         }
     }
     
@@ -91,6 +88,7 @@ public class PlayerSlots {
      * Dá na seba helmu
      * @param item 
      * @throws InventoryFullException
+     * @throws LowLevelException
      */
     public void equip(Helmet item) throws InventoryFullException, LowLevelException {
         this.equipItem(this.headSlot, item);
@@ -100,6 +98,7 @@ public class PlayerSlots {
      * Dá na seba armor
      * @param item 
      * @throws InventoryFullException
+     * @throws LowLevelException
      */
     public void equip(Armor item) throws InventoryFullException, LowLevelException {
         this.equipItem(this.armorSlot, item);
@@ -109,91 +108,56 @@ public class PlayerSlots {
      * Dá na seba zbraň
      * @param item 
      * @throws InventoryFullException 
+     * @throws LowLevelException
      */
     public void equip(Weapon item) throws InventoryFullException, LowLevelException {
         this.equipItem(this.weaponSlot, item);
     }
     
-
-    /**
-     * Dá dole zo seba zbraň
-     * @throws InventoryFullException
-     */
-    public void unequipWeapon() throws InventoryFullException {
-        this.unequipAtPosition(0);
-    }
-    
-    /**
-     * Dá dole zo seba armor
-     * @throws InventoryFullException
-     */
-    public void unequipArmor() throws InventoryFullException {
-        this.unequipAtPosition(1);
-    }
-    
-    /**
-     * Dá dole zo seba helmu
-     * @throws InventoryFullException
-     */
-    public void unequipHelmet() throws InventoryFullException {
-        this.unequipAtPosition(2);
-    }
-    
-    /**
-     * Dá dole zo seba vsetky veci
-     * @throws InventoryFullException
-     */
-    public void unequipAll() throws InventoryFullException {
-        this.unequipWeapon();
-        this.unequipArmor();
-        this.unequipHelmet();
-    }
-    
-   
-    
     //      ******    Getters   *******
     
+    /**
+     * Vrati slot na zbran
+     * @return 
+     */
     public Slot<Weapon> getWeaponSlot() {
         return this.weaponSlot;
     }
 
+    /**
+     * Vrati slot na armor
+     * @return 
+     */
     public Slot<Armor> getArmorSlot() {
         return this.armorSlot;
     }
 
+    /**
+     * Vrati slot na prilbu
+     * @return 
+     */
     public Slot<Helmet> getHeadSlot() {
         return this.headSlot;
     }
     
     
      /**
-     * Podla danej pozicie vymaze item zo slotu, hodi ho do inventory a z hraca da dole staty
+     * Vymaze item z daneho slotu a da ho do inventory hraca
      * @param index
      * @return 
      */
-    private void unequipAtPosition(int index) throws InventoryFullException {
+    private void unequipSlot(Slot slot) throws InventoryFullException {
         Equipment item = null;
         if (this.inventory.isFull()) {
             throw new InventoryFullException();     //aby najprv vyhodilo vynimku a nevymazalo ziadny predmet
         }
-        switch (index) {
-            case 0:
-                item = this.weaponSlot.remove();
-                break;
-            case 1:
-                item = this.armorSlot.remove();
-                break;
-            case 2:
-                item = this.headSlot.remove();
-                break;
-            default:
-                return;
-        }
+        
+        item = (Equipment)slot.remove();
+        
         this.inventory.addItem(item);
         
         this.player.decreaseStats(item);
         this.currentItemsEquipped.remove(item);
-        
     }
 
     /**
