@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.creatures;
 
 import java.io.DataInputStream;
@@ -10,7 +6,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import sk.semestralka.shakelessmidget.items.slots.PlayerSlots;
 import sk.semestralka.shakelessmidget.items.slots.Inventory;
-import sk.semestralka.shakelessmidget.creatures.Creature;
 import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 import sk.semestralka.shakelessmidget.exceptions.NoMoneyException;
 import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
@@ -60,12 +55,12 @@ public class Player extends Creature {
         this.level = 1;
         this.gold = 0;
         
-        //bonusove veci, moznost zvysit cez itemy, alebo niektore charakteristiky
-        this.bonusHealth = 0;   //increased by item
-        this.bonusDamage = 0;   //increased by weapon or characteristic
-        this.armor = 0;         //increased by item
         
-        //item manazment
+        this.bonusHealth = 0;   
+        this.bonusDamage = 0;   
+        this.armor = 0;         
+        
+        
         this.inventory = new Inventory(6);
         this.slots = new PlayerSlots(this); 
         

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.player.moods;
 
 import sk.semestralka.shakelessmidget.basic.Chance;
@@ -41,6 +37,9 @@ public class Blindfolded extends Mood {
         return -this.playerDamage;
     }
 
+    /**
+     * Sancu znizuje
+     */
     @Override
     public void upgrade() {
         if (this.chanceToMiss <= 10) {
@@ -51,9 +50,13 @@ public class Blindfolded extends Mood {
     }
 
 
+    /**
+     * Vrati popis nalady
+     * @return 
+     */
     @Override
     public String getDescription() {
-        return String.format("You have %d chance that you will miss", this.chanceToMiss);
+        return String.format("You have %d %% chance that you will miss", this.chanceToMiss);
     }
     
 }

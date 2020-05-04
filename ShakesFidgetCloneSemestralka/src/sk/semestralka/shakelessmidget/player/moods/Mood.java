@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.player.moods;
 
 
@@ -11,10 +7,9 @@ import java.io.IOException;
 import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
- *
+ * Nalada
  * @author marce
  */
-// extends EquippableItem
 public abstract class Mood {
     private int chance;
     private int bonusDamage;
@@ -26,7 +21,7 @@ public abstract class Mood {
 
     /**
      * 
-     * @param name nazov charakteristiky
+     * @param name nazov nalady
      * @param chance sanca ze vykona danu vec
      * @param limit maximalne dosiahnutie sance
      * @param bonusDamage  ak zvysuje damage, tak o kolko
@@ -41,7 +36,7 @@ public abstract class Mood {
     
     /**
      * Pretazenie konstruktora, automaticky nastavi bonus damage na 0.
-     * Teda dana charakteristika nezvysuje damage hracovi
+     * Teda dana nalada nezvysuje damage hracovi
      * @param name nazov charakteristiky
      * @param chance sanca ze vykona danu vec
      * @param limit ak zvysuje damage, tak o kolko
@@ -64,7 +59,7 @@ public abstract class Mood {
     }
 
     /**
-     * Metoda ktora vylepsuje sancu na vyokanie specialnej vlastnosti
+     * Metoda ktora vylepsuje sancu na vykonanie specialnej vlastnosti
      */
     public void upgrade() {
         if (this.shouldIncrease) {
@@ -114,6 +109,10 @@ public abstract class Mood {
     
     public abstract String getDescription();
     
+    /**
+     * Vrati sancu vykonania specialnej vlastnosti
+     * @return 
+     */
     protected int getChance() {
         return this.chance;
     }

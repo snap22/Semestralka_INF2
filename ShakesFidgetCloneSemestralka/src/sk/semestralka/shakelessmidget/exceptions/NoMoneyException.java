@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.exceptions;
 
 /**
- *
+ * Vynimka ktora sa vyhodi ak si hrac chce kupit nieco ale nema dostatocny pocet penazi
  * @author marce
  */
 public class NoMoneyException extends Exception {

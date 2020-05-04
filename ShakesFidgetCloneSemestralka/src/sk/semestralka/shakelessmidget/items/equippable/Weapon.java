@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.items.equippable;
 
 import java.io.DataOutputStream;
@@ -29,8 +25,7 @@ public class Weapon extends Equipment {
      * Vytvori velmi konkretnu instanciu
      * @param name nazov
      * @param rarity vzacnost
-     * @param bonusHealth zivot
-     * @param armor armor
+     * @param bonusDamage sila utoku
      * @param levelRequired potrebny level
      * @param goldValue penazna hodnota
      */

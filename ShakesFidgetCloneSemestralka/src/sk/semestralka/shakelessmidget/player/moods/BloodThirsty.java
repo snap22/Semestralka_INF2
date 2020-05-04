@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.player.moods;
 
 import sk.semestralka.shakelessmidget.basic.Chance;
@@ -10,7 +6,6 @@ import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
  * Podtyp pre naladu
- * @author marce
  */
 public class BloodThirsty extends Mood {
 
@@ -45,9 +40,13 @@ public class BloodThirsty extends Mood {
         return String.format("Sanca ze sa healne: %d%n", this.chanceToHeal);
     }
 
+    /**
+     * Vrati popis nalady
+     * @return 
+     */
     @Override
     public String getDescription() {
-        return String.format("You have %d chance that you will heal yourself during an attack", this.chanceToHeal);
+        return String.format("You have %d %% chance that you will heal yourself during an attack", this.chanceToHeal);
     }
     
 }

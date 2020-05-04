@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.player.moods;
 
 
@@ -21,14 +17,22 @@ public class Newbie extends Mood {
         super("Newbie", 1, 100);
     }
     
+    /**
+     * Nevykona nic
+     * @param player 
+     */
     @Override
     public void doSpecialStuff(Player player) {
         
     }
 
+    /**
+     * Vrati popis nalady
+     * @return 
+     */
     @Override
     public String getDescription() {
-        return String.format("You have %d chance for.. Never mind, nothing is going to happen.", super.getChance());
+        return String.format("You have %d %% chance for.. Never mind, nothing is going to happen.", super.getChance());
     }
 
     

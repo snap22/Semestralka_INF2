@@ -1,17 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.player.moods;
 
 import sk.semestralka.shakelessmidget.basic.Chance;
 import sk.semestralka.shakelessmidget.creatures.Player;
 
-
+/**
+ * Podtyp pre naladu
+ */
 public class Suicidal extends Mood {
     private int chanceToDie;
     
+    /**
+     * Vytvori naladu
+     */
     public Suicidal() {
         super("Suicidal", 30, 5);
         this.chanceToDie = 30;
@@ -19,7 +20,7 @@ public class Suicidal extends Mood {
 
     /**
      * Je urcita sanca ze hrac pocas toho ako utoci sa zabije
-     * @param player 
+     * @param player hrac
      */
     @Override
     public void doSpecialStuff(Player player) {
@@ -28,7 +29,10 @@ public class Suicidal extends Mood {
         }
         
     }
-
+     /**
+     * Vrati popis nalady
+     * @return 
+     */
     @Override
     public String getDescription() {
         return String.format("You have %d chance that you will die during an attack.", this.chanceToDie);
