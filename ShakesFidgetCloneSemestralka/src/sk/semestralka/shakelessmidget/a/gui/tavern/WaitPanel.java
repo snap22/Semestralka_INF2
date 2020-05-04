@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import sk.semestralka.shakelessmidget.exceptions.NoMoneyException;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
  * Trieda WaitPanel sluzi ako panel ktory ukazuje hracovi kolko ma cakat

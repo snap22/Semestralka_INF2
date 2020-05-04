@@ -13,7 +13,7 @@ import java.io.IOException;
 import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 import sk.semestralka.shakelessmidget.exceptions.WrongTypeException;
 import sk.semestralka.shakelessmidget.generators.ItemGenerator;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 import sk.semestralka.shakelessmidget.items.equippable.Armor;
 import sk.semestralka.shakelessmidget.items.equippable.Helmet;
 import sk.semestralka.shakelessmidget.items.equippable.Weapon;

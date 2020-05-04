@@ -8,7 +8,7 @@ package sk.semestralka.shakelessmidget.player.moods;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
  *

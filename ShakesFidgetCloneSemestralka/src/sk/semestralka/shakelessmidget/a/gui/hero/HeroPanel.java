@@ -8,7 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
 import sk.semestralka.shakelessmidget.items.items.Item;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 import sk.semestralka.shakelessmidget.a.gui.listeners.IShowItemListener;
 import sk.semestralka.shakelessmidget.a.gui.listeners.IUpdatePlayerListener;
 

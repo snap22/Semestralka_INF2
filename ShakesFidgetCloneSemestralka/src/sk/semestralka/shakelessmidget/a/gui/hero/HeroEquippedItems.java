@@ -2,7 +2,7 @@
 package sk.semestralka.shakelessmidget.a.gui.hero;
 
 
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
  * Trieda HeroEquippedItems sluzi na zobrazenie equipnutych predmetov hraca, specialny pripad pre HeroInventoryItems

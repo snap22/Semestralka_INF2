@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 import sk.semestralka.shakelessmidget.exceptions.NoMoneyException;
 import sk.semestralka.shakelessmidget.items.items.Item;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 import sk.semestralka.shakelessmidget.player.moods.Mood;
 import sk.semestralka.shakelessmidget.shop.Shop;
 

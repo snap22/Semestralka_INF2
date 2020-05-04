@@ -10,7 +10,7 @@ import sk.semestralka.shakelessmidget.exceptions.NoMoneyException;
 import sk.semestralka.shakelessmidget.generators.ItemGenerator;
 import sk.semestralka.shakelessmidget.generators.MoodGenerator;
 import sk.semestralka.shakelessmidget.items.items.Item;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 import sk.semestralka.shakelessmidget.player.moods.Mood;
 
 /**

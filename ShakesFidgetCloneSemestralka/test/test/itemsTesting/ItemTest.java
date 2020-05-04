@@ -24,7 +24,7 @@ import sk.semestralka.shakelessmidget.exceptions.LowLevelException;
 import sk.semestralka.shakelessmidget.exceptions.NotEquippableException;
 import sk.semestralka.shakelessmidget.generators.ItemGenerator;
 import sk.semestralka.shakelessmidget.items.items.Item;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
  *

@@ -13,7 +13,7 @@ import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import sk.semestralka.shakelessmidget.items.slots.Inventory;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
  * Trieda HeroStatsPanel sluzi pre zobrazovanie zakladnych informacii o hracovi

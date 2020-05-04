@@ -20,7 +20,7 @@ import sk.semestralka.shakelessmidget.items.equippable.Armor;
 import sk.semestralka.shakelessmidget.items.items.Equipment;
 import sk.semestralka.shakelessmidget.items.equippable.Helmet;
 import sk.semestralka.shakelessmidget.items.equippable.Weapon;
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
  * Trieda zodpoveda za to aby si hrac mohol dať na seba (equipnut) a zo seba rozne predmety a zabezpecuje aby sa vratili do inventory

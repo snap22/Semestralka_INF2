@@ -10,7 +10,7 @@ import sk.semestralka.shakelessmidget.creatures.Enemy;
 import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 import sk.semestralka.shakelessmidget.items.items.Item;
 
-import sk.semestralka.shakelessmidget.player.basic.Player;
+import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
  * Trieda Objective sluzi ako uloha pre hraca ktoru musi splnit
