@@ -6,7 +6,7 @@
 package sk.semestralka.shakelessmidget.a.gui.listeners;
 
 /**
- *
+ * Posluchac na aktualizaciu hraca
  * @author marce
  */
 public interface IUpdatePlayerListener {

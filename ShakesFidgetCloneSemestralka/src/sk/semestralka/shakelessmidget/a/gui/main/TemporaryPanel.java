@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sk.semestralka.shakelessmidget.a.gui.main;
 
 import sk.semestralka.shakelessmidget.generators.Generator;
@@ -58,8 +54,6 @@ public class TemporaryPanel extends JPanel {
         this.createPanel(this.heroPanel);
         this.createPanel(new ShopPanel(this.player, 200, 50));
         
-        
-        //this.createPanel(new WaitPanel(this.gen.generateObjective()));
         
         this.setupPanels();
         
