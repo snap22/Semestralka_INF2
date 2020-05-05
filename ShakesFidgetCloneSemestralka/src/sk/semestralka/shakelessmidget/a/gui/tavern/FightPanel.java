@@ -37,8 +37,8 @@ public class FightPanel extends MainPanel {
      */
     public FightPanel(Player player, Objective obj, TavernPanel tav) {
         super(PanelType.FIGHT);
-        this.setBackground(Color.black);
-        this.setLayout(new BorderLayout());
+        super.getPanel().setBackground(Color.black);
+        super.getPanel().setLayout(new BorderLayout());
         this.player = player;
         this.obj = obj;
         this.tavern = tav;
@@ -48,7 +48,7 @@ public class FightPanel extends MainPanel {
         change.setBackground(Color.black);
         change.setForeground(Color.white);
         
-        this.add(change, BorderLayout.SOUTH);
+        super.getPanel().add(change, BorderLayout.SOUTH);
         change.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,7 +58,7 @@ public class FightPanel extends MainPanel {
         this.text = new JTextArea();
         JScrollPane scroll = new JScrollPane(this.text);
 
-        this.add(scroll, BorderLayout.CENTER);
+        super.getPanel().add(scroll, BorderLayout.CENTER);
 
         this.text.setFont(BasicGui.getFont(15));
         this.text.setEditable(false);

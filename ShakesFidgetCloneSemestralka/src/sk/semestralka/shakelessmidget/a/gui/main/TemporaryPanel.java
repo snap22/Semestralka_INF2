@@ -105,7 +105,7 @@ public class TemporaryPanel {
      */
     private void setupPanels() {
         for (MainPanel mainPanel : this.panels.values()) {
-            this.panelToChange.add(mainPanel, mainPanel.getTypeString());
+            this.panelToChange.add(mainPanel.getPanel(), mainPanel.getTypeString());
             
         }
     }

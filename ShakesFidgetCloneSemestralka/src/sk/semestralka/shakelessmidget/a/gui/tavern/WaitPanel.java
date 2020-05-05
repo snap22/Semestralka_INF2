@@ -45,7 +45,7 @@ public final class WaitPanel extends MainPanel {
         int price = 100;
         this.skipButton = new JButton("Skip");
         this.skipButton.setToolTipText(String.format("Price for skipping: %d", price));
-        this.setBackground(Color.black);
+        super.getPanel().setBackground(Color.black);
         this.timePassed = 0;
         this.tav = tav;
         this.obj = obj;
@@ -59,18 +59,18 @@ public final class WaitPanel extends MainPanel {
         this.time.setFont(BasicGui.getFont(30));
         this.time.setForeground(Color.WHITE);
         
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.add(this.label);
-        this.add(this.time);
-        this.add(Box.createRigidArea(new Dimension(0, 300)));
+        super.getPanel().setLayout(new BoxLayout(super.getPanel(), BoxLayout.Y_AXIS));
+        super.getPanel().add(this.label);
+        super.getPanel().add(this.time);
+        super.getPanel().add(Box.createRigidArea(new Dimension(0, 300)));
         
         
         this.bar = new JProgressBar(0, 100);
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        super.getPanel().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         
         
-        this.add(this.bar);
-        this.add(this.skipButton);
+        super.getPanel().add(this.bar);
+        super.getPanel().add(this.skipButton);
         this.skipButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

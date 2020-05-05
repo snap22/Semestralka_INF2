@@ -48,8 +48,8 @@ public class ShopPanel extends MainPanel {
         this.priceForItem = priceForItem;
         
         
-        this.setBackground(Color.black);
-        this.add(label, BorderLayout.NORTH);
+        super.getPanel().setBackground(Color.black);
+        super.getPanel().add(label, BorderLayout.NORTH);
         
         this.moodBtn = this.createButton("Buy a mood", String.format("Price for a mood: %d", this.priceForMood));
         this.buyBtn = this.createButton("Buy an item", String.format("Price for an item: %d", this.priceForItem));
@@ -94,7 +94,7 @@ public class ShopPanel extends MainPanel {
         button.setBackground(Color.white);
         button.setForeground(Color.black);
         button.setToolTipText(tooltip);
-        this.add(button);
+        super.getPanel().add(button);
         return button;
     }
     

@@ -25,16 +25,16 @@ public class WelcomePanel extends MainPanel {
      */
     public WelcomePanel() {
         super(PanelType.WELCOME);
-        this.setLayout(new BorderLayout());
+        super.getPanel().setLayout(new BorderLayout());
         JLabel label = new JLabel("Welcome to the game");
         label.setForeground(Color.white);
         label.setFont(BasicGui.getFont(50));
-        this.setBackground(Color.black);
-        this.add(label, BorderLayout.NORTH);
+        super.getPanel().setBackground(Color.black);
+        super.getPanel().add(label, BorderLayout.NORTH);
         
         ImageIcon icon = new ImageIcon("files/logoSmall.png");
         JLabel imgLabel = new JLabel(icon);
-        this.add(imgLabel, BorderLayout.CENTER);
+        super.getPanel().add(imgLabel, BorderLayout.CENTER);
     }
 
 }

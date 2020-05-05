@@ -34,7 +34,7 @@ public class TavernPanel extends MainPanel {
      */
     public TavernPanel(Game game) {
         super(PanelType.TAVERN);
-        this.setLayout(new BorderLayout());
+        super.getPanel().setLayout(new BorderLayout());
         
         this.game = game;
         this.missionsPanel = new MissonHolder(this, game);
@@ -46,13 +46,13 @@ public class TavernPanel extends MainPanel {
         this.temporaryPanel.setLayout(this.card);
         this.headPanel = new HeadPanel("Choose your adventure");
         
-        this.add(this.headPanel, BorderLayout.NORTH);
-        this.add(this.temporaryPanel, BorderLayout.CENTER);
+        super.getPanel().add(this.headPanel, BorderLayout.NORTH);
+        super.getPanel().add(this.temporaryPanel, BorderLayout.CENTER);
         
-        this.setBackground(Color.black);
+        super.getPanel().setBackground(Color.black);
         this.temporaryPanel.add(this.missionsPanel, "0");
-        this.temporaryPanel.add(this.waitPanel, "1");
-        this.temporaryPanel.add(this.fightPanel, "2");
+        this.temporaryPanel.add(this.waitPanel.getPanel(), "1");
+        this.temporaryPanel.add(this.fightPanel.getPanel(), "2");
         
     }
     

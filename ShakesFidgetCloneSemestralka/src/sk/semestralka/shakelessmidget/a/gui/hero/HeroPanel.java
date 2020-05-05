@@ -24,20 +24,20 @@ public class HeroPanel extends MainPanel {
     public HeroPanel(Player player) {
         super(PanelType.HERO);
         this.player = player;
-        this.setLayout(new BorderLayout());
+        super.getPanel().setLayout(new BorderLayout());
         JLabel label = new JLabel("HERO");
         
         label.setFont(BasicGui.getFont(60));
         label.setForeground(Color.white);
         
-        this.setBackground(Color.black);
-        this.add(label, BorderLayout.NORTH);
+        super.getPanel().setBackground(Color.black);
+        super.getPanel().add(label, BorderLayout.NORTH);
         
         this.heroStatsPanel = new HeroStatsPanel(this.player);
-        this.add(this.heroStatsPanel, BorderLayout.WEST);
+        super.getPanel().add(this.heroStatsPanel, BorderLayout.WEST);
         
         this.itemDetailsPanel = new ItemDetailsPanel(this.player);
-        this.add(this.itemDetailsPanel, BorderLayout.CENTER);
+        super.getPanel().add(this.itemDetailsPanel, BorderLayout.CENTER);
         
         
         // listenery 

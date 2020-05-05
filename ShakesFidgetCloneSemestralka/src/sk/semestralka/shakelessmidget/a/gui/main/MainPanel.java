@@ -2,13 +2,14 @@
 package sk.semestralka.shakelessmidget.a.gui.main;
 
 
+import java.awt.Component;
 import javax.swing.JPanel;
 
 /**
  *  Trieda MainPanel sluzi len ako nadtyp pre hlavne panely ktore sa budu v hre menit podla interakcie hraca
  */
-public abstract class MainPanel extends JPanel {
-    
+public abstract class MainPanel {
+    private JPanel panel;
     private PanelType type;
     
     /**
@@ -16,6 +17,7 @@ public abstract class MainPanel extends JPanel {
      * @param type 
      */
     public MainPanel(PanelType type) {
+        this.panel = new JPanel();
         this.type = type;
     }
 
@@ -34,6 +36,24 @@ public abstract class MainPanel extends JPanel {
     public String getTypeString() {
         return this.type.toString();
     }
+    
+    /**
+     * Prida do panela veci
+     * @param component 
+     */
+    protected void addToPanel(Component component) {
+        this.panel.add(component);
+    }
+
+    /**
+     * Vrati panel
+     * @return panel
+     */
+    public JPanel getPanel() {
+        return this.panel;
+    }
+    
+    
 
     
     
