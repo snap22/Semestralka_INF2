@@ -20,18 +20,20 @@ import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
  * Trieda sluzi na ulozenie buttonov na spodku menu
  * @author marce
  */
-public class LowerButtonsPanel extends JPanel {
+public class LowerButtonsPanel {
 
     private final Game game;
     private final JButton newGameButton;
     private final JButton testButton;
 
+    private JPanel panel;
     /**
      * Vytvori potrebne komponenty a nastavi pociatocne hodnoty
      * @param game 
      */
     public LowerButtonsPanel(Game game) {
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.panel = new JPanel();
+        this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
         this.game = game;
         this.newGameButton = new JButton("New game");
         this.newGameButton.addActionListener(new ActionListener() {
@@ -43,9 +45,9 @@ public class LowerButtonsPanel extends JPanel {
         this.newGameButton.setFocusable(false);
         this.setupButton(this.newGameButton);
         
-        this.setBackground(new Color(26, 26, 53));
+        this.panel.setBackground(new Color(26, 26, 53));
         
-        this.setPreferredSize(new Dimension(50, 200));
+        this.panel.setPreferredSize(new Dimension(50, 200));
         
         this.testButton = new JButton("");
         this.testButton.addActionListener(new ActionListener() {
@@ -65,9 +67,9 @@ public class LowerButtonsPanel extends JPanel {
         this.testButton.setBackground(new Color(26, 26, 53));
         this.testButton.setFocusable(false);
         
-        this.add(this.testButton);
-        this.add(Box.createRigidArea(new Dimension(0, 5)));
-        this.add(this.newGameButton);
+        this.panel.add(this.testButton);
+        this.panel.add(Box.createRigidArea(new Dimension(0, 5)));
+        this.panel.add(this.newGameButton);
         
         
         
@@ -97,5 +99,13 @@ public class LowerButtonsPanel extends JPanel {
         if (f == 0) {   //ak stlacene YES
             this.game.newGame();
         } 
+    }
+    
+    /**
+     * Vrati panel
+     * @return panel
+     */
+    public JPanel getPanel() {
+        return this.panel;
     }
 }

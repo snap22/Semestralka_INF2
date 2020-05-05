@@ -40,8 +40,8 @@ public class MainFrame {
 
         this.temp = new TemporaryPanel(this.game);
         
-        content.add(this.menuPanel, BorderLayout.WEST);
-        content.add(this.temp, BorderLayout.CENTER);
+        content.add(this.menuPanel.getPanel(), BorderLayout.WEST);
+        content.add(this.temp.getPanel(), BorderLayout.CENTER);
 
         this.frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);       //ak uzivatel stlaci na X vypne sa program
         this.frame.addWindowListener(new WindowAdapter() {
@@ -69,7 +69,7 @@ public class MainFrame {
     
     /**
      * Getter pre hru
-     * @return 
+     * @return hra
      */
     public Game getGame() {
         return this.game;

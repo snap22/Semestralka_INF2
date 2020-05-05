@@ -17,7 +17,7 @@ import sk.semestralka.shakelessmidget.creatures.Player;
  *
  * Trieda TemporaryPanel sluzi na prepinanie panelov
  */
-public class TemporaryPanel extends JPanel {
+public class TemporaryPanel {
 
     private final CardLayout card;
     private JPanel panelToChange;
@@ -27,20 +27,21 @@ public class TemporaryPanel extends JPanel {
     private Generator gen;
     private Player player;
     private final HeroPanel heroPanel;
+    private JPanel panel;
     
     /**
      * Konstruktor pre TemporaryPanel, po vytvoreni sa zobrazi uvitaci panel
      * @param game hra
      */
     public TemporaryPanel(Game game) {
-
+        this.panel = new JPanel();
         this.gen = game.getGenerator();
         this.player = game.getPlayer();
         
-        this.setLayout(new BorderLayout());
+        this.panel.setLayout(new BorderLayout());
         this.panelToChange = new JPanel();
         
-        this.add(this.panelToChange, BorderLayout.CENTER);  //aby to zaplnilo cely panel
+        this.panel.add(this.panelToChange, BorderLayout.CENTER);  //aby to zaplnilo cely panel
  
         this.card = new CardLayout();
         this.panelToChange.setLayout(this.card);
@@ -103,8 +104,8 @@ public class TemporaryPanel extends JPanel {
      * Nastavi panely, prida ich do kontajnera a každemu da identifikator podla jeho typu
      */
     private void setupPanels() {
-        for (MainPanel panel : this.panels.values()) {
-            this.panelToChange.add(panel, panel.getTypeString());
+        for (MainPanel mainPanel : this.panels.values()) {
+            this.panelToChange.add(mainPanel, mainPanel.getTypeString());
             
         }
     }
@@ -121,5 +122,11 @@ public class TemporaryPanel extends JPanel {
         this.panels.put(newPanel.getTypeString(), newPanel);
     }
  
-    
+    /**
+     * Vrati panel
+     * @return panel
+     */
+    public JPanel getPanel() {
+        return this.panel;
+    }
 }

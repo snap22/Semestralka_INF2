@@ -17,7 +17,7 @@ import sk.semestralka.shakelessmidget.a.gui.listeners.ISwitchPanelListener;
  *
  *  Trieda MenuPanel obsahujuca hlavne buttony sluziace pre zmenu okna
  */
-public class MenuPanel extends JPanel {
+public class MenuPanel {
 
     private Dimension size;
     private HashMap<String, MenuButton> buttons;
@@ -26,25 +26,24 @@ public class MenuPanel extends JPanel {
     
     private ISwitchPanelListener listener;
     
-    
+    private JPanel panel;
     /**
      * Konstruktor, zobrazi panel
      * @param frame
      */
     public MenuPanel(MainFrame frame) {
+        this.panel = new JPanel();
         this.listener = null;
         this.frame = frame;
         this.buttons = new HashMap<String, MenuButton>();
 
-        this.size = this.getPreferredSize();
+        this.size = this.panel.getPreferredSize();
         this.size.width = 200;
         
-        this.setBackground(new Color(26, 26, 53));
-        this.setPreferredSize(this.size);
-        
-        
-        
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.panel.setBackground(new Color(26, 26, 53));
+        this.panel.setPreferredSize(this.size);
+
+        this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
         
         
         
@@ -58,7 +57,7 @@ public class MenuPanel extends JPanel {
         
         this.createGap(270);
         this.lowPanel = new LowerButtonsPanel(this.frame.getGame()); 
-        this.add(this.lowPanel);
+        this.panel.add(this.lowPanel.getPanel());
         
     }
     
@@ -80,7 +79,7 @@ public class MenuPanel extends JPanel {
         if (height <= 0) {
             return;
         }
-        this.add(Box.createRigidArea(new Dimension(0, height)));
+        this.panel.add(Box.createRigidArea(new Dimension(0, height)));
     }
     
     /**
@@ -90,15 +89,20 @@ public class MenuPanel extends JPanel {
     private void createMenuButton(String text, PanelType type) {
         MenuButton newButton = new MenuButton(text, this.size, type);
 
-        this.add(newButton);
+        this.panel.add(newButton);
         this.buttons.put(newButton.getText(), newButton);
         this.createGap(5);
         
                 
     }
-    
-    
-    
-    
+
+    /**
+     * Vrati panel
+     * @return panel
+     */
+    public JPanel getPanel() {
+        return this.panel;
+    }
+
     
 }
