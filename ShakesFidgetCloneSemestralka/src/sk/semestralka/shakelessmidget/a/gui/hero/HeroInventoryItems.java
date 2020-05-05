@@ -15,10 +15,11 @@ import sk.semestralka.shakelessmidget.a.gui.listeners.IShowItemListener;
 /**
  * Trieda HeroInventoryItems sluzi na zobrazenie itemov hraca v inventari
  */
-public class HeroInventoryItems extends JList {
+public class HeroInventoryItems {
     private final Player player;
     private final ArrayList<Item> items;
     private final DefaultListModel listModel;
+    private JList list;
     
     private IShowItemListener listener;
     /**
@@ -26,26 +27,27 @@ public class HeroInventoryItems extends JList {
      * @param player 
      */
     public HeroInventoryItems(Player player) {
+        this.list = new JList();
         this.player = player;
         this.items = new ArrayList<Item>();
         this.listModel = new DefaultListModel();
-        this.setModel(this.listModel);
+        this.list.setModel(this.listModel);
         this.update();
-        this.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        this.list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         
         this.getPlayerItems();
-        this.setVisibleRowCount(8);
+        this.list.setVisibleRowCount(8);
         
         
-        this.addListSelectionListener(new ListSelectionListener() {
+        this.list.addListSelectionListener(new ListSelectionListener() {
 
             @Override
             public void valueChanged(ListSelectionEvent event) {
                 if (!event.getValueIsAdjusting()) {
-                    if (getSelectedIndex() != -1) {     //osetruje ak by bol selectnuty predmet a prepne sa panel
+                    if (HeroInventoryItems.this.list.getSelectedIndex() != -1) {     //osetruje ak by bol selectnuty predmet a prepne sa panel
                         if (HeroInventoryItems.this.listener != null) {
-                            HeroInventoryItems.this.listener.itemSelected(HeroInventoryItems.this.items.get(getSelectedIndex()));
-                            HeroInventoryItems.this.clearSelection();
+                            HeroInventoryItems.this.listener.itemSelected(HeroInventoryItems.this.items.get(HeroInventoryItems.this.list.getSelectedIndex()));
+                            HeroInventoryItems.this.list.clearSelection();
                         }
                     }
                     
@@ -81,7 +83,7 @@ public class HeroInventoryItems extends JList {
             
         }
         
-        this.updateUI();
+        this.list.updateUI();
         
     }
     
@@ -123,6 +125,16 @@ public class HeroInventoryItems extends JList {
     public Player getPlayer() {
         return this.player;
     }
+
+    /**
+     * Vrati list
+     * @return 
+     */
+    public JList getList() {
+        return this.list;
+    }
+    
+    
     
     
     

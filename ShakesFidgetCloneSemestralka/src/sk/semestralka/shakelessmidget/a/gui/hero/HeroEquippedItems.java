@@ -19,7 +19,7 @@ public class HeroEquippedItems extends HeroInventoryItems {
     public HeroEquippedItems(Player player) {
         super(player);
         this.getPlayerItems();
-        this.setVisibleRowCount(3);
+        this.getList().setVisibleRowCount(3);
         
         
     }

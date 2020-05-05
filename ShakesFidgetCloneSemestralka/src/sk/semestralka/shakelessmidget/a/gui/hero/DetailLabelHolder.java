@@ -9,17 +9,19 @@ import javax.swing.JPanel;
 /**
  *  Trieda sa stara o spravu labelov
  */
-public class DetailLabelHolder extends JPanel {
+public class DetailLabelHolder {
 
     private final HashMap<String, DetailLabel> labels;
+    private final JPanel panel;
 
     /**
      * Konstruktor aktualizuje pociatocne hodnoty
      */
     public DetailLabelHolder() {
+        this.panel = new JPanel();
         this.labels = new HashMap<String, DetailLabel>();
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.setBackground(Color.white);
+        this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
+        this.panel.setBackground(Color.white);
     }
     
     /**
@@ -30,7 +32,7 @@ public class DetailLabelHolder extends JPanel {
     public void addLabel(String name, String description) {
         DetailLabel newLabel = new DetailLabel(name, description);
         this.labels.put(name, newLabel);
-        this.add(newLabel);
+        this.panel.add(newLabel.getLabel());
         
     }
     
@@ -84,7 +86,7 @@ public class DetailLabelHolder extends JPanel {
         if (!this.labels.containsKey(labelName)) {
             return;
         }
-        this.labels.get(labelName).setVisible(visible);
+        this.labels.get(labelName).getLabel().setVisible(visible);
     }
     
     /**
@@ -93,4 +95,10 @@ public class DetailLabelHolder extends JPanel {
     public void clear() {
         this.labels.clear();
     }
+
+    public JPanel getPanel() {
+        return this.panel;
+    }
+    
+    
 }

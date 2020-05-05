@@ -22,7 +22,7 @@ import sk.semestralka.shakelessmidget.creatures.Player;
  *
  * Trieda sluzi na zobrazenie informacii o predmete
  */
-public class ItemDetailsPanel extends JPanel {
+public class ItemDetailsPanel {
 
     private JButton equipButton;
     private JButton sellButton;
@@ -31,22 +31,24 @@ public class ItemDetailsPanel extends JPanel {
     private Item currentItem;
     private IUpdatePlayerListener listener;
     private JButton unequipButton;
+    private final JPanel panel;
     
     /**
      * Vytvori instanciu
      * @param player 
      */
     public ItemDetailsPanel(Player player) {
+        this.panel = new JPanel();
         this.currentItem = null;
         this.player = player;
         this.setupButtons();
         this.labelsManager = new DetailLabelHolder();
         
         //this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.setLayout(new BorderLayout());
+        this.panel.setLayout(new BorderLayout());
         
         
-        this.setBackground(Color.white);
+        this.panel.setBackground(Color.white);
         
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.add(this.equipButton);
@@ -54,18 +56,18 @@ public class ItemDetailsPanel extends JPanel {
         buttonsPanel.add(this.unequipButton);
         buttonsPanel.setBackground(Color.darkGray);
         
-        this.add(buttonsPanel, BorderLayout.NORTH);
+        this.panel.add(buttonsPanel, BorderLayout.NORTH);
      
         //na oddelenie
         JPanel separatorPanel = new JPanel();
         separatorPanel.setBackground(Color.white);
         separatorPanel.setPreferredSize(new Dimension(55, 100));
-        this.add(separatorPanel, BorderLayout.WEST);
+        this.panel.add(separatorPanel, BorderLayout.WEST);
         
         
         this.setupLabels();
         
-        this.add(this.labelsManager, BorderLayout.CENTER);
+        this.panel.add(this.labelsManager.getPanel(), BorderLayout.CENTER);
         
     }
     
@@ -75,6 +77,15 @@ public class ItemDetailsPanel extends JPanel {
         }
         this.listener = listener;
     }
+
+    /**
+     * Vrati panel
+     * @return  panel
+     */
+    public JPanel getPanel() {
+        return this.panel;
+    }
+    
     
     /**
      * Aktualizuje informacie ohladom vybraneho predmetu

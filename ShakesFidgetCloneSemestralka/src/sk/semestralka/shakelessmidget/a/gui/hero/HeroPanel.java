@@ -34,10 +34,10 @@ public class HeroPanel extends MainPanel {
         super.getPanel().add(label, BorderLayout.NORTH);
         
         this.heroStatsPanel = new HeroStatsPanel(this.player);
-        super.getPanel().add(this.heroStatsPanel, BorderLayout.WEST);
+        super.getPanel().add(this.heroStatsPanel.getPanel(), BorderLayout.WEST);
         
         this.itemDetailsPanel = new ItemDetailsPanel(this.player);
-        super.getPanel().add(this.itemDetailsPanel, BorderLayout.CENTER);
+        super.getPanel().add(this.itemDetailsPanel.getPanel(), BorderLayout.CENTER);
         
         
         // listenery 

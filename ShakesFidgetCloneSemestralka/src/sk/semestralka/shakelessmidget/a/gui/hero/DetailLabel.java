@@ -8,10 +8,11 @@ import javax.swing.JLabel;
 /**
  * Trieda DetailLabel sluzi na zobrazenie daneho udaju
  */
-public class DetailLabel extends JLabel {
+public class DetailLabel {
 
     private final String nameText;
     private String description;
+    private JLabel label;
 
     /**
      * Konštruktor ktory berie 2 stringy, jeden pre nazov druhy pre description
@@ -19,12 +20,12 @@ public class DetailLabel extends JLabel {
      * @param description popis, upresnujuci udaj
      */
     public DetailLabel(String name, String description) {
-        super("");      //bez toho to ani neukaze
+        this.label = new JLabel();
         this.nameText = name;
         this.description = description;
-        this.setFont(BasicGui.getFont(18));
-        this.setBackground(Color.white);
-        this.setOpaque(true);
+        this.label.setFont(BasicGui.getFont(18));
+        this.label.setBackground(Color.white);
+        this.label.setOpaque(true);
         
         this.updateText();
     }
@@ -66,6 +67,11 @@ public class DetailLabel extends JLabel {
     public String getNameText() {
         return this.nameText;
     }
+
+    public JLabel getLabel() {
+        return this.label;
+    }
+    
     
     
     /**
@@ -73,8 +79,9 @@ public class DetailLabel extends JLabel {
      */
     private void updateText() {
         String newText = String.format("%s : %s", this.nameText, this.description);
-        super.setText(newText);
+        this.label.setText(newText);
     }
+    
     
     
 }

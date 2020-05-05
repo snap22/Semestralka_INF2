@@ -18,7 +18,7 @@ import sk.semestralka.shakelessmidget.creatures.Player;
 /**
  * Trieda HeroStatsPanel sluzi pre zobrazovanie zakladnych informacii o hracovi
  */
-public class HeroStatsPanel extends JPanel {
+public class HeroStatsPanel {
     
     private HashMap<String, DetailLabel> labels;
     private final Player player;
@@ -27,18 +27,20 @@ public class HeroStatsPanel extends JPanel {
     private final HeroInventoryItems inventoryItems;
     private final JLabel inventoryItemsLabel;
     private final DetailLabelHolder labelsManager;
+    private final JPanel panel;
 
     /**
      * Konstruktor pre triedu, vytvoria sa udaje ktore udavaju zakladne informacie o hracovi
      * @param player 
      */
     public HeroStatsPanel(Player player) {
+        this.panel = new JPanel();
         this.player = player;
         this.labelsManager = new DetailLabelHolder();
         this.bar = new JProgressBar(0, this.player.getRequiredXp());
-        this.setBackground(Color.white);
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.add(this.labelsManager);
+        this.panel.setBackground(Color.white);
+        this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
+        this.panel.add(this.labelsManager.getPanel());
         
         this.labelsManager.addLabel("Mood", player.getMood().getName());
         this.labelsManager.addLabel("Health", player.getHealth());
@@ -47,9 +49,9 @@ public class HeroStatsPanel extends JPanel {
         this.labelsManager.addLabel("Level", player.getLevel());
         this.labelsManager.addLabel("Gold", player.getGold());
         
-        this.add(Box.createRigidArea(new Dimension(5, 10)));    //medzera
+        this.panel.add(Box.createRigidArea(new Dimension(5, 10)));    //medzera
         
-        this.add(this.bar);
+        this.panel.add(this.bar);
         this.bar.setStringPainted(true);
         this.bar.setForeground(Color.orange);
         this.bar.setString("XP");
@@ -57,33 +59,33 @@ public class HeroStatsPanel extends JPanel {
         
         
         
-        this.add(Box.createRigidArea(new Dimension(5, 5)));
-        this.add(new JSeparator());
+        this.panel.add(Box.createRigidArea(new Dimension(5, 5)));
+        this.panel.add(new JSeparator());
         
         //  Equipped label
         JLabel equippedItemsLabel = new JLabel("Equipped:");
         equippedItemsLabel.setFont(BasicGui.getFont());
-        this.add(equippedItemsLabel);
+        this.panel.add(equippedItemsLabel);
        
         
         //  Equipped items
         this.equippedItems = new HeroEquippedItems(this.player); 
-        JScrollPane equippedScrollPane = new JScrollPane(this.equippedItems);
-        this.add(equippedScrollPane);
+        JScrollPane equippedScrollPane = new JScrollPane(this.equippedItems.getList());
+        this.panel.add(equippedScrollPane);
         
         //  medzera
-        this.add(Box.createRigidArea(new Dimension(5, 10)));
+        this.panel.add(Box.createRigidArea(new Dimension(5, 10)));
         
         // Inventory Label
         this.inventoryItemsLabel = new JLabel("Inventory:");
         this.inventoryItemsLabel.setFont(BasicGui.getFont());
-        this.add(this.inventoryItemsLabel);
+        this.panel.add(this.inventoryItemsLabel);
         
         
         //  Inventory Items
         this.inventoryItems = new HeroInventoryItems(this.player);
-        JScrollPane inventoryScrollPane = new JScrollPane(this.inventoryItems);
-        this.add(inventoryScrollPane);
+        JScrollPane inventoryScrollPane = new JScrollPane(this.inventoryItems.getList());
+        this.panel.add(inventoryScrollPane);
 
        
     }
@@ -103,6 +105,15 @@ public class HeroStatsPanel extends JPanel {
     public HeroInventoryItems getInventoryItems() {
         return this.inventoryItems;
     }
+
+    /**
+     * Vrati panel
+     * @return  panel
+     */
+    public JPanel getPanel() {
+        return this.panel;
+    }
+    
     
     
     
@@ -133,7 +144,7 @@ public class HeroStatsPanel extends JPanel {
     private void updateLabel(String labelName, String text, String tooltip) {
         this.labelsManager.updateText(labelName, text);
         if (tooltip != null) {
-            this.labelsManager.getLabel(labelName).setToolTipText(tooltip);
+            this.labelsManager.getLabel(labelName).getLabel().setToolTipText(tooltip);
         }
         
     }
