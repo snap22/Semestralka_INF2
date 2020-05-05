@@ -13,9 +13,10 @@ import sk.semestralka.shakelessmidget.a.gui.listeners.ISwitchPanelListener;
 /**
  * Hlavne okno pre graficke rozhranie
  */
-public class MainFrame extends JFrame {
+public class MainFrame {
     
     private MenuPanel menuPanel;
+    private JFrame frame;
     
     private final TemporaryPanel temp;
     private final Game game;
@@ -26,13 +27,14 @@ public class MainFrame extends JFrame {
      * @param game hra
      */
     public MainFrame(Game game) {
+        this.frame = new JFrame();
         this.game = game;
-        this.setTitle(" Shakeless Midget - The game of the year 2020");
-        this.setSize(800, 600);
+        this.frame.setTitle(" Shakeless Midget - Game of the year 2020");
+        this.frame.setSize(800, 600);
         
         
         
-        Container content = this.getContentPane();
+        Container content = this.frame.getContentPane();
         
         this.menuPanel = new MenuPanel(this);
 
@@ -41,14 +43,14 @@ public class MainFrame extends JFrame {
         content.add(this.menuPanel, BorderLayout.WEST);
         content.add(this.temp, BorderLayout.CENTER);
 
-        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);       //ak uzivatel stlaci na X vypne sa program
-        this.addWindowListener(new WindowAdapter() {
+        this.frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);       //ak uzivatel stlaci na X vypne sa program
+        this.frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent evt) {
                 MainFrame.this.onExit();
             }
         });
         
-        this.setVisible(true);
+        this.frame.setVisible(true);
         
         
         this.menuPanel.setListener(new ISwitchPanelListener() {
