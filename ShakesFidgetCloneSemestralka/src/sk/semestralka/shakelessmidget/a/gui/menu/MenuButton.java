@@ -18,10 +18,11 @@ import sk.semestralka.shakelessmidget.a.gui.listeners.ISwitchPanelListener;
 /**
  * Trieda MenuButton sluzi ako predvoleny button do hlavneho menu
  */
-public class MenuButton extends JButton {
+public class MenuButton {
 
     private PanelType type;
     private ISwitchPanelListener listener;
+    private final JButton button;
 
     /**
      * Konstruktor ktory vytvori MenuButton so zadanymi parametrami.
@@ -30,26 +31,26 @@ public class MenuButton extends JButton {
      * @param type typ triedy MainPanel ktory sa zobrazi po kliknuti na button
      */
     public MenuButton(String text, Dimension dimension, PanelType type) {
-        super(text);
-        this.setMaximumSize(new Dimension(dimension.width, 60));    //50
+        this.button = new JButton(text);
+        this.button.setMaximumSize(new Dimension(dimension.width, 60));    //50
         Color bgColor = BasicGui.getDarkBlueColor();
         Color textColor = BasicGui.getGoldenColor();
         Font font = BasicGui.getFont(35);  //30
         
         Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
         Border innerBorder = new LineBorder(textColor, 2);
-        this.setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
+        this.button.setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
         
-        this.setFont(font);
-        this.setBackground(bgColor);
-        this.setForeground(textColor);
+        this.button.setFont(font);
+        this.button.setBackground(bgColor);
+        this.button.setForeground(textColor);
         
         final PanelType testType = type;
-        this.setFocusable(false);
+        this.button.setFocusable(false);
         
         
         
-        this.addActionListener(new ActionListener() {
+        this.button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MenuButton.this.listener.switchPanel(type);
@@ -86,5 +87,11 @@ public class MenuButton extends JButton {
             this.listener = listener;
         }
     }
+
+    public JButton getButton() {
+        return this.button;
+    }
+    
+    
 }
 

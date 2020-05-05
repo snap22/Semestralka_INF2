@@ -9,23 +9,25 @@ import sk.semestralka.shakelessmidget.basic.Game;
 /**
  * Trieda MissionHolder sluzi na zobrazenie informacii o misii
  */
-public class MissonHolder extends JPanel {
+public class MissonHolder {
 
     private MissionPanel[] adventures;
-    private final TavernPanel panel;
+    private JPanel panel;
     private final Game game;
+    private final TavernPanel tavern;
 
     /**
      * Konstruktor, vytvori instanciu a zobrazi hodnoty
-     * @param panel Tavern Panel
+     * @param tavernPanel Tavern Panel
      * @param game hra
      */
-    public MissonHolder(TavernPanel panel, Game game) {
+    public MissonHolder(TavernPanel tavernPanel, Game game) {
+        this.panel = new JPanel();
         this.adventures = new MissionPanel[3];
-        this.panel = panel;
+        this.tavern = tavernPanel;
         this.game = game;
         //Bez layoutu! iba default
-        this.setBackground(Color.black);
+        this.panel.setBackground(Color.black);
         this.restart();
     }
     
@@ -43,7 +45,11 @@ public class MissonHolder extends JPanel {
      * Vrati Tavern Panel
      * @return 
      */
-    public TavernPanel getPanel() {
+    public TavernPanel getTavernPanel() {
+        return this.tavern;
+    }
+    
+    public JPanel getPanel() {
         return this.panel;
     }
     
@@ -58,7 +64,7 @@ public class MissonHolder extends JPanel {
         Objective obj = this.game.getGenerator().generateObjective();
         
         this.adventures[i] = new MissionPanel(obj, this);
-        this.add(this.adventures[i]);
+        this.panel.add(this.adventures[i].getPanel());
     }
     
     /**
@@ -69,7 +75,7 @@ public class MissonHolder extends JPanel {
             if (this.adventures[i] == null) {
                 continue;
             }
-            this.remove(this.adventures[i]);
+            this.panel.remove(this.adventures[i].getPanel());
         }
     }
 

@@ -22,12 +22,13 @@ import javax.swing.border.TitledBorder;
  *  Trieda ktorej úlohou je grafické zobrazenie dostupných misií a ich začatie
  * @author marce
  */
-public class MissionPanel extends JPanel {
+public class MissionPanel {
 
     private JButton startbtn;
     private Font font;
     private Color gold;
     private Color blue;
+    private JPanel panel;
 
     private GridBagConstraints gc;
    
@@ -37,21 +38,22 @@ public class MissionPanel extends JPanel {
     }
     
     public MissionPanel(Objective objective, MissonHolder holder) {
-        this.setPreferredSize(new Dimension(350, 150));
+        this.panel = new JPanel();
+        this.panel.setPreferredSize(new Dimension(350, 150));
         this.font = BasicGui.getFont(13);
         
         this.gold = BasicGui.getGoldenColor();
         this.blue = BasicGui.getDarkBlueColor();
         
-        this.setBackground(this.blue);
+        this.panel.setBackground(this.blue);
         //  border setup
         Border innerBorder = BorderFactory.createLineBorder(this.gold, 2);
         Border border = BorderFactory.createTitledBorder(innerBorder, "Objective ", TitledBorder.LEFT, TitledBorder.DEFAULT_POSITION, this.font, this.gold); // TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION
-        this.setBorder(border);
+        this.panel.setBorder(border);
         
         
         //  gridbaglayout setup
-        this.setLayout(new GridBagLayout());
+        this.panel.setLayout(new GridBagLayout());
         this.gc = new GridBagConstraints();
         this.gc.gridx = 0;
         this.gc.gridy = 0;
@@ -74,7 +76,7 @@ public class MissionPanel extends JPanel {
         this.startbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                holder.getPanel().showWait(objective);
+                holder.getTavernPanel().showWait(objective);
                 
             }
         });
@@ -97,7 +99,7 @@ public class MissionPanel extends JPanel {
         
         this.movegc(1, 5);
         this.gc.anchor = GridBagConstraints.LINE_END;
-        this.add(this.startbtn, this.gc);
+        this.panel.add(this.startbtn, this.gc);
     }
     
     /**
@@ -121,7 +123,7 @@ public class MissionPanel extends JPanel {
         JLabel label = new JLabel(text);
         label.setFont(this.font);
         label.setForeground(this.gold);
-        this.add(label, this.gc);
+        this.panel.add(label, this.gc);
     }
     
     /**
@@ -154,6 +156,10 @@ public class MissionPanel extends JPanel {
     private void movegc(int x, int y) {
         this.gc.gridx = x;
         this.gc.gridy = y;
+    }
+
+    public JPanel getPanel() {
+        return this.panel;
     }
 
     

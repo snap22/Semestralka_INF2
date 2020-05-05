@@ -89,8 +89,8 @@ public class MenuPanel {
     private void createMenuButton(String text, PanelType type) {
         MenuButton newButton = new MenuButton(text, this.size, type);
 
-        this.panel.add(newButton);
-        this.buttons.put(newButton.getText(), newButton);
+        this.panel.add(newButton.getButton());
+        this.buttons.put(newButton.getButton().getText(), newButton);
         this.createGap(5);
         
                 

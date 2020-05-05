@@ -9,20 +9,24 @@ import javax.swing.JPanel;
 /**
  * Trieda HeadPanel sluzi cisto ako Header pre jednotlive MainPanely
  */
-public class HeadPanel extends JPanel {
+public class HeadPanel {
 
     private final JLabel label;
+    private final JPanel panel;
 
     /**
      * Vytvori potrebne komponenty
      * @param name 
      */
     public HeadPanel(String name) {
+        this.panel = new JPanel();
+        
         this.label = new JLabel(name);
-        this.setBackground(Color.black);
         this.label.setFont(BasicGui.getFont(40));
         this.label.setForeground(Color.white);
-        this.add(this.label);
+        this.panel.add(this.label);
+      
+        this.panel.setBackground(Color.black);
     }
     
     /**
@@ -32,4 +36,14 @@ public class HeadPanel extends JPanel {
     public void changeTitle(String text) {
         this.label.setText(text);
     }
+    
+    /**
+     * Vrati panel
+     * @return  panel
+     */
+    public JPanel getPanel() {
+        return this.panel;
+    }
+    
+    
 }
