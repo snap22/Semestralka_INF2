@@ -1,5 +1,5 @@
 
-package sk.semestralka.shakelessmidget.items.slots;
+package sk.semestralka.shakelessmidget.exceptions;
 
 /**
  *

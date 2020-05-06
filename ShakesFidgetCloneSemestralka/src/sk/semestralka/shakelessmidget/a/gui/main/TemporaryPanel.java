@@ -26,7 +26,6 @@ public class TemporaryPanel {
     
     private Generator gen;
     private Player player;
-    private final HeroPanel heroPanel;
     private JPanel panel;
     
     /**
@@ -48,11 +47,11 @@ public class TemporaryPanel {
         
         this.panels = new HashMap<String, MainPanel>();
         
-        this.heroPanel = new HeroPanel(this.player);
+        
         
         this.createPanel(new WelcomePanel());
         this.createPanel(new TavernPanel(game));
-        this.createPanel(this.heroPanel);
+        this.createPanel(new HeroPanel(this.player));
         this.createPanel(new ShopPanel(this.player, 200, 50));
         
         
@@ -72,9 +71,7 @@ public class TemporaryPanel {
             return;
         }
         
-        if (type == PanelType.HERO) {
-            this.heroPanel.updateStats();
-        }
+        
         
         this.changePanel(type.toString());
         
@@ -95,7 +92,7 @@ public class TemporaryPanel {
         
         
         this.card.show(this.panelToChange, type);
-        this.heroPanel.updateStats();
+        ((HeroPanel)this.panels.get("HERO")).updateStats();
         
         
     }

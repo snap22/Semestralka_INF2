@@ -1,12 +1,12 @@
 
 package sk.semestralka.shakelessmidget.loaders;
 
+import sk.semestralka.shakelessmidget.generators.ExampleType;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-import sk.semestralka.shakelessmidget.generators.ExampleType;
 
 
 /**

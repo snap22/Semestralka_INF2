@@ -24,7 +24,7 @@ public class Goods extends Item {
     public Goods(String name, ItemRarity rarity) {
         super(name, rarity);
         this.random = new Random();
-        this.nastavHodnoty();
+        this.setupValues();
         
     }
     
@@ -37,7 +37,7 @@ public class Goods extends Item {
     public Goods(String name, ItemRarity rarity, int goldValue) {
         super(name, rarity);
         this.random = new Random();
-        this.nastavHodnoty();
+        this.setupValues();
         this.goldValue = goldValue;
         
     }
@@ -93,7 +93,7 @@ public class Goods extends Item {
     /**
      * Meni hodnotu sance na drop a ceny v goldoch podla toho aka je vzacnost
      */
-    private void nastavHodnoty() {
+    private void setupValues() {
         switch (super.getRarity()) {
             case COMMON:
                 this.dropChance = 100;

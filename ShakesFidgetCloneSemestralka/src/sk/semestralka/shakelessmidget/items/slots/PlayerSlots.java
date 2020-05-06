@@ -2,6 +2,7 @@
 package sk.semestralka.shakelessmidget.items.slots;
 
 
+import sk.semestralka.shakelessmidget.exceptions.WrongItemTypeException;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;

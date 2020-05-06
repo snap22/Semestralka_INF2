@@ -32,7 +32,7 @@ public abstract class Equipment extends Item {
         this.bonusArmor = armor;
         this.bonusHealth = bonusHealth;
         
-        this.nastavHodnoty();
+        this.setupValues();
         
     }
     
@@ -77,7 +77,7 @@ public abstract class Equipment extends Item {
     /**
      * Nastavi hodnoty podla toho, aka je vzacnost a aky je potrebny level  na to aby bol item equipnuty
      */
-    private void nastavHodnoty() {
+    private void setupValues() {
         if (this.levelRequired < 0) {
             this.bonusArmor = 1;
             this.bonusDamage = 1;

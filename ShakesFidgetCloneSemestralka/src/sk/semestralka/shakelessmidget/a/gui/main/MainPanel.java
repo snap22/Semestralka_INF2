@@ -37,13 +37,7 @@ public abstract class MainPanel {
         return this.type.toString();
     }
     
-    /**
-     * Prida do panela veci
-     * @param component 
-     */
-    protected void addToPanel(Component component) {
-        this.panel.add(component);
-    }
+    
 
     /**
      * Vrati panel
