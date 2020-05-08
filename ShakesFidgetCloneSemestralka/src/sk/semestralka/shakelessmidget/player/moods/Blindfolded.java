@@ -42,19 +42,6 @@ public class Blindfolded extends Mood {
     }
 
     /**
-     * Sancu znizuje
-     */
-    @Override
-    public void upgrade() {
-        if (this.chanceToMiss <= 10) {
-            return;
-        }
-        
-        this.chanceToMiss--;
-    }
-
-
-    /**
      * Vrati popis nalady
      * @return popis
      */

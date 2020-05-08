@@ -20,7 +20,7 @@ public abstract class Mood {
     private boolean shouldIncrease;
 
     /**
-     * 
+     * Vytvori naladu podla zadanych parametrov
      * @param name nazov nalady
      * @param chance sanca ze vykona danu vec
      * @param limit maximalne dosiahnutie sance
@@ -37,7 +37,7 @@ public abstract class Mood {
     /**
      * Pretazenie konstruktora, automaticky nastavi bonus damage na 0.
      * Teda dana nalada nezvysuje damage hracovi
-     * @param name nazov charakteristiky
+     * @param name nazov nalady
      * @param chance sanca ze vykona danu vec
      * @param limit ak zvysuje damage, tak o kolko
      */
@@ -73,15 +73,11 @@ public abstract class Mood {
             }
             this.chance--;
         }
-        /*if (this.chance >= this.limit) {
-            return;
-        }
-        this.chance++;*/
     }
 
     /**
      * Objekt do formy Stringu
-     * @return 
+     * @return String
      */
     @Override
     public String toString() {
@@ -90,7 +86,7 @@ public abstract class Mood {
     
     /**
      * Vrati nazov
-     * @return 
+     * @return nazov
      */
     public String getName() {
         return this.name;

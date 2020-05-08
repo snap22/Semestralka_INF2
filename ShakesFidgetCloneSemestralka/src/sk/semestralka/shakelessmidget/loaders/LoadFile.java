@@ -28,27 +28,21 @@ public class LoadFile {
         
         switch (type) {
             case ENEMYNAME:
-                //destination = "C:/Users/marce/Documents/NetBeansProjects/Semestralka_ShakesAndFidget/ShakesFidgetCloneSemestralka/src/a_other/EnemyNamesExamples";
                 destination = "files/EnemyNamesExamples";
                 break;
             case GOODSNAME:
-                //destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\GoodiesName";
                 destination = "files/GoodiesName";
                 break;
             case ITEMSADJECTIVE:
-                //destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\ItemAdjective";
                 destination = "files/ItemAdjective";
                 break;
             case OBJECTDESCRIPTION:
-                //destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\ObjectiveDescriptionExamples";
                 destination = "files/ObjectiveDescriptionExamples";
                 break;
             case OBJECTNAME:
-                //destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\ObjectiveNameExamples";
                 destination = "files/ObjectiveNameExamples";
                 break;
             case WEAPONNAME:
-                //destination = "C:\\Users\\marce\\Documents\\NetBeansProjects\\Semestralka_ShakesAndFidget\\ShakesFidgetCloneSemestralka\\src\\a_other\\WeaponName";
                 destination = "files/WeaponName";
                 break;
             default:
