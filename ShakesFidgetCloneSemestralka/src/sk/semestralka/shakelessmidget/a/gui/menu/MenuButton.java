@@ -1,8 +1,8 @@
 
 package sk.semestralka.shakelessmidget.a.gui.menu;
 
-import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
-import sk.semestralka.shakelessmidget.a.gui.main.PanelType;
+import sk.semestralka.shakelessmidget.a.gui.basic.BasicGui;
+import sk.semestralka.shakelessmidget.a.gui.basic.PanelType;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -45,7 +45,6 @@ public class MenuButton {
         this.button.setBackground(bgColor);
         this.button.setForeground(textColor);
         
-        final PanelType testType = type;
         this.button.setFocusable(false);
         
         
@@ -57,10 +56,7 @@ public class MenuButton {
                 
             }
         });
-        
-        
-        
-        //exception ak by type bolo null?
+
         this.type = type;
         
     }
@@ -68,7 +64,7 @@ public class MenuButton {
 
     /**
      * Vrati typ panela ktory meni ked sa na button klikne
-     * @return 
+     * @return typ panelu
      */
     public PanelType getPanel() {
         return this.type;
@@ -76,18 +72,26 @@ public class MenuButton {
     
     /**
      * Vrati typ panela vo forme stringu
-     * @return 
+     * @return typ panelu v podobe Stringu
      */
     public String getPanelString() {
         return this.type.toString();
     }
     
+    /**
+     * Nastavi posluchaca
+     * @param listener posluchac
+     */
     public void setListener(ISwitchPanelListener listener) {
         if (listener != null) {
             this.listener = listener;
         }
     }
 
+    /**
+     * Vrati tlacidlo
+     * @return tlacidlo
+     */
     public JButton getButton() {
         return this.button;
     }

@@ -1,7 +1,7 @@
 
 package sk.semestralka.shakelessmidget.a.gui.menu;
 
-import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
+import sk.semestralka.shakelessmidget.a.gui.basic.BasicGui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
-import sk.semestralka.shakelessmidget.basic.Game;
+import sk.semestralka.shakelessmidget.main.Game;
 import sk.semestralka.shakelessmidget.exceptions.InventoryFullException;
 
 /**
@@ -76,6 +76,14 @@ public class LowerButtonsPanel {
     }
     
     /**
+     * Vrati panel
+     * @return panel
+     */
+    public JPanel getPanel() {
+        return this.panel;
+    }
+    
+    /**
      * Nastavenie tlacidla
      * @param button 
      */
@@ -101,11 +109,5 @@ public class LowerButtonsPanel {
         } 
     }
     
-    /**
-     * Vrati panel
-     * @return panel
-     */
-    public JPanel getPanel() {
-        return this.panel;
-    }
+    
 }

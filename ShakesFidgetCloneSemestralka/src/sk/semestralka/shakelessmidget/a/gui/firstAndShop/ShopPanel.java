@@ -1,9 +1,9 @@
 
 package sk.semestralka.shakelessmidget.a.gui.firstAndShop;
 
-import sk.semestralka.shakelessmidget.a.gui.main.MainPanel;
-import sk.semestralka.shakelessmidget.a.gui.main.PanelType;
-import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
+import sk.semestralka.shakelessmidget.a.gui.basic.MainPanel;
+import sk.semestralka.shakelessmidget.a.gui.basic.PanelType;
+import sk.semestralka.shakelessmidget.a.gui.basic.BasicGui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -86,7 +86,7 @@ public class ShopPanel extends MainPanel {
      * Pociatocne vytvorenie tlacidla a nastavenie zakladnych hodnot
      * @param text text na tlacidle
      * @param tooltip co bude zobrazovat ak sa nan s mysou pozrie
-     * @return 
+     * @return tlacidlo
      */
     private JButton createButton(String text, String tooltip) {
         JButton button = new JButton(text);

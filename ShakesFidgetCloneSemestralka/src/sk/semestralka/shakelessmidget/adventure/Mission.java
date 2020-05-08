@@ -52,7 +52,7 @@ public class Mission {
 
     /**
      * Vrati ulohu
-     * @return 
+     * @return uloha
      */
     public Objective getObjective() {
         return this.objective;
@@ -60,7 +60,7 @@ public class Mission {
 
     /**
      * Vrati triedu Fight
-     * @return 
+     * @return fight
      */
     public Fight getFight() {
         return this.fight;
@@ -68,7 +68,7 @@ public class Mission {
 
     /**
      * Vrati hraca
-     * @return 
+     * @return hrac
      */
     public Player getPlayer() {
         return this.player;

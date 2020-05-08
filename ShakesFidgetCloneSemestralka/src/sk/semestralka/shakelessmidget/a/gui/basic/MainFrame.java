@@ -1,7 +1,7 @@
 
-package sk.semestralka.shakelessmidget.a.gui.main;
+package sk.semestralka.shakelessmidget.a.gui.basic;
 
-import sk.semestralka.shakelessmidget.basic.Game;
+import sk.semestralka.shakelessmidget.main.Game;
 import sk.semestralka.shakelessmidget.a.gui.menu.MenuPanel;
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -62,18 +62,20 @@ public class MainFrame {
         
     }
     
-    private void onExit() {
-        this.game.save();
-        System.exit(0);
-    }
-    
-    /**
+     /**
      * Getter pre hru
      * @return hra
      */
     public Game getGame() {
         return this.game;
     }
+    
+    private void onExit() {
+        this.game.save();
+        System.exit(0);
+    }
+    
+   
     
     
     

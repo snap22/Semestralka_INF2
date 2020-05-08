@@ -1,7 +1,7 @@
 
 package sk.semestralka.shakelessmidget.a.gui.hero;
 
-import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
+import sk.semestralka.shakelessmidget.a.gui.basic.BasicGui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.HashMap;

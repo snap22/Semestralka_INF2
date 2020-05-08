@@ -1,7 +1,7 @@
 
 package sk.semestralka.shakelessmidget.creatures;
 
-import sk.semestralka.shakelessmidget.basic.Chance;
+import sk.semestralka.shakelessmidget.main.Chance;
 import sk.semestralka.shakelessmidget.items.items.Item;
 
 
@@ -41,7 +41,7 @@ public class Enemy extends Creature {
 
     /**
      * Vrati odmenu v xp
-     * @return 
+     * @return xp
      */
     public int getXpReward() {
         return this.xpReward;
@@ -49,8 +49,9 @@ public class Enemy extends Creature {
 
     /**
      * Vypise nepriatela vo forme stringu
-     * @return 
+     * @return nepriatel
      */
+    @Override
     public String toString() {
         return String.format("Enemy{name=%s, hp=%d, dmg=%d, xp=%d}", this.getName(), this.getHealth(), this.getDamage(), this.getXpReward());
     }

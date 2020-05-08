@@ -1,7 +1,7 @@
 
 package sk.semestralka.shakelessmidget.player.moods;
 
-import sk.semestralka.shakelessmidget.basic.Chance;
+import sk.semestralka.shakelessmidget.main.Chance;
 import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
@@ -23,7 +23,7 @@ public class BloodThirsty extends Mood {
 
     /**
      * Healne playera o tolko kolko ma damage
-     * @param player 
+     * @param player hrac
      */
     @Override
     public void doSpecialStuff(Player player) {
@@ -31,18 +31,11 @@ public class BloodThirsty extends Mood {
             player.heal(player.getDamage());
         }
     }
-    /**
-     * Vrati triedu v podobe stringu
-     * @return 
-     */
-    @Override
-    public String toString() {
-        return String.format("Sanca ze sa healne: %d%n", this.chanceToHeal);
-    }
+    
 
     /**
      * Vrati popis nalady
-     * @return 
+     * @return popis
      */
     @Override
     public String getDescription() {

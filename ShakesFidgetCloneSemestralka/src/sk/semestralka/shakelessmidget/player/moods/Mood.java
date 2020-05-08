@@ -73,7 +73,10 @@ public abstract class Mood {
             }
             this.chance--;
         }
-        
+        /*if (this.chance >= this.limit) {
+            return;
+        }
+        this.chance++;*/
     }
 
     /**
@@ -82,9 +85,13 @@ public abstract class Mood {
      */
     @Override
     public String toString() {
-        return String.format("[ %S, sanca: %d, maximalne dosiahnutelna sanca: %d ]%n", this.name, this.chance, this.limit);
+        return String.format("Mood{%S, chance: %d, obtainable chance: %d }%n", this.name, this.chance, this.limit);
     }
     
+    /**
+     * Vrati nazov
+     * @return 
+     */
     public String getName() {
         return this.name;
     }
@@ -100,7 +107,7 @@ public abstract class Mood {
 
     /**
      * Metoda na ulozenie
-     * @param file
+     * @param file subor
      * @throws IOException 
      */
     public void save(DataOutputStream file) throws IOException {
@@ -111,7 +118,7 @@ public abstract class Mood {
     
     /**
      * Vrati sancu vykonania specialnej vlastnosti
-     * @return 
+     * @return sanca
      */
     protected int getChance() {
         return this.chance;

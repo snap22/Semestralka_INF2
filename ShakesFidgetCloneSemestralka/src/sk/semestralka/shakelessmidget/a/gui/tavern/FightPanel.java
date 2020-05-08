@@ -2,9 +2,9 @@
 package sk.semestralka.shakelessmidget.a.gui.tavern;
 
 
-import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
-import sk.semestralka.shakelessmidget.a.gui.main.MainPanel;
-import sk.semestralka.shakelessmidget.a.gui.main.PanelType;
+import sk.semestralka.shakelessmidget.a.gui.basic.BasicGui;
+import sk.semestralka.shakelessmidget.a.gui.basic.MainPanel;
+import sk.semestralka.shakelessmidget.a.gui.basic.PanelType;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;

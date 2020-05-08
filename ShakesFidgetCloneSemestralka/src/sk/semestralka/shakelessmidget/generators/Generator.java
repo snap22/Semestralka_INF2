@@ -39,7 +39,7 @@ public class Generator {
     
     /**
      * Vytvorí a vráti inštanciu triedy Objective s náhodnými parametrami
-     * @return 
+     * @return nahodna uloha
      */
     public Objective generateObjective() {
         String description = this.objectiveDescriptions.getRandom();
@@ -51,7 +51,7 @@ public class Generator {
     
     /**
      * Vytvorí a vráti náhodného nepriateľa
-     * @return 
+     * @return nahodny nepriatel
      */
     public Enemy generateEnemy() {
         Item item = this.itemGen.generateRandomItem(this.player.getLevel());

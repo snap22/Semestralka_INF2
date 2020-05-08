@@ -1,8 +1,8 @@
 
 package sk.semestralka.shakelessmidget.a.gui.menu;
 
-import sk.semestralka.shakelessmidget.a.gui.main.MainFrame;
-import sk.semestralka.shakelessmidget.a.gui.main.PanelType;
+import sk.semestralka.shakelessmidget.a.gui.basic.MainFrame;
+import sk.semestralka.shakelessmidget.a.gui.basic.PanelType;
 import java.awt.Color;
 
 import java.awt.Dimension;
@@ -72,6 +72,14 @@ public class MenuPanel {
     }
     
     /**
+     * Vrati panel
+     * @return panel
+     */
+    public JPanel getPanel() {
+        return this.panel;
+    }
+    
+    /**
      * Vytvori priestor za poslednym buttonom
      * @param height 
      */
@@ -96,13 +104,7 @@ public class MenuPanel {
                 
     }
 
-    /**
-     * Vrati panel
-     * @return panel
-     */
-    public JPanel getPanel() {
-        return this.panel;
-    }
+
 
     
 }

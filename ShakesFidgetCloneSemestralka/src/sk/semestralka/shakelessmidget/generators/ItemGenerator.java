@@ -21,6 +21,9 @@ public class ItemGenerator {
 
     private enum Type { WEAPON, HELMET, ARMOR, GOODS };
 
+    /**
+     * Nastavi pociatocne hodnoty
+     */
     public ItemGenerator() {
         this.weapons = new LoadFile(ExampleType.WEAPONNAME);
         this.itemsAdj = new LoadFile(ExampleType.ITEMSADJECTIVE);
@@ -30,8 +33,8 @@ public class ItemGenerator {
     
     /**
      * Vrati nahodne vytvorenu zbran podla zadaneho levelu
-     * @param level
-     * @return 
+     * @param level level
+     * @return zbran
      */
     public Weapon generateWeapon(int level) {
         return (Weapon)this.generate(Type.WEAPON, level);
@@ -40,8 +43,8 @@ public class ItemGenerator {
 
     /**
      * Vytvori nahodne vytvoreny armor podla zadaneho levelu
-     * @param level
-     * @return 
+     * @param level level
+     * @return armor
      */
     public Armor generateArmor(int level) {
         return (Armor)this.generate(Type.ARMOR, level);
@@ -49,8 +52,8 @@ public class ItemGenerator {
 
     /**
      * Vrati nahodne vytvorenu helmu podla zadaneho levelu
-     * @param level
-     * @return 
+     * @param level level
+     * @return helma
      */
     public Helmet generateHelmet(int level) {
         return (Helmet)this.generate(Type.HELMET, level);
@@ -60,7 +63,7 @@ public class ItemGenerator {
     
     /**
      * Vrati nahodne vytvorenu zbran
-     * @return 
+     * @return zbran
      */
     public Weapon generateWeapon() {
         return (Weapon)this.generate(Type.WEAPON);
@@ -68,7 +71,7 @@ public class ItemGenerator {
     
     /**
      * Vrati nahodne vytvorenu helmu
-     * @return 
+     * @return helma
      */
     public Helmet generateHelmet() {
         return (Helmet)this.generate(Type.HELMET);
@@ -76,7 +79,7 @@ public class ItemGenerator {
     
     /**
      * Vrati nahodne vytvoreny armor
-     * @return 
+     * @return armor
      */
     public Armor generateArmor() {
         return (Armor)this.generate(Type.ARMOR);
@@ -84,7 +87,7 @@ public class ItemGenerator {
     
     /**
      * Vrati nahodne vytvoreny goods
-     * @return 
+     * @return goods
      */
     public Goods generateGoods() {
         return (Goods)this.generate(Type.GOODS);
@@ -92,7 +95,7 @@ public class ItemGenerator {
     
     /**
      * Vrati nahodne vytvoreny item
-     * @return 
+     * @return nahodny predmet
      */
     public Item generateRandomItem() {
         int num = new Random().nextInt(4);
@@ -110,8 +113,8 @@ public class ItemGenerator {
     
     /**
      * Vrati nahodny item podla zadaneho levelu
-     * @param level
-     * @return 
+     * @param level level
+     * @return nahodny predmet
      */
     public Item generateRandomItem(int level) {
         int num = new Random().nextInt(4);
@@ -130,7 +133,7 @@ public class ItemGenerator {
     /**
      * Vygeneruje item podla zadaneho typu a levelu
      * @param type typ ktory chceme vytvorit
-     * @return 
+     * @return predmet
      */
     private Item generate(Type type, int levelRequired) {
         if (levelRequired <= 0) {
@@ -161,14 +164,17 @@ public class ItemGenerator {
     /**
      * Vygeneruje nahodny item podla zadaneho typu
      * @param type
-     * @return 
+     * @return predmet
      */
     private Item generate(Type type) {
         int levelRequired = this.getRandomLevelRequirement();
         return this.generate(type, levelRequired);
     }
 
-    
+    /**
+     * Vytvori nahodny level potrebny na equipnutie predmetu
+     * @return nahodny level
+     */
     private int getRandomLevelRequirement() {
         Random random = new Random();
         return random.nextInt(60) + 1;

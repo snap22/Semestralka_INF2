@@ -58,7 +58,7 @@ public class Inventory {
     }
     /**
      * Vymaze item na danom indexe v iventory
-     * @param index 
+     * @param index index
      */
     public void removeItem(int index) {
         if (index < 0 || index >= this.slots.size()) {
@@ -86,7 +86,7 @@ public class Inventory {
     
     /**
      * Vrati booelan ci je plny
-     * @return 
+     * @return je plny inventar
      */
     public boolean isFull() {
         return this.slots.size() == this.size;
@@ -94,8 +94,8 @@ public class Inventory {
     
     /**
      * Vrati item podla zadaneho indexu
-     * @param index 
-     * @return 
+     * @param index index
+     * @return predmet
      */
     public Item getItem(int index) {
         if (index < 0 || index >= this.slots.size()) {
@@ -107,7 +107,7 @@ public class Inventory {
     
     /**
      * Vrati pocet zaplnenych miest
-     * @return 
+     * @return aktualny pocet zaplnenych miest
      */
     public int getCurrentSize() {
         return this.slots.size();
@@ -115,7 +115,7 @@ public class Inventory {
     
     /**
      * Vrati maximalne mnozstvo ktore moze mat hrac
-     * @return 
+     * @return maximalne mnozstvo zaplnitelnych miest
      */
     public int getMaxSize() {
         return this.size;
@@ -123,12 +123,12 @@ public class Inventory {
 
     /**
      * Nacita itemy a prida ich do inventory
-     * @param file
+     * @param file subor
      * @throws IOException
      * @throws WrongTypeException 
      */
     public void load(DataInputStream file) throws IOException, WrongTypeException {
-        this.slots.clear(); //vyprazdni inventory   ?
+        this.slots.clear(); //vyprazdni inventory  
         ItemLoader itemCreator = new ItemLoader();
         int sizeOfInventory = file.readInt();
         for (int i = 0; i < sizeOfInventory; i++) {
@@ -139,7 +139,7 @@ public class Inventory {
 
     /**
      * Ulozi itemy
-     * @param file
+     * @param file subor
      * @throws IOException 
      */
     public void save(DataOutputStream file) throws IOException {

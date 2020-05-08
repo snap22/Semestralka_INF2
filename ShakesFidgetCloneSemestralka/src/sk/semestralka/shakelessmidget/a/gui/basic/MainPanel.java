@@ -1,8 +1,7 @@
 
-package sk.semestralka.shakelessmidget.a.gui.main;
+package sk.semestralka.shakelessmidget.a.gui.basic;
 
 
-import java.awt.Component;
 import javax.swing.JPanel;
 
 /**

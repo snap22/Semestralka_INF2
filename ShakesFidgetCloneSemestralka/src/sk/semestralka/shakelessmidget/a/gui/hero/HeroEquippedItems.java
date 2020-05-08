@@ -9,9 +9,6 @@ import sk.semestralka.shakelessmidget.creatures.Player;
  */
 public class HeroEquippedItems extends HeroInventoryItems {
 
-    //private final Player player;
-    
-
     /**
      * Konstruktor. Nastavi pociatocne hodnoty
      * @param player 

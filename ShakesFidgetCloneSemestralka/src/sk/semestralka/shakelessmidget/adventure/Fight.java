@@ -63,7 +63,7 @@ public class Fight {
     
     /**
      * Vrati nepriatela
-     * @return 
+     * @return nepriatel
      */
     public Creature getEnemy() {
         return this.enemy;
@@ -71,7 +71,7 @@ public class Fight {
 
     /**
      * Vrati boolean ci sa hra skoncila
-     * @return 
+     * @return koniec
      */
     public boolean isEnded() {
         return this.ended;
@@ -79,7 +79,7 @@ public class Fight {
 
     /**
      * Vrati boolean ci hrac vyhral
-     * @return 
+     * @return hrac vyhral
      */
     public boolean playerWin() {
         return this.playerWin;
@@ -87,7 +87,7 @@ public class Fight {
     
     /**
      * Vrati status vo forme stringu
-     * @return 
+     * @return status v podobe Stringu
      */
     public String getStatus() {
         return this.statusText.toString();

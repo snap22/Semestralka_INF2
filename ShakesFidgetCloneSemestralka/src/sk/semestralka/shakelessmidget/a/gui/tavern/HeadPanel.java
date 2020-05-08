@@ -1,7 +1,7 @@
 
 package sk.semestralka.shakelessmidget.a.gui.tavern;
 
-import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
+import sk.semestralka.shakelessmidget.a.gui.basic.BasicGui;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,7 +16,7 @@ public class HeadPanel {
 
     /**
      * Vytvori potrebne komponenty
-     * @param name 
+     * @param name nazov
      */
     public HeadPanel(String name) {
         this.panel = new JPanel();

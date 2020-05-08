@@ -2,9 +2,9 @@
 package sk.semestralka.shakelessmidget.a.gui.tavern;
 
 import sk.semestralka.shakelessmidget.adventure.Objective;
-import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
-import sk.semestralka.shakelessmidget.a.gui.main.MainPanel;
-import sk.semestralka.shakelessmidget.a.gui.main.PanelType;
+import sk.semestralka.shakelessmidget.a.gui.basic.BasicGui;
+import sk.semestralka.shakelessmidget.a.gui.basic.MainPanel;
+import sk.semestralka.shakelessmidget.a.gui.basic.PanelType;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -101,7 +101,7 @@ public final class WaitPanel extends MainPanel {
 
     /**
      * Nastavi ulohu
-     * @param newObj 
+     * @param newObj nova uloha
      */
     public void setup(Objective newObj) {
         this.timePassed = 0;

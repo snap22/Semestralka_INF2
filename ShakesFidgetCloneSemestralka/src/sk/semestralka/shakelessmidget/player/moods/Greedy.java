@@ -1,7 +1,7 @@
 
 package sk.semestralka.shakelessmidget.player.moods;
 
-import sk.semestralka.shakelessmidget.basic.Chance;
+import sk.semestralka.shakelessmidget.main.Chance;
 import sk.semestralka.shakelessmidget.creatures.Player;
 
 
@@ -24,7 +24,7 @@ public class Greedy extends Mood {
 
     /**
      * Sanca ze da hracovi bonusove peniaze
-     * @param player 
+     * @param player hrac
      */
     @Override
     public void doSpecialStuff(Player player) {
@@ -48,7 +48,7 @@ public class Greedy extends Mood {
     
     /**
      * Vrati popis nalady
-     * @return 
+     * @return popis
      */
     @Override
     public String getDescription() {

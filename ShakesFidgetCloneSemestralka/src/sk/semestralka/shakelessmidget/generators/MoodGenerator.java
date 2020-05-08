@@ -49,7 +49,7 @@ public class MoodGenerator {
     /**
      * Vygeneruje naladu inu ako zadana v parametri
      * @param currentMood nalada ktoru nechceme vygenerovat
-     * @return 
+     * @return nalada
      */
     public Mood generateRandomMood(Mood currentMood) {
         Mood newMood;

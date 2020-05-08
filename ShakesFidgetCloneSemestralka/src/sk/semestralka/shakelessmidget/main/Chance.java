@@ -1,5 +1,5 @@
 
-package sk.semestralka.shakelessmidget.basic;
+package sk.semestralka.shakelessmidget.main;
 
 import java.util.Random;
 
@@ -30,7 +30,7 @@ public abstract class Chance {
      * Vrati nahodne cislo v danom rozmedzi, mozu byt iba nezaporne cisla
      * @param min minimalna hodnota (inclusive)
      * @param max maximalna hodnota (inclusive)
-     * @return 
+     * @return nahodne cislo
      */
     public static int random(int min, int max) {
         if (min >= max) {

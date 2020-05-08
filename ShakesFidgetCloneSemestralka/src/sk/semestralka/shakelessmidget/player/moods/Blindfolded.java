@@ -1,7 +1,7 @@
 
 package sk.semestralka.shakelessmidget.player.moods;
 
-import sk.semestralka.shakelessmidget.basic.Chance;
+import sk.semestralka.shakelessmidget.main.Chance;
 import sk.semestralka.shakelessmidget.creatures.Player;
 
 
@@ -21,6 +21,10 @@ public class Blindfolded extends Mood {
         this.chanceToMiss = 50;
     }
 
+    /**
+     * Znizi hracovi silu utoku 
+     * @param player hrac
+     */
     @Override
     public void doSpecialStuff(Player player) {
         if (Chance.generate(this.chanceToMiss)) {
@@ -30,7 +34,7 @@ public class Blindfolded extends Mood {
 
     /**
      * Znizi damage playera na 0, teda player akoby missol
-     * @return 
+     * @return bonusova sila utoku
      */
     @Override
     public int gainBonusDamage() {
@@ -52,7 +56,7 @@ public class Blindfolded extends Mood {
 
     /**
      * Vrati popis nalady
-     * @return 
+     * @return popis
      */
     @Override
     public String getDescription() {

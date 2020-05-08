@@ -1,7 +1,7 @@
 
 package sk.semestralka.shakelessmidget.a.gui.hero;
 
-import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
+import sk.semestralka.shakelessmidget.a.gui.basic.BasicGui;
 import java.awt.Color;
 import javax.swing.JLabel;
 
@@ -55,19 +55,23 @@ public class DetailLabel {
     
     /**
      * Vrati description
-     * @return 
+     * @return description
      */
     public String getDescription() {
         return this.description;
     }
     /**
      * Vrati name
-     * @return 
+     * @return nazov labelu
      */
     public String getNameText() {
         return this.nameText;
     }
 
+    /**
+     * Vrati label
+     * @return label
+     */
     public JLabel getLabel() {
         return this.label;
     }

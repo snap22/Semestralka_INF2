@@ -1,8 +1,8 @@
 
-package sk.semestralka.shakelessmidget.basic;
+package sk.semestralka.shakelessmidget.main;
 
 import sk.semestralka.shakelessmidget.generators.Generator;
-import sk.semestralka.shakelessmidget.a.gui.main.MainFrame;
+import sk.semestralka.shakelessmidget.a.gui.basic.MainFrame;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;

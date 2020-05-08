@@ -3,7 +3,7 @@ package sk.semestralka.shakelessmidget.a.gui.tavern;
 
 import sk.semestralka.shakelessmidget.adventure.Mission;
 import sk.semestralka.shakelessmidget.adventure.Objective;
-import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
+import sk.semestralka.shakelessmidget.a.gui.basic.BasicGui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -83,6 +83,14 @@ public class MissionPanel {
     }
     
     /**
+     * Vrati panel
+     * @return panel
+     */
+    public JPanel getPanel() {
+        return this.panel;
+    }
+    
+    /**
      * Nastavi novu ulohu
      * @param objective nova uloha
      */
@@ -158,9 +166,7 @@ public class MissionPanel {
         this.gc.gridy = y;
     }
 
-    public JPanel getPanel() {
-        return this.panel;
-    }
+    
 
     
     

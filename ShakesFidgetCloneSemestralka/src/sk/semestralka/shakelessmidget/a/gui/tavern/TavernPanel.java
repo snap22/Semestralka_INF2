@@ -1,15 +1,15 @@
 
 package sk.semestralka.shakelessmidget.a.gui.tavern;
 
-import sk.semestralka.shakelessmidget.a.gui.main.MainPanel;
-import sk.semestralka.shakelessmidget.a.gui.main.PanelType;
+import sk.semestralka.shakelessmidget.a.gui.basic.MainPanel;
+import sk.semestralka.shakelessmidget.a.gui.basic.PanelType;
 import sk.semestralka.shakelessmidget.adventure.Objective;
 import sk.semestralka.shakelessmidget.generators.Generator;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
-import sk.semestralka.shakelessmidget.basic.Game;
+import sk.semestralka.shakelessmidget.main.Game;
 
 /**
  * Trieda TavernPanel sluzi na zobrazenie dostupnych uloh a na prepinanie medzi vybranymi scenkami

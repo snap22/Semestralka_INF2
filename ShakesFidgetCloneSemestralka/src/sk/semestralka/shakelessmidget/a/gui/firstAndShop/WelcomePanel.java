@@ -1,15 +1,15 @@
 
 package sk.semestralka.shakelessmidget.a.gui.firstAndShop;
 
-import sk.semestralka.shakelessmidget.a.gui.main.MainPanel;
-import sk.semestralka.shakelessmidget.a.gui.main.PanelType;
+import sk.semestralka.shakelessmidget.a.gui.basic.MainPanel;
+import sk.semestralka.shakelessmidget.a.gui.basic.PanelType;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
+import sk.semestralka.shakelessmidget.a.gui.basic.BasicGui;
 
 
 /**

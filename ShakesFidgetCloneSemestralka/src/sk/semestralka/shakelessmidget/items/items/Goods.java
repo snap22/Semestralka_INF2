@@ -3,12 +3,11 @@ package sk.semestralka.shakelessmidget.items.items;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
-import sk.semestralka.shakelessmidget.basic.Chance;
+import sk.semestralka.shakelessmidget.main.Chance;
 import java.util.Random;
 
 /**
  * Trieda Goods sluzi ako nepouzitelny predmet pre hraca
- * @author marce
  */
 public class Goods extends Item {
 
@@ -51,7 +50,7 @@ public class Goods extends Item {
     
         /**
      * Vrati vlastnu hodnotu sance na drop
-     * @return 
+     * @return sanca padnutia
      */
     @Override
     public int getDropChance() {
@@ -60,7 +59,7 @@ public class Goods extends Item {
 
     /**
      * Vrati vlastnu hodnotu v goldoch
-     * @return 
+     * @return hodnota v goldoch
      */
     @Override
     public int getGoldValue() {
@@ -69,7 +68,7 @@ public class Goods extends Item {
 
     /**
      * Vrati triedu v podobe stringu
-     * @return 
+     * @return String
      */
     @Override
     public String toString() {
@@ -78,7 +77,7 @@ public class Goods extends Item {
     
     /**
      * Ulozi hodnoty do suboru
-     * @param file
+     * @param file subor
      * @throws IOException 
      */
     @Override

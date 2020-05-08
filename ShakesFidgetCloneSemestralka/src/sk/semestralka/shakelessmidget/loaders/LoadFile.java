@@ -16,6 +16,11 @@ import java.util.Scanner;
 public class LoadFile {
     private ArrayList<String> examples;
     private Random random;
+    
+    /**
+     * Nastavi pociatocne hodnoty
+     * @param type typ suboru
+     */
     public LoadFile(ExampleType type) {
         this.examples = new ArrayList<String>();
         this.random = new Random();
@@ -69,7 +74,7 @@ public class LoadFile {
     
     /**
      * Vrati nahodny retazec na zaklade toho akeho typu je trieda
-     * @return 
+     * @return retazec
      */
     public String getRandom() {
         if (this.examples.isEmpty()) {

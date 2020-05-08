@@ -18,7 +18,6 @@ import sk.semestralka.shakelessmidget.loaders.MoodLoader;
 
 /**
  * Trieda Player sluzi pre hraca
- * @author marce
  */
 public class Player extends Creature {
 
@@ -97,7 +96,7 @@ public class Player extends Creature {
     
     /**
      * Hrac prijme utok
-     * @param amount 
+     * @param amount mnozstvo
      */
     @Override
     public void takeDamage(int amount) {
@@ -146,7 +145,7 @@ public class Player extends Creature {
      * @param xp xp
      * @param gold goldy
      * @param item  predmet
-     * @throws sk.semestralka.shakelessmidget.exceptions.InventoryFullException
+     * @throws InventoryFullException
      */
     public void addReward(int xp, int gold, Item item) throws InventoryFullException {
         this.addItem(item);
@@ -158,7 +157,7 @@ public class Player extends Creature {
     /**
      * Prida hracovi predmet
      * @param item predmet
-     * @throws sk.semestralka.shakelessmidget.exceptions.InventoryFullException
+     * @throws InventoryFullException
      */
     public void addItem(Item item) throws InventoryFullException {
         this.inventory.addItem(item);
@@ -199,7 +198,7 @@ public class Player extends Creature {
     
     /**
      * Zmeni naladu hraca. Ak je nova nalada null, alebo je to ta ista, tak to nezmeni.
-     * @param newMood 
+     * @param newMood nova nalada
      */
     public void changeMood(Mood newMood) {
         if (newMood == null) {
@@ -215,7 +214,7 @@ public class Player extends Creature {
 
     /**
      * Zvysi zakladne atributy hraca, ak si da na seba item
-     * @param item 
+     * @param item predmet
      */
     public void increaseStats(Equipment item) {
         if (item == null) {
@@ -229,7 +228,7 @@ public class Player extends Creature {
 
     /**
      * Znizi zakladne atributy hraca, ak si da dole zo seba item
-     * @param item 
+     * @param item predmet
      */
     public void decreaseStats(Equipment item) {
         if (item == null) {
@@ -242,7 +241,7 @@ public class Player extends Creature {
     
     /**
      * Vrati inventory
-     * @return 
+     * @return inventory
      */
     public Inventory getInventory() {
         return this.inventory;
@@ -250,7 +249,7 @@ public class Player extends Creature {
 
     /**
      * Vrati level
-     * @return 
+     * @return level
      */
     public int getLevel() {
         return this.level;
@@ -258,7 +257,7 @@ public class Player extends Creature {
 
     /**
      * Vrati vlastnu hodnotu sily utoku
-     * @return 
+     * @return sila utoku
      */
     @Override
     public int getDamage() {
@@ -268,7 +267,7 @@ public class Player extends Creature {
 
     /**
      * Vrati vlastnu hodnotu zivotov
-     * @return 
+     * @return zivoty
      */
     @Override
     public int getHealth() {
@@ -278,7 +277,7 @@ public class Player extends Creature {
 
     /**
      * Vrati armor
-     * @return 
+     * @return armor
      */
     public int getArmor() {
         return this.armor;
@@ -286,7 +285,7 @@ public class Player extends Creature {
 
     /**
      * Vrati naladu hraca
-     * @return 
+     * @return nalada
      */
     public Mood getMood() {
         return this.mood;
@@ -294,7 +293,7 @@ public class Player extends Creature {
 
     /**
      * Vrati aktualnu hodnotu xp
-     * @return 
+     * @return aktualne xp
      */
     public int getCurrentXp() {
         return this.currentXp;
@@ -302,7 +301,7 @@ public class Player extends Creature {
 
     /**
      * Vrati pocet goldov kolko vlastni hrac
-     * @return 
+     * @return pocet goldov
      */
     public int getGold() {
         return this.gold;
@@ -310,7 +309,7 @@ public class Player extends Creature {
 
     /**
      * Vrati pocet zivotov ktore ma z itemov
-     * @return 
+     * @return bonusovy zivot
      */
     public int getBonusHealth() {
         return this.bonusHealth;
@@ -318,7 +317,7 @@ public class Player extends Creature {
 
     /**
      * VRati silu utoku ktoru ma z itemov
-     * @return 
+     * @return bonusova sila utoku
      */
     public int getBonusDamage() {
         return this.bonusDamage;
@@ -326,15 +325,15 @@ public class Player extends Creature {
 
     /**
      * Vrati potrebny pocet XP na dalsie kolo
-     * @return 
+     * @return potrebne xp
      */
     public int getRequiredXp() {
         return this.requiredXp;
     }
 
     /**
-     * 
-     * @return 
+     * Vrati sloty hraca
+     * @return sloty
      */
     public PlayerSlots getSlots() {
         return this.slots;
@@ -342,7 +341,7 @@ public class Player extends Creature {
     
     /**
      * Vrati info ohladom toho, čo je basic hp a čo bonusove
-     * @return 
+     * @return status zivota
      */
     public String getHealthStats() {
         return String.format("Health Basic: %d Bonus: %d", super.getHealth(), this.bonusHealth);
@@ -350,7 +349,7 @@ public class Player extends Creature {
     
     /**
      * Vrati info ohladom toho, čo je basic dmg a čo bonusove
-     * @return 
+     * @return status sily utoku
      */
     public String getDamageStats() {
         return String.format("Damage Basic: %d Bonus: %d", super.getDamage(), this.bonusDamage);
@@ -363,7 +362,7 @@ public class Player extends Creature {
     
     /**
      * Ulozi hracove atributy
-     * @param file 
+     * @param file subor
      */
     public void save(DataOutputStream file) throws IOException {
         file.writeInt(this.overallXp);      //xp
@@ -377,7 +376,7 @@ public class Player extends Creature {
     
     /**
      * Nacita hraca
-     * @param file
+     * @param file subor
      * @throws IOException
      * @throws WrongTypeException 
      */

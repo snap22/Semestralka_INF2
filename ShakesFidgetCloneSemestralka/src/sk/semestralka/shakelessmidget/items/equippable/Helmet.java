@@ -44,7 +44,7 @@ public class Helmet extends Equipment {
     
     /**
      * Vrati triedu v podobe stringu
-     * @return 
+     * @return String
      */
     @Override
     public String toString() {
@@ -55,7 +55,7 @@ public class Helmet extends Equipment {
 
     /**
      * Ulozi hodnoty do suboru
-     * @param file
+     * @param file subor
      * @throws IOException 
      */
     @Override

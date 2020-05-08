@@ -8,7 +8,6 @@ import sk.semestralka.shakelessmidget.items.items.ItemRarity;
 
 /**
  * Trieda Armor sluzi ako podtyp pre Equipment
- * @author marce
  */
 public class Armor extends Equipment {
 
@@ -44,7 +43,7 @@ public class Armor extends Equipment {
     
     /**
      * Vrati triedu v podobe stringu
-     * @return 
+     * @return String
      */
     @Override
     public String toString() {
@@ -55,7 +54,7 @@ public class Armor extends Equipment {
 
     /**
      * Ulozi hodnoty do suboru
-     * @param file
+     * @param file subor
      * @throws IOException 
      */
     @Override

@@ -70,7 +70,7 @@ public abstract class Creature {
 
     /**
      * Vrati meno
-     * @return 
+     * @return meno
      */
     public String getName() {
         return this.name;
@@ -78,7 +78,7 @@ public abstract class Creature {
 
     /**
      * Vrati boolean ci je mrtvy
-     * @return 
+     * @return je mrtvy
      */
     public boolean isDead() {
         return this.dead;
@@ -104,7 +104,7 @@ public abstract class Creature {
 
     /**
      * Vrati zivoty
-     * @return 
+     * @return zivoty
      */
     public int getHealth() {
         return this.health;
@@ -112,7 +112,7 @@ public abstract class Creature {
 
     /**
      * Vrati aktualne mnozstvo zivotov
-     * @return 
+     * @return aktualne zivoty
      */
     public int getCurrentHealth() {
         return this.currentHealth;
@@ -120,7 +120,7 @@ public abstract class Creature {
 
     /**
      * Vrati silu utoku
-     * @return 
+     * @return sila utoku
      */
     public int getDamage() {
         return this.damage;
@@ -136,7 +136,7 @@ public abstract class Creature {
     
     /**
      * Zvysi zivot o dane mnozstvo a instantne healne
-     * @param amount 
+     * @param amount mnozstvo
      */
     protected void increaseHealth(int amount) {
         if (amount <= 0) {
@@ -148,7 +148,7 @@ public abstract class Creature {
     
     /**
      * Zvysi damage o dane mnozstvo
-     * @param amount 
+     * @param amount mnozstvo
      */
     protected void increaseDamage(int amount) {
         if (amount <= 0) {

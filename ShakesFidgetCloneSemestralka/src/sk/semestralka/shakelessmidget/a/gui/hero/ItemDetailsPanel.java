@@ -1,7 +1,7 @@
 
 package sk.semestralka.shakelessmidget.a.gui.hero;
 
-import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
+import sk.semestralka.shakelessmidget.a.gui.basic.BasicGui;
 import sk.semestralka.shakelessmidget.a.gui.listeners.IUpdatePlayerListener;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -44,7 +44,6 @@ public class ItemDetailsPanel {
         this.setupButtons();
         this.labelsManager = new DetailLabelHolder();
         
-        //this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.panel.setLayout(new BorderLayout());
         
         
@@ -71,6 +70,10 @@ public class ItemDetailsPanel {
         
     }
     
+    /**
+     * Nastavi posluchaca
+     * @param listener  posluchac
+     */
     public void setListener(IUpdatePlayerListener listener) {
         if (listener == null) {
             return;
@@ -157,7 +160,7 @@ public class ItemDetailsPanel {
     }
     
     /**
-     * Vytvori a nastavi tlacidla
+     * Vytvori a nastavi tlacidla a ich listenery
      */
     private void setupButtons() {
         this.equipButton = new JButton("Equip");

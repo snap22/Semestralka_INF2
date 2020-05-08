@@ -1,7 +1,7 @@
 
 package sk.semestralka.shakelessmidget.player.moods;
 
-import sk.semestralka.shakelessmidget.basic.Chance;
+import sk.semestralka.shakelessmidget.main.Chance;
 import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
@@ -31,7 +31,7 @@ public class Suicidal extends Mood {
     }
      /**
      * Vrati popis nalady
-     * @return 
+     * @return popis
      */
     @Override
     public String getDescription() {

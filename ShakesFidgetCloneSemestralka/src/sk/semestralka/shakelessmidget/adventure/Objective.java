@@ -71,7 +71,7 @@ public class Objective {
     
     /**
      * Odmeni hraca
-     * @param player 
+     * @param player hrac
      */
     public void giveReward(Player player) {
         if (!this.completed) {
@@ -96,7 +96,7 @@ public class Objective {
 
     /**
      * Vrati nepriatela
-     * @return 
+     * @return nepriatel
      */
     public Creature getEnemy() {
         return this.enemy;
@@ -104,7 +104,7 @@ public class Objective {
 
     /**
      * Vrati odmenu goldov
-     * @return 
+     * @return gold
      */
     public int getGoldReward() {
         return this.goldReward;
@@ -112,7 +112,7 @@ public class Objective {
 
     /**
      * Vrati odmenu xp
-     * @return 
+     * @return xp
      */
     public int getXpReward() {
         return this.xpReward;
@@ -120,7 +120,7 @@ public class Objective {
 
     /**
      * Vrati cas trvania ulohy
-     * @return 
+     * @return cas trvania
      */
     public int getDuration() {
         return this.duration;
@@ -128,7 +128,7 @@ public class Objective {
 
     /**
      * Vrati nazov ulohy
-     * @return 
+     * @return nazov
      */
     public String getName() {
         return this.name;
@@ -136,7 +136,7 @@ public class Objective {
 
     /**
      * Vrati popis ulohy
-     * @return 
+     * @return description
      */
     public String getDescription() {
         return this.description;
@@ -144,7 +144,7 @@ public class Objective {
 
     /**
      * Vrati boolean ci je splnena uloha
-     * @return 
+     * @return splnenie
      */
     public boolean isCompleted() {
         return this.completed;
@@ -152,7 +152,7 @@ public class Objective {
 
     /**
      * Vrati status ulohy
-     * @return 
+     * @return status v podobe Stringu
      */
     public String getStatus() {
         return this.status.toString();

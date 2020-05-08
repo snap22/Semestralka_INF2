@@ -12,8 +12,8 @@ public enum ItemRarity {
     
     /**
      * Vrati hodnotu na zaklade vlozeneho indexu
-     * @param index
-     * @return 
+     * @param index index
+     * @return vzacnost
      */
     public static ItemRarity getRarity(int index) {
         if (index >= values().length || index < 0) {
@@ -24,7 +24,7 @@ public enum ItemRarity {
     
     /**
      * Vrati nahodnu hodnotu
-     * @return 
+     * @return vzacnost
      */
     public static ItemRarity getRandom() {
         Random random = new Random();

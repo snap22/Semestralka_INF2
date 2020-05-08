@@ -4,7 +4,7 @@ package sk.semestralka.shakelessmidget.a.gui.tavern;
 import java.awt.Color;
 import javax.swing.JPanel;
 import sk.semestralka.shakelessmidget.adventure.Objective;
-import sk.semestralka.shakelessmidget.basic.Game;
+import sk.semestralka.shakelessmidget.main.Game;
 
 /**
  * Trieda MissionHolder sluzi na zobrazenie informacii o misii

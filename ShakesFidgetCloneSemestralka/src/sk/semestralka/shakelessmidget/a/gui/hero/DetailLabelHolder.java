@@ -66,14 +66,27 @@ public class DetailLabelHolder {
         this.updateText(labelName, String.valueOf(newText));
     }
     
+    /**
+     * Skryje label
+     * @param labelName nazov labelu 
+     */
     public void hideLabel(String labelName) {
         this.toggleVisible(labelName, false);
     }
     
+    /**
+     * Ukaze label
+     * @param labelName nazov labelu
+     */
     public void showLabel(String labelName) {
         this.toggleVisible(labelName, true);
     }
     
+    /**
+     * Vrati label
+     * @param labelName
+     * @return detail label
+     */
     public DetailLabel getLabel(String labelName) {
         if (!this.labels.containsKey(labelName)) {
             return null;
@@ -82,6 +95,11 @@ public class DetailLabelHolder {
         return this.labels.get(labelName);
     }
     
+    /**
+     * Nastavi viditelnost labelu podla parametra
+     * @param labelName nazov labelu
+     * @param visible viditelnost
+     */
     private void toggleVisible(String labelName, boolean visible) {
         if (!this.labels.containsKey(labelName)) {
             return;
@@ -96,6 +114,10 @@ public class DetailLabelHolder {
         this.labels.clear();
     }
 
+    /**
+     * Vrati paneô
+     * @return panel
+     */
     public JPanel getPanel() {
         return this.panel;
     }

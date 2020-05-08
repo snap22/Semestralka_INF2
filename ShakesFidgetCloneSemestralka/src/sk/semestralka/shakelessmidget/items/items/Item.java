@@ -6,7 +6,6 @@ import java.io.IOException;
 
 /**
  * Trieda Item reprezentuje predmety. Kazdy predmet ma svoje meno, penaznu hodnotu a svoju vzacnost
- * @author marce
  */
 public abstract class Item {
     
@@ -26,7 +25,7 @@ public abstract class Item {
 
     /**
      * Vrati meno
-     * @return 
+     * @return nazov
      */
     public String getName() {
         return this.name;
@@ -37,7 +36,7 @@ public abstract class Item {
 
     /**
      * Podla rarity vrati percentualnu sancu na drop
-     * @return 
+     * @return sanca padnutia
      */
     public int getDropChance() {
         switch (this.rarity) {
@@ -57,7 +56,7 @@ public abstract class Item {
 
     /**
      * Vrati vzacnost predmetu
-     * @return 
+     * @return vzacnost
      */
     public ItemRarity getRarity() {
         return this.rarity;

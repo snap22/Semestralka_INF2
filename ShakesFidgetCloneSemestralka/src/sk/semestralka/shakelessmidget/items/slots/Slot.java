@@ -6,10 +6,10 @@ import sk.semestralka.shakelessmidget.items.items.Item;
 /**
  * Slot sluzi na ukladanie itemu do objeku, a jeho vymazanie
  * @author marce
- * @param <E> Predmet ktory si uklada
+ * @param <T> Predmet ktory si uklada
  */
-public class Slot<E extends Item> {
-    private E item;
+public class Slot<T extends Item> {
+    private T item;
     
     /**
      * Vytvori instanciu, ktora je zatial prazdna
@@ -18,7 +18,7 @@ public class Slot<E extends Item> {
         this.item = null;
     }
     
-    public void insert(E item) {
+    public void insert(T item) {
         if (item == null) {
             return;
         }
@@ -27,18 +27,18 @@ public class Slot<E extends Item> {
     }
     
     /**
-     * Vymaze item zo slotu a returne ho
-     * @return vymazany item
+     * Vymaze ppredmet zo slotu
+     * @return vymazany predmet
      */
-    public E remove() {
-        E removedItem = this.item;
+    public T remove() {
+        T removedItem = this.item;
         this.item = null;
         return removedItem;
     }
     
     /**
      * Vrati hodnotu ci je slot prazdny
-     * @return 
+     * @return je prazdny
      */
     public boolean isEmpty() {
         return this.item == null;
@@ -46,9 +46,9 @@ public class Slot<E extends Item> {
     
     /**
      * Vrati item ktory sa nachadza v slote
-     * @return 
+     * @return predmet
      */
-    public E getItem() {
+    public T getItem() {
         return this.item;
     }
 }

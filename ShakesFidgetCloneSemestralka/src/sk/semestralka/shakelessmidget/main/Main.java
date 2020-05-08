@@ -1,6 +1,6 @@
 
 
-package sk.semestralka.shakelessmidget.basic;
+package sk.semestralka.shakelessmidget.main;
 
 
 /**

@@ -3,10 +3,9 @@ package sk.semestralka.shakelessmidget.items.items;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
-import sk.semestralka.shakelessmidget.basic.Chance;
+import sk.semestralka.shakelessmidget.main.Chance;
 /**
  * Trieda sluzi ako nadtyp pre triedy ktore si hrac moze na seba zobrat
- * @author marce
  */
 public abstract class Equipment extends Item {
 
@@ -38,13 +37,13 @@ public abstract class Equipment extends Item {
     
     /**
      * Vytvori predmet s presne definovanymi hodnotami
-     * @param name
-     * @param rarity
-     * @param damage
-     * @param bonusHealth
-     * @param armor
-     * @param levelRequired
-     * @param goldValue 
+     * @param name nazov
+     * @param rarity vzacnost
+     * @param damage sila utoku
+     * @param bonusHealth bonusovy zivot
+     * @param armor armor
+     * @param levelRequired potrebny level
+     * @param goldValue cena
      */
     protected Equipment(String name, ItemRarity rarity, int damage, int bonusHealth, int armor, int levelRequired, int goldValue) {
         super(name, rarity);
@@ -59,7 +58,7 @@ public abstract class Equipment extends Item {
 
     /**
      * Ulozi hodnoty do suboru
-     * @param file
+     * @param file subor
      * @throws IOException 
      */
     @Override
@@ -133,7 +132,7 @@ public abstract class Equipment extends Item {
     
     /**
      * Vrati zivoty ktore pridava
-     * @return 
+     * @return bonusove zivoty
      */
     public int getBonusHealth() {
         return this.bonusHealth;
@@ -141,7 +140,7 @@ public abstract class Equipment extends Item {
 
     /**
      * Vrati silu utoku ktoru pridava
-     * @return 
+     * @return bonusova sila utoku
      */
     public int getBonusDamage() {
         return this.bonusDamage;
@@ -149,7 +148,7 @@ public abstract class Equipment extends Item {
 
     /**
      * Vrati armor ktory pridava
-     * @return 
+     * @return bonusovy armor
      */
     public int getBonusArmor() {
         return this.bonusArmor;
@@ -157,7 +156,7 @@ public abstract class Equipment extends Item {
 
     /**
      * Vrati potrebny level
-     * @return 
+     * @return potrebny level
      */
     public int getLevelRequired() {
         return this.levelRequired;
@@ -165,7 +164,7 @@ public abstract class Equipment extends Item {
     
     /**
      * Vrati hodnotu v goldoch
-     * @return 
+     * @return hodnotu v goldoch
      */
     @Override
     public int getGoldValue() {

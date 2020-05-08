@@ -1,5 +1,5 @@
 
-package sk.semestralka.shakelessmidget.a.gui.main;
+package sk.semestralka.shakelessmidget.a.gui.basic;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -10,7 +10,7 @@ import java.awt.Font;
 public abstract class BasicGui {
     /**
      * Vrati zlatu farbu
-     * @return 
+     * @return farba
      */
     public static Color getGoldenColor() {
         return new Color(189, 172, 81);
@@ -18,7 +18,7 @@ public abstract class BasicGui {
     
     /**
      * Vrati tmavomodru farbu
-     * @return 
+     * @return farba
      */
     public static Color getDarkBlueColor() {
         return new Color(16, 49, 94);
@@ -26,7 +26,7 @@ public abstract class BasicGui {
     
     /**
      * Vrati tmavosivu farbu
-     * @return 
+     * @return farba
      */
     public static Color getDarkGrayColor() {
         return new Color(29, 28, 43);
@@ -34,7 +34,7 @@ public abstract class BasicGui {
     
     /**
      * Vrati nazov fontu pouzivany v programe
-     * @return 
+     * @return nazov fontu
      */
     public static String getFontName() {
         return "Comic Sans MS";
@@ -43,7 +43,7 @@ public abstract class BasicGui {
     /**
      * Vrati typ fontu pouzivaneho v programe
      * @param size velkost pisma
-     * @return 
+     * @return font
      */
     public static Font getFont(int size) {
         if (size <= 0) {
@@ -54,7 +54,7 @@ public abstract class BasicGui {
     
     /**
      * Vrati typ fontu pouzivaneho v programe s predvolenou velkostou pisma 12
-     * @return 
+     * @return font
      */
     public static Font getFont() {
         return getFont(12);

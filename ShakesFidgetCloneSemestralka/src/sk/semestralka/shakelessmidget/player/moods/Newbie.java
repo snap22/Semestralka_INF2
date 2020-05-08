@@ -19,7 +19,7 @@ public class Newbie extends Mood {
     
     /**
      * Nevykona nic
-     * @param player 
+     * @param player  hrac
      */
     @Override
     public void doSpecialStuff(Player player) {
@@ -28,7 +28,7 @@ public class Newbie extends Mood {
 
     /**
      * Vrati popis nalady
-     * @return 
+     * @return popis
      */
     @Override
     public String getDescription() {

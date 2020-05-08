@@ -13,8 +13,7 @@ import sk.semestralka.shakelessmidget.items.items.ItemRarity;
 
 
 /**
- *
- * @author marce
+ * Nacitavac predmetov
  */
 public class ItemLoader {
 
@@ -27,7 +26,7 @@ public class ItemLoader {
     /**
      * Nacita zo suboru predmet a vytvori ho
      * @param file subor
-     * @return
+     * @return nacitany predmet
      * @throws IOException
      * @throws WrongTypeException 
      */
@@ -47,7 +46,7 @@ public class ItemLoader {
      * Vrati predmet typu Equipment
      * @param file subor
      * @param type typ
-     * @return
+     * @return nacitany equipment
      * @throws IOException
      * @throws WrongTypeException 
      */
@@ -75,7 +74,7 @@ public class ItemLoader {
     /**
      * Vrati predmet typu Goods
      * @param file subor
-     * @return
+     * @return nacitane goods
      * @throws IOException 
      */
     private Goods loadGoods(DataInputStream file) throws IOException {

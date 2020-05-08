@@ -78,20 +78,6 @@ public class PlayerSlots {
         
     }
     
-    private Slot getSlot(Item item) throws WrongItemTypeException {
-        if (item instanceof Helmet) {
-            return this.headSlot;
-            
-        } else if (item instanceof Armor) {
-            return this.armorSlot;
-            
-        } else if (item instanceof Weapon) {
-            return this.weaponSlot;
-            
-        } else {
-            throw new WrongItemTypeException();
-        }
-    }
     
     /**
      * Dá na seba helmu
@@ -149,7 +135,26 @@ public class PlayerSlots {
         return this.headSlot;
     }
     
-    
+    /**
+     * Vrati slot podla zadaneho predmetu
+     * @param item predmet
+     * @return slot
+     * @throws WrongItemTypeException 
+     */
+    private Slot getSlot(Item item) throws WrongItemTypeException {
+        if (item instanceof Helmet) {
+            return this.headSlot;
+            
+        } else if (item instanceof Armor) {
+            return this.armorSlot;
+            
+        } else if (item instanceof Weapon) {
+            return this.weaponSlot;
+            
+        } else {
+            throw new WrongItemTypeException();
+        }
+    }
      /**
      * Vymaze item z daneho slotu a da ho do inventory hraca
      * @param index
@@ -214,6 +219,8 @@ public class PlayerSlots {
         
     }
 
+    
+    
     /**
      * Nacita jednotlive predmety a da ich do slotov
      * @param file subor

@@ -31,7 +31,7 @@ public class Shop {
     /**
      * Metoda sluzi na to aby si hrac mohol kupit nahodny predmet s nahodnym potrebnym levelom za urcitu cenu
      * @param price cena
-     * @return 
+     * @return predmet
      * @throws InventoryFullException
      * @throws NoMoneyException 
      */
@@ -47,7 +47,7 @@ public class Shop {
     /**
      * Metoda ktora sluzi na to aby zmenila hracovi naladu za peniaze
      * @param price cena
-     * @return 
+     * @return nalada
      * @throws NoMoneyException
      */
     public Mood switchMood(int price) throws NoMoneyException {

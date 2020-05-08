@@ -1,5 +1,5 @@
 
-package sk.semestralka.shakelessmidget.a.gui.main;
+package sk.semestralka.shakelessmidget.a.gui.basic;
 
 /**
  * Trieda PanelType urcuje typ panela

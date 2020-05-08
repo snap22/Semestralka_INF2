@@ -1,5 +1,5 @@
 
-package sk.semestralka.shakelessmidget.a.gui.main;
+package sk.semestralka.shakelessmidget.a.gui.basic;
 
 import sk.semestralka.shakelessmidget.generators.Generator;
 import sk.semestralka.shakelessmidget.a.gui.hero.HeroPanel;
@@ -10,7 +10,7 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.util.HashMap;
 import javax.swing.JPanel;
-import sk.semestralka.shakelessmidget.basic.Game;
+import sk.semestralka.shakelessmidget.main.Game;
 import sk.semestralka.shakelessmidget.creatures.Player;
 
 /**
@@ -98,6 +98,14 @@ public class TemporaryPanel {
     }
     
     /**
+     * Vrati panel
+     * @return panel
+     */
+    public JPanel getPanel() {
+        return this.panel;
+    }
+    
+    /**
      * Nastavi panely, prida ich do kontajnera a každemu da identifikator podla jeho typu
      */
     private void setupPanels() {
@@ -119,11 +127,5 @@ public class TemporaryPanel {
         this.panels.put(newPanel.getTypeString(), newPanel);
     }
  
-    /**
-     * Vrati panel
-     * @return panel
-     */
-    public JPanel getPanel() {
-        return this.panel;
-    }
+    
 }

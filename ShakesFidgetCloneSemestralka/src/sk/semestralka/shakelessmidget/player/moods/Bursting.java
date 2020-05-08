@@ -1,7 +1,7 @@
 
 package sk.semestralka.shakelessmidget.player.moods;
 
-import sk.semestralka.shakelessmidget.basic.Chance;
+import sk.semestralka.shakelessmidget.main.Chance;
 import sk.semestralka.shakelessmidget.creatures.Player;
 
 
@@ -24,8 +24,8 @@ public class Bursting extends Mood {
     }
     
     /**
-     * Sanca ze zvysi hracovi damage na dvojnasobok
-     * @param player 
+     * Sanca ze zvysi hracovi silu jeho utoku  o dvojnasobok jeho sily utoku
+     * @param player hrac
      */
     @Override
     public void doSpecialStuff(Player player) {
@@ -34,7 +34,7 @@ public class Bursting extends Mood {
 
     /**
      * Vrati bonusovy damage
-     * @return 
+     * @return bonusova sila utoku
      */
     @Override
     public int gainBonusDamage() {
@@ -43,18 +43,11 @@ public class Bursting extends Mood {
         }
         return 0;
     }
-    /**
-     * Vrati triedu v podobe stringu
-     * @return 
-     */
-    @Override
-    public String toString() {
-        return String.format("Sanca na critical strike: %d %n", this.chanceToCrit);
-    }
+    
 
     /**
      * Vrati popis nalady
-     * @return 
+     * @return popis
      */
     @Override
     public String getDescription() {

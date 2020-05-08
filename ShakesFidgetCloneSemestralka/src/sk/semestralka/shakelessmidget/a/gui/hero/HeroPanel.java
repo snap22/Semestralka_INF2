@@ -1,9 +1,9 @@
 
 package sk.semestralka.shakelessmidget.a.gui.hero;
 
-import sk.semestralka.shakelessmidget.a.gui.main.BasicGui;
-import sk.semestralka.shakelessmidget.a.gui.main.MainPanel;
-import sk.semestralka.shakelessmidget.a.gui.main.PanelType;
+import sk.semestralka.shakelessmidget.a.gui.basic.BasicGui;
+import sk.semestralka.shakelessmidget.a.gui.basic.MainPanel;
+import sk.semestralka.shakelessmidget.a.gui.basic.PanelType;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -46,6 +46,17 @@ public class HeroPanel extends MainPanel {
         
     }
 
+    /**
+     * Aktualizuje vsetky hodnoty hraca
+     */
+    public void updateStats() {
+        
+        this.heroStatsPanel.updateAll();
+    }
+    
+    /**
+     * Nastavi posluchacov
+     */
     private void setupListeners() {
         this.heroStatsPanel.getInventoryItems().setListener(new IShowItemListener() {
             @Override
@@ -72,12 +83,6 @@ public class HeroPanel extends MainPanel {
         
         
     }
-    /**
-     * Aktualizuje vsetky hodnoty hraca
-     */
-    public void updateStats() {
-        
-        this.heroStatsPanel.updateAll();
-    }
+    
     
 }
